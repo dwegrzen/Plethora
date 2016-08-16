@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :require_user, except: [:index, :login, :new]
+before_action :require_user, except: [:index, :login, :new, :create]
 
   def index
     if current_user
@@ -22,12 +22,21 @@ before_action :require_user, except: [:index, :login, :new]
     render :login
   end
 
+  def logout
+    session[:email] = nil
+    respond_to do |format|
+      format.html { redirect_to :root , notice: 'Successfully logged out.'}
+    end
+  end
+
+
   def create
     @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        session[:email] = @user.email
+        format.html { redirect_to root_path , notice: 'User was successfully created.' }
       else
         format.html { render :new }
       end

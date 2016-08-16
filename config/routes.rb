@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'users#index'
 
   get 'login' => 'users#login', as: :login
+  delete 'lougout' => 'users#logout', as: :logout
   get 'albums' => 'albums#index'
   get 'shows' => 'shows#index'
   get 'finishedmusic' => 'albums#finished'
