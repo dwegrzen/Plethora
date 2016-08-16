@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  show: one
+  show_type: Show
+  album: one
+  album_type: Album
+
+two:
+  user: two
+  show: two
+  show_type: Show
+  album: two
+  album_type: Album

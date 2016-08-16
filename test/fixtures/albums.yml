@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  artist: MyString
+  tracks: MyString
+  date: 2016-08-16
+  album_art: MyString
+  genre: MyString
+  gn_id: MyString
+
+two:
+  name: MyString
+  artist: MyString
+  tracks: MyString
+  date: 2016-08-16
+  album_art: MyString
+  genre: MyString
+  gn_id: MyString

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  genre: MyString
+  show_image: MyString
+  synopses: MyString
+  seasons: MyString
+  date: 2016-08-16
+  gn_id: MyString
+
+two:
+  title: MyString
+  genre: MyString
+  show_image: MyString
+  synopses: MyString
+  seasons: MyString
+  date: 2016-08-16
+  gn_id: MyString
