@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
-  get 'login' => 'users#login', as: :login
+  get 'login' => 'users#sign_in', as: :sign_in
+  post 'login' => 'users#login', as: :login
   delete 'lougout' => 'users#logout', as: :logout
   get 'albums' => 'albums#index'
   get 'shows' => 'shows#index'
