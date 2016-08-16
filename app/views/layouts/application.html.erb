@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Amber put the header and footer stuff in this file -->
 <html>
   <head>
     <title>Plethora</title>
@@ -9,6 +10,15 @@
   </head>
 
   <body>
+    <header>
+      <%if current_user %>
+        <p><%= "Logged in as #{current_user.email}" %></p>
+        <!-- <li><%= link_to "Logged in as #{current_user.email}", current_user %></li> -->
+        <li><%= link_to "Logout", logout_path, method: :delete%></li>
+      <%else %>
+        <li><%= link_to "Login", login_path%></li>
+      <%end%>
+    </header>
     <%= yield %>
   </body>
 </html>
