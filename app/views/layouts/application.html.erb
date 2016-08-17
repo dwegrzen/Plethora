@@ -15,13 +15,23 @@
 
   <body>
     <header>
-      <a class="" href=<%= root_path  %> ><%= image_tag "logo.png", class: 'headerLogo' %></a>
+      <a class="hidden-sm hidden-md hidden-lg hidden-xl" href=<%= root_path  %> ><%= image_tag "logo.png", class: 'headerLogoMobile img-responsive center-block' %></a>
+      <a class="hidden-xs" href=<%= root_path  %> ><%= image_tag "logo.png", class: 'headerLogoDesktop' %></a>
       <%if current_user %>
 
         <!-- <li><%= link_to "Logged in as #{current_user.email}", current_user %></li> -->
-        <li class="logoutLink"><%= link_to "Logout", logout_path, method: :delete%></li>
-        <p class="loggedInStatus hidden-sm hidden-md hidden-lg hidden-xl"><%= "Profile" %></p>
-        <p class="loggedInStatusDesktop hidden-xs"><%= "Welcome back, #{current_user.email}!" %></p>
+        <!-- Logged In -->
+          <!-- Mobile  -->
+          <div class="text-center">
+            <li class="loggedInStatusMobile hidden-sm hidden-md hidden-lg hidden-xl"><%= "#{current_user.email}" %></li>
+            <li class="logoutLinkMobile hidden-sm hidden-md hidden-lg hidden-xl"><%= link_to "Logout", logout_path, method: :delete%></li>
+          </div>
+
+
+          <!-- Desktop -->
+          <li class="logoutLinkDesktop hidden-xs"><%= link_to "Logout", logout_path, method: :delete%></li>
+          <li class="loggedInStatusDesktop hidden-xs"><%= "Welcome back, #{current_user.email}!" %></li>
+
 
 
       <%else %>
