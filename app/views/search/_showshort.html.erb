@@ -1,7 +1,7 @@
 
   <div class="row">
     <div class="col-sm-12 <%= series.gn_id %>">
-      <h2>Title: <%= series.title || "not available"%></h2>
+      <h2><%=link_to "Title: #{series.title || "not available"}", detailshow_path(series.gn_id)%></h2>
       <h3>Synopsis: <%= series.synopsis || "not available" %></h3>
       <img src="<%=series.image%>">
     </div>

@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   get 'contact' => 'static#contact_us', as: :contact
   get 'what' => 'static#what', as: :what
   get 'making' => 'static#making', as: :making
+  get 'showdetail/(:gn_id)' => 'search#detailshow', as: :detailshow
+  get 'albumdetail/(:gn_id)' => 'search#detailalbum', as: :detailalbum
+
+
 
 
 
