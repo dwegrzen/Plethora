@@ -15,3 +15,27 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+header {
+    margin-top: 20px;
+    .headerLogo {
+        width: 120px;
+        margin-left: 20px;
+    }
+    li {
+        list-style: none;
+        font-family: 'Lato', sans-serif;
+    }
+    .loginLink {
+        display: inline-block;
+        font-size: 13px;
+        float: right;
+        margin: 5px 25px 0px 0px;
+    }
+    .signupLink {
+        display: inline-block;
+        font-size: 13px;
+        float: right;
+        margin: 5px 25px 0px 0px;
+    }
+}
