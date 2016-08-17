@@ -1,7 +1,9 @@
 <h4 id="notice"><span class="label label-info"><%= notice %></span></h4>
 
 <div class="container">
-<% @tvparse.each do |series| %>
-<%= render 'showshort', :series => series %>
-<% end %>
+  <div class="row">
+    <% @tvparse.each do |series| %>
+    <%= render 'showshort', :series => series %>
+    <% end %>
+  </div>
 </div>

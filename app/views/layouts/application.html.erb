@@ -35,8 +35,17 @@
 
 
       <%else %>
-        <li class="signupLink"><%= link_to "Sign Up", new_user_path %></li>
-        <li class="loginLink"><%= link_to "Login", login_path %></li>
+      <!-- Logged Out -->
+        <!-- Mobile  -->
+        <div class="text-center hidden-sm hidden-md hidden-lg hidden-xl">
+          <li class="loginLinkMobile"><%= link_to "Login", login_path %></li>
+          <li class="signupLinkMobile"><%= link_to "Sign Up", new_user_path %></li>
+        </div>
+        <!-- Desktop -->
+        <div class="hidden-xs">
+          <li class="loginLinkDesktop"><%= link_to "Login", login_path %></li>
+          <li class="signupLinkDesktop"><%= link_to "Sign Up", new_user_path %></li>
+        </div>
       <%end%>
     </header>
 
