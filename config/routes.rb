@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   get 'finishedshows' => 'shows#finished'
   get 'search/(:search)' => 'search#index', as: :search
   get 'searchdetail/(:search)' => 'search#show', as: :searchdetail
+  get 'about' => 'static#about_us', as: :about
+  get 'contact' => 'static#contact_us', as: :contact
+  get 'what' => 'static#what', as: :what
+  get 'making' => 'static#making', as: :making
 
 
 

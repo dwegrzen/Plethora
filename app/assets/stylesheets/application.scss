@@ -16,26 +16,63 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+body {
+    font-family: 'Lato', sans-serif;
+}
+
 header {
     margin-top: 20px;
     .headerLogo {
-        width: 120px;
+        width: 130px;
         margin-left: 20px;
     }
     li {
         list-style: none;
+    }
+    .loggedInStatus {
+        display: inline-block;
         font-family: 'Lato', sans-serif;
+        font-size: 13px;
+        float: right;
+        margin: 5px 0px 0px;
+    }
+    .loggedInStatusDesktop {
+        display: inline-block;
+        font-family: 'Lato', sans-serif;
+        font-size: 13px;
+        float: right;
+        margin: 5px 0px 0px;
+    }
+    .logoutLink {
+        display: inline-block;
+        font-size: 13px;
+        float: right;
+        margin: 5px 20px 0px 15px;
     }
     .loginLink {
         display: inline-block;
         font-size: 13px;
         float: right;
-        margin: 5px 25px 0px 0px;
+        margin: 5px 0px 0px;
     }
     .signupLink {
         display: inline-block;
         font-size: 13px;
         float: right;
-        margin: 5px 25px 0px 0px;
+        margin: 5px 20px 0px 15px;
+    }
+}
+
+.navbar-form {
+    margin-right: 0px;
+}
+
+footer {
+    .footerLogo {
+        width: 200px;
+        margin-bottom: 15px;
+    }
+    .footerLinks {
+        font-size: 13px;
     }
 }
