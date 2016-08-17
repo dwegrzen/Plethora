@@ -21,6 +21,8 @@ gem 'themoviedb'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'rack-cors'
 gem 'simple_form'
+gem 'gracenote'
+gem 'under_fire'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
