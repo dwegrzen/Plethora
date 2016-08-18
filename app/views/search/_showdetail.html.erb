@@ -7,6 +7,6 @@
       <h3>Date: <%=series.date || "not available"%></h3>
       <h3>Genre: <%=series.genre || "not available"%></h3>
       <h3>Seasons: <%=series.seasons.length || "not available"%></h3>
-      <h3>Actors: <%=series.actors.map{|actor| actor["NAME"]}.split(",") || "not available"%></h3>
+      <h3>Actors: <%=series.actors.map{|actor| actor["NAME"]} || "not available"%></h3>
     </div>
   </div>

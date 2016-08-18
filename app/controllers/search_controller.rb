@@ -5,6 +5,8 @@ class SearchController < ApplicationController
     @tvparse = @tvresults["RESPONSES"]["RESPONSE"]["SERIES"].map{|series| Series.new(series)}
 
     # render json: Showparse.gracenote_showresponse(@tvresults).to_json
+
+
   end
 
   def detailshow
