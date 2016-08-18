@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-sm-5 <%= series.gn_id %>">
     <img class="searchImage center-block" src="<%=series.image%>">
+  </div>
   <div class="col-sm-7">
     <h2><%= "Title: #{series.title}" %></h2>
     <% if series.synopsis %>
@@ -8,7 +9,7 @@
     <% else %>
     <h3>Synopsis not available.</h3>
     <% end %>
-    <h3>Date: <%=series.date || "not available"%></h3>
+    <h3>Date: <%=DateTime.parse(series.date).strftime("%B %e, %Y") || "not available"%></h3>
     <h3>Genre: <%=series.genre || "not available"%></h3>
     <% if series.seasons %>
     <h3>Seasons: <%=series.seasons.length %></h3>
@@ -16,7 +17,7 @@
     <h3>Season count not available.</h3>
     <% end %>
     <% if series.actors %>
-    <h3>Actors: <%=series.actors.map{|actor| actor["NAME"]}.split(",")%></h3>
+    <h3>Actors: <%= series.actors.map{|x| x["NAME"]}.join(", ") %></h3>
     <% else %>
     <h3>I won't tell you about the actors!!!</h3>
     <% end %>
