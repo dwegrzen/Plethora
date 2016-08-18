@@ -21592,7 +21592,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'col-sm-5 col-sm-offset-1 col-md-4 col-lg-3' },
+	        { className: 'col-md-4 col-lg-3' },
 	        _react2.default.createElement(
 	          'a',
 	          { className: 'itemLink', href: "/showdetail/" + this.props.series.gn_id },

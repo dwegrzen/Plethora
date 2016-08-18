@@ -31,12 +31,8 @@ class Item extends React.Component {
       backgroundImage: 'url(' + this.props.series.show_image + ')'
     }
 
-    return <div className="col-sm-5 col-sm-offset-1 col-md-4 col-lg-3">
+    return <div className="col-md-4 col-lg-3">
       <a className="itemLink" href={"/showdetail/" + this.props.series.gn_id}>
-        {/* <img className="searchImage center-block" src="././searchImageTV.jpg"
-      // {this.props.series.show_image}
-        // ? this.props.series.image : '././searchImageTV.jpg'
-        /> */}
         <div className="item center-block" style={imgStyle}>
           <div className="text-center">
             <div className="hoverLayer">
