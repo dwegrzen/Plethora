@@ -1,12 +1,27 @@
-
-  <div class="row">
-    <div class="col-sm-12 <%= series.gn_id %>">
-      <h2><%= "Title: #{series.title}" %></h2>
-      <img src="<%=series.image%>">
-      <h3>Synopsis: <%= series.synopsis || "not available" %></h3>
-      <h3>Date: <%=series.date || "not available"%></h3>
-      <h3>Genre: <%=series.genre || "not available"%></h3>
-      <h3>Seasons: <%=series.seasons.length || "not available"%></h3>
-      <h3>Actors: <%=series.actors.map{|actor| actor["NAME"]}.split(",") || "not available"%></h3>
-    </div>
+<div class="row">
+  <div class="col-sm-5 <%= series.gn_id %>">
+    <img class="searchImage center-block" src="<%=series.image%>">
   </div>
+  <div class="col-sm-7">
+    <h2><%= "Title: #{series.title}" %></h2>
+    <% if series.synopsis %>
+    <h3>Synopsis: <%= series.synopsis %></h3>
+    <% else %>
+    <h3>Synopsis not available.</h3>
+    <% end %>
+    <h3>Date: <%=series.date || "not available"%></h3>
+    <h3>Genre: <%=series.genre || "not available"%></h3>
+    <% if series.seasons %>
+    <h3>Seasons: <%=series.seasons.length %></h3>
+    <% else %>
+    <h3>Season count not available.</h3>
+    <% end %>
+    <% if series.actors %>
+    <h3>Actors: <%=series.actors.map{|actor| actor["NAME"]}.split(",")%></h3>
+    <% else %>
+    <h3>I won't tell you about the actors!!!</h3>
+    <% end %>
+  </div>
+</div>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57b5bb560b6e840b"></script>
