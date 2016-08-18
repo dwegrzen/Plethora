@@ -21584,11 +21584,20 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'col-sm-3' },
-	        _react2.default.createElement('img', { className: 'searchImage', src: this.props.series.image }),
+	        _react2.default.createElement('img', { className: 'searchImage', src: this.props.series.image ? this.props.series.image : '././noCoverTV.jpeg' }),
 	        _react2.default.createElement(
-	          'h2',
+	          'a',
+	          { href: "/showdetail/" + this.props.series.gn_id },
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            this.props.series.title
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h5',
 	          null,
-	          this.props.series.title
+	          this.props.series.synopsis ? this.props.series.synopsis : 'No synopsis available.'
 	        ),
 	        _react2.default.createElement(
 	          'button',
