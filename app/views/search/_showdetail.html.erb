@@ -10,7 +10,9 @@
     <h3>Synopsis not available.</h3>
     <% end %>
     <h3>Date: <%=DateTime.parse(series.date).strftime("%B %e, %Y") || "not available"%></h3>
-    <h3>Genre: <%=series.genre || "not available"%></h3>
+    <% if series.genre %>
+    <h3>Genre: <%=series.genre.join(", ")%></h3>
+    <% end %>
     <% if series.seasons %>
     <h3>Seasons: <%=series.seasons.length %></h3>
     <% else %>
