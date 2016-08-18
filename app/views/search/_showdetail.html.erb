@@ -1,28 +1,14 @@
 <div class="row">
   <div class="col-sm-5 <%= series.gn_id %>">
-    <img class="searchImage center-block" src="<%=series.image%>">
+    <img class="searchImage center-block" src="<%=series.show_image%>">
   </div>
   <div class="col-sm-7">
     <h2><%= "Title: #{series.title}" %></h2>
-    <% if series.synopsis %>
     <h3>Synopsis: <%= series.synopsis %></h3>
-    <% else %>
-    <h3>Synopsis not available.</h3>
-    <% end %>
-    <h3>Date: <%=DateTime.parse(series.date).strftime("%B %e, %Y") || "not available"%></h3>
-    <% if series.genre %>
-    <h3>Genre: <%=series.genre.join(", ")%></h3>
-    <% end %>
-    <% if series.seasons %>
-    <h3>Seasons: <%=series.seasons.length %></h3>
-    <% else %>
-    <h3>Season count not available.</h3>
-    <% end %>
-    <% if series.actors %>
-    <h3>Actors: <%= series.actors.map{|x| x["NAME"]}.join(", ") %></h3>
-    <% else %>
-    <h3>I won't tell you about the actors!!!</h3>
-    <% end %>
+    <h3>Date: <%= series.date %></h3>
+    <h3>Genre: <%= series.genre %></h3>
+    <h3>Seasons: <%= series.seasons %></h3>
+    <h3>Contributors: <%= series.contributor %></h3>
   </div>
 </div>
 <!-- Go to www.addthis.com/dashboard to customize your tools -->

@@ -1,17 +1,15 @@
 <div class="col-sm-3 <%= series.gn_id %>">
   <h2><%=link_to "Title: #{series.title || "not available"}", detailshow_path(series.gn_id)%></h2>
-  <h3><%= series.synopsis ? "Synopsis: " + series.synopsis : ""%></h3>
+  <h3><%= series.synopsis ? "Synopsis: " + series.shortdesc : ""%></h3>
 
-  <% if series.image %>
-  <img class="searchImage" src= "<%= series.image %>">
+  <% if series.show_image %>
+  <img class="searchImage" src= "<%= series.show_image %>">
   <% else %>
   <img class="searchImage" src= "http://static1.squarespace.com/static/54bc8469e4b0b6737dff9282/54e8a812e4b056f5cc3a812b/54e8a95de4b0f93fea07ee26/1424533854600/kitten-medieval-flat-copy.png">
   <% end %>
   <div hidden >
     <p class="genre"><%= series.genre %></p>
-    <% if series.seasons %>
-    <p class="seasons"><%= series.seasons.length %></p>
-    <% end %>
+    <p class="seasons"><%= series.seasons %></p>
     <p class="date"><%= series.date %></p>
     <p class="gn_id"><%= series.gn_id %></p>
   </div>

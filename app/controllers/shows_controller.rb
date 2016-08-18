@@ -3,8 +3,8 @@ class ShowsController < ApplicationController
   before_action :require_user
 
   def create
-    @user = current_user.shows.new(show_params)
-    if @user.save!
+    @show = Show.new(show_params)
+    if current_user.shows << @show
       render json: @user, status: :created
     else
       render json: @user.errors, status: :unprocessable_entity

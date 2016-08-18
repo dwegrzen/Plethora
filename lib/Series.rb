@@ -1,16 +1,57 @@
+
+
 class Series
-   attr_accessor :title, :synopsis, :gn_id, :image, :date, :genre, :seasons, :type, :actors
+  include ActionView::Helpers
+
+   attr_accessor :title, :synopsis, :gn_id, :show_image, :date, :genre, :seasons, :type, :contributor, :shortdesc
 
    def initialize(series)
      self.title = series['TITLE']
      self.synopsis = series['SYNOPSIS']
-     self.image = series['URL']
+     self.show_image = series['URL']
      self.gn_id = series['GN_ID']
      self.date = series['DATE']
-     self.genre = series['GENRE']
+     self.genre = [series['GENRE']]
      self.seasons = series['SEASON']
      self.type = series['PRODUCTION_TYPE']
-     self.actors = series['CONTRIBUTOR']
+     self.contributor = series['CONTRIBUTOR']
+     seasonstotal
+     genreparse
+     contributorparse
+     datefix
+     truncated
+
    end
+
+   def truncated
+     if self.synopsis
+      self.shortdesc = truncate(self.synopsis, length: 100)
+    end
+  end
+
+   def datefix
+     if self.date
+       self.date = DateTime.parse(self.date).strftime("%B %e, %Y")
+     end
+   end
+
+   def seasonstotal
+     if self.seasons
+       self.seasons = self.seasons.length
+     end
+   end
+
+   def genreparse
+     if self.genre
+       self.genre = self.genre.join(", ")
+     end
+   end
+
+   def contributorparse
+     if self.contributor
+       self.contributor = self.contributor.map{|x| x["NAME"]}.join(", ")
+     end
+   end
+
 
 end
