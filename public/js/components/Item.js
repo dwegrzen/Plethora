@@ -22,15 +22,32 @@ class Item extends React.Component {
   }
 
   render() {
-    return <div className="col-sm-3">
-      <img className="searchImage" src={this.props.series.image ? this.props.series.image : '././noCoverTV.jpeg'} />
+    var divStyle = {
+      visibility: 'hidden',
+      opacity: 0,
+    };
 
+    var imgStyle = {
+      backgroundImage: 'url(' + this.props.series.show_image + ')'
+    }
 
-      <a href={"/showdetail/" + this.props.series.gn_id}>
-        <h2>{this.props.series.title}</h2>
+    return <div className="col-sm-5 col-sm-offset-1 col-md-4 col-lg-3">
+      <a className="itemLink" href={"/showdetail/" + this.props.series.gn_id}>
+        {/* <img className="searchImage center-block" src="././searchImageTV.jpg"
+      // {this.props.series.show_image}
+        // ? this.props.series.image : '././searchImageTV.jpg'
+        /> */}
+        <div className="item center-block" style={imgStyle}>
+          <div className="text-center">
+            <div className="hoverLayer">
+              <h2 className="tvTitle">{this.props.series.title}</h2>
+              <h5 style={divStyle} className="tvSynopsis center-block" >{this.props.series.shortdesc ? this.props.series.shortdesc : 'Sorry! There is no synopsis available.'}</h5>
+            </div>
+
+          </div>
+        </div>
       </a>
-      <h5>{this.props.series.shortdesc ? this.props.series.shortdesc : 'No synopsis available.'}</h5>
-      <button onClick={() => this.onClick()}>{this.state.label}</button>
+      <button className="center-block" onClick={() => this.onClick()}>{this.state.label}</button>
     </div>
   }
 }

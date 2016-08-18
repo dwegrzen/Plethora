@@ -20,6 +20,10 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 header {
     margin-top: 20px;
     height: 100px;
@@ -94,8 +98,35 @@ header {
     margin-right: 0px;
 }
 
-.searchImage {
-    width: 80%;
+body {
+    .item {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        height: 250px;
+        width: 100%;
+        max-width: 300px;
+        color: white;
+        .hoverLayer {
+            height: 250px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        .tvSynopsis {
+            width: 80%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+    }
+    .itemLink:hover {
+        .hoverLayer {
+            background: rgba(0,0,0,.5);
+        }
+        .tvSynopsis {
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+    }
 }
 
 footer {

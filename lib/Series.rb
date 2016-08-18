@@ -25,12 +25,15 @@ class Series
 
    def truncated
      if self.synopsis
-      self.shortdesc = truncate(self.synopsis, length: 100)
+      #temp = simple_format(self.synopsis, wrapper_tag: "")
+
+      self.shortdesc = simple_format(self.synopsis, {}, wrapper_tag: '')
+      # truncate(temp, length: 200)
     end
   end
 
    def datefix
-     if self.date
+     if self.date.length > 4
        self.date = DateTime.parse(self.date).strftime("%B %e, %Y")
      end
    end

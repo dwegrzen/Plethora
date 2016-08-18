@@ -21581,27 +21581,47 @@
 	    value: function render() {
 	      var _this2 = this;
 
+	      var divStyle = {
+	        visibility: 'hidden',
+	        opacity: 0
+	      };
+
+	      var imgStyle = {
+	        backgroundImage: 'url(' + this.props.series.show_image + ')'
+	      };
+
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'col-sm-3' },
-	        _react2.default.createElement('img', { className: 'searchImage', src: this.props.series.image ? this.props.series.image : '././noCoverTV.jpeg' }),
+	        { className: 'col-sm-5 col-sm-offset-1 col-md-4 col-lg-3' },
 	        _react2.default.createElement(
 	          'a',
-	          { href: "/showdetail/" + this.props.series.gn_id },
+	          { className: 'itemLink', href: "/showdetail/" + this.props.series.gn_id },
 	          _react2.default.createElement(
-	            'h2',
-	            null,
-	            this.props.series.title
+	            'div',
+	            { className: 'item center-block', style: imgStyle },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'text-center' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'hoverLayer' },
+	                _react2.default.createElement(
+	                  'h2',
+	                  { className: 'tvTitle' },
+	                  this.props.series.title
+	                ),
+	                _react2.default.createElement(
+	                  'h5',
+	                  { style: divStyle, className: 'tvSynopsis center-block' },
+	                  this.props.series.shortdesc ? this.props.series.shortdesc : 'Sorry! There is no synopsis available.'
+	                )
+	              )
+	            )
 	          )
 	        ),
 	        _react2.default.createElement(
-	          'h5',
-	          null,
-	          this.props.series.synopsis ? this.props.series.synopsis : 'No synopsis available.'
-	        ),
-	        _react2.default.createElement(
 	          'button',
-	          { onClick: function onClick() {
+	          { className: 'center-block', onClick: function onClick() {
 	              return _this2.onClick();
 	            } },
 	          this.state.label
