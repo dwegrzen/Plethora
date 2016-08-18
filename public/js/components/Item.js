@@ -23,8 +23,13 @@ class Item extends React.Component {
 
   render() {
     return <div className="col-sm-3">
-      <img className="searchImage" src={this.props.series.image} />
-      <a href={"/showdetail/" + this.props.series.gn_id}><h2>{this.props.series.title}</h2></a>
+      <img className="searchImage" src={this.props.series.image ? this.props.series.image : '././noCoverTV.jpeg'} />
+
+
+      <a href={"/showdetail/" + this.props.series.gn_id}>
+        <h2>{this.props.series.title}</h2>
+      </a>
+      <h5>{this.props.series.shortdesc ? this.props.series.shortdesc : 'No synopsis available.'}</h5>
       <button onClick={() => this.onClick()}>{this.state.label}</button>
     </div>
   }
