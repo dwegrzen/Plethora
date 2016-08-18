@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   get 'making' => 'static#making', as: :making
   get 'showdetail/(:gn_id)' => 'search#detailshow', as: :detailshow
   get 'albumdetail/(:gn_id)' => 'search#detailalbum', as: :detailalbum
+  post 'shows' => 'shows#create'
+  post 'albums' => 'albums#create'
+
+
 
 
 
