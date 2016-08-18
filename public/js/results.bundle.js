@@ -21586,9 +21586,13 @@
 	        { className: 'col-sm-3' },
 	        _react2.default.createElement('img', { className: 'searchImage', src: this.props.series.image }),
 	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          this.props.series.title
+	          'a',
+	          { href: "/showdetail/" + this.props.series.gn_id },
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            this.props.series.title
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'button',
