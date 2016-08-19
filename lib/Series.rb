@@ -20,12 +20,13 @@ class Series
      contributorparse
      datefix
      truncated
+     assignimage
 
    end
 
    def assignimage
      if self.show_image == nil
-       self.show_image = "/searchImageTV.jpg"
+       self.show_image = "/images/searchImageTV.jpg"
      end
    end
 
@@ -36,7 +37,7 @@ class Series
   end
 
    def datefix
-     if self.date.length > 4
+     if (self.date && self.date.length > 4)
        self.date = DateTime.parse(self.date).strftime("%B %e, %Y")
      end
    end
@@ -54,9 +55,12 @@ class Series
    end
 
    def contributorparse
-     if self.contributor
-       self.contributor = self.contributor.map{|x| x["NAME"]}.join(", ")
+     if (self.contributor && self.contributor.class == Hash)
+      self.contributor = contributor["NAME"]
+    elsif (self.contributor && self.contributor.class == Array)
+      self.contributor = contributor.map{|x| x["NAME"]}.join(", ")
      end
+
    end
 
 
