@@ -4,9 +4,15 @@ class SearchController < ApplicationController
     begin
       @tvresults = GNAPI.findTVShow(params[:search])
       rescue RuntimeError
-      @tvresults = {result: "No TV search results."}                   
+      @tvresults = {result: "No TV search results."}
     end
-    @tvparse = @tvresults["RESPONSES"]["RESPONSE"]["SERIES"].map{|series| Series.new(series)} unless @tvresults == {result: "No TV search results."}
+    if singleresult(@tvresults)
+      @tvparse = [@tvresults["RESPONSES"]["RESPONSE"]["SERIES"]].map{|series| Series.new(series)} unless @tvresults == {result: "No TV search results."}
+    else
+      @tvparse = @tvresults["RESPONSES"]["RESPONSE"]["SERIES"].map{|series| Series.new(series)} unless @tvresults == {result: "No TV search results."}
+    end
+
+
 
 
     # render json: Showparse.gracenote_showresponse(@tvresults).to_json
@@ -18,5 +24,11 @@ class SearchController < ApplicationController
     @singleshow = GNAPI.fetchTVShow(params[:gn_id])
     @detailparse = Series.new(@singleshow["RESPONSES"]["RESPONSE"]["SERIES"])
   end
+
+
+  private
+    def singleresult(object)
+      object["RESPONSES"]["RESPONSE"]["SERIES"].class == Hash
+    end
 
 end
