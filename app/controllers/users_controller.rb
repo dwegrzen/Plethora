@@ -4,6 +4,9 @@ before_action :require_user, except: [:index, :sign_in, :login, :new, :create]
   def index
     if current_user
       @usershows = current_user.shows
+      @userqueuedshows = current_user.shows.pluck(:gn_id)
+      finishedshows = current_user.stackings.where(finished: true).pluck(:media_id)
+      @userfinishedshows = current_user.shows.find(finishedshows).pluck(:gn_id)
       @useralbums = current_user.albums
       render :index
     else
