@@ -1,13 +1,8 @@
 class SearchController < ApplicationController
 
   def index
-    begin
-      @tvresults = GNAPI.findTVShow(params[:search])
-      rescue RuntimeError
-      @tvresults = {result: "No TV search results."}                   
-    end
-    @tvparse = @tvresults["RESPONSES"]["RESPONSE"]["SERIES"].map{|series| Series.new(series)} unless @tvresults == {result: "No TV search results."}
-
+    @tvresults = GNAPI.findTVShow(params[:search])
+    @tvparse = @tvresults["RESPONSES"]["RESPONSE"]["SERIES"].map{|series| Series.new(series)} unless @tvresults == "NO_MATCH"
 
     # render json: Showparse.gracenote_showresponse(@tvresults).to_json
 
