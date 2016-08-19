@@ -4,9 +4,9 @@ class SearchController < ApplicationController
     @tvresults = GNAPI.findTVShow(params[:search])
     unless @tvresults == "NO_MATCH"
       if singleresult(@tvresults)
-        @tvparse = [@tvresults["RESPONSES"]["RESPONSE"]["SERIES"]].map{|series| Series.new(series)}
+        @tvparse = [objectpath(@tvresults)].map{|series| Series.new(series)}
       else
-        @tvparse = @tvresults["RESPONSES"]["RESPONSE"]["SERIES"].map{|series| Series.new(series)}
+        @tvparse = objectpath(@tvresults).map{|series| Series.new(series)}
       end
     end
     # render json: Showparse.gracenote_showresponse(@tvresults).to_json
@@ -22,5 +22,10 @@ class SearchController < ApplicationController
     def singleresult(object)
       object["RESPONSES"]["RESPONSE"]["SERIES"].class == Hash
     end
+
+    def objectpath(object)
+      object["RESPONSES"]["RESPONSE"]["SERIES"]
+    end
+
 
 end
