@@ -9,7 +9,12 @@ class ShowsController < ApplicationController
     else
       render json: @user.errors, status: :unprocessable_entity
     end
-end
+  end
+
+  def destroyshow
+    @stacking = Stacking.where(user_id: current_user.id)&.where(media_id: params[:show_id])
+    @stacking.destroy
+  end
 
  private
    def show_params
