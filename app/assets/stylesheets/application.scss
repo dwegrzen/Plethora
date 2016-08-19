@@ -99,6 +99,14 @@ header {
 }
 
 body {
+    #searchBarAndButton {
+        margin: auto;
+        #searchBar {
+            width: 70%;
+            margin-left: 15%;
+        }
+    }
+
     .item {
         background-size: cover;
         background-repeat: no-repeat;
@@ -136,9 +144,11 @@ body {
 
 footer {
     margin-left: 0px;
+    height: 100%;
     .footerLogo {
         width: 100%;
         max-width: 300px;
+        margin-top: 50px;
     }
     .footerLinks {
         font-size: 13px;
@@ -166,7 +176,7 @@ footer {
     .footerLinks {
         font-size: 12px;
         p {
-            margin-top: 15px;
+            margin-top: 65px;
         }
     }
 }
