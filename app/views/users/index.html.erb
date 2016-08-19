@@ -3,9 +3,13 @@
 <br /><br />
 
 
-<%= form_tag search_path, class: 'navbar-form navbar-right', method: "get" do %>
-<div class="form-group">
-<%= text_field_tag :search, params[:search], placeholder: "Search", class: 'form-control' %>
-</div>
-<%= submit_tag "Submit", class: 'btn' %>
+<%= form_tag search_path, id: 'searchBarAndButton', method: "get" do %>
+
+    <%= text_field_tag :search, params[:search], placeholder: "Search", id: 'searchBar' %>
+
+<%= button_tag(type: 'submit', class: 'btn') do %>
+  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+<% end %>
+
+
 <% end %>
