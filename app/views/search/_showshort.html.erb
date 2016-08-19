@@ -1,4 +1,4 @@
-<!-- <div class="col-sm-3 <%= series.gn_id %>">
+<div class="col-sm-3 <%= series.gn_id %>">
   <h2><%=link_to "Title: #{series.title || "not available"}", detailshow_path(series.gn_id)%></h2>
   <h3><%= series.synopsis ? "Synopsis: " + series.shortdesc : ""%></h3>
 
@@ -12,7 +12,7 @@
     <p class="seasons"><%= series.seasons %></p>
     <p class="date"><%= series.date %></p>
     <p class="gn_id"><%= series.gn_id %></p>
-  </div> -->
+  </div>
 
 <!--
 if current_user.shows.where(gn_id: "series.gn_id" )&.where(finished: false)

@@ -25,7 +25,7 @@ class Series
 
    def assignimage
      if self.show_image == nil
-       self.show_image == "/searchImageTV.jpg"
+       self.show_image = "/searchImageTV.jpg"
      end
    end
 
