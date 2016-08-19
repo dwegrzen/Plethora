@@ -60,7 +60,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_reactDom2.default.render(_react2.default.createElement(_Results2.default, { items: railsItems, finished: finishedItems, queued: queuedItems }), document.getElementById('results'));
+	_reactDom2.default.render(_react2.default.createElement(_Results2.default, { items: railsItems, finished: userFinishedShows, queued: userQueuedShows }), document.getElementById('results'));
 
 /***/ },
 /* 1 */
