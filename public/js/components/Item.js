@@ -56,7 +56,7 @@ class Item extends React.Component {
           <div className="text-center">
             <div className="hoverLayer">
               <h2 className="tvTitle">{this.props.series.title}</h2>
-              <h5 style={divStyle} className="tvSynopsis center-block" >{this.props.series.shortdesc ? this.props.series.shortdesc : 'Sorry! There is no synopsis available.'}</h5>
+              <h5 style={divStyle} className="tvSynopsis center-block" >{this.props.series.synopsis ? this.props.series.synopsis : 'Sorry! There is no synopsis available.'}</h5>
             </div>
 
           </div>

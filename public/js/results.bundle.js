@@ -21636,7 +21636,7 @@
 	                _react2.default.createElement(
 	                  'h5',
 	                  { style: divStyle, className: 'tvSynopsis center-block' },
-	                  this.props.series.shortdesc ? this.props.series.shortdesc : 'Sorry! There is no synopsis available.'
+	                  this.props.series.synopsis ? this.props.series.synopsis : 'Sorry! There is no synopsis available.'
 	                )
 	              )
 	            )
