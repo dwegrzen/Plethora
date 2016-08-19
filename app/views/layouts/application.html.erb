@@ -52,6 +52,7 @@
     <%= yield %>
 
     <footer>
+      <!-- Mobile Footer -->
       <div class="footerLinks hidden-sm hidden-md hidden-lg hidden-xl">
         <div class="container">
           <div class="row">
@@ -59,37 +60,66 @@
           </div>
           <div class="row">
             <div class="col-xs-6">
-              <a class="text-center" href="<%= contact_path %>">
-                <p class="text-center">
-                  Contact Us
-                </p>
-              </a>
-              <a class="text-center" href="<%= about_path %>">
-                <p class="text-center">
-                  About S & W
+              <a href="<%= what_path %>">
+                <p class="text-right">
+                  What is Plethora?
                 </p>
               </a>
             </div>
             <div class="col-xs-6">
-              <a href="<%= what_path %>">
-                <p class="text-center">
-                  What is Plethora?
-                </p>
-              </a>
-              <a class="text-center" href="<%= making_path %>">
-                <p class="text-center">
+              <a class="text-left" href="<%= making_path %>">
+                <p class="text-left">
                   Making Plethora
                 </p>
               </a>
             </div>
           </div>
           <div class="row">
-            <p class="text-center">
+            <a class="text-center" href="<%= about_path %>">
+              <p class="text-center">
               &copy; Smith & Wegrzen
-            </p>
-          </div>
+              </p>
+            </a>
         </div>
       </div>
+    </div>
+      <!-- Desktop Footer -->
+      <div class="hidden-xs footerLinks ">
+        <div class="container">
+          <div class="row hidden-md hidden-lg hidden-xl">
+            <a class="" href="<%= root_path %>" ><%= image_tag "logo.png", class: 'footerLogo img-responsive center-block' %></a>
+          </div>
+          <div class="row">
+            <div class="hidden-sm col-md-3">
+              <a class="" href="<%= root_path %>" ><%= image_tag "logo.png", class: 'footerLogo' %></a>
+            </div>
+            <div class="col-sm-4 col-md-3">
+              <a href="<%= what_path %>">
+                <p class="text-center">
+                  What is Plethora?
+                </p>
+              </a>
+            </div>
+            <div class="col-sm-4 col-md-3">
+              <a href="<%= making_path %>">
+                <p class="text-center">
+                  Making Plethora
+                </p>
+              </a>
+            </div>
+            <div class="col-sm-4 col-md-3">
+              <a href="<%= about_path %>">
+                <p class="text-center">
+                &copy; Smith & Wegrzen
+                </p>
+              </a>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
 
     </footer>
     <script src="/js/results.bundle.js"></script>

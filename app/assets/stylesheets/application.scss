@@ -135,11 +135,38 @@ body {
 }
 
 footer {
+    margin-left: 0px;
     .footerLogo {
-        width: 200px;
-        margin-bottom: 15px;
+        width: 100%;
+        max-width: 300px;
     }
     .footerLinks {
         font-size: 13px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        .what {
+            text-align: right;
+        }
+        .making {
+            text-align: left;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .footerLinks {
+        font-size: 12px;
+        p {
+            margin-top: 9px;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .footerLinks {
+        font-size: 12px;
+        p {
+            margin-top: 15px;
+        }
     }
 }
