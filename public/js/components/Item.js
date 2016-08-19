@@ -4,12 +4,13 @@ class Item extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      label: "Add to queue",
-      series: props.series
+      queued: props.queued,
+      series: props.series,
+      finished: props.finished
     }
   }
 
-  onClick() {
+  queueToggle() {
     fetch('/shows', {
       method: 'POST',
       body: JSON.stringify(this.state.series),
@@ -18,7 +19,19 @@ class Item extends React.Component {
         'Content-Type': 'application/json'
       }
     })
-    this.setState({label: "Queued"})
+    this.setState({queued: !this.state.queued})
+  }
+
+  finishedToggle() {
+    // fetch('/shows', {
+    //   method: 'POST',
+    //   body: JSON.stringify(this.state.series),
+    //   credentials: 'include',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // })
+    this.setState({finished: !this.state.finished})
   }
 
   render() {
@@ -30,6 +43,12 @@ class Item extends React.Component {
     var imgStyle = {
       backgroundImage: 'url(' + this.props.series.show_image + ')'
     }
+
+    var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'
+
+    var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default'
+
+    var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default'
 
     return <div className="col-md-4 col-lg-3">
       <a className="itemLink" href={"/showdetail/" + this.props.series.gn_id}>
@@ -43,7 +62,19 @@ class Item extends React.Component {
           </div>
         </div>
       </a>
-      <button className="center-block" onClick={() => this.onClick()}>{this.state.label}</button>
+      <div className="btn-group btn-group-justified">
+        <div className="btn-group" role="group">
+          <button onClick={() => this.queueToggle() } type="button" className={queuedBackground}><span className={queuedIcon} aria-hidden="true"></span>
+          </button>
+        </div>
+        <div className="btn-group" role="group">
+          <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground}><span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          </button>
+        </div>
+
+      </div>
+
+      {/* <button className="center-block" onClick={() => this.onClick() }>{this.state.label}</button> */}
     </div>
   }
 }

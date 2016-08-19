@@ -2,6 +2,10 @@
 <!-- hello registered plethora user. this site is not currently up yet. come back later. -->
 <br /><br />
 
+<div id="results">
+
+</div>
+
 
 <%= form_tag search_path, id: 'searchBarAndButton', method: "get" do %>
 
@@ -15,4 +19,12 @@
 
 <script>
   var railsItems = <%== @usershows.to_json %>;
+  console.log(railsItems)
+
+  // var queuedItems = <%== @userqueue.to_json %>;
+  // var watchedItems = <%== @userwatched.to_json %>;
+  var queuedItems = ['238082504-705883E61F0EC3295B58B49F99DEB82D'];
+  var finishedItems = ['238034220-A6BEF620A65E433DF0881035F1C9A642'];
+
 </script>
+<script src="/js/results.bundle.js"></script>

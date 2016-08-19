@@ -60,7 +60,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_reactDom2.default.render(_react2.default.createElement(_Results2.default, { items: railsItems }), document.getElementById('results'));
+	_reactDom2.default.render(_react2.default.createElement(_Results2.default, { items: railsItems, finished: finishedItems, queued: queuedItems }), document.getElementById('results'));
 
 /***/ },
 /* 1 */
@@ -21508,8 +21508,11 @@
 	  _createClass(Results, [{
 	    key: 'render',
 	    value: function render() {
-	      var items = this.props.items.map(function (item, i) {
-	        return _react2.default.createElement(_Item2.default, { key: i, series: item });
+	      var props = this.props;
+	      var items = props.items.map(function (item, i) {
+	        var finished = props.finished.includes(item.gn_id);
+	        var queued = props.queued.includes(item.gn_id);
+	        return _react2.default.createElement(_Item2.default, { key: i, series: item, finished: finished, queued: queued });
 	      });
 	      return _react2.default.createElement(
 	        'div',
@@ -21557,15 +21560,16 @@
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Item).call(this, props));
 
 	    _this.state = {
-	      label: "Add to queue",
-	      series: props.series
+	      queued: props.queued,
+	      series: props.series,
+	      finished: props.finished
 	    };
 	    return _this;
 	  }
 
 	  _createClass(Item, [{
-	    key: 'onClick',
-	    value: function onClick() {
+	    key: 'queueToggle',
+	    value: function queueToggle() {
 	      fetch('/shows', {
 	        method: 'POST',
 	        body: JSON.stringify(this.state.series),
@@ -21574,7 +21578,20 @@
 	          'Content-Type': 'application/json'
 	        }
 	      });
-	      this.setState({ label: "Queued" });
+	      this.setState({ queued: !this.state.queued });
+	    }
+	  }, {
+	    key: 'finishedToggle',
+	    value: function finishedToggle() {
+	      // fetch('/shows', {
+	      //   method: 'POST',
+	      //   body: JSON.stringify(this.state.series),
+	      //   credentials: 'include',
+	      //   headers: {
+	      //     'Content-Type': 'application/json'
+	      //   }
+	      // })
+	      this.setState({ finished: !this.state.finished });
 	    }
 	  }, {
 	    key: 'render',
@@ -21589,6 +21606,12 @@
 	      var imgStyle = {
 	        backgroundImage: 'url(' + this.props.series.show_image + ')'
 	      };
+
+	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus';
+
+	      var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default';
+
+	      var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default';
 
 	      return _react2.default.createElement(
 	        'div',
@@ -21620,11 +21643,30 @@
 	          )
 	        ),
 	        _react2.default.createElement(
-	          'button',
-	          { className: 'center-block', onClick: function onClick() {
-	              return _this2.onClick();
-	            } },
-	          this.state.label
+	          'div',
+	          { className: 'btn-group btn-group-justified' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'btn-group', role: 'group' },
+	            _react2.default.createElement(
+	              'button',
+	              { onClick: function onClick() {
+	                  return _this2.queueToggle();
+	                }, type: 'button', className: queuedBackground },
+	              _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'btn-group', role: 'group' },
+	            _react2.default.createElement(
+	              'button',
+	              { onClick: function onClick() {
+	                  return _this2.finishedToggle();
+	                }, type: 'button', className: finishedBackground },
+	              _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	            )
+	          )
 	        )
 	      );
 	    }

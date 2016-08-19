@@ -4,8 +4,11 @@ import Item from './Item'
 
 class Results extends React.Component {
   render() {
-    var items = this.props.items.map(function(item, i){
-      return <Item key={i} series={item}  />
+    var props = this.props
+    var items = props.items.map(function(item, i){
+      var finished = props.finished.includes(item.gn_id)
+      var queued = props.queued.includes(item.gn_id)
+      return <Item key={i} series={item} finished={finished} queued={queued}/>
     })
     return <div>{items}</div>
   }
