@@ -1,9 +1,7 @@
 class SearchController < ApplicationController
+  before_action :userinfo
 
   def index
-    @userqueuedshows = current_user.shows.pluck(:gn_id)
-    finishedshows = current_user.stackings.where(finished: true).pluck(:media_id)
-    @userfinishedshows = current_user.shows.find(finishedshows).pluck(:gn_id)
     @tvresults = GNAPI.findTVShow(params[:search])
     unless @tvresults == "NO_MATCH"
       if singleresult(@tvresults)
@@ -29,6 +27,13 @@ class SearchController < ApplicationController
     def objectpath(object)
       object["RESPONSES"]["RESPONSE"]["SERIES"]
     end
+
+    def userinfo
+      @userqueuedshows = current_user.shows.pluck(:gn_id)
+      finishedshows = current_user.stackings.where(finished: true).pluck(:media_id)
+      @userfinishedshows = current_user.shows.find(finishedshows).pluck(:gn_id)
+    end
+
 
 
 end
