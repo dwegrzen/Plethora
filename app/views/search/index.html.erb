@@ -2,11 +2,7 @@
 
 <div class="container">
   <div class="row">
-    <% if @tvparse %>
-      <% @tvparse.each do |series| %>
-      <%= render 'showshort', :series => series %>
-      <% end %>
-    <% else %>
+    <% if !@tvparse %>
       <h4>No TV search results</h4>
     <% end %>
   </div>
