@@ -3,11 +3,11 @@
 class Series
   include ActionView::Helpers
 
-   attr_accessor :title, :synopsis, :gn_id, :show_image, :date, :genre, :seasons, :type, :contributor, :shortdesc
+   attr_accessor :title, :synopsis, :gn_id, :show_image, :date, :genre, :seasons, :type, :contributor, :fulldesc
 
    def initialize(series)
      self.title = series['TITLE']
-     self.synopsis = series['SYNOPSIS']
+     self.fulldesc = series['SYNOPSIS']
      self.show_image = series['URL']
      self.gn_id = series['GN_ID']
      self.date = series['DATE']
@@ -31,8 +31,8 @@ class Series
    end
 
   def truncated
-    if self.synopsis
-      self.shortdesc = truncate(self.synopsis, length: 200, :escape => false)
+    if self.fulldesc
+      self.synopsis = truncate(self.fulldesc, length: 200, :escape => false)
     end
   end
 
