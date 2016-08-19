@@ -29,12 +29,9 @@ class Series
      end
    end
 
-   def truncated
-     if self.synopsis
-      #temp = simple_format(self.synopsis, wrapper_tag: "")
-
-      self.shortdesc = simple_format(self.synopsis, {}, wrapper_tag: '')
-      # truncate(temp, length: 200)
+  def truncated
+    if self.synopsis
+      self.shortdesc = truncate(self.synopsis, length: 200, :escape => false)
     end
   end
 
