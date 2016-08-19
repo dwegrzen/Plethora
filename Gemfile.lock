@@ -1,3 +1,11 @@
+PATH
+  remote: ./gracenote-1.2.1/
+  specs:
+    gracenote (1.2.1)
+      crack
+      curb
+      rack
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -44,7 +52,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.1)
-    autoprefixer-rails (6.4.0)
+    autoprefixer-rails (6.4.0.2)
       execjs
     bcrypt (3.1.11)
     bootstrap-sass (3.3.7)
@@ -67,10 +75,6 @@ GEM
       thor (~> 0.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    gracenote (1.2.1)
-      crack
-      curb
-      rack
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
@@ -208,7 +212,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   byebug
   figaro
-  gracenote
+  gracenote!
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

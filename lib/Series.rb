@@ -23,6 +23,12 @@ class Series
 
    end
 
+   def assignimage
+     if self.show_image == nil
+       self.show_image == "/searchImageTV.jpg"
+     end
+   end
+
    def truncated
      if self.synopsis
       #temp = simple_format(self.synopsis, wrapper_tag: "")
