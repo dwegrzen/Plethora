@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'login' => 'users#sign_in', as: :sign_in
   post 'login' => 'users#login', as: :login
-  delete 'lougout' => 'users#logout', as: :logout
+  delete 'logout' => 'users#logout', as: :logout
   get 'albums' => 'albums#index'
   get 'shows' => 'shows#index'
   get 'finishedmusic' => 'albums#finished'
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'albumdetail/(:gn_id)' => 'search#detailalbum', as: :detailalbum
   post 'shows' => 'shows#create'
   post 'albums' => 'albums#create'
+  delete 'shows' => 'shows#destroyshow'
 
 
 

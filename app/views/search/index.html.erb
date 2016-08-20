@@ -6,6 +6,11 @@
       <h4>No TV search results</h4>
     <% end %>
   </div>
+  <h3>Album search results:</h3>
+  <%= @albumparse.to_json %>
+
+  <h3>Artist search results:</h3>
+  <%= @artistparse.to_json %>
 </div>
 <div class="container">
   <div class="row" id="results">

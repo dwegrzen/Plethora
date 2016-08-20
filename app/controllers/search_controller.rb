@@ -2,20 +2,48 @@ class SearchController < ApplicationController
   before_action :userinfo
 
   def index
+    # tv show search through gracenote
     @tvresults = GNAPI.findTVShow(params[:search])
     unless @tvresults == "NO_MATCH"
       if singleresult(@tvresults)
-        @tvparse = [objectpath(@tvresults)].map{|series| Series.new(series)}
+        @tvparse = [showpath(@tvresults)].map{|series| Series.new(series)}
       else
-        @tvparse = objectpath(@tvresults).map{|series| Series.new(series)}
+        @tvparse = showpath(@tvresults).map{|series| Series.new(series)}
       end
     end
+
+    # music album search through gracenote
+    @albumresults = GNAPI.findAlbum("",params[:search])
+    unless @albumresults == "NO_MATCH"
+      if singleresult(@albumresults)
+        @albumparse = [albumpath(@albumresults)].map{|album| Albumtemp.new(album)}
+      else
+        @albumparse = albumpath(@albumresults).map{|album| Albumtemp.new(album)}
+      end
+    end
+
+    # music artist search through gracenote
+    @artistresults = GNAPI.findArtist(params[:search])
+    unless @artistresults == "NO_MATCH"
+      if singleresult(@artistresults)
+        @artistparse = [albumpath(@artistresults)].map{|album| Albumtemp.new(album)}
+      else
+        @artistparse = albumpath(@artistresults).map{|album| Albumtemp.new(album)}
+      end
+    end
+
+
     # render json: Showparse.gracenote_showresponse(@tvresults).to_json
   end
 
   def detailshow
     @singleshow = GNAPI.fetchTVShow(params[:gn_id])
-    @detailparse = Series.new(@singleshow["RESPONSES"]["RESPONSE"]["SERIES"])
+    @detailparse = Series.new(showpath(@singleshow))
+  end
+
+  def detailmusic
+    @singlealbum = GNAPI.fetchOETData(params[:gn_id])
+    @detailparse = Albumtemp.new(albumpath(@singlealbum))
   end
 
 
@@ -24,8 +52,12 @@ class SearchController < ApplicationController
       object["RESPONSES"]["RESPONSE"]["SERIES"].class == Hash
     end
 
-    def objectpath(object)
+    def showpath(object)
       object["RESPONSES"]["RESPONSE"]["SERIES"]
+    end
+
+    def albumpath(object)
+      object["RESPONSES"]["RESPONSE"]["ALBUM"]
     end
 
     def userinfo
