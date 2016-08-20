@@ -71,10 +71,12 @@ before_action :userinfo
     end
 
     def userinfo
-      @userqueuedshows = current_user.shows.pluck(:gn_id)
-      finishedshows = current_user.stackings.where(finished: true).pluck(:media_id)
-      @userfinishedshows = current_user.shows.find(finishedshows).pluck(:gn_id)
-      @userid = current_user.id
+      if current_user
+        @userqueuedshows = current_user.shows.pluck(:gn_id)
+        finishedshows = current_user.stackings.where(finished: true).pluck(:media_id)
+        @userfinishedshows = current_user.shows.find(finishedshows).pluck(:gn_id)
+        @userid = current_user.id
+      end
     end
 
 
