@@ -1,3 +1,27 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+header {
+    background-color: RGB(70, 70, 70);
+    a {
+        color: RGB(255, 255, 255);
+    }
+}
+.mainContent {
+    margin-top: -10px;
+    background-image: url('https://unsplash.it/3000/2000?image=767');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+}
+
+@media screen and (min-width: 769px) {
+    header {
+        background-color: transparent;
+    }
+    .mainContent {
+        margin-top: -50px;
+    }
+}

@@ -2,9 +2,7 @@
 <!-- hello registered plethora user. this site is not currently up yet. come back later. -->
 <br /><br />
 
-<div id="results">
 
-</div>
 
 
 <%= form_tag search_path, id: 'searchBarAndButton', method: "get" do %>
@@ -16,10 +14,13 @@
 
 <% end %>
 
+<div id="results">
+
+</div>
+
 <script>
   var railsItems = <%== @usershows.to_json %>;
   console.log(railsItems)
-
   var userQueuedShows = <%==@userqueuedshows.to_json %>;
   var userFinishedShows = <%==@userfinishedshows.to_json %>;
 
