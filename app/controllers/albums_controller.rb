@@ -10,11 +10,11 @@ class AlbumsController < ApplicationController
   end
 
   def destroyalbum
-    @stacking = Stacking.where(user_id: current_user.id)&.where(media_id: params[:show_id])
+    @stacking = Stacking.where(user_id: current_user.id)&.where(media_id: params[:show_id], media_type: "Album")
     @stacking.destroy_all
   end
 
-  def showcompletionstatus
+  def albumcompletionstatus
     @stacking = Stacking.where(user_id: current_user.id)&.where(media_id: params[:show_id]).first
     if params[:finished] == true
       @stacking.update(finished: true)
