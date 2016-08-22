@@ -4,6 +4,7 @@ class SearchController < ApplicationController
   def index
     # tv show search through gracenote
     @tvresults = GNAPI.findTVShow(params[:search])
+    @tvparse = []
     unless @tvresults == "NO_MATCH"
       if singleresult(@tvresults)
         @tvparse = [showpath(@tvresults)].map{|series| Series.new(series)}
@@ -115,12 +116,18 @@ class SearchController < ApplicationController
       object["RESPONSES"]["RESPONSE"]["RANGE"]["END"].to_i
     end
 
-
-
     def userinfo
-      @userqueuedshows = current_user.shows.pluck(:gn_id)
-      finishedshows = current_user.stackings.where(finished: true).pluck(:media_id)
-      @userfinishedshows = current_user.shows.find(finishedshows).pluck(:gn_id)
+      if current_user
+        @userqueuedshows = current_user.shows.pluck(:gn_id)
+        @userqueuedmusic = current_user.albums.pluck(:gn_id)
+        finishedshows = current_user.stackings.where(finished: true)&.where(media_type: "Show").pluck(:media_id)
+        finishedmusic = current_user.stackings.where(finished: true)&.where(media_type: "Album").pluck(:media_id)
+        @userfinishedshows = current_user.shows.find(finishedshows).pluck(:gn_id)
+        @userfinishedmusic = current_user.albums.find(finishedmusic).pluck(:gn_id)
+
+        @userid = current_user.id
+      end
+
     end
 
 
