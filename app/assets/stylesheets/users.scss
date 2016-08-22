@@ -2,10 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$yellow: #FFC857;
+
 header {
-    background-color: RGB(70, 70, 70);
+    background-color: RGB(91, 92, 72);
     a {
-        color: RGB(255, 255, 255);
+        color: white;
     }
 }
 .mainContent {
@@ -23,5 +25,6 @@ header {
     }
     .mainContent {
         margin-top: -50px;
+        height: 900px;
     }
 }
