@@ -5,7 +5,7 @@ class Albumtemp
    attr_accessor :title, :gn_id, :artist, :album_art, :date, :genre, :tracks, :trackname
 
    def initialize(album)
-     self.title = album['TITLE']
+     self.name = album['TITLE']
      self.artist = album['ARTIST']
      self.album_art = album['URL']
      self.gn_id = album['GN_ID']
