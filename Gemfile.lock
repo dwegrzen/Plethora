@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/dwegrzen/gracenote.git
-  revision: eac8bf0747c68ea3fe175de96943d52e8c746de0
+  revision: 2d54b2edac0f9b6b17dc1c18cbe7d6719ab22123
   specs:
     gracenote (1.2.0)
       crack
