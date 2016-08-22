@@ -13,9 +13,6 @@
   <div class="row" id="results">
 
   </div>
-<div >
-
-</div>
 
 <script>
   var TVItems = <%== @tvparse.to_json %>;
@@ -23,8 +20,10 @@
   var userFinishedShows = <%==@userfinishedshows.to_json %>;
   var MusicItems = <%== @artistparse.to_json %>;
   console.log(MusicItems)
-  var userQueuedMusic = <%==@userqueuedmusic.to_json %>;
-  var userFinishedMusic = <%==@userfinishedmusic.to_json %>;
+  var userQueuedMusic = [];//<%==@userqueuedmusic.to_json %>;
+  console.log(userQueuedMusic)
+  var userFinishedMusic = [];//<%==@userfinishedmusic.to_json %>;
+  console.log(userFinishedMusic)
 </script>
 <script src="/js/results.bundle.js"></script>
 

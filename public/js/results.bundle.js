@@ -71,7 +71,8 @@
 	_reactDom2.default.render(_react2.default.createElement(
 	  'div',
 	  null,
-	  _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows })
+	  _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows }),
+	  _react2.default.createElement(_Results2.default, { component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic })
 	), document.getElementById('results'));
 
 /***/ },
@@ -21524,7 +21525,7 @@
 	      var items = props.items.map(function (item, i) {
 	        var finished = props.finished.includes(item.gn_id);
 	        var queued = props.queued.includes(item.gn_id);
-	        return _react2.default.createElement(Item, { key: i, series: item, finished: finished, queued: queued });
+	        return _react2.default.createElement(Item, { key: i, item: item, finished: finished, queued: queued });
 	      });
 	      return _react2.default.createElement(
 	        'div',
@@ -21573,7 +21574,7 @@
 
 	    _this.state = {
 	      queued: props.queued,
-	      series: props.series,
+	      series: props.item,
 	      finished: props.finished
 	    };
 	    return _this;
@@ -21630,7 +21631,7 @@
 	      };
 
 	      var imgStyle = {
-	        backgroundImage: 'url(' + this.props.series.show_image + ')'
+	        backgroundImage: 'url(' + this.state.series.show_image + ')'
 	      };
 
 	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus';
@@ -21644,7 +21645,7 @@
 	        { className: 'col-md-4 col-lg-3' },
 	        _react2.default.createElement(
 	          'a',
-	          { className: 'itemLink', href: "/showdetail/" + this.props.series.gn_id },
+	          { className: 'itemLink', href: "/showdetail/" + this.state.series.gn_id },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'item center-block', style: imgStyle },
@@ -21657,12 +21658,12 @@
 	                _react2.default.createElement(
 	                  'h2',
 	                  { className: 'tvTitle' },
-	                  this.props.series.title
+	                  this.state.series.title
 	                ),
 	                _react2.default.createElement(
 	                  'h5',
 	                  { style: divStyle, className: 'tvSynopsis center-block' },
-	                  this.props.series.synopsis ? this.props.series.synopsis : 'Sorry! There is no synopsis available.'
+	                  this.state.series.synopsis ? this.state.series.synopsis : 'Sorry! There is no synopsis available.'
 	                )
 	              )
 	            )
@@ -21737,7 +21738,7 @@
 
 	    _this.state = {
 	      queued: props.queued,
-	      music: props.music,
+	      music: props.item,
 	      finished: props.finished
 	    };
 	    return _this;
@@ -21794,7 +21795,7 @@
 	      };
 
 	      var imgStyle = {
-	        backgroundImage: 'url(' + this.props.music.album_art + ')'
+	        backgroundImage: 'url(' + this.state.music.album_art + ')'
 	      };
 
 	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus';
@@ -21808,7 +21809,7 @@
 	        { className: 'col-md-4 col-lg-3' },
 	        _react2.default.createElement(
 	          'a',
-	          { className: 'itemLink', href: "/showdetail/" + this.props.music.gn_id },
+	          { className: 'itemLink', href: '/showdetail/' + this.state.music.gn_id },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'item center-block', style: imgStyle },
@@ -21821,12 +21822,12 @@
 	                _react2.default.createElement(
 	                  'h2',
 	                  { className: '' },
-	                  this.props.music.name
+	                  this.state.music.name
 	                ),
 	                _react2.default.createElement(
 	                  'h5',
 	                  { style: divStyle, className: 'center-block' },
-	                  this.props.music.artist
+	                  this.state.music.artist
 	                )
 	              )
 	            )
