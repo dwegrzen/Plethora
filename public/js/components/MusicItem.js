@@ -4,14 +4,14 @@ class MusicItem extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      // queued: props.queued,
+      queued: props.queued,
       music: props.music,
-      // finished: props.finished
+      finished: props.finished
     }
   }
 
   queueToggle() {
-    // if (!this.state.queued) {
+    if (!this.state.queued) {
       fetch('/albums', {
         method: 'POST',
         body: JSON.stringify(this.state.music),
@@ -20,34 +20,34 @@ class MusicItem extends React.Component {
           'Content-Type': 'application/json'
         }
       })
-    
-    // else {
-    //   fetch('/shows?show_id=' + this.state.series.id, {
-    //     method: 'DELETE',
-    //     // body: JSON.stringify(this.state.series),
-    //     credentials: 'include',
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     }
-    //   })
-    // }
+    }
+    else {
+      fetch('/albums?album_id=' + this.state.music.id, {
+        method: 'DELETE',
+        // body: JSON.stringify(this.state.series),
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+    }
     this.setState({queued: !this.state.queued})
   }
 
-  // finishedToggle() {
-  //   this.setState({finished: !this.state.finished})
-  //   fetch('/showstatus', {
-  //     method: 'PATCH',
-  //     body: JSON.stringify({
-  //       show_id: this.state.series.id,
-  //       finished: !this.state.finished
-  //     }),
-  //     credentials: 'include',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  // }
+  finishedToggle() {
+    this.setState({finished: !this.state.finished})
+    fetch('/albumstatus', {
+      method: 'PATCH',
+      body: JSON.stringify({
+        show_id: this.state.music.id,
+        finished: !this.state.finished
+      }),
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
 
   render() {
     var divStyle = {
@@ -70,7 +70,7 @@ class MusicItem extends React.Component {
         <div className="item center-block" style={imgStyle}>
           <div className="text-center">
             <div className="hoverLayer">
-              <h2 className="">{this.props.music.title}</h2>
+              <h2 className="">{this.props.music.name}</h2>
               <h5 style={divStyle} className="center-block" >{this.props.music.artist}</h5>
             </div>
           </div>

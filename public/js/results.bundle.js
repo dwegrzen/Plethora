@@ -71,8 +71,7 @@
 	_reactDom2.default.render(_react2.default.createElement(
 	  'div',
 	  null,
-	  _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows }),
-	  _react2.default.createElement(_Results2.default, { component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic })
+	  _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows })
 	), document.getElementById('results'));
 
 /***/ },
@@ -21737,8 +21736,9 @@
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MusicItem).call(this, props));
 
 	    _this.state = {
-	      // queued: props.queued,
-	      music: props.music
+	      queued: props.queued,
+	      music: props.music,
+	      finished: props.finished
 	    };
 	    return _this;
 	  }
@@ -21746,44 +21746,43 @@
 	  _createClass(MusicItem, [{
 	    key: 'queueToggle',
 	    value: function queueToggle() {
-	      // if (!this.state.queued) {
-	      fetch('/albums', {
-	        method: 'POST',
-	        body: JSON.stringify(this.state.music),
+	      if (!this.state.queued) {
+	        fetch('/albums', {
+	          method: 'POST',
+	          body: JSON.stringify(this.state.music),
+	          credentials: 'include',
+	          headers: {
+	            'Content-Type': 'application/json'
+	          }
+	        });
+	      } else {
+	        fetch('/albums?album_id=' + this.state.music.id, {
+	          method: 'DELETE',
+	          // body: JSON.stringify(this.state.series),
+	          credentials: 'include',
+	          headers: {
+	            'Content-Type': 'application/json'
+	          }
+	        });
+	      }
+	      this.setState({ queued: !this.state.queued });
+	    }
+	  }, {
+	    key: 'finishedToggle',
+	    value: function finishedToggle() {
+	      this.setState({ finished: !this.state.finished });
+	      fetch('/albumstatus', {
+	        method: 'PATCH',
+	        body: JSON.stringify({
+	          show_id: this.state.music.id,
+	          finished: !this.state.finished
+	        }),
 	        credentials: 'include',
 	        headers: {
 	          'Content-Type': 'application/json'
 	        }
 	      });
-
-	      // else {
-	      //   fetch('/shows?show_id=' + this.state.series.id, {
-	      //     method: 'DELETE',
-	      //     // body: JSON.stringify(this.state.series),
-	      //     credentials: 'include',
-	      //     headers: {
-	      //       'Content-Type': 'application/json'
-	      //     }
-	      //   })
-	      // }
-	      this.setState({ queued: !this.state.queued });
 	    }
-
-	    // finishedToggle() {
-	    //   this.setState({finished: !this.state.finished})
-	    //   fetch('/showstatus', {
-	    //     method: 'PATCH',
-	    //     body: JSON.stringify({
-	    //       show_id: this.state.series.id,
-	    //       finished: !this.state.finished
-	    //     }),
-	    //     credentials: 'include',
-	    //     headers: {
-	    //       'Content-Type': 'application/json'
-	    //     }
-	    //   })
-	    // }
-
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -21822,7 +21821,7 @@
 	                _react2.default.createElement(
 	                  'h2',
 	                  { className: '' },
-	                  this.props.music.title
+	                  this.props.music.name
 	                ),
 	                _react2.default.createElement(
 	                  'h5',
