@@ -12,15 +12,15 @@ class SearchController < ApplicationController
       end
     end
 
-    # music album search through gracenote
-    @albumresults = GNAPI.findAlbum("",params[:search])
-    unless @albumresults == "NO_MATCH"
-      if singleresult(@albumresults)
-        @albumparse = [albumpath(@albumresults)].map{|album| Albumtemp.new(album)}
-      else
-        @albumparse = albumpath(@albumresults).map{|album| Albumtemp.new(album)}
-      end
-    end
+    # # music album search through gracenote
+    # @albumresults = GNAPI.findAlbum("",params[:search])
+    # unless @albumresults == "NO_MATCH"
+    #   if singleresult(@albumresults)
+    #     @albumparse = [albumpath(@albumresults)].map{|album| Albumtemp.new(album)}
+    #   else
+    #     @albumparse = albumpath(@albumresults).map{|album| Albumtemp.new(album)}
+    #   end
+    # end
 
     # music artist search through gracenote
     @artistresults = GNAPI.findArtist(params[:search])
