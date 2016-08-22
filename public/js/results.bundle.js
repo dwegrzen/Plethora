@@ -71,8 +71,41 @@
 	_reactDom2.default.render(_react2.default.createElement(
 	  'div',
 	  null,
-	  _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows }),
-	  _react2.default.createElement(_Results2.default, { component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic })
+	  _react2.default.createElement(
+	    'h1',
+	    null,
+	    'TV'
+	  ),
+	  _react2.default.createElement(
+	    'h2',
+	    null,
+	    'Queued'
+	  ),
+	  _react2.default.createElement(
+	    'div',
+	    { className: 'row' },
+	    _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showQueued: true })
+	  ),
+	  _react2.default.createElement(
+	    'h2',
+	    null,
+	    'Finished'
+	  ),
+	  _react2.default.createElement(
+	    'div',
+	    { className: 'row' },
+	    _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showFinished: true })
+	  ),
+	  _react2.default.createElement(
+	    'h1',
+	    null,
+	    'Music'
+	  ),
+	  _react2.default.createElement(
+	    'div',
+	    { className: 'row' },
+	    _react2.default.createElement(_Results2.default, { component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic })
+	  )
 	), document.getElementById('results'));
 
 /***/ },
@@ -21521,8 +21554,22 @@
 	    value: function render() {
 
 	      var props = this.props;
+	      var items = [];
 	      var Item = this.props.component;
-	      var items = props.items.map(function (item, i) {
+
+	      if (props.showQueued) {
+	        items = props.items.filter(function (item) {
+	          return props.queued.includes(item.gn_id) && !props.finished.includes(item.gn_id);
+	        });
+	      } else if (props.showFinished) {
+	        items = props.items.filter(function (item) {
+	          return props.finished.includes(item.gn_id);
+	        });
+	      } else {
+	        items = props.items;
+	      }
+
+	      items = items.map(function (item, i) {
 	        var finished = props.finished.includes(item.gn_id);
 	        var queued = props.queued.includes(item.gn_id);
 	        return _react2.default.createElement(Item, { key: i, item: item, finished: finished, queued: queued });
