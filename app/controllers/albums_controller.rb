@@ -9,7 +9,7 @@ class AlbumsController < ApplicationController
     end
   end
 
-  def destroyshow
+  def destroyalbum
     @stacking = Stacking.where(user_id: current_user.id)&.where(media_id: params[:show_id])
     @stacking.destroy_all
   end
