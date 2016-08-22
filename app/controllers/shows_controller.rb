@@ -16,6 +16,18 @@ class ShowsController < ApplicationController
     @stacking.destroy_all
   end
 
+  def showcompletionstatus
+    @stacking = Stacking.where(user_id: current_user.id)&.where(media_id: params[:show_id]).first
+    if params[:finished] == true
+      @stacking.update(finished: true)
+    else
+      @stacking.update(finished: false)
+    end
+  end
+
+
+
+
  private
    def show_params
      params.permit(:title, :genre, :show_image, :synopsis, :seasons, :date, :gn_id)

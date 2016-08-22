@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post 'shows' => 'shows#create'
   post 'albums' => 'albums#create'
   delete 'shows' => 'shows#destroyshow'
+  patch 'showstatus' => 'shows#showcompletionstatus'
 
 
 
