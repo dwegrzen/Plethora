@@ -2,7 +2,7 @@
 class Albumtemp
   include ActionView::Helpers
 
-   attr_accessor :title, :gn_id, :artist, :album_art, :date, :genre, :tracks, :trackname
+   attr_accessor :name, :gn_id, :artist, :album_art, :date, :genre, :tracks, :trackname
 
    def initialize(album)
      self.name = album['TITLE']
