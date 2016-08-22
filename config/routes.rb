@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'what' => 'static#what', as: :what
   get 'making' => 'static#making', as: :making
   get 'showdetail/(:gn_id)' => 'search#detailshow', as: :detailshow
-  get 'albumdetail/(:gn_id)' => 'search#detailalbum', as: :detailalbum
+  get 'albumdetail/(:gn_id)' => 'search#detailmusic', as: :detailalbum
   post 'shows' => 'shows#create'
   post 'albums' => 'albums#create'
   delete 'shows' => 'shows#destroyshow'
