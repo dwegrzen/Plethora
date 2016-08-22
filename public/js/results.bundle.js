@@ -21822,7 +21822,7 @@
 	      fetch('/albumstatus', {
 	        method: 'PATCH',
 	        body: JSON.stringify({
-	          show_id: this.state.music.id,
+	          album_id: this.state.music.id,
 	          finished: !this.state.finished
 	        }),
 	        credentials: 'include',
@@ -21856,7 +21856,7 @@
 	        { className: 'col-md-4 col-lg-3' },
 	        _react2.default.createElement(
 	          'a',
-	          { className: 'itemLink', href: '/showdetail/' + this.state.music.gn_id },
+	          { className: 'itemLink', href: '/albumdetail/' + this.state.music.gn_id },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'item center-block', style: imgStyle },

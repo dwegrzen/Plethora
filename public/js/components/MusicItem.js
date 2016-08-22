@@ -39,7 +39,7 @@ class MusicItem extends React.Component {
     fetch('/albumstatus', {
       method: 'PATCH',
       body: JSON.stringify({
-        show_id: this.state.music.id,
+        album_id: this.state.music.id,
         finished: !this.state.finished
       }),
       credentials: 'include',
@@ -66,7 +66,7 @@ class MusicItem extends React.Component {
     var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default'
 
     return <div className="col-md-4 col-lg-3">
-      <a className="itemLink" href={'/showdetail/' + this.state.music.gn_id}>
+      <a className="itemLink" href={'/albumdetail/' + this.state.music.gn_id}>
         <div className="item center-block" style={imgStyle}>
           <div className="text-center">
             <div className="hoverLayer">
