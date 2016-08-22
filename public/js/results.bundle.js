@@ -97,6 +97,16 @@
 	    _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showFinished: true })
 	  ),
 	  _react2.default.createElement(
+	    'h2',
+	    null,
+	    'Other'
+	  ),
+	  _react2.default.createElement(
+	    'div',
+	    { className: 'row' },
+	    _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, addToQueue: true })
+	  ),
+	  _react2.default.createElement(
 	    'h1',
 	    null,
 	    'Music'
@@ -21565,6 +21575,10 @@
 	        items = props.items.filter(function (item) {
 	          return props.finished.includes(item.gn_id);
 	        });
+	      } else if (props.addToQueue) {
+	        items = props.items.filter(function (item) {
+	          return !props.finished.includes(item.gn_id) && !props.queued.includes(item.gn_id);
+	        });
 	      } else {
 	        items = props.items;
 	      }
@@ -21836,11 +21850,6 @@
 	    value: function render() {
 	      var _this2 = this;
 
-	      var divStyle = {
-	        visibility: 'hidden',
-	        opacity: 0
-	      };
-
 	      var imgStyle = {
 	        backgroundImage: 'url(' + this.state.music.album_art + ')'
 	      };
@@ -21868,12 +21877,12 @@
 	                { className: 'hoverLayer' },
 	                _react2.default.createElement(
 	                  'h2',
-	                  { className: '' },
+	                  { className: 'albumName' },
 	                  this.state.music.name
 	                ),
 	                _react2.default.createElement(
-	                  'h5',
-	                  { style: divStyle, className: 'center-block' },
+	                  'h2',
+	                  { className: 'artistName center-block' },
 	                  this.state.music.artist
 	                )
 	              )

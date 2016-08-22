@@ -19,6 +19,11 @@ class Results extends React.Component {
         return props.finished.includes(item.gn_id)
       })
     }
+    else if (props.addToQueue) {
+      items = props.items.filter(function(item){
+        return !props.finished.includes(item.gn_id) && !props.queued.includes(item.gn_id)
+      })
+    }
     else {
       items = props.items
     }

@@ -140,9 +140,12 @@ body {
             height: 250px;
             width: 100%;
             transition: all 0.3s ease;
-            .tvTitle {
+            .tvTitle, .albumName, .artistName {
                 padding-top: 15px;
                 text-shadow: 1px 2px black;
+            }
+            .artistName {
+                
             }
             .tvSynopsis {
                 width: 80%;
