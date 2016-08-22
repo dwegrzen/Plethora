@@ -20,6 +20,7 @@ class MusicItem extends React.Component {
           'Content-Type': 'application/json'
         }
       })
+    }
     else {
       fetch('/albums?album_id=' + this.state.music.id, {
         method: 'DELETE',
