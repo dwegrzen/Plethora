@@ -1,4 +1,5 @@
 class AlbumsController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   def create
     @album = Album.find_or_create_by(gn_id: params[:gn_id])
