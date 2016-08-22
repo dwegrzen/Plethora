@@ -16,6 +16,10 @@ ReactDOM.render(
     <div className="row">
       <Results component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} showFinished={true}/>
     </div>
+    <h2>Other</h2>
+    <div className="row">
+      <Results component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} addToQueue={true}/>
+    </div>
     <h1>Music</h1>
     <div className="row">
       <Results component={musicItem} items={MusicItems} finished={userFinishedMusic} queued={userQueuedMusic}/>
