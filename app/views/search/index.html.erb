@@ -6,11 +6,8 @@
       <h4>No TV search results</h4>
     <% end %>
   </div>
-  <h3>Album search results:</h3>
-  <%= @albumparse.to_json %>
-
   <h3>Artist search results:</h3>
-  <%= @artistparse.to_json %>
+  <!-- <%= @artistparse.to_json %> -->
 </div>
 <div class="container">
   <div class="row" id="results">
@@ -21,11 +18,10 @@
 </div>
 
 <script>
-  var TVItems = <%== @usershows.to_json %>;
+  var TVItems = <%== @tvparse.to_json %>;
   var userQueuedShows = <%==@userqueuedshows.to_json %>;
   var userFinishedShows = <%==@userfinishedshows.to_json %>;
-  var MusicItems = <%== @usermusic.to_json %>;
-  console.log(MusicItems)
+  var MusicItems = <%== @artistparse.to_json %>;
   var userQueuedMusic = <%==@userqueuedmusic.to_json %>;
   var userFinishedMusic = <%==@userfinishedmusic.to_json %>;
 </script>

@@ -71,8 +71,7 @@
 	_reactDom2.default.render(_react2.default.createElement(
 	  'div',
 	  null,
-	  _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows }),
-	  _react2.default.createElement(_Results2.default, { component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic })
+	  _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows })
 	), document.getElementById('results'));
 
 /***/ },
