@@ -58,9 +58,17 @@
 
 	var _Results2 = _interopRequireDefault(_Results);
 
+	var _Item = __webpack_require__(176);
+
+	var _Item2 = _interopRequireDefault(_Item);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_reactDom2.default.render(_react2.default.createElement(_Results2.default, { items: railsItems, finished: userFinishedShows, queued: userQueuedShows }), document.getElementById('results'));
+	_reactDom2.default.render(_react2.default.createElement(
+	  'div',
+	  null,
+	  _react2.default.createElement(_Results2.default, { component: _Item2.default, items: railsItems, finished: userFinishedShows, queued: userQueuedShows })
+	), document.getElementById('results'));
 
 /***/ },
 /* 1 */
@@ -21484,10 +21492,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Item = __webpack_require__(176);
-
-	var _Item2 = _interopRequireDefault(_Item);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21495,6 +21499,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// import Item from './Item'
 
 	var Results = function (_React$Component) {
 	  _inherits(Results, _React$Component);
@@ -21508,11 +21514,13 @@
 	  _createClass(Results, [{
 	    key: 'render',
 	    value: function render() {
+
 	      var props = this.props;
+	      var Item = this.props.component;
 	      var items = props.items.map(function (item, i) {
 	        var finished = props.finished.includes(item.gn_id);
 	        var queued = props.queued.includes(item.gn_id);
-	        return _react2.default.createElement(_Item2.default, { key: i, series: item, finished: finished, queued: queued });
+	        return _react2.default.createElement(Item, { key: i, series: item, finished: finished, queued: queued });
 	      });
 	      return _react2.default.createElement(
 	        'div',
@@ -21570,14 +21578,25 @@
 	  _createClass(Item, [{
 	    key: 'queueToggle',
 	    value: function queueToggle() {
-	      fetch('/shows', {
-	        method: 'POST',
-	        body: JSON.stringify(this.state.series),
-	        credentials: 'include',
-	        headers: {
-	          'Content-Type': 'application/json'
-	        }
-	      });
+	      if (!this.state.queued) {
+	        fetch('/shows', {
+	          method: 'POST',
+	          body: JSON.stringify(this.state.series),
+	          credentials: 'include',
+	          headers: {
+	            'Content-Type': 'application/json'
+	          }
+	        });
+	      } else {
+	        fetch('/shows?show_id=' + this.state.series.id, {
+	          method: 'DELETE',
+	          // body: JSON.stringify(this.state.series),
+	          credentials: 'include',
+	          headers: {
+	            'Content-Type': 'application/json'
+	          }
+	        });
+	      }
 	      this.setState({ queued: !this.state.queued });
 	    }
 	  }, {
