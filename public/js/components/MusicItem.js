@@ -70,7 +70,7 @@ class MusicItem extends React.Component {
         <div className="item center-block" style={imgStyle}>
           <div className="text-center">
             <div className="hoverLayer">
-              <h2 className="">{this.props.music.title}</h2>
+              <h2 className="">{this.props.music.name}</h2>
               <h5 style={divStyle} className="center-block" >{this.props.music.artist}</h5>
             </div>
           </div>
