@@ -6,9 +6,9 @@
 
 
 <%= form_tag search_path, id: 'searchBarAndButton', method: "get" do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search", id: 'searchBar' %>
+<%= text_field_tag :search, params[:search], placeholder: "Show, artist, whatever else", id: 'searchBar' %>
 
-<%= button_tag(type: 'submit', class: 'btn') do %>
+<%= button_tag(type: 'submit', class: 'btn', id: 'searchBtn') do %>
   <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 <% end %>
 
@@ -25,4 +25,5 @@
   var userFinishedShows = <%==@userfinishedshows.to_json %>;
 
 </script>
+<script src="/js/searchBar.js"></script>
 <script src="/js/results.bundle.js"></script>

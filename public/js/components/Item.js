@@ -11,14 +11,26 @@ class Item extends React.Component {
   }
 
   queueToggle() {
-    fetch('/shows', {
-      method: 'POST',
-      body: JSON.stringify(this.state.series),
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
+    if (!this.state.queued) {
+      fetch('/shows', {
+        method: 'POST',
+        body: JSON.stringify(this.state.series),
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+    }
+    else {
+      fetch('/shows?show_id=' + this.state.series.id, {
+        method: 'DELETE',
+        // body: JSON.stringify(this.state.series),
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+    }
     this.setState({queued: !this.state.queued})
   }
 
