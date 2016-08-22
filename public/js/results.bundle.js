@@ -21821,7 +21821,7 @@
 	                _react2.default.createElement(
 	                  'h2',
 	                  { className: '' },
-	                  this.props.music.title
+	                  this.props.music.name
 	                ),
 	                _react2.default.createElement(
 	                  'h5',
