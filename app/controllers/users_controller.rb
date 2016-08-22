@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 before_action :require_user, except: [:index, :sign_in, :login, :new, :create]
-before_action :userinfo
   def index
     if current_user
       @usershows = current_user.shows
       @useralbums = current_user.albums
+      userinfo
       render :index
     else
       render :landing
@@ -69,21 +69,6 @@ before_action :userinfo
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation)
     end
-
-    def userinfo
-      if current_user
-        @userqueuedshows = current_user.shows.pluck(:gn_id)
-        @userqueuedmusic = current_user.albums.pluck(:gn_id)
-        finishedshows = current_user.stackings.where(finished: true)&.where(media_type: "Show").pluck(:media_id)
-        finishedmusic = current_user.stackings.where(finished: true)&.where(media_type: "Album").pluck(:media_id)
-        @userfinishedshows = current_user.shows.find(finishedshows).pluck(:gn_id)
-        @userfinishedmusic = current_user.albums.find(finishedmusic).pluck(:gn_id)
-
-        @userid = current_user.id
-      end
-
-    end
-
 
 
 end

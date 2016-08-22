@@ -1,12 +1,12 @@
 class SearchController < ApplicationController
-  before_action :userinfo
 
   def index
     # tv show search through gracenote
+    userinfo
     @tvresults = GNAPI.findTVShow(params[:search])
     @tvparse = []
     unless @tvresults == "NO_MATCH"
-      if singleresult(@tvresults)
+      if singleshowresult(@tvresults)
         @tvparse = [showpath(@tvresults)].map{|series| Series.new(series)}
       else
         @tvparse = showpath(@tvresults).map{|series| Series.new(series)}
@@ -26,7 +26,7 @@ class SearchController < ApplicationController
     # music artist search through gracenote
     @artistresults = GNAPI.findArtist(params[:search])
     unless @artistresults == "NO_MATCH"
-      if singleresult(@artistresults)
+      if singlealbumresult(@artistresults)
         @artistparse = [albumpath(@artistresults)].map{|album| Albumtemp.new(album)}
       else
         @artistparse = albumpath(@artistresults).map{|album| Albumtemp.new(album)}
@@ -78,8 +78,8 @@ class SearchController < ApplicationController
   #
   #   # render json: Showparse.gracenote_showresponse(@tvresults).to_json
   # end
-  #
-  #
+
+
   def detailshow
     @singleshow = GNAPI.fetchTVShow(params[:gn_id])
     @detailparse = Series.new(showpath(@singleshow))
@@ -92,8 +92,12 @@ class SearchController < ApplicationController
 
 
   private
-    def singleresult(object)
+    def singleshowresult(object)
       object["RESPONSES"]["RESPONSE"]["SERIES"].class == Hash
+    end
+
+    def singlealbumresult(object)
+      object["RESPONSES"]["RESPONSE"]["ALBUM"].class == Hash
     end
 
     def showpath(object)
@@ -115,21 +119,6 @@ class SearchController < ApplicationController
     def tvendrange(object)
       object["RESPONSES"]["RESPONSE"]["RANGE"]["END"].to_i
     end
-
-    def userinfo
-      if current_user
-        @userqueuedshows = current_user.shows.pluck(:gn_id)
-        @userqueuedmusic = current_user.albums.pluck(:gn_id)
-        finishedshows = current_user.stackings.where(finished: true)&.where(media_type: "Show").pluck(:media_id)
-        finishedmusic = current_user.stackings.where(finished: true)&.where(media_type: "Album").pluck(:media_id)
-        @userfinishedshows = current_user.shows.find(finishedshows).pluck(:gn_id)
-        @userfinishedmusic = current_user.albums.find(finishedmusic).pluck(:gn_id)
-
-        @userid = current_user.id
-      end
-
-    end
-
 
 
 end

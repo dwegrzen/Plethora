@@ -1,7 +1,8 @@
 class AlbumsController < ApplicationController
 
   def create
-    @album = Album.new(show_params)
+    @album = Album.find_or_create_by(gn_id: params[:gn_id])
+    @album.update(album_params)
     if current_user.albums << @album
       render json: @user, status: :created
     else
@@ -10,21 +11,21 @@ class AlbumsController < ApplicationController
   end
 
   def destroyalbum
-    @stacking = Stacking.where(user_id: current_user.id)&.where(media_id: params[:album_id], media_type: "Album")
+    @stacking = Stacking.where(user_id: current_user.id, media_id: params[:album_id], media_type: "Album")
     @stacking.destroy_all
   end
 
   def albumcompletionstatus
-    @stacking = Stacking.where(user_id: current_user.id)&.where(media_id: params[:album_id], media_type: "Album").first
+    @stacking = Stacking.where(user_id: current_user.id, media_id: params[:album_id], media_type: "Album")
     if params[:finished] == true
-      @stacking.update(finished: true)
+      @stacking.update_all(finished: true)
     else
-      @stacking.update(finished: false)
+      @stacking.update_all(finished: false)
     end
   end
 
   private
-    def show_params
+    def album_params
       params.permit(:name, :genre, :album_art, :tracks, :artist, :date, :gn_id)
     end
 

@@ -4,6 +4,7 @@ class ShowsController < ApplicationController
 
   def create
     @show = Show.find_or_create_by(gn_id: params[:gn_id])
+
     @show.update(show_params)
     if current_user.shows << @show
       render json: @user, status: :created
@@ -13,21 +14,18 @@ class ShowsController < ApplicationController
   end
 
   def destroyshow
-    @stacking = Stacking.where(user_id: current_user.id)&.where(media_id: params[:show_id], media_type: "Show")
+    @stacking = Stacking.where(user_id: current_user.id, media_id: params[:show_id], media_type: "Show")
     @stacking.destroy_all
   end
 
   def showcompletionstatus
-    @stacking = Stacking.where(user_id: current_user.id)&.where(media_id: params[:show_id], media_type: "Show").first
+    @stacking = Stacking.where(user_id: current_user.id, media_id: params[:show_id], media_type: "Show").first
     if params[:finished] == true
-      @stacking.update(finished: true)
+      @stacking.update_all(finished: true)
     else
-      @stacking.update(finished: false)
+      @stacking.update_all(finished: false)
     end
   end
-
-
-
 
  private
    def show_params
