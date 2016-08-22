@@ -13,7 +13,7 @@ class ShowsController < ApplicationController
 
   def destroyshow
     @stacking = Stacking.where(user_id: current_user.id)&.where(media_id: params[:show_id])
-    @stacking.destroy
+    @stacking.destroy_all
   end
 
   def showcompletionstatus
