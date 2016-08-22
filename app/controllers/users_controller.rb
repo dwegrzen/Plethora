@@ -73,10 +73,14 @@ before_action :userinfo
     def userinfo
       if current_user
         @userqueuedshows = current_user.shows.pluck(:gn_id)
-        finishedshows = current_user.stackings.where(finished: true).pluck(:media_id)
-        @userfinishedshows = current_user.shows.find(finishedshows).pluck(:gn_id)
+        @userqueuedmusic = current_user.albums.pluck(:gn_id)
+        finished = current_user.stackings.where(finished: true).pluck(:media_id)
+        @userfinishedshows = current_user.shows.find(finished).pluck(:gn_id)
+        @userfinishedmusic = current_user.albums.find(finished).pluck(:gn_id)
+
         @userid = current_user.id
       end
+      
     end
 
 
