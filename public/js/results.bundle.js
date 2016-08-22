@@ -21522,17 +21522,16 @@
 
 	      var props = this.props;
 	      var Item = this.props.component;
-	      // var items = props.items.map(function(item, i){
-	      //   var finished = props.finished.includes(item.gn_id)
-	      //   var queued = props.queued.includes(item.gn_id)
-	      //   return <Item key={i} series={item} finished={finished} queued={queued}/>
-	      // })
+	      var items = props.items.map(function (item, i) {
+	        var finished = props.finished.includes(item.gn_id);
+	        var queued = props.queued.includes(item.gn_id);
+	        return _react2.default.createElement(Item, { key: i, series: item, finished: finished, queued: queued });
+	      });
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        Item
+	        items
 	      );
-	      // return <div>{items}</div>
 	    }
 	  }]);
 
