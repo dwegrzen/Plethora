@@ -5,7 +5,7 @@ class TVItem extends React.Component {
     super(props)
     this.state = {
       queued: props.queued,
-      series: props.series,
+      series: props.item,
       finished: props.finished
     }
   }
@@ -56,7 +56,7 @@ class TVItem extends React.Component {
     };
 
     var imgStyle = {
-      backgroundImage: 'url(' + this.props.series.show_image + ')'
+      backgroundImage: 'url(' + this.state.series.show_image + ')'
     }
 
     var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'
@@ -66,12 +66,12 @@ class TVItem extends React.Component {
     var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default'
 
     return <div className="col-md-4 col-lg-3">
-      <a className="itemLink" href={"/showdetail/" + this.props.series.gn_id}>
+      <a className="itemLink" href={"/showdetail/" + this.state.series.gn_id}>
         <div className="item center-block" style={imgStyle}>
           <div className="text-center">
             <div className="hoverLayer">
-              <h2 className="tvTitle">{this.props.series.title}</h2>
-              <h5 style={divStyle} className="tvSynopsis center-block" >{this.props.series.synopsis ? this.props.series.synopsis : 'Sorry! There is no synopsis available.'}</h5>
+              <h2 className="tvTitle">{this.state.series.title}</h2>
+              <h5 style={divStyle} className="tvSynopsis center-block" >{this.state.series.synopsis ? this.state.series.synopsis : 'Sorry! There is no synopsis available.'}</h5>
             </div>
 
           </div>

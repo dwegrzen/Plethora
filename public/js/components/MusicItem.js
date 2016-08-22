@@ -5,7 +5,7 @@ class MusicItem extends React.Component {
     super(props)
     this.state = {
       queued: props.queued,
-      music: props.music,
+      music: props.item,
       finished: props.finished
     }
   }
@@ -56,7 +56,7 @@ class MusicItem extends React.Component {
     };
 
     var imgStyle = {
-      backgroundImage: 'url(' + this.props.music.album_art + ')'
+      backgroundImage: 'url(' + this.state.music.album_art + ')'
     }
 
     var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'
@@ -66,12 +66,12 @@ class MusicItem extends React.Component {
     var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default'
 
     return <div className="col-md-4 col-lg-3">
-      <a className="itemLink" href={"/showdetail/" + this.props.music.gn_id}>
+      <a className="itemLink" href={'/showdetail/' + this.state.music.gn_id}>
         <div className="item center-block" style={imgStyle}>
           <div className="text-center">
             <div className="hoverLayer">
-              <h2 className="">{this.props.music.name}</h2>
-              <h5 style={divStyle} className="center-block" >{this.props.music.artist}</h5>
+              <h2 className="">{this.state.music.name}</h2>
+              <h5 style={divStyle} className="center-block" >{this.state.music.artist}</h5>
             </div>
           </div>
         </div>
