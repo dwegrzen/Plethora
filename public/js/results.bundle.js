@@ -58,16 +58,21 @@
 
 	var _Results2 = _interopRequireDefault(_Results);
 
-	var _Item = __webpack_require__(176);
+	var _TVItem = __webpack_require__(176);
 
-	var _Item2 = _interopRequireDefault(_Item);
+	var _TVItem2 = _interopRequireDefault(_TVItem);
+
+	var _MusicItem = __webpack_require__(177);
+
+	var _MusicItem2 = _interopRequireDefault(_MusicItem);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	_reactDom2.default.render(_react2.default.createElement(
 	  'div',
 	  null,
-	  _react2.default.createElement(_Results2.default, { component: _Item2.default, items: railsItems, finished: userFinishedShows, queued: userQueuedShows })
+	  _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows }),
+	  _react2.default.createElement(_Results2.default, { component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic })
 	), document.getElementById('results'));
 
 /***/ },
@@ -21500,7 +21505,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	// import Item from './Item'
+	// import TVItem from './TVItem'
 
 	var Results = function (_React$Component) {
 	  _inherits(Results, _React$Component);
@@ -21517,16 +21522,17 @@
 
 	      var props = this.props;
 	      var Item = this.props.component;
-	      var items = props.items.map(function (item, i) {
-	        var finished = props.finished.includes(item.gn_id);
-	        var queued = props.queued.includes(item.gn_id);
-	        return _react2.default.createElement(Item, { key: i, series: item, finished: finished, queued: queued });
-	      });
+	      // var items = props.items.map(function(item, i){
+	      //   var finished = props.finished.includes(item.gn_id)
+	      //   var queued = props.queued.includes(item.gn_id)
+	      //   return <Item key={i} series={item} finished={finished} queued={queued}/>
+	      // })
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        items
+	        Item
 	      );
+	      // return <div>{items}</div>
 	    }
 	  }]);
 
@@ -21559,13 +21565,13 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Item = function (_React$Component) {
-	  _inherits(Item, _React$Component);
+	var TVItem = function (_React$Component) {
+	  _inherits(TVItem, _React$Component);
 
-	  function Item(props) {
-	    _classCallCheck(this, Item);
+	  function TVItem(props) {
+	    _classCallCheck(this, TVItem);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Item).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TVItem).call(this, props));
 
 	    _this.state = {
 	      queued: props.queued,
@@ -21575,7 +21581,7 @@
 	    return _this;
 	  }
 
-	  _createClass(Item, [{
+	  _createClass(TVItem, [{
 	    key: 'queueToggle',
 	    value: function queueToggle() {
 	      if (!this.state.queued) {
@@ -21602,15 +21608,18 @@
 	  }, {
 	    key: 'finishedToggle',
 	    value: function finishedToggle() {
-	      // fetch('/shows', {
-	      //   method: 'POST',
-	      //   body: JSON.stringify(this.state.series),
-	      //   credentials: 'include',
-	      //   headers: {
-	      //     'Content-Type': 'application/json'
-	      //   }
-	      // })
 	      this.setState({ finished: !this.state.finished });
+	      fetch('/showstatus', {
+	        method: 'PATCH',
+	        body: JSON.stringify({
+	          show_id: this.state.series.id,
+	          finished: !this.state.finished
+	        }),
+	        credentials: 'include',
+	        headers: {
+	          'Content-Type': 'application/json'
+	        }
+	      });
 	    }
 	  }, {
 	    key: 'render',
@@ -21691,10 +21700,174 @@
 	    }
 	  }]);
 
-	  return Item;
+	  return TVItem;
 	}(_react2.default.Component);
 
-	exports.default = Item;
+	exports.default = TVItem;
+
+/***/ },
+/* 177 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MusicItem = function (_React$Component) {
+	  _inherits(MusicItem, _React$Component);
+
+	  function MusicItem(props) {
+	    _classCallCheck(this, MusicItem);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MusicItem).call(this, props));
+
+	    _this.state = {
+	      // queued: props.queued,
+	      music: props.music
+	    };
+	    return _this;
+	  }
+
+	  _createClass(MusicItem, [{
+	    key: 'queueToggle',
+	    value: function queueToggle() {
+	      // if (!this.state.queued) {
+	      fetch('/albums', {
+	        method: 'POST',
+	        body: JSON.stringify(this.state.music),
+	        credentials: 'include',
+	        headers: {
+	          'Content-Type': 'application/json'
+	        }
+	      });
+
+	      // else {
+	      //   fetch('/shows?show_id=' + this.state.series.id, {
+	      //     method: 'DELETE',
+	      //     // body: JSON.stringify(this.state.series),
+	      //     credentials: 'include',
+	      //     headers: {
+	      //       'Content-Type': 'application/json'
+	      //     }
+	      //   })
+	      // }
+	      this.setState({ queued: !this.state.queued });
+	    }
+
+	    // finishedToggle() {
+	    //   this.setState({finished: !this.state.finished})
+	    //   fetch('/showstatus', {
+	    //     method: 'PATCH',
+	    //     body: JSON.stringify({
+	    //       show_id: this.state.series.id,
+	    //       finished: !this.state.finished
+	    //     }),
+	    //     credentials: 'include',
+	    //     headers: {
+	    //       'Content-Type': 'application/json'
+	    //     }
+	    //   })
+	    // }
+
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+
+	      var divStyle = {
+	        visibility: 'hidden',
+	        opacity: 0
+	      };
+
+	      var imgStyle = {
+	        backgroundImage: 'url(' + this.props.music.album_art + ')'
+	      };
+
+	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus';
+
+	      var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default';
+
+	      var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default';
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'col-md-4 col-lg-3' },
+	        _react2.default.createElement(
+	          'a',
+	          { className: 'itemLink', href: "/showdetail/" + this.props.music.gn_id },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'item center-block', style: imgStyle },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'text-center' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'hoverLayer' },
+	                _react2.default.createElement(
+	                  'h2',
+	                  { className: '' },
+	                  this.props.music.title
+	                ),
+	                _react2.default.createElement(
+	                  'h5',
+	                  { style: divStyle, className: 'center-block' },
+	                  this.props.music.artist
+	                )
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'btn-group btn-group-justified' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'btn-group', role: 'group' },
+	            _react2.default.createElement(
+	              'button',
+	              { onClick: function onClick() {
+	                  return _this2.queueToggle();
+	                }, type: 'button', className: queuedBackground },
+	              _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'btn-group', role: 'group' },
+	            _react2.default.createElement(
+	              'button',
+	              { onClick: function onClick() {
+	                  return _this2.finishedToggle();
+	                }, type: 'button', className: finishedBackground },
+	              _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return MusicItem;
+	}(_react2.default.Component);
+
+	exports.default = MusicItem;
 
 /***/ }
 /******/ ]);
