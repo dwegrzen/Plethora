@@ -17,7 +17,7 @@ class ShowsController < ApplicationController
   end
 
   def showcompletionstatus
-    @stacking = Stacking.where(user_id: current_user.id)&.where(media_id: params[:show_id]).first
+    @stacking = Stacking.where(user_id: current_user.id)&.where(media_id: params[:show_id], media_type: "Show").first
     if params[:finished] == true
       @stacking.update(finished: true)
     else
