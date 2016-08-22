@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/dwegrzen/gracenote.git
-  revision: 6b719c28e0867cc2a6de337361b126c31adb87cb
+  revision: 2d54b2edac0f9b6b17dc1c18cbe7d6719ab22123
   specs:
     gracenote (1.2.0)
       crack
@@ -53,7 +53,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.1)
-    autoprefixer-rails (6.4.0.2)
+    autoprefixer-rails (6.4.0.3)
       execjs
     bcrypt (3.1.11)
     bootstrap-sass (3.3.7)

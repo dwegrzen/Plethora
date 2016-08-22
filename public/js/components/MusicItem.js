@@ -78,7 +78,7 @@ class MusicItem extends React.Component {
           </button>
         </div>
         <div className="btn-group" role="group">
-          <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground}><span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground}><span className="glyphicon glyphicon-headphones" aria-hidden="true"></span>
           </button>
         </div>
 

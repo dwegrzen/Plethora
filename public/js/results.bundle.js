@@ -21911,7 +21911,7 @@
 	              { onClick: function onClick() {
 	                  return _this2.finishedToggle();
 	                }, type: 'button', className: finishedBackground },
-	              _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	              _react2.default.createElement('span', { className: 'glyphicon glyphicon-headphones', 'aria-hidden': 'true' })
 	            )
 	          )
 	        )
