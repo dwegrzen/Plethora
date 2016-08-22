@@ -1,6 +1,6 @@
 import React from 'react'
 
-// import Item from './Item'
+// import TVItem from './TVItem'
 
 class Results extends React.Component {
   render() {

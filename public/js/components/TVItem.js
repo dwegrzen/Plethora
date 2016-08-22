@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Item extends React.Component {
+class TVItem extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -35,15 +35,18 @@ class Item extends React.Component {
   }
 
   finishedToggle() {
-    // fetch('/shows', {
-    //   method: 'POST',
-    //   body: JSON.stringify(this.state.series),
-    //   credentials: 'include',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // })
     this.setState({finished: !this.state.finished})
+    fetch('/showstatus', {
+      method: 'PATCH',
+      body: JSON.stringify({
+        show_id: this.state.series.id,
+        finished: !this.state.finished
+      }),
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
   }
 
   render() {
@@ -91,4 +94,4 @@ class Item extends React.Component {
   }
 }
 
-export default Item
+export default TVItem

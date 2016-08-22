@@ -36,49 +36,49 @@ class SearchController < ApplicationController
     # render json: Showparse.gracenote_showresponse(@tvresults).to_json
   end
 
-  def indexpaginated
-    # tv show search through gracenote
-    @tvresults = GNAPI.findTVShow(params[:search])
-    unless @tvresults == "NO_MATCH"
-      @totaltv = tvresulttotal(@tvresults)
-      if @totaltv > tvendrange(@tvresults)
-        @next = 
-
-
-
-      @nextvalue = tvendrange(@tvresults)
-        if singleresult(@tvresults)
-          @tvparse = [showpath(@tvresults)].map{|series| Series.new(series)}
-        else
-          @tvparse = showpath(@tvresults).map{|series| Series.new(series)}
-        end
-    end
-
-    # music album search through gracenote
-    @albumresults = GNAPI.findAlbum("",params[:search])
-    unless @albumresults == "NO_MATCH"
-      if singleresult(@albumresults)
-        @albumparse = [albumpath(@albumresults)].map{|album| Albumtemp.new(album)}
-      else
-        @albumparse = albumpath(@albumresults).map{|album| Albumtemp.new(album)}
-      end
-    end
-
-    # music artist search through gracenote
-    @artistresults = GNAPI.findArtist(params[:search])
-    unless @artistresults == "NO_MATCH"
-      if singleresult(@artistresults)
-        @artistparse = [albumpath(@artistresults)].map{|album| Albumtemp.new(album)}
-      else
-        @artistparse = albumpath(@artistresults).map{|album| Albumtemp.new(album)}
-      end
-    end
-
-
-    # render json: Showparse.gracenote_showresponse(@tvresults).to_json
-  end
-
-
+  # def indexpaginated
+  #   # tv show search through gracenote
+  #   @tvresults = GNAPI.findTVShow(params[:search])
+  #   unless @tvresults == "NO_MATCH"
+  #     @totaltv = tvresulttotal(@tvresults)
+  #     if @totaltv > tvendrange(@tvresults)
+  #       @next =
+  #
+  #   end
+  #
+  #     @nextvalue = tvendrange(@tvresults)
+  #       if singleresult(@tvresults)
+  #         @tvparse = [showpath(@tvresults)].map{|series| Series.new(series)}
+  #       else
+  #         @tvparse = showpath(@tvresults).map{|series| Series.new(series)}
+  #       end
+  #   end
+  #
+  #   # music album search through gracenote
+  #   @albumresults = GNAPI.findAlbum("",params[:search])
+  #   unless @albumresults == "NO_MATCH"
+  #     if singleresult(@albumresults)
+  #       @albumparse = [albumpath(@albumresults)].map{|album| Albumtemp.new(album)}
+  #     else
+  #       @albumparse = albumpath(@albumresults).map{|album| Albumtemp.new(album)}
+  #     end
+  #   end
+  #
+  #   # music artist search through gracenote
+  #   @artistresults = GNAPI.findArtist(params[:search])
+  #   unless @artistresults == "NO_MATCH"
+  #     if singleresult(@artistresults)
+  #       @artistparse = [albumpath(@artistresults)].map{|album| Albumtemp.new(album)}
+  #     else
+  #       @artistparse = albumpath(@artistresults).map{|album| Albumtemp.new(album)}
+  #     end
+  #   end
+  #
+  #
+  #   # render json: Showparse.gracenote_showresponse(@tvresults).to_json
+  # end
+  #
+  #
   def detailshow
     @singleshow = GNAPI.fetchTVShow(params[:gn_id])
     @detailparse = Series.new(showpath(@singleshow))
