@@ -72,9 +72,13 @@
 	  'div',
 	  null,
 	  _react2.default.createElement(
-	    'h1',
-	    null,
-	    'TV'
+	    'a',
+	    { href: '/shows' },
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      'TV'
+	    )
 	  ),
 	  _react2.default.createElement(
 	    'h2',
@@ -107,9 +111,13 @@
 	    _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, addToQueue: true })
 	  ),
 	  _react2.default.createElement(
-	    'h1',
-	    null,
-	    'Music'
+	    'a',
+	    { href: '#' },
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      'Music'
+	    )
 	  ),
 	  _react2.default.createElement(
 	    'div',
