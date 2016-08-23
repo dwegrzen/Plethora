@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 before_action :require_user, except: [:index, :sign_in, :login, :new, :create]
+
   def index
     if current_user
       @usershows = current_user.shows
