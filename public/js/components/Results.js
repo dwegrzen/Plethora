@@ -33,7 +33,20 @@ class Results extends React.Component {
       var queued = props.queued.includes(item.gn_id)
       return <Item key={i} item={item} finished={finished} queued={queued}/>
     })
-    return <div>{items}</div>
+
+    if (items.length) {
+      return (
+        <div>
+          <h2>{this.props.label}</h2>
+          <div className="row">
+            {items}
+          </div>
+        </div>
+      )
+    }
+
+    return <div></div>
+
   }
 }
 

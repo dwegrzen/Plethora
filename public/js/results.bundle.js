@@ -68,54 +68,50 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var tvResults = [];
+	var musicResults = [];
+
+	if (typeof TVItems != 'undefined') {
+	  tvResults = _react2.default.createElement(
+	    'section',
+	    { className: 'container' },
+	    _react2.default.createElement(
+	      'a',
+	      { href: '/shows' },
+	      _react2.default.createElement(
+	        'h1',
+	        { className: 'text-center' },
+	        'TV'
+	      )
+	    ),
+	    _react2.default.createElement(_Results2.default, { label: 'Queued', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showQueued: true }),
+	    _react2.default.createElement(_Results2.default, { label: 'Finished', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showFinished: true }),
+	    _react2.default.createElement(_Results2.default, { label: 'Other', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, addToQueue: true })
+	  );
+	}
+
+	if (typeof MusicItems != 'undefined') {
+	  musicResults = _react2.default.createElement(
+	    'section',
+	    { className: 'container' },
+	    _react2.default.createElement(
+	      'a',
+	      { href: '/albums' },
+	      _react2.default.createElement(
+	        'h1',
+	        { className: 'text-center' },
+	        'Music'
+	      )
+	    ),
+	    _react2.default.createElement(_Results2.default, { label: '', component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic })
+	  );
+	}
+
 	_reactDom2.default.render(_react2.default.createElement(
 	  'div',
 	  null,
-	  _react2.default.createElement(
-	    'h1',
-	    null,
-	    'TV'
-	  ),
-	  _react2.default.createElement(
-	    'h2',
-	    null,
-	    'Queued'
-	  ),
-	  _react2.default.createElement(
-	    'div',
-	    { className: 'row' },
-	    _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showQueued: true })
-	  ),
-	  _react2.default.createElement(
-	    'h2',
-	    null,
-	    'Finished'
-	  ),
-	  _react2.default.createElement(
-	    'div',
-	    { className: 'row' },
-	    _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showFinished: true })
-	  ),
-	  _react2.default.createElement(
-	    'h2',
-	    null,
-	    'Other'
-	  ),
-	  _react2.default.createElement(
-	    'div',
-	    { className: 'row' },
-	    _react2.default.createElement(_Results2.default, { component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, addToQueue: true })
-	  ),
-	  _react2.default.createElement(
-	    'h1',
-	    null,
-	    'Music'
-	  ),
-	  _react2.default.createElement(
-	    'div',
-	    { className: 'row' },
-	    _react2.default.createElement(_Results2.default, { component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic })
-	  )
+	  tvResults,
+	  musicResults
 	), document.getElementById('results'));
 
 /***/ },
@@ -21528,7 +21524,7 @@
 /* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -21560,7 +21556,7 @@
 	  }
 
 	  _createClass(Results, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
 
 	      var props = this.props;
@@ -21588,11 +21584,25 @@
 	        var queued = props.queued.includes(item.gn_id);
 	        return _react2.default.createElement(Item, { key: i, item: item, finished: finished, queued: queued });
 	      });
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        items
-	      );
+
+	      if (items.length) {
+	        return _react2.default.createElement(
+	          "div",
+	          null,
+	          _react2.default.createElement(
+	            "h2",
+	            null,
+	            this.props.label
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "row" },
+	            items
+	          )
+	        );
+	      }
+
+	      return _react2.default.createElement("div", null);
 	    }
 	  }]);
 

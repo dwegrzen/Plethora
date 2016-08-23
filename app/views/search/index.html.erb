@@ -1,5 +1,14 @@
 <h4 id="notice"><span class="label label-info"><%= notice %></span></h4>
 
+<%= form_tag search_path, id: 'searchBarAndButton', method: "get" do %>
+<%= text_field_tag :search, params[:search], placeholder: "Show, artist, whatever else", id: 'searchBar' %>
+
+<%= button_tag(type: 'submit', class: 'btn', id: 'searchBtn') do %>
+  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+<% end %>
+
+<% end %>
+
 <div class="container">
   <div class="row">
     <% if !@tvparse %>
