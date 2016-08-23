@@ -2,6 +2,12 @@ class ShowsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :require_user
 
+  def index
+    @show = current_user.shows
+    userinfo
+    render :index
+  end
+
   def create
     @show = Show.find_or_create_by(gn_id: params[:gn_id])
 
