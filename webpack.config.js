@@ -1,7 +1,6 @@
 module.exports = {
   entry: {
-    results: './public/js/results.js',
-    result: './public/js/result.js'
+    results: './public/js/results.js'
   },
   output: {
     path: './public/js/',

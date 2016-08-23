@@ -68,31 +68,50 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var tvResults = [];
+	var musicResults = [];
+
+	if (typeof TVItems != 'undefined') {
+	  tvResults = _react2.default.createElement(
+	    'section',
+	    { className: 'container' },
+	    _react2.default.createElement(
+	      'a',
+	      { href: '/shows' },
+	      _react2.default.createElement(
+	        'h1',
+	        { className: 'text-center' },
+	        'TV'
+	      )
+	    ),
+	    _react2.default.createElement(_Results2.default, { label: 'Queued', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showQueued: true }),
+	    _react2.default.createElement(_Results2.default, { label: 'Finished', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showFinished: true }),
+	    _react2.default.createElement(_Results2.default, { label: 'Other', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, addToQueue: true })
+	  );
+	}
+
+	if (typeof MusicItems != 'undefined') {
+	  musicResults = _react2.default.createElement(
+	    'section',
+	    { className: 'container' },
+	    _react2.default.createElement(
+	      'a',
+	      { href: '/albums' },
+	      _react2.default.createElement(
+	        'h1',
+	        { className: 'text-center' },
+	        'Music'
+	      )
+	    ),
+	    _react2.default.createElement(_Results2.default, { label: '', component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic })
+	  );
+	}
+
 	_reactDom2.default.render(_react2.default.createElement(
 	  'div',
 	  null,
-	  _react2.default.createElement(
-	    'a',
-	    { href: '/shows' },
-	    _react2.default.createElement(
-	      'h1',
-	      { className: 'text-center' },
-	      'TV'
-	    )
-	  ),
-	  _react2.default.createElement(_Results2.default, { label: 'Queued', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showQueued: true }),
-	  _react2.default.createElement(_Results2.default, { label: 'Finished', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showFinished: true }),
-	  _react2.default.createElement(_Results2.default, { label: 'Other', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, addToQueue: true }),
-	  _react2.default.createElement(
-	    'a',
-	    { href: '#' },
-	    _react2.default.createElement(
-	      'h1',
-	      { className: 'text-center' },
-	      'Music'
-	    )
-	  ),
-	  _react2.default.createElement(_Results2.default, { label: '', component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic })
+	  tvResults,
+	  musicResults
 	), document.getElementById('results'));
 
 /***/ },
