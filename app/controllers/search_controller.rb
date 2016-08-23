@@ -33,6 +33,10 @@ class SearchController < ApplicationController
       end
     end
 
+    # movie search through tmdb
+    @movieresults = Tmdb::Movie.find(params[:search])
+
+
 
     # render json: Showparse.gracenote_showresponse(@tvresults).to_json
   end
