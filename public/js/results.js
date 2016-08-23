@@ -4,9 +4,11 @@ import ReactDOM from 'react-dom'
 import Results from './components/Results'
 import tvItem from './components/TVItem'
 import musicItem from './components/MusicItem'
+// import movieItem from './components/MovieItem'
 
 var tvResults = []
 var musicResults = []
+// var movieResults = []
 
 if (typeof TVItems != 'undefined') {
   tvResults = (
@@ -32,10 +34,21 @@ if (typeof MusicItems != 'undefined') {
   )
 }
 
+// if (typeof MovieItems != 'undefined') {
+//   movieResults = (
+//     <section className="container">
+//       <h1 className="text-center"><a href="/albums">Music</a></h1>
+//
+//       <Results label="" component={movieItem} items={MovieItems} finished={userFinishedMovies} queued={userQueuedMovies}/>
+//     </section>
+//   )
+// }
+
 ReactDOM.render(
   <div>
     {tvResults}
     {musicResults}
+    {/* {movieResults} */}
   </div>,
     document.getElementById('results')
 )
