@@ -11,7 +11,7 @@ var musicResults = []
 if (typeof TVItems != 'undefined') {
   tvResults = (
     <section className="container">
-      <a href="/shows"><h1 className="text-center">TV</h1></a>
+      <h1 className="text-center"><a href="/shows">TV</a></h1>
 
       <Results label="Queued" component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} showQueued={true}/>
 
@@ -25,7 +25,7 @@ if (typeof TVItems != 'undefined') {
 if (typeof MusicItems != 'undefined') {
   musicResults = (
     <section className="container">
-      <a href="/albums"><h1 className="text-center">Music</h1></a>
+      <h1 className="text-center"><a href="/albums">Music</a></h1>
 
       <Results label="" component={musicItem} items={MusicItems} finished={userFinishedMusic} queued={userQueuedMusic}/>
     </section>

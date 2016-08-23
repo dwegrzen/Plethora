@@ -76,11 +76,11 @@
 	    'section',
 	    { className: 'container' },
 	    _react2.default.createElement(
-	      'a',
-	      { href: '/shows' },
+	      'h1',
+	      { className: 'text-center' },
 	      _react2.default.createElement(
-	        'h1',
-	        { className: 'text-center' },
+	        'a',
+	        { href: '/shows' },
 	        'TV'
 	      )
 	    ),
@@ -95,11 +95,11 @@
 	    'section',
 	    { className: 'container' },
 	    _react2.default.createElement(
-	      'a',
-	      { href: '/albums' },
+	      'h1',
+	      { className: 'text-center' },
 	      _react2.default.createElement(
-	        'h1',
-	        { className: 'text-center' },
+	        'a',
+	        { href: '/albums' },
 	        'Music'
 	      )
 	    ),

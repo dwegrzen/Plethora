@@ -1,15 +1,14 @@
-<div class="row">
-  <div class="col-sm-5 <%= series.gn_id %>">
-    <img class="searchImage center-block" src="<%=series.show_image%>">
-  </div>
-  <div class="col-sm-7">
-    <h2><%= "Title: #{series.title}" %></h2>
-    <h3>Synopsis: <%= series.fulldesc %></h3>
-    <h3>Date: <%= series.date %></h3>
-    <h3>Genre: <%= series.genre %></h3>
-    <h3>Seasons: <%= series.seasons %></h3>
-    <h3>Contributors: <%= series.contributor %></h3>
-  </div>
+<div class="col-sm-5 <%= series.gn_id %>">
+  <img class="searchImage center-block img-responsive" src="<%=series.show_image%>">
 </div>
+<div class="col-sm-7">
+  <h2><%= "Title: #{series.title}" %></h2>
+  <h3>Synopsis: <%= series.fulldesc %></h3>
+  <h3>Date: <%= series.date %></h3>
+  <h3>Genre: <%= series.genre %></h3>
+  <h3>Seasons: <%= series.seasons %></h3>
+  <h3>Contributors: <%= series.contributor %></h3>
+</div>
+
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57b5bb560b6e840b"></script>

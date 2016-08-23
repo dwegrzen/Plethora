@@ -1,15 +1,14 @@
-<div class="row">
-  <div class="col-sm-5 <%= album.gn_id %>">
-    <img class="searchImage center-block" src="<%=album.album_art%>">
-  </div>
-  <div class="col-sm-7">
-    <h2><%= "Album Name: #{album.name}" %></h2>
-    <h3>Artist: <%= album.artist %></h3>
-    <h3>Date: <%= album.date %></h3>
-    <h3>Genre: <%= album.genre %></h3>
-    <h3>Track Count: <%= album.tracks %></h3>
-    <h3>Tracks: <%= album.trackname %></h3>
-  </div>
+<div class="col-sm-5 <%= album.gn_id %>">
+  <img class="searchImage center-block img-responsive" src="<%=album.album_art%>">
 </div>
+<div class="col-sm-7">
+  <h2><%= "Album Name: #{album.name}" %></h2>
+  <h3>Artist: <%= album.artist %></h3>
+  <h3>Date: <%= album.date %></h3>
+  <h3>Genre: <%= album.genre %></h3>
+  <h3>Track Count: <%= album.tracks %></h3>
+  <h3>Tracks: <%= album.trackname %></h3>
+</div>
+
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57b5bb560b6e840b"></script>
