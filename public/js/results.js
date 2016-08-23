@@ -7,7 +7,7 @@ import musicItem from './components/MusicItem'
 
 ReactDOM.render(
   <div>
-    <a href="/shows"><h1>TV</h1></a>
+    <a href="/shows"><h1 className="text-center">TV</h1></a>
     <h2>Queued</h2>
     <div className="row">
       <Results component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} showQueued={true}/>
@@ -20,7 +20,7 @@ ReactDOM.render(
     <div className="row">
       <Results component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} addToQueue={true}/>
     </div>
-    <a href="#"><h1>Music</h1></a>
+    <a href="#"><h1 className="text-center">Music</h1></a>
     <div className="row">
       <Results component={musicItem} items={MusicItems} finished={userFinishedMusic} queued={userQueuedMusic}/>
     </div>

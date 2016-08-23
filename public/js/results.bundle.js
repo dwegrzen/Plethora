@@ -76,7 +76,7 @@
 	    { href: '/shows' },
 	    _react2.default.createElement(
 	      'h1',
-	      null,
+	      { className: 'text-center' },
 	      'TV'
 	    )
 	  ),
@@ -115,7 +115,7 @@
 	    { href: '#' },
 	    _react2.default.createElement(
 	      'h1',
-	      null,
+	      { className: 'text-center' },
 	      'Music'
 	    )
 	  ),
