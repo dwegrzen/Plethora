@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :require_user
 
   def index
     @albums = current_user.albums
