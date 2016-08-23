@@ -8,22 +8,17 @@ import musicItem from './components/MusicItem'
 ReactDOM.render(
   <div>
     <a href="/shows"><h1 className="text-center">TV</h1></a>
-    <h2>Queued</h2>
-    <div className="row">
-      <Results component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} showQueued={true}/>
-    </div>
-    <h2>Finished</h2>
-    <div className="row">
-      <Results component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} showFinished={true}/>
-    </div>
-    <h2>Other</h2>
-    <div className="row">
-      <Results component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} addToQueue={true}/>
-    </div>
+
+    <Results label="Queued" component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} showQueued={true}/>
+
+    <Results label="Finished" component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} showFinished={true}/>
+
+    <Results label="Other" component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} addToQueue={true}/>
+
     <a href="#"><h1 className="text-center">Music</h1></a>
-    <div className="row">
-      <Results component={musicItem} items={MusicItems} finished={userFinishedMusic} queued={userQueuedMusic}/>
-    </div>
+
+    <Results label="" component={musicItem} items={MusicItems} finished={userFinishedMusic} queued={userQueuedMusic}/>
+    
   </div>,
     document.getElementById('results')
 )
