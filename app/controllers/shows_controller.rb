@@ -3,7 +3,7 @@ class ShowsController < ApplicationController
   before_action :require_user
 
   def index
-    @show = current_user.shows
+    @shows = current_user.shows
     userinfo
     render :index
   end

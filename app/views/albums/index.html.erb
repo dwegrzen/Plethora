@@ -2,9 +2,6 @@
 <!-- hello registered plethora user. this site is not currently up yet. come back later. -->
 <br /><br />
 
-
-
-
 <%= form_tag search_path, id: 'searchBarAndButton', method: "get" do %>
 <%= text_field_tag :search, params[:search], placeholder: "Show, artist, whatever else", id: 'searchBar' %>
 
@@ -19,9 +16,9 @@
 </div>
 
 <script>
-  var TVItems = <%== @shows.to_json %>;
-  var userQueuedShows = <%==@userqueuedshows.to_json %>;
-  var userFinishedShows = <%==@userfinishedshows.to_json %>;
+var MusicItems = <%== @albums.to_json %>;
+var userQueuedMusic = <%==@userqueuedmusic.to_json %>;
+var userFinishedMusic = <%==@userfinishedmusic.to_json %>;
 
 </script>
 <script src="/js/searchBar.js"></script>

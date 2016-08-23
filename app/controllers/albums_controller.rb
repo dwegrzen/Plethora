@@ -1,6 +1,12 @@
 class AlbumsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
+  def index
+    @albums = current_user.albums
+    userinfo
+    render :index
+  end
+
   def create
     @album = Album.find_or_create_by(gn_id: params[:gn_id])
     @album.update(album_params)
