@@ -1,7 +1,7 @@
 <h4 id="notice"><span class="label label-info"><%= notice %></span></h4>
 
 <%= form_tag search_path, id: 'searchBarAndButton', method: "get" do %>
-<%= text_field_tag :search, params[:search], placeholder: "Show, artist, whatever else", id: 'searchBar' %>
+<%= text_field_tag :search, params[:search], placeholder: "Search by title or artist", id: 'searchBar' %>
 
 <%= button_tag(type: 'submit', class: 'btn', id: 'searchBtn') do %>
   <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -21,11 +21,8 @@
   var userQueuedMusic = <%==@userqueuedmusic.to_json %>;
   var userFinishedMusic = <%==@userfinishedmusic.to_json %>;
   var MovieItems = <%== @usermovies.to_json %>
-  console.log(MovieItems)
   var userQueuedMovies = <%== @userqueuedmovies.to_json %>
-  console.log(userQueuedMovies)
   var userFinishedMovies = <%== @userfinishedmovies.to_json %>
-  console.log(userFinishedMovies)
 
 </script>
 <script src="/js/searchBar.js"></script>

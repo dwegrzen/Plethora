@@ -82,7 +82,7 @@
 	    { className: 'container' },
 	    _react2.default.createElement(
 	      'h1',
-	      { className: 'text-center' },
+	      { className: 'mediaCat' },
 	      _react2.default.createElement(
 	        'a',
 	        { href: '/shows' },
@@ -101,7 +101,7 @@
 	    { className: 'container' },
 	    _react2.default.createElement(
 	      'h1',
-	      { className: 'text-center' },
+	      { className: 'mediaCat' },
 	      _react2.default.createElement(
 	        'a',
 	        { href: '/albums' },
@@ -120,7 +120,7 @@
 	    { className: 'container' },
 	    _react2.default.createElement(
 	      'h1',
-	      { className: 'text-center' },
+	      { className: 'mediaCat' },
 	      _react2.default.createElement(
 	        'a',
 	        { href: '/movies' },
