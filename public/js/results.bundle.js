@@ -90,8 +90,8 @@
 	      )
 	    ),
 	    _react2.default.createElement(_Results2.default, { label: 'Queued', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showQueued: true }),
-	    _react2.default.createElement(_Results2.default, { label: 'Finished', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showFinished: true }),
-	    _react2.default.createElement(_Results2.default, { label: 'Other', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, addToQueue: true })
+	    _react2.default.createElement(_Results2.default, { label: 'Watched', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showFinished: true }),
+	    _react2.default.createElement(_Results2.default, { label: 'Add to Queue', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, addToQueue: true })
 	  );
 	}
 
@@ -108,7 +108,9 @@
 	        'Music'
 	      )
 	    ),
-	    _react2.default.createElement(_Results2.default, { label: '', component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic })
+	    _react2.default.createElement(_Results2.default, { label: 'Queued', component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic, showQueued: true }),
+	    _react2.default.createElement(_Results2.default, { label: 'Listened To', component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic, showFinished: true }),
+	    _react2.default.createElement(_Results2.default, { label: 'Add to Queue', component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic, addToQueue: true })
 	  );
 	}
 
@@ -125,7 +127,9 @@
 	        'Movies'
 	      )
 	    ),
-	    _react2.default.createElement(_Results2.default, { label: '', component: _MovieItem2.default, items: MovieItems, finished: userFinishedMovies, queued: userQueuedMovies })
+	    _react2.default.createElement(_Results2.default, { label: 'Queued', component: _MovieItem2.default, items: MovieItems, finished: userFinishedMovies, queued: userQueuedMovies, showQueued: true }),
+	    _react2.default.createElement(_Results2.default, { label: 'Watched', component: _MovieItem2.default, items: MovieItems, finished: userFinishedMovies, queued: userQueuedMovies, showFinished: true }),
+	    _react2.default.createElement(_Results2.default, { label: 'Add to Queue', component: _MovieItem2.default, items: MovieItems, finished: userFinishedMovies, queued: userQueuedMovies, addToQueue: true })
 	  );
 	}
 
@@ -21547,13 +21551,11 @@
 /* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -21569,8 +21571,6 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	// import TVItem from './TVItem'
-
 	var Results = function (_React$Component) {
 	  _inherits(Results, _React$Component);
 
@@ -21581,18 +21581,12 @@
 	  }
 
 	  _createClass(Results, [{
-	    key: "findId",
+	    key: 'findId',
 	    value: function findId(item) {
-	      if (_typeof(item.gn_id) === undefined && _typeof(item.tmdb_id) === undefined) {
-	        return item.id;
-	      } else if (_typeof(item.tmdb_id) === !undefined) {
-	        return item.tmdb_id;
-	      } else {
-	        return item.gn_id;
-	      }
+	      return typeof item.gn_id === 'undefined' ? item.tmdb_id : item.gn_id;
 	    }
 	  }, {
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
 
@@ -21628,22 +21622,22 @@
 
 	      if (items.length) {
 	        return _react2.default.createElement(
-	          "div",
+	          'div',
 	          null,
 	          _react2.default.createElement(
-	            "h2",
+	            'h2',
 	            null,
 	            this.props.label
 	          ),
 	          _react2.default.createElement(
-	            "div",
-	            { className: "row" },
+	            'div',
+	            { className: 'row' },
 	            items
 	          )
 	        );
 	      }
 
-	      return _react2.default.createElement("div", null);
+	      return _react2.default.createElement('div', null);
 	    }
 	  }]);
 
@@ -21769,7 +21763,7 @@
 	                { className: 'hoverLayer' },
 	                _react2.default.createElement(
 	                  'h2',
-	                  { className: 'tvTitle' },
+	                  { className: 'title', style: divStyle },
 	                  this.state.series.title
 	                ),
 	                _react2.default.createElement(
@@ -21901,6 +21895,11 @@
 	    value: function render() {
 	      var _this2 = this;
 
+	      var divStyle = {
+	        visibility: 'hidden',
+	        opacity: 0
+	      };
+
 	      var imgStyle = {
 	        backgroundImage: 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url(' + this.state.music.album_art + ')'
 	      };
@@ -21928,12 +21927,12 @@
 	                { className: 'hoverLayer' },
 	                _react2.default.createElement(
 	                  'h2',
-	                  { className: 'albumName' },
+	                  { className: 'albumName', style: divStyle },
 	                  this.state.music.name
 	                ),
 	                _react2.default.createElement(
 	                  'h2',
-	                  { className: 'artistName center-block' },
+	                  { className: 'artistName center-block', style: divStyle },
 	                  this.state.music.artist
 	                )
 	              )
@@ -22046,7 +22045,7 @@
 	      fetch('/moviestatus', {
 	        method: 'PATCH',
 	        body: JSON.stringify({
-	          show_id: this.state.movies.id,
+	          movie_id: this.state.movies.id,
 	          finished: !this.state.finished
 	        }),
 	        credentials: 'include',
@@ -22092,7 +22091,7 @@
 	                { className: 'hoverLayer' },
 	                _react2.default.createElement(
 	                  'h2',
-	                  { className: 'tvTitle' },
+	                  { className: 'title', style: divStyle },
 	                  this.state.movies.name
 	                ),
 	                _react2.default.createElement(

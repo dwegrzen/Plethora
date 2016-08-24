@@ -50,6 +50,10 @@ class MusicItem extends React.Component {
   }
 
   render() {
+    var divStyle = {
+      visibility: 'hidden',
+      opacity: 0,
+    }
 
     var imgStyle = {
       backgroundImage: 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url(' + this.state.music.album_art + ')'
@@ -66,8 +70,8 @@ class MusicItem extends React.Component {
         <div className="item center-block" style={imgStyle}>
           <div className="text-center">
             <div className="hoverLayer">
-              <h2 className="albumName">{this.state.music.name}</h2>
-              <h2 className="artistName center-block" >{this.state.music.artist}</h2>
+              <h2 className="albumName" style={divStyle}>{this.state.music.name}</h2>
+              <h2 className="artistName center-block" style={divStyle} >{this.state.music.artist}</h2>
             </div>
           </div>
         </div>

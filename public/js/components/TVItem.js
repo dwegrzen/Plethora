@@ -70,7 +70,7 @@ class TVItem extends React.Component {
         <div className="item center-block" style={imgStyle}>
           <div className="text-center">
             <div className="hoverLayer">
-              <h2 className="tvTitle">{this.state.series.title}</h2>
+              <h2 className="title" style={divStyle}>{this.state.series.title}</h2>
               <h5 style={divStyle} className="tvSynopsis center-block" >{this.state.series.synopsis ? this.state.series.synopsis : 'Sorry! There is no synopsis available.'}</h5>
             </div>
 

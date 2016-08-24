@@ -17,9 +17,9 @@ if (typeof TVItems != 'undefined') {
 
       <Results label="Queued" component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} showQueued={true}/>
 
-      <Results label="Finished" component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} showFinished={true}/>
+      <Results label="Watched" component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} showFinished={true}/>
 
-      <Results label="Other" component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} addToQueue={true}/>
+      <Results label="Add to Queue" component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} addToQueue={true}/>
     </section>
   )
 }
@@ -29,7 +29,11 @@ if (typeof MusicItems != 'undefined') {
     <section className="container">
       <h1 className="text-center"><a href="/albums">Music</a></h1>
 
-      <Results label="" component={musicItem} items={MusicItems} finished={userFinishedMusic} queued={userQueuedMusic}/>
+      <Results label="Queued" component={musicItem} items={MusicItems} finished={userFinishedMusic} queued={userQueuedMusic} showQueued={true}/>
+
+      <Results label="Listened To" component={musicItem} items={MusicItems} finished={userFinishedMusic} queued={userQueuedMusic} showFinished={true}/>
+
+      <Results label="Add to Queue" component={musicItem} items={MusicItems} finished={userFinishedMusic} queued={userQueuedMusic} addToQueue={true}/>
     </section>
   )
 }
@@ -39,7 +43,12 @@ if (typeof MovieItems != 'undefined') {
     <section className="container">
       <h1 className="text-center"><a href="/movies">Movies</a></h1>
 
-      <Results label="" component={movieItem} items={MovieItems} finished={userFinishedMovies} queued={userQueuedMovies}/>
+      <Results label="Queued" component={movieItem} items={MovieItems} finished={userFinishedMovies} queued={userQueuedMovies} showQueued={true}/>
+
+      <Results label="Watched" component={movieItem} items={MovieItems} finished={userFinishedMovies} queued={userQueuedMovies} showFinished={true}/>
+
+      <Results label="Add to Queue" component={movieItem} items={MovieItems} finished={userFinishedMovies} queued={userQueuedMovies} addToQueue={true}/>
+
     </section>
   )
 }

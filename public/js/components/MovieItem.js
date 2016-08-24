@@ -39,7 +39,7 @@ class MovieItem extends React.Component {
     fetch('/moviestatus', {
       method: 'PATCH',
       body: JSON.stringify({
-        show_id: this.state.movies.id,
+        movie_id: this.state.movies.id,
         finished: !this.state.finished
       }),
       credentials: 'include',
@@ -70,7 +70,7 @@ class MovieItem extends React.Component {
         <div className="item center-block" style={imgStyle}>
           <div className="text-center">
             <div className="hoverLayer">
-              <h2 className="tvTitle">{this.state.movies.name}</h2>
+              <h2 className="title" style={divStyle}>{this.state.movies.name}</h2>
               <h5 style={divStyle} className="tvSynopsis center-block" >{this.state.movies.summary ? this.state.movies.summary : 'Sorry! There is no overview available.'}</h5>
             </div>
 
