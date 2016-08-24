@@ -32,7 +32,7 @@ class Film
 
    def summaryset
      if self.overview
-       self.summary = truncate(overview, length: 200)
+       self.summary = truncate(overview, length: 150, escape: false)
      end
    end
 

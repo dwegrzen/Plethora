@@ -5,6 +5,7 @@ before_action :require_user, except: [:index, :sign_in, :login, :new, :create]
     if current_user
       @usershows = current_user.shows
       @useralbums = current_user.albums
+      @usermovies = current_user.movies
       userinfo
       render :index
     else
