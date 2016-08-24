@@ -6,8 +6,10 @@ class Results extends React.Component {
   findId(item) {
     return (typeof item.gn_id === undefined) ? item.id : item.gn_id
 
-    //if (typeof item.gn_id === undefined && typeof item.gn_id === undefined) {
-    return 
+    // if (typeof item.gn_id === undefined && typeof item.gn_id === undefined) {
+    // return item.id
+    //else
+
   }
 
   }
