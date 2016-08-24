@@ -21583,7 +21583,13 @@
 	  _createClass(Results, [{
 	    key: "findId",
 	    value: function findId(item) {
-	      return _typeof(item.gn_id) === undefined ? item.id : item.gn_id;
+	      if (_typeof(item.gn_id) === undefined && _typeof(item.tmdb_id) === undefined) {
+	        return item.id;
+	      } else if (_typeof(item.tmdb_id) === !undefined) {
+	        return item.tmdb_id;
+	      } else {
+	        return item.gn_id;
+	      }
 	    }
 	  }, {
 	    key: "render",
@@ -22009,69 +22015,72 @@
 	    return _this;
 	  }
 
-	  // queueToggle() {
-	  //   if (!this.state.queued) {
-	  //     fetch('/shows', {
-	  //       method: 'POST',
-	  //       body: JSON.stringify(this.state.series),
-	  //       credentials: 'include',
-	  //       headers: {
-	  //         'Content-Type': 'application/json'
-	  //       }
-	  //     })
-	  //   }
-	  //   else {
-	  //     fetch('/shows?show_id=' + this.state.series.id, {
-	  //       method: 'DELETE',
-	  //       // body: JSON.stringify(this.state.series),
-	  //       credentials: 'include',
-	  //       headers: {
-	  //         'Content-Type': 'application/json'
-	  //       }
-	  //     })
-	  //   }
-	  //   this.setState({queued: !this.state.queued})
-	  // }
-	  //
-	  // finishedToggle() {
-	  //   this.setState({finished: !this.state.finished})
-	  //   fetch('/showstatus', {
-	  //     method: 'PATCH',
-	  //     body: JSON.stringify({
-	  //       show_id: this.state.series.id,
-	  //       finished: !this.state.finished
-	  //     }),
-	  //     credentials: 'include',
-	  //     headers: {
-	  //       'Content-Type': 'application/json'
-	  //     }
-	  //   })
-	  // }
-
 	  _createClass(MovieItem, [{
+	    key: 'queueToggle',
+	    value: function queueToggle() {
+	      if (!this.state.queued) {
+	        fetch('/movies', {
+	          method: 'POST',
+	          body: JSON.stringify(this.state.movies),
+	          credentials: 'include',
+	          headers: {
+	            'Content-Type': 'application/json'
+	          }
+	        });
+	      } else {
+	        fetch('/movies?movie_id=' + this.state.movies.id, {
+	          method: 'DELETE',
+	          // body: JSON.stringify(this.state.movies),
+	          credentials: 'include',
+	          headers: {
+	            'Content-Type': 'application/json'
+	          }
+	        });
+	      }
+	      this.setState({ queued: !this.state.queued });
+	    }
+	  }, {
+	    key: 'finishedToggle',
+	    value: function finishedToggle() {
+	      this.setState({ finished: !this.state.finished });
+	      fetch('/moviestatus', {
+	        method: 'PATCH',
+	        body: JSON.stringify({
+	          show_id: this.state.movies.id,
+	          finished: !this.state.finished
+	        }),
+	        credentials: 'include',
+	        headers: {
+	          'Content-Type': 'application/json'
+	        }
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      var divStyle = {
 	        visibility: 'hidden',
 	        opacity: 0
 	      };
 
 	      var imgStyle = {
-	        backgroundImage: this.state.movies.poster_path ? 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url("http://image.tmdb.org/t/p/w300' + this.state.movies.poster_path + '")' : 'url("./images/searchImageTV.jpg")'
+	        backgroundImage: 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url(' + this.state.movies.movie_art + ')'
 	      };
 
-	      // var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'
-	      //
-	      // var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default'
-	      //
-	      // var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default'
+	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus';
+
+	      var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default';
+
+	      var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default';
 
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'col-md-4 col-lg-3' },
 	        _react2.default.createElement(
 	          'a',
-	          { className: 'itemLink', href: "/showdetail/" + this.state.movies.id },
+	          { className: 'itemLink', href: "/moviedetail/" + this.state.movies.tmdb_id },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'item center-block', style: imgStyle },
@@ -22084,14 +22093,40 @@
 	                _react2.default.createElement(
 	                  'h2',
 	                  { className: 'tvTitle' },
-	                  this.state.movies.title
+	                  this.state.movies.name
 	                ),
 	                _react2.default.createElement(
 	                  'h5',
 	                  { style: divStyle, className: 'tvSynopsis center-block' },
-	                  this.state.movies.overview ? this.state.movies.overview : 'Sorry! There is no overview available.'
+	                  this.state.movies.summary ? this.state.movies.summary : 'Sorry! There is no overview available.'
 	                )
 	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'btn-group btn-group-justified' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'btn-group', role: 'group' },
+	            _react2.default.createElement(
+	              'button',
+	              { onClick: function onClick() {
+	                  return _this2.queueToggle();
+	                }, type: 'button', className: queuedBackground },
+	              _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'btn-group', role: 'group' },
+	            _react2.default.createElement(
+	              'button',
+	              { onClick: function onClick() {
+	                  return _this2.finishedToggle();
+	                }, type: 'button', className: finishedBackground },
+	              _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
 	            )
 	          )
 	        )

@@ -2,7 +2,7 @@
 class Filmdetail
   include ActionView::Helpers
 
-   attr_accessor :name, :tmdb_id, :movie_art, :summary, :overview, :genre, :runtime, :date
+   attr_accessor :name, :tmdb_id, :movie_art, :summary, :overview, :genre, :runtime, :date, :background
 
    def initialize(film)
      self.name = film["title"]
@@ -15,7 +15,7 @@ class Filmdetail
      self.background = film["backdrop_path"]
      summaryset
      movieposterset
-     moveibackgroundset
+     moviebackgroundset
      genreparse
      datefix
    end
