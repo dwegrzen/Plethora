@@ -12,11 +12,14 @@ header {
     }
 }
 
+body.loggedout {
+  background-image: linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url('https://unsplash.it/3000/2000?image=767');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 body {
-    background-image: linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url('https://unsplash.it/3000/2000?image=767');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     .mainContent {
         color: RGB(200, 202, 206);
         min-height: 100%;

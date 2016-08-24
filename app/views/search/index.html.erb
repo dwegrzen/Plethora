@@ -35,18 +35,18 @@
   <div id="results">
 
   </div>
-
+</div>
 <script>
   var TVItems = <%== @tvparse.to_json %>;
-  console.log(TVItems)
-  var userQueuedShows = <%==@userqueuedshows.to_json %>;
-  var userFinishedShows = <%==@userfinishedshows.to_json %>;
+  var userQueuedShows = <%== @userqueuedshows.to_json %>;
+  var userFinishedShows = <%== @userfinishedshows.to_json %>;
   var MusicItems = <%== @artistparse.to_json %>;
-  console.log(MusicItems)
-  var userQueuedMusic = <%==@userqueuedmusic.to_json %>;
-  console.log(userQueuedMusic)
-  var userFinishedMusic = <%==@userfinishedmusic.to_json %>;
-  console.log(userFinishedMusic)
+  var userQueuedMusic = <%== @userqueuedmusic.to_json %>;
+  var userFinishedMusic = <%== @userfinishedmusic.to_json %>;
+  var MovieItems = <%== @movieresults.to_json %>
+  console.log(MovieItems)
+  var userQueuedMovies = []//<%== @userqueuedmovies.to_json %>
+  var userFinishedMovies = []//<%== @userfinishedmovies.to_json %>
 </script>
 <script src="/js/results.bundle.js"></script>
 

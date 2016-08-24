@@ -3,6 +3,10 @@ import React from 'react'
 // import TVItem from './TVItem'
 
 class Results extends React.Component {
+  findId(item) {
+    return (typeof item.gn_id === undefined) ? item.id : item.gn_id
+  }
+
   render() {
 
     var props = this.props
@@ -10,27 +14,31 @@ class Results extends React.Component {
     var Item = this.props.component
 
     if (props.showQueued) {
-      items = props.items.filter(function(item){
-        return props.queued.includes(item.gn_id) && !props.finished.includes(item.gn_id)
+      items = props.items.filter((item) => {
+        var id = this.findId(item)
+        return props.queued.includes(id) && !props.finished.includes(id)
       })
     }
     else if (props.showFinished) {
-      items = props.items.filter(function(item){
-        return props.finished.includes(item.gn_id)
+      items = props.items.filter((item) => {
+        var id = this.findId(item)
+        return props.finished.includes(id)
       })
     }
     else if (props.addToQueue) {
-      items = props.items.filter(function(item){
-        return !props.finished.includes(item.gn_id) && !props.queued.includes(item.gn_id)
+      items = props.items.filter((item) => {
+        var id = this.findId(item)
+        return !props.finished.includes(id) && !props.queued.includes(id)
       })
     }
     else {
       items = props.items
     }
 
-    items = items.map(function(item, i){
-      var finished = props.finished.includes(item.gn_id)
-      var queued = props.queued.includes(item.gn_id)
+    items = items.map((item, i) => {
+      var id = this.findId(item)
+      var finished = props.finished.includes(id)
+      var queued = props.queued.includes(id)
       return <Item key={i} item={item} finished={finished} queued={queued}/>
     })
 
