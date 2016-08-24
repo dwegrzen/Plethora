@@ -66,10 +66,15 @@
 
 	var _MusicItem2 = _interopRequireDefault(_MusicItem);
 
+	var _MovieItem = __webpack_require__(178);
+
+	var _MovieItem2 = _interopRequireDefault(_MovieItem);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var tvResults = [];
 	var musicResults = [];
+	var movieResults = [];
 
 	if (typeof TVItems != 'undefined') {
 	  tvResults = _react2.default.createElement(
@@ -107,11 +112,29 @@
 	  );
 	}
 
+	if (typeof MovieItems != 'undefined') {
+	  movieResults = _react2.default.createElement(
+	    'section',
+	    { className: 'container' },
+	    _react2.default.createElement(
+	      'h1',
+	      { className: 'text-center' },
+	      _react2.default.createElement(
+	        'a',
+	        { href: '/movies' },
+	        'Movies'
+	      )
+	    ),
+	    _react2.default.createElement(_Results2.default, { label: '', component: _MovieItem2.default, items: MovieItems, finished: userFinishedMovies, queued: userQueuedMovies })
+	  );
+	}
+
 	_reactDom2.default.render(_react2.default.createElement(
 	  'div',
 	  null,
 	  tvResults,
-	  musicResults
+	  musicResults,
+	  movieResults
 	), document.getElementById('results'));
 
 /***/ },
@@ -21530,6 +21553,8 @@
 	  value: true
 	});
 
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
@@ -21556,8 +21581,14 @@
 	  }
 
 	  _createClass(Results, [{
+	    key: "findId",
+	    value: function findId(item) {
+	      return _typeof(item.gn_id) === undefined ? item.id : item.gn_id;
+	    }
+	  }, {
 	    key: "render",
 	    value: function render() {
+	      var _this2 = this;
 
 	      var props = this.props;
 	      var items = [];
@@ -21565,23 +21596,27 @@
 
 	      if (props.showQueued) {
 	        items = props.items.filter(function (item) {
-	          return props.queued.includes(item.gn_id) && !props.finished.includes(item.gn_id);
+	          var id = _this2.findId(item);
+	          return props.queued.includes(id) && !props.finished.includes(id);
 	        });
 	      } else if (props.showFinished) {
 	        items = props.items.filter(function (item) {
-	          return props.finished.includes(item.gn_id);
+	          var id = _this2.findId(item);
+	          return props.finished.includes(id);
 	        });
 	      } else if (props.addToQueue) {
 	        items = props.items.filter(function (item) {
-	          return !props.finished.includes(item.gn_id) && !props.queued.includes(item.gn_id);
+	          var id = _this2.findId(item);
+	          return !props.finished.includes(id) && !props.queued.includes(id);
 	        });
 	      } else {
 	        items = props.items;
 	      }
 
 	      items = items.map(function (item, i) {
-	        var finished = props.finished.includes(item.gn_id);
-	        var queued = props.queued.includes(item.gn_id);
+	        var id = _this2.findId(item);
+	        var finished = props.finished.includes(id);
+	        var queued = props.queued.includes(id);
 	        return _react2.default.createElement(Item, { key: i, item: item, finished: finished, queued: queued });
 	      });
 
@@ -21933,6 +21968,141 @@
 	}(_react2.default.Component);
 
 	exports.default = MusicItem;
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MovieItem = function (_React$Component) {
+	  _inherits(MovieItem, _React$Component);
+
+	  function MovieItem(props) {
+	    _classCallCheck(this, MovieItem);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MovieItem).call(this, props));
+
+	    _this.state = {
+	      queued: props.queued,
+	      movies: props.item,
+	      finished: props.finished
+	    };
+	    return _this;
+	  }
+
+	  // queueToggle() {
+	  //   if (!this.state.queued) {
+	  //     fetch('/shows', {
+	  //       method: 'POST',
+	  //       body: JSON.stringify(this.state.series),
+	  //       credentials: 'include',
+	  //       headers: {
+	  //         'Content-Type': 'application/json'
+	  //       }
+	  //     })
+	  //   }
+	  //   else {
+	  //     fetch('/shows?show_id=' + this.state.series.id, {
+	  //       method: 'DELETE',
+	  //       // body: JSON.stringify(this.state.series),
+	  //       credentials: 'include',
+	  //       headers: {
+	  //         'Content-Type': 'application/json'
+	  //       }
+	  //     })
+	  //   }
+	  //   this.setState({queued: !this.state.queued})
+	  // }
+	  //
+	  // finishedToggle() {
+	  //   this.setState({finished: !this.state.finished})
+	  //   fetch('/showstatus', {
+	  //     method: 'PATCH',
+	  //     body: JSON.stringify({
+	  //       show_id: this.state.series.id,
+	  //       finished: !this.state.finished
+	  //     }),
+	  //     credentials: 'include',
+	  //     headers: {
+	  //       'Content-Type': 'application/json'
+	  //     }
+	  //   })
+	  // }
+
+	  _createClass(MovieItem, [{
+	    key: 'render',
+	    value: function render() {
+	      var divStyle = {
+	        visibility: 'hidden',
+	        opacity: 0
+	      };
+
+	      var imgStyle = {
+	        backgroundImage: this.state.movies.poster_path ? 'url("http://image.tmdb.org/t/p/w300' + this.state.movies.poster_path + '")' : 'url("./images/searchImageTV.jpg")'
+	      };
+
+	      // var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'
+	      //
+	      // var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default'
+	      //
+	      // var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default'
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'col-md-4 col-lg-3' },
+	        _react2.default.createElement(
+	          'a',
+	          { className: 'itemLink', href: "/showdetail/" + this.state.movies.id },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'item center-block', style: imgStyle },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'text-center' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'hoverLayer' },
+	                _react2.default.createElement(
+	                  'h2',
+	                  { className: 'tvTitle' },
+	                  this.state.movies.title
+	                ),
+	                _react2.default.createElement(
+	                  'h5',
+	                  { style: divStyle, className: 'tvSynopsis center-block' },
+	                  this.state.movies.overview ? this.state.movies.overview : 'Sorry! There is no overview available.'
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return MovieItem;
+	}(_react2.default.Component);
+
+	exports.default = MovieItem;
 
 /***/ }
 /******/ ]);
