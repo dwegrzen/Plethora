@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'users#logout', as: :logout
   get 'albums' => 'albums#index'
   get 'shows' => 'shows#index'
+  get 'movies' => 'movies#index'
   get 'finishedmusic' => 'albums#finished'
   get 'finishedshows' => 'shows#finished'
   get 'search/(:search)' => 'search#index', as: :search
@@ -18,12 +19,18 @@ Rails.application.routes.draw do
   get 'making' => 'static#making', as: :making
   get 'showdetail/(:gn_id)' => 'search#detailshow', as: :detailshow
   get 'albumdetail/(:gn_id)' => 'search#detailmusic', as: :detailalbum
+  get 'moviedetail/(:tmdb_id)' => 'search#detailmovie', as: :detailmovie
   post 'shows' => 'shows#create'
   post 'albums' => 'albums#create'
+  post 'movies' => 'movies#create'
   delete 'shows' => 'shows#destroyshow'
   patch 'showstatus' => 'shows#showcompletionstatus'
   delete 'albums' => 'albums#destroyalbum'
   patch 'albumstatus' => 'albums#albumcompletionstatus'
+  delete 'movies' => 'movies#destroymovie'
+  patch 'moviestatus' => 'movies#moviecompletionstatus'
+
+
 
 
 
