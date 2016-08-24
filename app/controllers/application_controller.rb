@@ -18,11 +18,13 @@ class ApplicationController < ActionController::Base
     if current_user
       @userqueuedshows = current_user.shows.pluck(:gn_id)
       @userqueuedmusic = current_user.albums.pluck(:gn_id)
+      @userqueuedmovies = current_user.movies.pluck(:tmdb_id)
       finishedshows = current_user.stackings.where(finished: true)&.where(media_type: "Show").pluck(:media_id)
       finishedmusic = current_user.stackings.where(finished: true)&.where(media_type: "Album").pluck(:media_id)
+      finishedmovies = current_user.stackings.where(finished: true)&.where(media_type: "Movie").pluck(:media_id)
       @userfinishedshows = current_user.shows.find(finishedshows).pluck(:gn_id)
       @userfinishedmusic = current_user.albums.find(finishedmusic).pluck(:gn_id)
-
+      @userfinishedmovies = current_user.movies.find(finishedmovies).pluck(:tmdb_id)
       @userid = current_user.id
     end
 

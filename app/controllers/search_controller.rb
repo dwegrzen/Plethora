@@ -35,6 +35,8 @@ class SearchController < ApplicationController
 
     # movie search through tmdb
     @movieresults = Tmdb::Movie.find(params[:search])
+    @movieparse = @movieresults.map{|movie| Film.new(movie)}
+
 
 
 
@@ -93,6 +95,11 @@ class SearchController < ApplicationController
     @singlealbum = GNAPI.fetchOETData(params[:gn_id])
     @detailparse = Albumtemp.new(albumpath(@singlealbum))
   end
+
+  def detailmovie
+    @singlemovie = Tmdb::Movie.detail(params[:tmdb_id])
+    @detailparse = Filmdetail.new(singlemovie)
+
 
 
   private

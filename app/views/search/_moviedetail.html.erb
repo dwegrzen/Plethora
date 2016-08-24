@@ -1,0 +1,13 @@
+<div class="col-sm-5 <%= movie.tmdb_id %> <% if movie.background %> <%= movie.background %> <% end %>">
+  <img class="searchImage center-block img-responsive" src="<%=movie.movie_art%>">
+</div>
+<div class="col-sm-7">
+  <h2><%= "Title: #{movie.name}" %></h2>
+  <h3>Synopsis: <%= movie.overview %></h3>
+  <h3>Date: <%= movie.date %></h3>
+  <h3>Genre: <%= movie.genre %></h3>
+  <h3>Runtime: <%= movie.runtime %></h3>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57b5bb560b6e840b"></script>
