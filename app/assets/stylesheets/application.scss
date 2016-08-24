@@ -26,12 +26,17 @@ body {
 
 a:hover {
     text-decoration: none;
+    color: white;
 }
 
 header {
+    background-color: rgba(72, 78, 92, .9);
+    height: 150px;
     padding-top: 20px;
     padding-bottom: 20px;
-
+    a {
+        color: RGB(200, 202, 206);
+    }
     li {
         list-style: none;
     }
@@ -120,13 +125,44 @@ header {
     margin-right: 0px;
 }
 
+body.loggedout {
+    background-image: linear-gradient(rgba(72, 78, 92, .4), rgba(72, 78, 92, .4)), url('plethoraBackground.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body.loggedin {
+    background-color: rgb(72, 78, 92);
+}
+
 body {
-    height: 100%;
+    .mainContent {
+        min-height: 100%;
+        margin-bottom: -160px;
+        &:after {
+            content: "";
+            display: block;
+        }
+        .tagline {
+            color: white;
+            padding-top: 150px;
+            font-size: 50px;
+        }
+        .subheaderHome {
+            color: white;
+            text-shadow: -1px 0 #FFC857, 0 1px #FFC857, 1px 0 #FFC857, 0 -1px #FFC857;
+        }
+    }
+    #login, #signup, #loginForm, #signupForm {
+        background-color: rgba(72, 78, 92, .9);
+        padding: 15px 20px 18px;
+    }
     #searchBarAndButton {
         margin: auto;
         #searchBar {
-            width: 70%;
-            margin-left: 15%;
+            width: 50%;
+            margin-left: 25%;
         }
     }
     #results {
@@ -146,7 +182,7 @@ body {
             transition: all 0.3s ease;
             .tvTitle, .albumName, .artistName {
                 padding-top: 15px;
-                text-shadow: 1px 2px black;
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
             }
             .artistName {
 
@@ -174,6 +210,11 @@ body {
 }
 
 footer {
+    height: 200px;
+    background-color: rgb(72, 78, 92);
+    a {
+     color: RGB(200, 202, 206);
+    }
     .footerLogo {
         width: 100%;
         max-width: 250px;
@@ -194,10 +235,16 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
-    .footerLinks {
-        font-size: 12px;
-        p {
-            margin-top: 15px;
+    header {
+        background-color: transparent;
+    }
+    footer {
+        height: 150px;
+        .footerLinks {
+            font-size: 12px;
+            p {
+                margin-top: 15px;
+            }
         }
     }
 }

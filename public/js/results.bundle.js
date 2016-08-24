@@ -21737,7 +21737,7 @@
 	      };
 
 	      var imgStyle = {
-	        backgroundImage: 'url(' + this.state.series.show_image + ')'
+	        backgroundImage: 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url(' + this.state.series.show_image + ')'
 	      };
 
 	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus';
@@ -21896,7 +21896,7 @@
 	      var _this2 = this;
 
 	      var imgStyle = {
-	        backgroundImage: 'url(' + this.state.music.album_art + ')'
+	        backgroundImage: 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url(' + this.state.music.album_art + ')'
 	      };
 
 	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus';
@@ -22057,7 +22057,7 @@
 	      };
 
 	      var imgStyle = {
-	        backgroundImage: this.state.movies.poster_path ? 'url("http://image.tmdb.org/t/p/w300' + this.state.movies.poster_path + '")' : 'url("./images/searchImageTV.jpg")'
+	        backgroundImage: this.state.movies.poster_path ? 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url("http://image.tmdb.org/t/p/w300' + this.state.movies.poster_path + '")' : 'url("./images/searchImageTV.jpg")'
 	      };
 
 	      // var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'

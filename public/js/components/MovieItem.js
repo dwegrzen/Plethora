@@ -56,7 +56,7 @@ class MovieItem extends React.Component {
     };
 
     var imgStyle = {
-      backgroundImage: this.state.movies.poster_path ? 'url("http://image.tmdb.org/t/p/w300' + this.state.movies.poster_path + '")' : 'url("./images/searchImageTV.jpg")'
+      backgroundImage: this.state.movies.poster_path ? 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url("http://image.tmdb.org/t/p/w300' + this.state.movies.poster_path + '")' : 'url("./images/searchImageTV.jpg")'
     }
 
     // var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'
