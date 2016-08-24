@@ -96,6 +96,11 @@ class SearchController < ApplicationController
     @detailparse = Albumtemp.new(albumpath(@singlealbum))
   end
 
+  def detailmovie
+    @singlemovie = Tmdb::Movie.detail(params[:tmdb_id])
+    @detailparse = Filmdetail.new(singlemovie)
+
+
 
   private
     def singleshowresult(object)

@@ -2,19 +2,16 @@
 class Film
   include ActionView::Helpers
 
-   attr_accessor :name, :tmdb_id, :movie_art, :summary, :overview, :genre, :runtime, :date
+   attr_accessor :name, :tmdb_id, :movie_art, :summary, :overview, :date
 
    def initialize(film)
      self.name = film.title
      self.tmdb_id = film.id
      self.date = film.release_date
-     self.genre = film["genres"]
-     self.runtime = film["runtime"]
      self.overview = film.overview
      self.movie_art = film.poster_path
      summaryset
      movieposterset
-     genreparse
      datefix
    end
 
@@ -32,12 +29,6 @@ class Film
      end
    end
 
-
-   def genreparse
-     if self.genre
-       self.genre = genre.map{|x| x["name"]}.join(", ")
-     end
-   end
 
    def summaryset
      if self.overview
