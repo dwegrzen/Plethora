@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  tmdb_id: MyString
+  date: 2016-08-24
+  summary: MyText
+  movie_art: MyString
+  genre: MyString
+  runtime: MyString
+
+two:
+  name: MyString
+  tmdb_id: MyString
+  date: 2016-08-24
+  summary: MyText
+  movie_art: MyString
+  genre: MyString
+  runtime: MyString

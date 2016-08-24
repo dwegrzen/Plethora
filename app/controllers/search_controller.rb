@@ -35,6 +35,8 @@ class SearchController < ApplicationController
 
     # movie search through tmdb
     @movieresults = Tmdb::Movie.find(params[:search])
+    @movieparse = @movieresults.map{|movie| Film.new(movie)}
+
 
 
 
