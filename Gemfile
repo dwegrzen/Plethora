@@ -22,6 +22,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'rack-cors'
 gem 'simple_form'
 gem 'gracenote', github: 'dwegrzen/gracenote'
+gem 'rspotify'
 # gem 'gracenote', :path => "./gracenote-1.2.1/"
 #
 gem 'under_fire'
