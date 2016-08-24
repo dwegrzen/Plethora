@@ -21,9 +21,7 @@ class Albumtemp
    end
 
    def assignimage
-     if GNAPI.fetchOETData(gn_id)["RESPONSES"]["RESPONSE"]["ALBUM"]["URL"]
-       self.album_art = GNAPI.fetchOETData(gn_id)["RESPONSES"]["RESPONSE"]["ALBUM"]["URL"]
-     else
+     if self.album_art == nil
        self.album_art = "/images/searchImageTV.jpg"
      end
    end
