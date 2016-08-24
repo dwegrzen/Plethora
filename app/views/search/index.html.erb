@@ -13,6 +13,9 @@
     <li><a href="#">Artist Name</a></li>
     <li><a href="#">Album Title</a></li>
     <li><a href="#">Track Name</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Movie Title</a></li>
+
   </ul>
 </div>
 
@@ -22,15 +25,6 @@
 
 <% end %>
 
-<div class="container">
-  <div class="row">
-    <% if !@tvparse %>
-      <h4>No TV search results</h4>
-    <% end %>
-  </div>
-  <h3>Artist search results:</h3>
-  <!-- <%= @artistparse.to_json %> -->
-</div>
 <div class="container">
   <div id="results">
 

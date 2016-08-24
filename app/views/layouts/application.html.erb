@@ -12,7 +12,7 @@
 
   </head>
 
-  <body <% if !current_user %>class="loggedout"<% end %>>
+  <body <% if !current_user %>class="loggedout"<% elsif current_user %>class="loggedin"<% end %>>
 
     <header>
       <a class="hidden-sm hidden-md hidden-lg hidden-xl" href=<%= root_path  %> ><%= image_tag "logo.png", class: 'headerLogoMobile img-responsive center-block' %></a>
