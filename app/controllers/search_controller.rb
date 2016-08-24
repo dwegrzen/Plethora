@@ -96,7 +96,7 @@ class SearchController < ApplicationController
   def detailmovie
     @singlemovie = Tmdb::Movie.detail(params[:tmdb_id])
     @detailparse = Filmdetail.new(singlemovie)
-
+  end
 
 
   private
