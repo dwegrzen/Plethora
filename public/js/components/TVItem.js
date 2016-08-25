@@ -96,9 +96,10 @@ class TVItem extends React.Component {
     else {
       return <div className="row">
         <div className="col-sm-12">
-          {/* <a className="itemLink" href={"/showdetail/" + this.state.series.gn_id}> */}
             <div className="col-sm-3">
-              <img className="img-responsive center-block" src={this.state.series.show_image} />
+              <a className="itemLink" href={"/showdetail/" + this.state.series.gn_id}>
+                <img className="img-responsive center-block" src={this.state.series.show_image} />
+              </a>
               <div className="btn-group btn-group-justified">
                 <div className="btn-group" role="group">
                   <button onClick={() => this.queueToggle() } type="button" className={queuedBackground}><span className={queuedIcon} aria-hidden="true"></span>
@@ -114,7 +115,6 @@ class TVItem extends React.Component {
               <h2 className="title">{this.state.series.title}</h2>
               <h5 className="tvSynopsis" >{this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'}</h5>
             </div>
-          {/* </a>       */}
         </div>
       </div>
     }
