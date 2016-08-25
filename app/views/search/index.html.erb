@@ -31,13 +31,12 @@
   </div>
 </div>
 <script>
-  var TVItems = <%== @tvparse.to_json %>;
-  var userQueuedShows = <%== @userqueuedshows.to_json %>;
-  var userFinishedShows = <%== @userfinishedshows.to_json %>;
-  var MusicItems = <%== @artistparse.to_json %>;
-  console.log(MusicItems);
-  var userQueuedMusic = <%== @userqueuedmusic.to_json %>;
-  var userFinishedMusic = <%== @userfinishedmusic.to_json %>;
+  var TVItems = <%== @tvparse.to_json %>
+  var userQueuedShows = <%== @userqueuedshows.to_json %>
+  var userFinishedShows = <%== @userfinishedshows.to_json %>
+  var MusicItems = <%== @artistparse.to_json %>
+  var userQueuedMusic = <%== @userqueuedmusic.to_json %>
+  var userFinishedMusic = <%== @userfinishedmusic.to_json %>
   var MovieItems = <%== @movieparse.to_json %>
   var userQueuedMovies = <%== @userqueuedmovies.to_json %>
   var userFinishedMovies = <%== @userfinishedmovies.to_json %>
