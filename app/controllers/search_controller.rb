@@ -1,40 +1,35 @@
 class SearchController < ApplicationController
 
   def index
-    # tv show search through gracenote
     userinfo
-    # @tvresults = GNAPI.findTVShow(params[:search])
-    # @tvparse = []
-    # unless @tvresults == "NO_MATCH"
-    #   if singleshowresult(@tvresults)
-    #     @tvparse = [showpath(@tvresults)].map{|series| Series.new(series)}
-    #   else
-    #     @tvparse = showpath(@tvresults).map{|series| Series.new(series)}
-    #   end
-    # end
+    @artistparse = []
+    @movieparse = []
+    @tvparse = []
+    type = params[:searchtype]
+    case type
+    when "All"
+      # tv show search through gracenote
+      @tvresults = Tmdb::TV.find(params[:search])
+      @tvparse = @tvresults.map{|show| Tmdbshow.new(show)}
 
-    @tvresults = Tmdb::TV.find(params[:search])
-    @tvparse = @tvresults.map{|show| Tmdbshow.new(show)}
+      # music artist search through gracenote
+      @artistresults = DISCOGS.search(params[:search], per_page: 50, type: 'master', country: :us)
+      @artistparse = @artistresults["results"].map{|album| Albumtemp.new(album)}
 
-    # # music album search through gracenote
-    # @albumresults = GNAPI.findAlbum("",params[:search])
-    # unless @albumresults == "NO_MATCH"
-    #   if singleresult(@albumresults)
-    #     @albumparse = [albumpath(@albumresults)].map{|album| Albumtemp.new(album)}
-    #   else
-    #     @albumparse = albumpath(@albumresults).map{|album| Albumtemp.new(album)}
-    #   end
-    # end
-
-    # music artist search through gracenote
-    @artistresults = DISCOGS.search(params[:search], per_page: 50, type: 'master', country: :us)
-    @artistparse = @artistresults["results"].map{|album| Albumtemp.new(album)}
-
-
-    # movie search through tmdb
-    @movieresults = Tmdb::Movie.find(params[:search])
-    @movieparse = @movieresults.map{|movie| Film.new(movie)}
-
+      # movie search through tmdb
+      @movieresults = Tmdb::Movie.find(params[:search])
+      @movieparse = @movieresults.map{|movie| Film.new(movie)}
+    when "TV"
+      @tvresults = Tmdb::TV.find(params[:search])
+      @tvparse = @tvresults.map{|show| Tmdbshow.new(show)}
+    when "Movie"
+      @movieresults = Tmdb::Movie.find(params[:search])
+      @movieparse = @movieresults.map{|movie| Film.new(movie)}
+    when "Music"
+      @artistresults = DISCOGS.search(params[:search], per_page: 50, type: 'master', country: :us)
+      @artistparse = @artistresults["results"].map{|album| Albumtemp.new(album)}
+    else
+    end
     # render json: Showparse.gracenote_showresponse(@tvresults).to_json
   end
 
