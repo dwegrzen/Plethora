@@ -3,18 +3,18 @@ class SearchController < ApplicationController
   def index
     # tv show search through gracenote
     userinfo
-    @tvresults = GNAPI.findTVShow(params[:search])
-    @tvparse = []
-    unless @tvresults == "NO_MATCH"
-      if singleshowresult(@tvresults)
-        @tvparse = [showpath(@tvresults)].map{|series| Series.new(series)}
-      else
-        @tvparse = showpath(@tvresults).map{|series| Series.new(series)}
-      end
-    end
+    # @tvresults = GNAPI.findTVShow(params[:search])
+    # @tvparse = []
+    # unless @tvresults == "NO_MATCH"
+    #   if singleshowresult(@tvresults)
+    #     @tvparse = [showpath(@tvresults)].map{|series| Series.new(series)}
+    #   else
+    #     @tvparse = showpath(@tvresults).map{|series| Series.new(series)}
+    #   end
+    # end
 
-    @movieresults = Tmdb::TV.find(params[:search])
-    @movieparse2 = @movieresults.map{|movie| Film.new(movie)}
+    @tvresults = Tmdb::TV.find(params[:search])
+    @tvparse = @tvresults.map{|show| Tmdbshow.new(show)}
 
     # # music album search through gracenote
     # @albumresults = GNAPI.findAlbum("",params[:search])
@@ -82,8 +82,8 @@ class SearchController < ApplicationController
 
 
   def detailshow
-    @singleshow = GNAPI.fetchTVShow(params[:gn_id])
-    @detailparse = Series.new(showpath(@singleshow))
+    @singleshow = Tmdb::TV.detail(params[:gn_id])
+    @detailparse = Tmdbshowdetail.new(@singleshow)
   end
 
   def detailmusic
