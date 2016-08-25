@@ -6,7 +6,7 @@ class Film
 
    def initialize(film)
      self.name = film.title
-     self.tmdb_id = film.id
+     self.tmdb_id = film.id.to_s
      self.date = film.release_date
      self.overview = film.overview
      self.movie_art = film.poster_path

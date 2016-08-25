@@ -9,7 +9,7 @@ class Tmdbshow
      self.title = series.name
      self.fulldesc = series.overview
      self.show_image = series.poster_path
-     self.gn_id = series.id
+     self.gn_id = series.id.to_s
      self.date = series.first_air_date
      datefix
      truncated

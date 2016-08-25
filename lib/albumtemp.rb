@@ -7,7 +7,7 @@ class Albumtemp
    def initialize(album)
      self.name = album['title']
      self.album_art = album['thumb']
-     self.gn_id = album['id']
+     self.gn_id = album['id'].to_s
      self.date = album['year']
      self.genre = album['genres']
      self.trackname = album['tracklist']

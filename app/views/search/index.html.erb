@@ -33,7 +33,9 @@
 <script>
   var TVItems = <%== @tvparse.to_json %>;
   var userQueuedShows = <%== @userqueuedshows.to_json %>;
+  console.log(userQueuedShows);
   var userFinishedShows = <%== @userfinishedshows.to_json %>;
+  console.log(userFinishedShows);
   var MusicItems = <%== @artistparse.to_json %>;
   console.log(MusicItems);
   var userQueuedMusic = <%== @userqueuedmusic.to_json %>;
