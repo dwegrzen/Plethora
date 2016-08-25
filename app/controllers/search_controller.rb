@@ -79,6 +79,11 @@ class SearchController < ApplicationController
   def detailshow
     @singleshow = Tmdb::TV.detail(params[:gn_id])
     @detailparse = Tmdbshowdetail.new(@singleshow)
+    if current_user.shows.find_by(gn_id: params[:gn_id])
+      @queued = true
+      @showid = current_user.shows.find_by(gn_id: params[:gn_id]).id
+      @finished = current_user.stackings.find_by(media_id: @showid).finished
+
   end
 
   def detailmusic
@@ -89,6 +94,16 @@ class SearchController < ApplicationController
   def detailmovie
     @singlemovie = Tmdb::Movie.detail(params[:tmdb_id])
     @detailparse = Filmdetail.new(@singlemovie)
+    if current_user.shows.find_by(gn_id: params[:gn_id])
+      @queued = true
+      @movieid = current_user.shows.find_by(gn_id: params[:gn_id]).id
+      @finished = current_user.stackings.find_by(media_id: @movieid).finished
+    else
+      @queued = false
+      @movieid = Show.find_by(gn_id: params[:gn_id]).id
+      @finished = nil
+    end
+
   end
 
 
