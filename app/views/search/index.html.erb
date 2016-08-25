@@ -2,22 +2,7 @@
 
 <%= form_tag search_path, id: 'searchBarAndButton', method: "get" do %>
 <%= text_field_tag :search, params[:search], placeholder: "Search by title or artist", id: 'searchBar' %>
-
-<div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Search By <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a href="#">Show Title</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Artist Name</a></li>
-    <li><a href="#">Album Title</a></li>
-    <li><a href="#">Track Name</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Movie Title</a></li>
-
-  </ul>
-</div>
+<%= text_field_tag :searchType, params[:searchType], id: 'hiddenField', class: 'hidden' %>
 
 <%= button_tag(type: 'submit', class: 'btn', id: 'searchBtn') do %>
   <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -44,3 +29,4 @@
 
 </script>
 <script src="/js/results.bundle.js"></script>
+<script src="searchBar.js"></script>
