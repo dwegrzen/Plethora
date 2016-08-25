@@ -2,7 +2,13 @@
 <!-- <% if movie.background %><% end %> -->
 
   <img class="searchImage center-block img-responsive" src="<%=movie.movie_art%>">
+      <button id="movieAdd" class="btn btn-success">Add to Queue</button>
+
+      <button id="movieWatched" class="btn btn-success">I've watched this</button>
+
+      <button id="movieDelete" class="btn btn-success">Remove from Queue</button>
 </div>
+
 <div class="col-sm-7">
   <h1><%= movie.name %></h1>
   <h3>Synopsis: <%= movie.overview %></h3>

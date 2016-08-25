@@ -75,6 +75,7 @@
 	var tvResults = [];
 	var musicResults = [];
 	var movieResults = [];
+	var isSearch = window.location.href.includes('/search');
 
 	if (typeof TVItems != 'undefined') {
 	  tvResults = _react2.default.createElement(
@@ -89,9 +90,9 @@
 	        'TV'
 	      )
 	    ),
-	    _react2.default.createElement(_Results2.default, { label: 'Queued', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showQueued: true }),
-	    _react2.default.createElement(_Results2.default, { label: 'Watched', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showFinished: true }),
-	    _react2.default.createElement(_Results2.default, { label: 'Add to Queue', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, addToQueue: true })
+	    _react2.default.createElement(_Results2.default, { label: 'Queued', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showQueued: true, search: isSearch }),
+	    _react2.default.createElement(_Results2.default, { label: 'Watched', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showFinished: true, search: isSearch }),
+	    _react2.default.createElement(_Results2.default, { label: 'Add to Queue', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, addToQueue: true, search: isSearch })
 	  );
 	}
 
@@ -108,9 +109,9 @@
 	        'Music'
 	      )
 	    ),
-	    _react2.default.createElement(_Results2.default, { label: 'Queued', component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic, showQueued: true }),
-	    _react2.default.createElement(_Results2.default, { label: 'Listened To', component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic, showFinished: true }),
-	    _react2.default.createElement(_Results2.default, { label: 'Add to Queue', component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic, addToQueue: true })
+	    _react2.default.createElement(_Results2.default, { label: 'Queued', component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic, showQueued: true, search: isSearch }),
+	    _react2.default.createElement(_Results2.default, { label: 'Listened To', component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic, showFinished: true, search: isSearch }),
+	    _react2.default.createElement(_Results2.default, { label: 'Add to Queue', component: _MusicItem2.default, items: MusicItems, finished: userFinishedMusic, queued: userQueuedMusic, addToQueue: true, search: isSearch })
 	  );
 	}
 
@@ -127,9 +128,9 @@
 	        'Movies'
 	      )
 	    ),
-	    _react2.default.createElement(_Results2.default, { label: 'Queued', component: _MovieItem2.default, items: MovieItems, finished: userFinishedMovies, queued: userQueuedMovies, showQueued: true }),
-	    _react2.default.createElement(_Results2.default, { label: 'Watched', component: _MovieItem2.default, items: MovieItems, finished: userFinishedMovies, queued: userQueuedMovies, showFinished: true }),
-	    _react2.default.createElement(_Results2.default, { label: 'Add to Queue', component: _MovieItem2.default, items: MovieItems, finished: userFinishedMovies, queued: userQueuedMovies, addToQueue: true })
+	    _react2.default.createElement(_Results2.default, { label: 'Queued', component: _MovieItem2.default, items: MovieItems, finished: userFinishedMovies, queued: userQueuedMovies, showQueued: true, search: isSearch }),
+	    _react2.default.createElement(_Results2.default, { label: 'Watched', component: _MovieItem2.default, items: MovieItems, finished: userFinishedMovies, queued: userQueuedMovies, showFinished: true, search: isSearch }),
+	    _react2.default.createElement(_Results2.default, { label: 'Add to Queue', component: _MovieItem2.default, items: MovieItems, finished: userFinishedMovies, queued: userQueuedMovies, addToQueue: true, search: isSearch })
 	  );
 	}
 
@@ -21617,7 +21618,8 @@
 	        var id = _this2.findId(item);
 	        var finished = props.finished.includes(id);
 	        var queued = props.queued.includes(id);
-	        return _react2.default.createElement(Item, { key: i, item: item, finished: finished, queued: queued });
+	        console.log(queued, item);
+	        return _react2.default.createElement(Item, { key: i, item: item, finished: finished, queued: queued, search: props.search });
 	      });
 
 	      if (items.length) {
@@ -21746,62 +21748,122 @@
 
 	      var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default';
 
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'col-md-4 col-lg-3' },
-	        _react2.default.createElement(
-	          'a',
-	          { className: 'itemLink', href: "/showdetail/" + this.state.series.gn_id },
+	      //Grid layout for dashboard
+	      if (!this.props.search) {
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-4 col-lg-3' },
 	          _react2.default.createElement(
-	            'div',
-	            { className: 'item center-block', style: imgStyle },
+	            'a',
+	            { className: 'itemLink', href: "/showdetail/" + this.state.series.gn_id },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'text-center' },
+	              { className: 'item center-block', style: imgStyle },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'hoverLayer' },
+	                { className: 'text-center' },
 	                _react2.default.createElement(
-	                  'h2',
-	                  { className: 'title', style: divStyle },
-	                  this.state.series.title
-	                ),
-	                _react2.default.createElement(
-	                  'h5',
-	                  { style: divStyle, className: 'tvSynopsis center-block' },
-	                  this.state.series.synopsis ? this.state.series.synopsis : 'Sorry! There is no synopsis available.'
+	                  'div',
+	                  { className: 'hoverLayer' },
+	                  _react2.default.createElement(
+	                    'h2',
+	                    { className: 'title', style: divStyle },
+	                    this.state.series.title
+	                  ),
+	                  _react2.default.createElement(
+	                    'h5',
+	                    { style: divStyle, className: 'tvSynopsis center-block' },
+	                    this.state.series.synopsis ? this.state.series.synopsis : 'Sorry! There is no synopsis available.'
+	                  )
 	                )
 	              )
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'btn-group btn-group-justified' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'btn-group', role: 'group' },
-	            _react2.default.createElement(
-	              'button',
-	              { onClick: function onClick() {
-	                  return _this2.queueToggle();
-	                }, type: 'button', className: queuedBackground },
-	              _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
 	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'btn-group', role: 'group' },
+	            { className: 'btn-group btn-group-justified' },
 	            _react2.default.createElement(
-	              'button',
-	              { onClick: function onClick() {
-	                  return _this2.finishedToggle();
-	                }, type: 'button', className: finishedBackground },
-	              _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	              'div',
+	              { className: 'btn-group', role: 'group' },
+	              _react2.default.createElement(
+	                'button',
+	                { onClick: function onClick() {
+	                    return _this2.queueToggle();
+	                  }, type: 'button', className: queuedBackground },
+	                _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'btn-group', role: 'group' },
+	              _react2.default.createElement(
+	                'button',
+	                { onClick: function onClick() {
+	                    return _this2.finishedToggle();
+	                  }, type: 'button', className: finishedBackground },
+	                _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	              )
 	            )
 	          )
-	        )
-	      );
+	        );
+	      }
+
+	      //Layout for search page without hover effects
+	      else {
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'row' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col-sm-12' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-3' },
+	              _react2.default.createElement('img', { className: 'img-responsive center-block', src: this.state.series.show_image }),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'btn-group btn-group-justified' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'btn-group', role: 'group' },
+	                  _react2.default.createElement(
+	                    'button',
+	                    { onClick: function onClick() {
+	                        return _this2.queueToggle();
+	                      }, type: 'button', className: queuedBackground },
+	                    _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'btn-group', role: 'group' },
+	                  _react2.default.createElement(
+	                    'button',
+	                    { onClick: function onClick() {
+	                        return _this2.finishedToggle();
+	                      }, type: 'button', className: finishedBackground },
+	                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	                  )
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-9' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: 'title' },
+	                this.state.series.title
+	              ),
+	              _react2.default.createElement(
+	                'h5',
+	                { className: 'tvSynopsis' },
+	                this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'
+	              )
+	            )
+	          )
+	        );
+	      }
 	    }
 	  }]);
 
@@ -21901,7 +21963,7 @@
 	      };
 
 	      var imgStyle = {
-	        backgroundImage: 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url(' + this.state.music.album_art + ')'
+	        backgroundImage: 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url("' + this.state.music.album_art + '")'
 	      };
 
 	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus';

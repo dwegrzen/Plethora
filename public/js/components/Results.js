@@ -37,7 +37,8 @@ class Results extends React.Component {
       var id = this.findId(item)
       var finished = props.finished.includes(id)
       var queued = props.queued.includes(id)
-      return <Item key={i} item={item} finished={finished} queued={queued}/>
+      console.log(queued, item)
+      return <Item key={i} item={item} finished={finished} queued={queued} search={props.search}/>
     })
 
     if (items.length) {
