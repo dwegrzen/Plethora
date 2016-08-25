@@ -1,30 +1,24 @@
 
-class Albumtemp
+class Albumdetail
   include ActionView::Helpers
 
-   attr_accessor :name, :gn_id, :artist, :album_art, :date, :genre, :tracks, :trackname, :image
+   attr_accessor :name, :gn_id, :artist, :album_art, :date, :genre, :tracks, :trackname
 
    def initialize(album)
      self.name = album['title']
-     self.album_art = album['thumb']
+     self.artist = album["artists"].map{|x| x["name"]}.first
+     self.album_art = album["images"].first["uri"]
      self.gn_id = album['id']
      self.date = album['year']
      self.genre = album['genres']
      self.trackname = album['tracklist']
+     self.tracks = album['notes']
     #  self.image = album["images"].first["uri"]
      genreparse
      trackparse
      assignimage
-     datefix
-     nameandartistfix
+    #  datefix
 
-   end
-
-   def nameandartistfix
-     if self.name
-       self.artist = name.split(" - ").first
-       self.name = name.split(" - ").last
-     end
    end
 
    def assignimage
@@ -42,6 +36,12 @@ class Albumtemp
    def genreparse
      if self.genre
        self.genre = self.genre.join(", ")
+     end
+   end
+
+   def trackcounter
+     if self.trackname
+       self.tracks = trackname.length
      end
    end
 

@@ -14,7 +14,6 @@ module Plethora
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths << "#{Rails.root}/lib"
-    # RSpotify::authenticate(ENV["SpotifyID"], ENV["SpotifySecret"])
 
   end
 end

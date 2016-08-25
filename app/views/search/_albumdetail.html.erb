@@ -1,12 +1,12 @@
 <div class="col-sm-5 <%= album.gn_id %>">
   <img class="searchImage center-block img-responsive" src="<%=album.album_art%>">
+  <h5><em><%= album.tracks %></em></h5>
 </div>
 <div class="col-sm-7">
   <h1><%= album.name %></h1>
   <h3>Artist: <%= album.artist %></h3>
   <h3>Date: <%= album.date %></h3>
   <h3>Genre: <%= album.genre %></h3>
-  <h3>Track Count: <%= album.tracks %></h3>
   <% if album.trackname %>
   <h3>Tracks: <ul>
     <%album.trackname.each do |name| %>

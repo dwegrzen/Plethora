@@ -13,6 +13,9 @@ class SearchController < ApplicationController
       end
     end
 
+    @movieresults = Tmdb::TV.find(params[:search])
+    @movieparse2 = @movieresults.map{|movie| Film.new(movie)}
+
     # # music album search through gracenote
     # @albumresults = GNAPI.findAlbum("",params[:search])
     # unless @albumresults == "NO_MATCH"
@@ -24,14 +27,9 @@ class SearchController < ApplicationController
     # end
 
     # music artist search through gracenote
-    @artistresults = GNAPI.findArtist(params[:search])
-    unless @artistresults == "NO_MATCH"
-      if singlealbumresult(@artistresults)
-        @artistparse = [albumpath(@artistresults)].map{|album| Albumtemp.new(album)}
-      else
-        @artistparse = albumpath(@artistresults).map{|album| Albumtemp.new(album)}
-      end
-    end
+    @artistresults = DISCOGS.search(params[:search], per_page: 50, type: 'master', country: :us)
+    @artistparse = @artistresults["results"].map{|album| Albumtemp.new(album)}
+
 
     # movie search through tmdb
     @movieresults = Tmdb::Movie.find(params[:search])
@@ -89,8 +87,8 @@ class SearchController < ApplicationController
   end
 
   def detailmusic
-    @singlealbum = GNAPI.fetchOETData(params[:gn_id])
-    @detailparse = Albumtemp.new(albumpath(@singlealbum))
+    @singlealbum = DISCOGS.get_master(params[:gn_id])
+    @detailparse = Albumdetail.new(@singlealbum)
   end
 
   def detailmovie
