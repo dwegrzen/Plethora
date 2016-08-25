@@ -24,7 +24,6 @@ class MovieItem extends React.Component {
     else {
       fetch('/movies?movie_id=' + this.state.movies.id, {
         method: 'DELETE',
-        // body: JSON.stringify(this.state.movies),
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
