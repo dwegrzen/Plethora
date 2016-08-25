@@ -77,7 +77,7 @@
 	var movieResults = [];
 	var isSearch = window.location.href.includes('/search');
 
-	if (typeof TVItems != 'undefined') {
+	if (typeof TVItems != 'undefined' || typeof TVItems != '') {
 	  tvResults = _react2.default.createElement(
 	    'section',
 	    { className: 'container' },
@@ -22095,7 +22095,6 @@
 	      } else {
 	        fetch('/movies?movie_id=' + this.state.movies.id, {
 	          method: 'DELETE',
-	          // body: JSON.stringify(this.state.movies),
 	          credentials: 'include',
 	          headers: {
 	            'Content-Type': 'application/json'

@@ -11,7 +11,7 @@ var musicResults = []
 var movieResults = []
 var isSearch = window.location.href.includes('/search')
 
-if (typeof TVItems != 'undefined') {
+if (typeof TVItems != 'undefined' || typeof TVItems != '' ) {
   tvResults = (
     <section className="container">
       <h1 className="mediaCat"><a href="/shows">TV</a></h1>
