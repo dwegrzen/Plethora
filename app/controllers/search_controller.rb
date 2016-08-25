@@ -7,28 +7,28 @@ class SearchController < ApplicationController
     @tvparse = []
     type = params[:searchtype]
     case type
-    when "All"
-      # tv show search through gracenote
-      @tvresults = Tmdb::TV.find(params[:search])
-      @tvparse = @tvresults.map{|show| Tmdbshow.new(show)}
+      when "All"
+        # tv show search through gracenote
+        @tvresults = Tmdb::TV.find(params[:search])
+        @tvparse = @tvresults.map{|show| Tmdbshow.new(show)}
 
-      # music artist search through gracenote
-      @artistresults = DISCOGS.search(params[:search], per_page: 50, type: 'master', country: :us)
-      @artistparse = @artistresults["results"].map{|album| Albumtemp.new(album)}
+        # music artist search through gracenote
+        @artistresults = DISCOGS.search(params[:search], per_page: 50, type: 'master', country: :us)
+        @artistparse = @artistresults["results"].map{|album| Albumtemp.new(album)}
 
-      # movie search through tmdb
-      @movieresults = Tmdb::Movie.find(params[:search])
-      @movieparse = @movieresults.map{|movie| Film.new(movie)}
-    when "TV"
-      @tvresults = Tmdb::TV.find(params[:search])
-      @tvparse = @tvresults.map{|show| Tmdbshow.new(show)}
-    when "Movie"
-      @movieresults = Tmdb::Movie.find(params[:search])
-      @movieparse = @movieresults.map{|movie| Film.new(movie)}
-    when "Music"
-      @artistresults = DISCOGS.search(params[:search], per_page: 50, type: 'master', country: :us)
-      @artistparse = @artistresults["results"].map{|album| Albumtemp.new(album)}
-    else
+        # movie search through tmdb
+        @movieresults = Tmdb::Movie.find(params[:search])
+        @movieparse = @movieresults.map{|movie| Film.new(movie)}
+      when "TV"
+        @tvresults = Tmdb::TV.find(params[:search])
+        @tvparse = @tvresults.map{|show| Tmdbshow.new(show)}
+      when "Movie"
+        @movieresults = Tmdb::Movie.find(params[:search])
+        @movieparse = @movieresults.map{|movie| Film.new(movie)}
+      when "Music"
+        @artistresults = DISCOGS.search(params[:search], per_page: 50, type: 'master', country: :us)
+        @artistparse = @artistresults["results"].map{|album| Albumtemp.new(album)}
+      else
     end
     # render json: Showparse.gracenote_showresponse(@tvresults).to_json
   end
@@ -93,33 +93,6 @@ class SearchController < ApplicationController
 
 
   private
-    def singleshowresult(object)
-      object["RESPONSES"]["RESPONSE"]["SERIES"].class == Hash
-    end
-
-    def singlealbumresult(object)
-      object["RESPONSES"]["RESPONSE"]["ALBUM"].class == Hash
-    end
-
-    def showpath(object)
-      object["RESPONSES"]["RESPONSE"]["SERIES"]
-    end
-
-    def albumpath(object)
-      object["RESPONSES"]["RESPONSE"]["ALBUM"]
-    end
-
-    def tvresulttotal(object)
-      result = object["RESPONSES"]["RESPONSE"]["RANGE"]["COUNT"].to_i
-      if result > 100
-        result = 100
-      end
-      result
-    end
-
-    def tvendrange(object)
-      object["RESPONSES"]["RESPONSE"]["RANGE"]["END"].to_i
-    end
 
 
 end
