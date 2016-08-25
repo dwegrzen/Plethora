@@ -77,7 +77,7 @@
 	var movieResults = [];
 	var isSearch = window.location.href.includes('/search');
 
-	if (typeof TVItems != 'undefined' || typeof TVItems != '') {
+	if (typeof TVItems != 'undefined' && TVItems.length !== 0) {
 	  tvResults = _react2.default.createElement(
 	    'section',
 	    { className: 'container' },
@@ -96,7 +96,7 @@
 	  );
 	}
 
-	if (typeof MusicItems != 'undefined') {
+	if (typeof MusicItems != 'undefined' && MusicItems.length !== 0) {
 	  musicResults = _react2.default.createElement(
 	    'section',
 	    { className: 'container' },
@@ -115,7 +115,7 @@
 	  );
 	}
 
-	if (typeof MovieItems != 'undefined') {
+	if (typeof MovieItems != 'undefined' && MovieItems.length !== 0) {
 	  movieResults = _react2.default.createElement(
 	    'section',
 	    { className: 'container' },

@@ -11,7 +11,7 @@ var musicResults = []
 var movieResults = []
 var isSearch = window.location.href.includes('/search')
 
-if (typeof TVItems != 'undefined' || typeof TVItems != '' ) {
+if (typeof TVItems != 'undefined' && TVItems.length !== 0) {
   tvResults = (
     <section className="container">
       <h1 className="mediaCat"><a href="/shows">TV</a></h1>
@@ -25,7 +25,7 @@ if (typeof TVItems != 'undefined' || typeof TVItems != '' ) {
   )
 }
 
-if (typeof MusicItems != 'undefined') {
+if (typeof MusicItems != 'undefined' && MusicItems.length !== 0) {
   musicResults = (
     <section className="container">
       <h1 className="mediaCat"><a href="/albums">Music</a></h1>
@@ -39,7 +39,7 @@ if (typeof MusicItems != 'undefined') {
   )
 }
 
-if (typeof MovieItems != 'undefined') {
+if (typeof MovieItems != 'undefined' && MovieItems.length !== 0) {
   movieResults = (
     <section className="container">
       <h1 className="mediaCat"><a href="/movies">Movies</a></h1>
@@ -60,5 +60,5 @@ ReactDOM.render(
     {musicResults}
     {movieResults}
   </div>,
-    document.getElementById('results')
+  document.getElementById('results')
 )
