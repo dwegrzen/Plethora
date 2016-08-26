@@ -1,5 +1,35 @@
-<div class="col-sm-5 <%= album.gn_id %>">
-  <img class="searchImage center-block img-responsive" src="<%=album.album_art%>">
+<div class="col-sm-5">
+  <img class="searchImage center-block img-responsive" src="<%=album.album_art%>" />
+  <input type="hidden" id="dataRaw" data-id="<%= @albumid %>" data-raw="<%= album.to_json %>"/>
+  <div class="btn-group btn-group-justified btnGroupDetail">
+  <% if @queued %>
+    <div class="btn-group" role="group">
+      <button id="albumAdd" class="btn btn-success btnDetail">
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      </button>
+    </div>
+  <% else %>
+    <div class="btn-group" role="group">
+      <button id="albumAdd" class="btn btn-success btnDetail">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>
+    </div>
+  <% end %>
+
+  <% if @finished %>
+    <div class="btn-group" role="group">
+      <button id="albumListened" class="btn btn-success btnDetail">
+        <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+      </button>
+    </div>
+  <% else %>
+    <div class="btn-group" role="group">
+      <button id="albumListened" class="btn btn-success btnDetail">
+        <span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>
+      </button>
+    </div>
+  <% end %>
+</div>
   <h5><em><%= album.tracks %></em></h5>
 </div>
 <div class="col-sm-7">
@@ -18,3 +48,4 @@
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57b5bb560b6e840b"></script>
+<script src="/js/buttonToggle.js"></script>
