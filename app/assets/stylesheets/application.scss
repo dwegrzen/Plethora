@@ -16,13 +16,21 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+$yellow: #FFC857;
+$mint: #CEEDE7;
+$teal: #476A6F;
+$darkTeal: #1F363D;
+$black: #131515;
+
+
 html, body {
     height: 100%;
 }
 
 body {
     font-family: 'Lato', sans-serif;
-    color: RGB(200, 202, 206);
+    font-weight: 300;
+    color: $darkTeal;
     li {
         list-style: none;
     }
@@ -34,8 +42,8 @@ a:hover {
 }
 
 header {
-    background-color: rgba(72, 78, 92, .9);
-    height: 150px;
+    background-color: rgba(31, 54, 61, 0.8);
+    min-height: 100px;
     padding-top: 20px;
     padding-bottom: 20px;
     a {
@@ -63,11 +71,13 @@ header {
         font-size: 15px;
         margin-right: 15px;
         margin-top: 5px;
+        color: $mint;
     }
     .signupLinkMobile {
         display: inline-block;
         font-size: 15px;
         margin-top: 5px;
+        color: $mint;
     }
 
 //Desktop Header
@@ -98,12 +108,14 @@ header {
         float: right;
         margin-top: 21px;
         margin-right: 25px;
-        background-color: rgba(72, 78, 92, .9);
-        border: 1px solid #a0a6b4;
+        background-color: $teal;
         border-radius: 3px;
         padding: 5px 10px;
         a {
-            color: RGB(200, 202, 206);
+            color: $mint;
+            &:hover {
+                color: white;
+            }
         }
     }
     .signupLinkDesktop {
@@ -112,12 +124,14 @@ header {
         float: right;
         margin-top: 21px;
         margin-right: 15px;
-        background-color: rgba(72, 78, 92, .9);
-        border: 1px solid #a0a6b4;
+        background-color: $teal;
         border-radius: 3px;
         padding: 5px 10px;
         a {
-            color: RGB(200, 202, 206);
+            color: $mint;
+            &:hover {
+                color: white;
+            }
         }
     }
 }
@@ -126,62 +140,147 @@ header {
     margin-right: 0px;
 }
 
+// Body code that only applies when a user is logged out
 body.loggedout {
-    background-image: linear-gradient(rgba(72, 78, 92, .4), rgba(72, 78, 92, .4)), url('plethoraBackground.jpeg');
+    background-image: linear-gradient(rgba(31, 54, 61, .5), rgba(31, 54, 61, .5)), url('plethoraBackground.jpeg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
-
+// Body code that only applies when a user is logged in
 body.loggedin {
-    background-color: rgb(72, 78, 92);
+    background-color: $darkTeal;
+    header {
+
+    }
+    footer {
+        margin-top: 50px;
+        background-image: linear-gradient(rgba(31, 54, 61, 0.6), (rgba(31, 54, 61, 0.6))), url('plethoraBackground.jpeg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        a {
+            color: white;
+            font-size: 15px;
+        }
+    }
 }
 
 body {
     .mainContent {
         min-height: 100%;
-        margin-bottom: -160px;
+        margin-bottom: -190px;
         &:after {
             content: "";
             display: block;
         }
         .tagline {
             color: white;
-            padding-top: 150px;
-            font-size: 50px;
+            padding-top: 100px;
+            font-size: 40px;
+            font-weight: 300;
         }
         .subheaderHome {
+            font-size: 25px;
             color: white;
-            // text-shadow: -1px 0 #FFC857, 0 1px #FFC857, 1px 0 #FFC857, 0 -1px #FFC857;
+        }
+        #signupBtn {
+            margin-top: 55px;
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 3px;
+            padding: 15px 25px;
+            &:hover {
+                background-color: rgba(206, 237, 231, .2);
+                border-color: $teal;
+                a {
+                    font-weight: bold;
+                }
+            }
+            a {
+                color: white;
+                font-size: 20px;
+            }
         }
     }
+
+    // Log In, Sign Up pages - only accessible when not logged in
     #login, #signup, #loginForm, #signupForm {
-        background-color: rgba(72, 78, 92, .9);
         padding: 15px 20px 18px;
     }
+    #login, #signup {
+        margin-top: 50px;
+        border-radius: 5px 5px 0px 0px;
+        background-color: rgba(#1F363D, 0.85);
+        color: white;
+    }
+    #loginForm, #signupForm {
+        padding-top: 25px;
+        border-radius: 0px 0px 5px 5px;
+        background-color: rgba(206, 237, 231, .4);
+    }
+    #loginForm {
+        .form-inputs {
+            font-size: 15px;
+            font-weight: bold;
+        }
+    }
+    #signupFormBtn, #loginFormBtn {
+        font-size: 15px;
+        background-color: rgba(#476A6F, .75);
+        border: none;
+        border-radius: 3px;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        padding: 10px;
+        min-width: 150px;
+        color: $mint;
+        &:hover {
+            background-color: rgba(206, 237, 231, .5);
+            color: $teal;
+        }
+    }
+
+
     #searchBarAndButton {
         margin: auto;
         #searchBar {
-            width: 50%;
-            margin-left: 25%;
+            width: 30%;
+            margin-left: 32%;
             background-color: rgb(72, 78, 92);
             border: 1px solid RGB(200, 202, 206);
-            border-radius: 5px;
+            border-radius: 5px 0px 0px 5px;
             padding: 5px 15px;
         }
         #searchBtn {
             background-color: transparent;
         }
         #searchType {
-            width: 100px;
+            width: 75px;
             display: inline-block;
+            background-color: rgb(72, 78, 92);
+        }
+        select#searchType.form-control {
+            border-radius: 0px 5px 5px 0px;
+            -webkit-appearance: none;
+            margin-left: -4px;
+            height: 32px;
+            position: relative;
+            top: 1px;
+            background-color: RGB(200, 202, 206);
+            color: rgb(72, 78, 92);
         }
     }
     #results {
         width: 100%;
     }
     .mediaCat {
+        font-size: 45px;
         margin-top: 50px;
+        border-bottom: 2px solid RGB(200, 202, 206);
+        a {
+            color: RGB(200, 202, 206);
+        }
     }
     .item {
         background-size: cover;
@@ -213,7 +312,8 @@ body {
     }
     .itemLink:hover {
         .hoverLayer {
-            background: rgba(0,0,0,.5);
+            background: rgba(9, 11, 14, 0.6);
+            border-radius: 5px;
         }
         .tvSynopsis, .title, .albumName, .artistName {
             visibility: visible !important;
@@ -222,6 +322,13 @@ body {
     }
     .searchImage {
         margin-top: 30px;
+        border-radius: 5px 5px 0px 0px;
+    }
+    #leftBtn {
+        border-top-left-radius: 0px;
+    }
+    #rightBtn {
+        border-top-right-radius: 0px;
     }
     .btn-group {
         max-width: 300px;
@@ -234,16 +341,18 @@ body {
 
 footer {
     height: 200px;
-    background-color: rgb(72, 78, 92);
+    background-color: $darkTeal;
     a {
-     color: RGB(200, 202, 206);
+     color: $mint;
+     &:hover {
+         color: white;
+     }
     }
     .footerLogo {
         width: 100%;
-        max-width: 250px;
+        max-width: 150px;
     }
     .footerLinks {
-        font-size: 13px;
         padding-top: 30px;
         margin-bottom: 20px;
         .what {
@@ -261,10 +370,24 @@ footer {
     header {
         background-color: transparent;
     }
+    body {
+        .mainContent {
+            margin-bottom: -100px;
+            .tagline {
+                padding-top: 190px;
+                font-size: 55px;
+            }
+            .subheaderHome {
+                font-size: 35px;
+            }
+        }
+    }
+    //Home page code
+
+
     footer {
         height: 150px;
         .footerLinks {
-            font-size: 12px;
             p {
                 margin-top: 15px;
             }

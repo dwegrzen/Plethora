@@ -24,7 +24,6 @@ class TVItem extends React.Component {
     else {
       fetch('/shows?show_id=' + this.state.series.id, {
         method: 'DELETE',
-        // body: JSON.stringify(this.state.series),
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -54,16 +53,12 @@ class TVItem extends React.Component {
     var divStyle = {
       visibility: 'hidden',
       opacity: 0,
-    };
-
+    }
     var imgStyle = {
       backgroundImage: 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url(' + this.state.series.show_image + ')'
     }
-
     var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'
-
     var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default'
-
     var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default'
 
     //Grid layout for dashboard
@@ -74,18 +69,22 @@ class TVItem extends React.Component {
             <div className="text-center">
               <div className="hoverLayer">
                 <h2 className="title" style={divStyle}>{this.state.series.title}</h2>
-                <h5 style={divStyle} className="tvSynopsis center-block" >{this.state.series.synopsis ? this.state.series.synopsis : 'Sorry! There is no synopsis available.'}</h5>
+                <h5 style={divStyle} className="tvSynopsis center-block" >
+                  {this.state.series.synopsis ? this.state.series.synopsis : 'Sorry! There is no synopsis available.'}
+                </h5>
               </div>
             </div>
           </div>
         </a>
         <div className="btn-group btn-group-justified">
           <div className="btn-group" role="group">
-            <button onClick={() => this.queueToggle() } type="button" className={queuedBackground}><span className={queuedIcon} aria-hidden="true"></span>
+            <button onClick={() => this.queueToggle() } type="button" className={queuedBackground} id="leftBtn">
+              <span className={queuedIcon} aria-hidden="true"></span>
             </button>
           </div>
           <div className="btn-group" role="group">
-            <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground}><span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+            <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
+              <span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
             </button>
           </div>
         </div>
@@ -95,26 +94,26 @@ class TVItem extends React.Component {
     //Layout for search page without hover effects
     else {
       return <div className="row">
-        <div className="col-sm-12">
-            <div className="col-sm-3">
-              <a className="itemLink" href={"/showdetail/" + this.state.series.gn_id}>
-                <img className="img-responsive center-block" src={this.state.series.show_image} />
-              </a>
-              <div className="btn-group btn-group-justified">
-                <div className="btn-group" role="group">
-                  <button onClick={() => this.queueToggle() } type="button" className={queuedBackground}><span className={queuedIcon} aria-hidden="true"></span>
-                  </button>
-                </div>
-                <div className="btn-group" role="group">
-                  <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground}><span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                  </button>
-                </div>
-              </div>
+        <div className="col-sm-3">
+          <a className="itemLink" href={"/showdetail/" + this.state.series.gn_id}>
+            <img className="img-responsive thumbnail center-block searchImage" src={this.state.series.show_image} />
+          </a>
+          <div className="btn-group btn-group-justified">
+            <div className="btn-group" role="group">
+              <button onClick={() => this.queueToggle() } type="button" className={queuedBackground} id="leftBtn">
+                <span className={queuedIcon} aria-hidden="true"></span>
+              </button>
             </div>
-            <div className="col-sm-9">
-              <h2 className="title">{this.state.series.title}</h2>
-              <h5 className="tvSynopsis" >{this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'}</h5>
+            <div className="btn-group" role="group">
+              <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
+                <span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+              </button>
             </div>
+          </div>
+        </div>
+        <div className="col-sm-9">
+          <h2 className="title">{this.state.series.title}</h2>
+          <h5 className="tvSynopsis" >{this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'}</h5>
         </div>
       </div>
     }

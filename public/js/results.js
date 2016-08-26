@@ -14,7 +14,7 @@ var isSearch = window.location.href.includes('/search')
 if (typeof TVItems != 'undefined' && TVItems.length !== 0) {
   tvResults = (
     <section className="container">
-      <h1 className="mediaCat"><a href="/shows">TV</a></h1>
+      <h1 className="mediaCat text-center"><a href="/shows">TV Shows</a></h1>
 
       <Results label="Queued" component={tvItem} items={TVItems} finished={userFinishedShows} queued={userQueuedShows} showQueued={true} search={isSearch}/>
 
@@ -28,7 +28,7 @@ if (typeof TVItems != 'undefined' && TVItems.length !== 0) {
 if (typeof MusicItems != 'undefined' && MusicItems.length !== 0) {
   musicResults = (
     <section className="container">
-      <h1 className="mediaCat"><a href="/albums">Music</a></h1>
+      <h1 className="mediaCat text-center"><a href="/albums">Music</a></h1>
 
       <Results label="Queued" component={musicItem} items={MusicItems} finished={userFinishedMusic} queued={userQueuedMusic} showQueued={true} search={isSearch}/>
 
@@ -42,7 +42,7 @@ if (typeof MusicItems != 'undefined' && MusicItems.length !== 0) {
 if (typeof MovieItems != 'undefined' && MovieItems.length !== 0) {
   movieResults = (
     <section className="container">
-      <h1 className="mediaCat"><a href="/movies">Movies</a></h1>
+      <h1 className="mediaCat text-center"><a href="/movies">Movies</a></h1>
 
       <Results label="Queued" component={movieItem} items={MovieItems} finished={userFinishedMovies} queued={userQueuedMovies} showQueued={true} search={isSearch}/>
 
