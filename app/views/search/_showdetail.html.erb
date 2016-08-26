@@ -1,5 +1,35 @@
 <div class="col-sm-5 <%= series.gn_id %>">
   <img class="searchImage center-block img-responsive" src="<%=series.show_image%>">
+    <input type="hidden" id="dataRaw" data-id="<%= @seriesid %>" data-raw="<%= shows.to_json %>"/>
+  <div class="btn-group btn-group-justified btnGroupDetail">
+    <% if @queued %>
+      <div class="btn-group" role="group">
+        <button id="showAdd" class="btn btn-success btnDetail">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </button>
+      </div>
+    <% else %>
+      <div class="btn-group" role="group">
+        <button id="showAdd" class="btn btn-success btnDetail">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+      </div>
+    <% end %>
+
+    <% if @finished %>
+      <div class="btn-group" role="group">
+        <button id="showWatched" class="btn btn-success btnDetail">
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        </button>
+      </div>
+    <% else %>
+      <div class="btn-group" role="group">
+        <button id="showWatched" class="btn btn-success btnDetail">
+          <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+        </button>
+      </div>
+    <% end %>
+  </div>
 </div>
 <div class="col-sm-7">
   <h1><%= series.title %></h1>
@@ -11,3 +41,4 @@
 </div>
 
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57b5bb560b6e840b"></script>
+<script type="text/javascript" src="tvButtonToggle.js"></script>
