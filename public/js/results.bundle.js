@@ -83,11 +83,11 @@
 	    { className: 'container' },
 	    _react2.default.createElement(
 	      'h1',
-	      { className: 'mediaCat' },
+	      { className: 'mediaCat text-center' },
 	      _react2.default.createElement(
 	        'a',
 	        { href: '/shows' },
-	        'TV'
+	        'TV Shows'
 	      )
 	    ),
 	    _react2.default.createElement(_Results2.default, { label: 'Queued', component: _TVItem2.default, items: TVItems, finished: userFinishedShows, queued: userQueuedShows, showQueued: true, search: isSearch }),
@@ -102,7 +102,7 @@
 	    { className: 'container' },
 	    _react2.default.createElement(
 	      'h1',
-	      { className: 'mediaCat' },
+	      { className: 'mediaCat text-center' },
 	      _react2.default.createElement(
 	        'a',
 	        { href: '/albums' },
@@ -121,7 +121,7 @@
 	    { className: 'container' },
 	    _react2.default.createElement(
 	      'h1',
-	      { className: 'mediaCat' },
+	      { className: 'mediaCat text-center' },
 	      _react2.default.createElement(
 	        'a',
 	        { href: '/movies' },
@@ -21703,7 +21703,6 @@
 	      } else {
 	        fetch('/shows?show_id=' + this.state.series.id, {
 	          method: 'DELETE',
-	          // body: JSON.stringify(this.state.series),
 	          credentials: 'include',
 	          headers: {
 	            'Content-Type': 'application/json'
@@ -21737,15 +21736,11 @@
 	        visibility: 'hidden',
 	        opacity: 0
 	      };
-
 	      var imgStyle = {
 	        backgroundImage: 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url(' + this.state.series.show_image + ')'
 	      };
-
 	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus';
-
 	      var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default';
-
 	      var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default';
 
 	      //Grid layout for dashboard
@@ -21789,7 +21784,7 @@
 	                'button',
 	                { onClick: function onClick() {
 	                    return _this2.queueToggle();
-	                  }, type: 'button', className: queuedBackground },
+	                  }, type: 'button', className: queuedBackground, id: 'leftBtn' },
 	                _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
 	              )
 	            ),
@@ -21800,7 +21795,7 @@
 	                'button',
 	                { onClick: function onClick() {
 	                    return _this2.finishedToggle();
-	                  }, type: 'button', className: finishedBackground },
+	                  }, type: 'button', className: finishedBackground, id: 'rightBtn' },
 	                _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
 	              )
 	            )
@@ -21815,55 +21810,51 @@
 	            { className: 'row' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-sm-12' },
+	              { className: 'col-sm-3' },
 	              _react2.default.createElement(
-	                'div',
-	                { className: 'col-sm-3' },
-	                _react2.default.createElement(
-	                  'a',
-	                  { className: 'itemLink', href: "/showdetail/" + this.state.series.gn_id },
-	                  _react2.default.createElement('img', { className: 'img-responsive center-block', src: this.state.series.show_image })
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'btn-group btn-group-justified' },
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'btn-group', role: 'group' },
-	                    _react2.default.createElement(
-	                      'button',
-	                      { onClick: function onClick() {
-	                          return _this2.queueToggle();
-	                        }, type: 'button', className: queuedBackground },
-	                      _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'btn-group', role: 'group' },
-	                    _react2.default.createElement(
-	                      'button',
-	                      { onClick: function onClick() {
-	                          return _this2.finishedToggle();
-	                        }, type: 'button', className: finishedBackground },
-	                      _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
-	                    )
-	                  )
-	                )
+	                'a',
+	                { className: 'itemLink', href: "/showdetail/" + this.state.series.gn_id },
+	                _react2.default.createElement('img', { className: 'img-responsive thumbnail center-block searchImage', src: this.state.series.show_image })
 	              ),
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'col-sm-9' },
+	                { className: 'btn-group btn-group-justified' },
 	                _react2.default.createElement(
-	                  'h2',
-	                  { className: 'title' },
-	                  this.state.series.title
+	                  'div',
+	                  { className: 'btn-group', role: 'group' },
+	                  _react2.default.createElement(
+	                    'button',
+	                    { onClick: function onClick() {
+	                        return _this2.queueToggle();
+	                      }, type: 'button', className: queuedBackground, id: 'leftBtn' },
+	                    _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	                  )
 	                ),
 	                _react2.default.createElement(
-	                  'h5',
-	                  { className: 'tvSynopsis' },
-	                  this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'
+	                  'div',
+	                  { className: 'btn-group', role: 'group' },
+	                  _react2.default.createElement(
+	                    'button',
+	                    { onClick: function onClick() {
+	                        return _this2.finishedToggle();
+	                      }, type: 'button', className: finishedBackground, id: 'rightBtn' },
+	                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	                  )
 	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-9' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: 'title' },
+	                this.state.series.title
+	              ),
+	              _react2.default.createElement(
+	                'h5',
+	                { className: 'tvSynopsis' },
+	                this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'
 	              )
 	            )
 	          );
