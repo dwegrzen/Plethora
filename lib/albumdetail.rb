@@ -9,7 +9,7 @@ class Albumdetail
      self.artist = album["artists"].map{|x| x["name"]}.first
      self.album_art = album["images"].first["uri"]
      self.gn_id = album['id']
-     self.date = album['year']
+     self.date = album['year'].to_s
      self.genre = album['genres']
      self.trackname = album['tracklist']
      self.tracks = album['notes']
