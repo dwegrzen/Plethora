@@ -22006,7 +22006,7 @@
 	              'button',
 	              { onClick: function onClick() {
 	                  return _this2.queueToggle();
-	                }, type: 'button', className: queuedBackground },
+	                }, type: 'button', className: queuedBackground, id: 'leftBtn' },
 	              _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
 	            )
 	          ),
@@ -22017,7 +22017,7 @@
 	              'button',
 	              { onClick: function onClick() {
 	                  return _this2.finishedToggle();
-	                }, type: 'button', className: finishedBackground },
+	                }, type: 'button', className: finishedBackground, id: 'rightBtn' },
 	              _react2.default.createElement('span', { className: 'glyphicon glyphicon-headphones', 'aria-hidden': 'true' })
 	            )
 	          )
@@ -22169,7 +22169,7 @@
 	              'button',
 	              { onClick: function onClick() {
 	                  return _this2.queueToggle();
-	                }, type: 'button', className: queuedBackground },
+	                }, type: 'button', className: queuedBackground, id: 'leftBtn' },
 	              _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
 	            )
 	          ),
@@ -22180,7 +22180,7 @@
 	              'button',
 	              { onClick: function onClick() {
 	                  return _this2.finishedToggle();
-	                }, type: 'button', className: finishedBackground },
+	                }, type: 'button', className: finishedBackground, id: 'rightBtn' },
 	              _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
 	            )
 	          )

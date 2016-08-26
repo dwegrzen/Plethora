@@ -78,11 +78,13 @@ class MovieItem extends React.Component {
       </a>
       <div className="btn-group btn-group-justified">
         <div className="btn-group" role="group">
-          <button onClick={() => this.queueToggle() } type="button" className={queuedBackground}><span className={queuedIcon} aria-hidden="true"></span>
+          <button onClick={() => this.queueToggle() } type="button" className={queuedBackground} id="leftBtn">
+            <span className={queuedIcon} aria-hidden="true"></span>
           </button>
         </div>
         <div className="btn-group" role="group">
-          <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground}><span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
+            <span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
           </button>
         </div>
 

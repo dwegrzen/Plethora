@@ -1,6 +1,6 @@
 <div class="col-sm-5 <%= series.gn_id %>">
   <img class="searchImage center-block img-responsive" src="<%=series.show_image%>">
-    <input type="hidden" id="dataRaw" data-id="<%= @seriesid %>" data-raw="<%= shows.to_json %>"/>
+    <input type="hidden" id="dataRaw" data-id="<%= @showid %>" data-raw="<%= series.to_json %>"/>
   <div class="btn-group btn-group-justified btnGroupDetail">
     <% if @queued %>
       <div class="btn-group" role="group">
@@ -41,4 +41,4 @@
 </div>
 
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57b5bb560b6e840b"></script>
-<script type="text/javascript" src="tvButtonToggle.js"></script>
+<script src="/js/tvButtonToggle.js"></script>

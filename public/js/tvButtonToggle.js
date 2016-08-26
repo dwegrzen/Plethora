@@ -17,7 +17,7 @@ document.getElementById('showAdd').addEventListener('click', function() {
     this.classList.add('active')
   }
   else {
-    fetch('/shows?shows_id=' + dataId, {
+    fetch('/shows?show_id=' + dataId, {
       method: 'DELETE',
       credentials: 'include',
       headers: {
@@ -38,7 +38,7 @@ document.getElementById('showWatched').addEventListener('click', function() {
     fetch('/showstatus', {
       method: 'PATCH',
       body: JSON.stringify({
-        movie_id: dataId,
+        show_id: dataId,
         finished: true
       }),
       credentials: 'include',
@@ -53,7 +53,7 @@ document.getElementById('showWatched').addEventListener('click', function() {
     fetch('/showstatus', {
       method: 'PATCH',
       body: JSON.stringify({
-        movie_id: dataId,
+        show_id: dataId,
         finished: false
       }),
       credentials: 'include',
