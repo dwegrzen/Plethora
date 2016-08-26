@@ -17,7 +17,7 @@ document.getElementById('movieAdd').addEventListener('click', function() {
     this.classList.add('active')
   }
   else {
-    fetch('/movies?movie_id=' + movies.id, {
+    fetch('/movies?movie_id=' + dataId, {
       method: 'DELETE',
       credentials: 'include',
       headers: {
@@ -31,22 +31,37 @@ document.getElementById('movieAdd').addEventListener('click', function() {
 })
 
 document.getElementById('movieWatched').addEventListener('click', function() {
-  if (!this.classList.contains('active')) {
+  var span = this.querySelector('span')
+  var dataId = document.getElementById('dataRaw').getAttribute('data-id')
+
+  if (span.classList.contains('glyphicon-eye-close')) {
     fetch('/moviestatus', {
       method: 'PATCH',
-      body: ,
+      body: JSON.stringify({
+        movie_id: dataId,
+        finished: true
+      }),
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-eye-closed')
+    span.classList.remove('glyphicon-eye-close')
     span.classList.add('glyphicon-eye-open')
-    this.classList.add('active')
   }
   else {
+    fetch('/moviestatus', {
+      method: 'PATCH',
+      body: JSON.stringify({
+        movie_id: dataId,
+        finished: false
+      }),
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
     span.classList.remove('glyphicon-eye-open')
-    span.classList.add('glyphicon-eye-closed')
-    this.classList.remove('active')
+    span.classList.add('glyphicon-eye-close')
   }
 })

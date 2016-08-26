@@ -83,7 +83,7 @@ class SearchController < ApplicationController
       @queued = true
       @showid = current_user.shows.find_by(gn_id: params[:gn_id]).id
       @finished = current_user.stackings.find_by(media_id: @showid).finished
-
+    end
   end
 
   def detailmusic
@@ -94,13 +94,12 @@ class SearchController < ApplicationController
   def detailmovie
     @singlemovie = Tmdb::Movie.detail(params[:tmdb_id])
     @detailparse = Filmdetail.new(@singlemovie)
-    if current_user.shows.find_by(gn_id: params[:gn_id])
+    if current_user.movies.find_by(tmdb_id: params[:tmdb_id])
       @queued = true
-      @movieid = current_user.shows.find_by(gn_id: params[:gn_id]).id
+      @movieid = current_user.movies.find_by(tmdb_id: params[:tmdb_id]).id
       @finished = current_user.stackings.find_by(media_id: @movieid).finished
     else
       @queued = false
-      @movieid = Show.find_by(gn_id: params[:gn_id]).id
       @finished = nil
     end
 
