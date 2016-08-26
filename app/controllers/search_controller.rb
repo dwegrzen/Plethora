@@ -89,6 +89,15 @@ class SearchController < ApplicationController
   def detailmusic
     @singlealbum = DISCOGS.get_master(params[:gn_id])
     @detailparse = Albumdetail.new(@singlealbum)
+    if current_user.albums.find_by(gn_id: params[:gn_id])
+      @queued = true
+      @albumid = current_user.albums.find_by(gn_id: params[:gn_id]).id
+      @finished = current_user.stackings.find_by(media_id: @albumid, media_type: "Album").finished
+    else
+      @queued = false
+      @finished = nil
+    end
+
   end
 
   def detailmovie
@@ -97,7 +106,7 @@ class SearchController < ApplicationController
     if current_user.movies.find_by(tmdb_id: params[:tmdb_id])
       @queued = true
       @movieid = current_user.movies.find_by(tmdb_id: params[:tmdb_id]).id
-      @finished = current_user.stackings.find_by(media_id: @movieid).finished
+      @finished = current_user.stackings.find_by(media_id: @movieid, media_type: "Movie").finished
     else
       @queued = false
       @finished = nil
