@@ -26,7 +26,7 @@ class SearchController < ApplicationController
         @movieresults = Tmdb::Movie.find(params[:search])
         @movieparse = @movieresults.map{|movie| Film.new(movie)}
       when "Music"
-        @artistresults = DISCOGS.search(params[:search], per_page: 50, type: 'master', country: :us)
+        @artistresults = DISCOGS.search(params[:search], per_page: 50, type: 'master')
         @artistparse = @artistresults["results"].map{|album| Albumtemp.new(album)}
       else
     end
@@ -83,7 +83,12 @@ class SearchController < ApplicationController
       @queued = true
       @showid = current_user.shows.find_by(gn_id: params[:gn_id]).id
       @finished = current_user.stackings.find_by(media_id: @showid).finished
+    else
+      @queued = false
+      @finished = nil
     end
+
+
   end
 
   def detailmusic
