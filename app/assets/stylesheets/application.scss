@@ -140,27 +140,27 @@ header {
     margin-right: 0px;
 }
 
+// Body code that only applies when a user is logged out
 body.loggedout {
-    background-image: linear-gradient(rgba(72, 78, 92, .4), rgba(72, 78, 92, .4)), url('plethoraBackground.jpeg');
+    background-image: linear-gradient(rgba(31, 54, 61, .5), rgba(31, 54, 61, .5)), url('plethoraBackground.jpeg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
-
+// Body code that only applies when a user is logged in
 body.loggedin {
-    background-color: rgb(206, 237, 231);
+    background-color: $darkTeal;
     header {
 
     }
     footer {
         margin-top: 50px;
-        background-image: linear-gradient(rgba(206, 237, 231, .5), (rgba(206, 237, 231, .5))), url('plethoraBackground.jpeg');
+        background-image: linear-gradient(rgba(31, 54, 61, 0.6), (rgba(31, 54, 61, 0.6))), url('plethoraBackground.jpeg');
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
         a {
-            color: #2D3319;
-            font-weight: bold;
+            color: white;
             font-size: 15px;
         }
     }
