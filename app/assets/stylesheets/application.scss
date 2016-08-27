@@ -21,6 +21,7 @@ $mint: #CEEDE7;
 $teal: #476A6F;
 $darkTeal: #1F363D;
 $black: #131515;
+$white: #E7EEF1;
 
 
 html, body {
@@ -38,7 +39,7 @@ body {
 
 a:hover {
     text-decoration: none;
-    color: white;
+    color: $white;
 }
 
 header {
@@ -114,7 +115,7 @@ header {
         a {
             color: $mint;
             &:hover {
-                color: white;
+                color: $white;
             }
         }
     }
@@ -130,7 +131,7 @@ header {
         a {
             color: $mint;
             &:hover {
-                color: white;
+                color: $white;
             }
         }
     }
@@ -160,7 +161,7 @@ body.loggedin {
         background-size: cover;
         background-repeat: no-repeat;
         a {
-            color: white;
+            color: $white;
             font-size: 15px;
         }
     }
@@ -175,19 +176,19 @@ body {
             display: block;
         }
         .tagline {
-            color: white;
+            color: $white;
             padding-top: 100px;
             font-size: 40px;
             font-weight: 300;
         }
         .subheaderHome {
             font-size: 25px;
-            color: white;
+            color: $white;
         }
         #signupBtn {
             margin-top: 55px;
             background-color: transparent;
-            border: 2px solid white;
+            border: 2px solid $white;
             border-radius: 3px;
             padding: 15px 25px;
             &:hover {
@@ -198,7 +199,7 @@ body {
                 }
             }
             a {
-                color: white;
+                color: $white;
                 font-size: 20px;
             }
         }
@@ -212,7 +213,7 @@ body {
         margin-top: 50px;
         border-radius: 5px 5px 0px 0px;
         background-color: rgba(#1F363D, 0.85);
-        color: white;
+        color: $white;
     }
     #loginForm, #signupForm {
         padding-top: 25px;
@@ -241,34 +242,36 @@ body {
         }
     }
 
-
+    //Logged in pages
     #searchBarAndButton {
-        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         #searchBar {
-            width: 30%;
-            margin-left: 32%;
-            background-color: rgb(72, 78, 92);
-            border: 1px solid RGB(200, 202, 206);
+            margin-left: 30px;
+            width: 500px;
+            background-color: $darkTeal;
+            border: 1px solid $teal;
             border-radius: 5px 0px 0px 5px;
             padding: 5px 15px;
         }
-        #searchBtn {
-            background-color: transparent;
-        }
         #searchType {
-            width: 75px;
+            width: 50px;
             display: inline-block;
-            background-color: rgb(72, 78, 92);
         }
         select#searchType.form-control {
+            border: 1px solid $teal;
             border-radius: 0px 5px 5px 0px;
             -webkit-appearance: none;
             margin-left: -4px;
             height: 32px;
-            position: relative;
-            top: 1px;
-            background-color: RGB(200, 202, 206);
-            color: rgb(72, 78, 92);
+            background-color: $teal;
+            color: $darkTeal;
+        }
+        #searchBtn {
+            display: inline-block;
+            background-color: transparent;
+            color: $teal;
         }
     }
     #results {
@@ -277,9 +280,9 @@ body {
     .mediaCat {
         font-size: 45px;
         margin-top: 50px;
-        border-bottom: 2px solid RGB(200, 202, 206);
+        border-bottom: 2px solid $mint;
         a {
-            color: RGB(200, 202, 206);
+            color: $white;
         }
     }
     .item {
@@ -290,19 +293,19 @@ body {
         height: 250px;
         width: 100%;
         max-width: 300px;
-        color: white;
+        color: $white;
+        overflow: hidden;
         .hoverLayer {
             height: 250px;
             width: 100%;
             transition: all 0.3s ease;
             .title, .albumName, .artistName {
-                padding-top: 15px;
-                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-            }
-            .artistName {
-
+                font-weight: 300;
+                color: $mint;
+                padding-top: 30px;
             }
             .tvSynopsis {
+                font-weight: 300;
                 width: 80%;
                 padding-top: 15px;
                 transition: all 0.3s ease;
@@ -312,8 +315,9 @@ body {
     }
     .itemLink:hover {
         .hoverLayer {
-            background: rgba(9, 11, 14, 0.6);
-            border-radius: 5px;
+            margin-top: -20px;
+            background: rgba(18, 20, 20, .7);
+            border-radius: 5px 5px 0px 0px;
         }
         .tvSynopsis, .title, .albumName, .artistName {
             visibility: visible !important;
@@ -324,18 +328,48 @@ body {
         margin-top: 30px;
         border-radius: 5px 5px 0px 0px;
     }
-    #leftBtn {
-        border-top-left-radius: 0px;
+    //styling for media detail pages
+    .mediaTitle {
+        color: $teal;
+        font-size: 30px;
     }
-    #rightBtn {
+    .mediaDetails{
+        h3 {
+            font-size: 20px;
+            font-weight: 300;
+        }
+    }
+    .detailImage {
+        max-height: 375px;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+
+    //button styling
+    #leftBtn, #movieAdd, #rightBtn, #movieWatched {
+        background-color: $teal;
+        border: none;
+        &:hover {
+            color: $mint;
+        }
+    }
+    #leftBtn, #movieAdd {
+        border-top-left-radius: 0px;
+        color: $white;
+    }
+    #rightBtn, #movieWatched {
         border-top-right-radius: 0px;
+        border-left: 1px solid $darkTeal;
+        color: $white;
     }
     .btn-group {
         max-width: 300px;
         margin: auto;
+        margin-bottom: 25px;
     }
     .btnGroupDetail {
-        max-width: 325px;
+        max-width: 200px;
+        margin-bottom: 75px;
     }
 }
 
@@ -345,7 +379,7 @@ footer {
     a {
      color: $mint;
      &:hover {
-         color: white;
+         color: $white;
      }
     }
     .footerLogo {
@@ -371,6 +405,7 @@ footer {
         background-color: transparent;
     }
     body {
+        //logged out pages
         .mainContent {
             margin-bottom: -100px;
             .tagline {
@@ -381,10 +416,20 @@ footer {
                 font-size: 35px;
             }
         }
+        //media detail pages
+        .detailImage {
+            max-height: 500px;
+        }
+        .mediaTitle {
+            font-size: 40px;
+        }
+        .mediaDetails{
+            h3 {
+                font-size: 28px;
+                font-weight: 300;
+            }
+        }
     }
-    //Home page code
-
-
     footer {
         height: 150px;
         .footerLinks {

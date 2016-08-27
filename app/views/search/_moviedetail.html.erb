@@ -1,5 +1,5 @@
 <div class="col-sm-5">
-  <img class="searchImage center-block img-responsive" src="<%=movie.movie_art%>" />
+  <img class="detailImage center-block img-responsive" src="<%=movie.movie_art%>" />
   <input type="hidden" id="dataRaw" data-id="<%= @movieid %>" data-raw="<%= movie.to_json %>"/>
   <div class="btn-group btn-group-justified btnGroupDetail">
     <% if @queued %>
@@ -32,9 +32,10 @@
   </div>
 </div>
 
-<div class="col-sm-7">
-  <h1><%= movie.name %></h1>
-  <h3>Synopsis: <%= movie.overview %></h3>
+<div class="col-sm-7 mediaDetails">
+  <h1 class="mediaTitle"><%= movie.name %></h1>
+  <h3><%= movie.overview %></h3>
+  <br />
   <h3>Date: <%= movie.date %></h3>
   <h3>Genre: <%= movie.genre %></h3>
   <h3>Runtime: <%= movie.runtime %> minutes</h3>

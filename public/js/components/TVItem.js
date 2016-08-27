@@ -55,7 +55,7 @@ class TVItem extends React.Component {
       opacity: 0,
     }
     var imgStyle = {
-      backgroundImage: 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url(' + this.state.series.show_image + ')'
+      backgroundImage: 'linear-gradient(rgba(31, 54, 61, 0.2), rgba(31, 54, 61, 0.2)), url(' + this.state.series.show_image + ')'
     }
     var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'
     var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default'
