@@ -15,6 +15,21 @@
 
   </div>
 </div>
+<% if @paginate %>
+<div class="container" id="pagination">
+  <ul class="pagination">
+    <% if @currentpage.to_i > 1 %>
+    <li><%= link_to "Previous", {page: @currentpage.to_i - 1, search: params[:search], searchtype: "Music"} %></li>
+    <% end %>
+    <li class="active"><a href="#"><%= "Page: #{@currentpage}" %></a></li>
+    <% if @currentpage.to_i < @pages %>
+    <li><%= link_to "Next", {page: @currentpage.to_i + 1, search: params[:search], searchtype: "Music"} %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+
 <script>
 
   var TVItems = <%== @tvparse.to_json %>
