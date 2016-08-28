@@ -31,7 +31,7 @@ html, body {
 body {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    color: $mint;
+    color: $black;
     li {
         list-style: none;
     }
@@ -48,7 +48,7 @@ header {
     padding-top: 20px;
     padding-bottom: 20px;
     a {
-        color: RGB(200, 202, 206);
+        color: $white;
     }
 
 //Mobile Header
@@ -61,6 +61,7 @@ header {
         display: inline-block;
         font-size: 15px;
         margin-right: 10px;
+        color: $white;
     }
     .logoutLinkMobile {
         display: inline-block;
@@ -94,6 +95,7 @@ header {
         float: right;
         margin-top: 21px;
         margin-right: 15px;
+        color: $white;
     }
     .logoutLinkDesktop {
         display: inline-block;
@@ -150,9 +152,9 @@ body.loggedout {
 }
 // Body code that only applies when a user is logged in
 body.loggedin {
-    background-color: $darkTeal;
+    background-color: #D8D8D8;
     header {
-
+        background-color: $black;
     }
     footer {
         margin-top: 50px;
@@ -211,14 +213,18 @@ body {
     }
     #login, #signup {
         margin-top: 50px;
-        border-radius: 5px 5px 0px 0px;
-        background-color: rgba(#1F363D, 0.85);
+        border-radius: 3px 3px 0px 0px;
+        background-color: rgba($darkTeal, 0.75);
         color: $white;
+        h1{
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
     }
     #loginForm, #signupForm {
         padding-top: 25px;
-        border-radius: 0px 0px 5px 5px;
-        background-color: rgba(206, 237, 231, .4);
+        border-radius: 0px 0px 3px 3px;
+        background-color: rgba($white, .4);
     }
     #loginForm {
         .form-inputs {
@@ -228,50 +234,54 @@ body {
     }
     #signupFormBtn, #loginFormBtn {
         font-size: 15px;
-        background-color: rgba(#476A6F, .75);
+        background-color: rgba($darkTeal, 0.85);
         border: none;
         border-radius: 3px;
         margin-top: 25px;
         margin-bottom: 10px;
         padding: 10px;
         min-width: 150px;
-        color: $mint;
+        color: $white;
+        font-weight: 300;
         &:hover {
-            background-color: rgba(206, 237, 231, .5);
-            color: $teal;
+            background-color: rgba($black, .85);
+            font-weight: bold;
         }
     }
 
     //Logged in pages
     #searchBarAndButton {
+        background-color: transparent;
+        color: $white;
+        padding-top: 15px;
         display: flex;
         justify-content: center;
         align-items: center;
         #searchBar {
             margin-left: 30px;
             width: 500px;
-            background-color: $darkTeal;
-            border: 1px solid $teal;
-            border-radius: 5px 0px 0px 5px;
+            background-color: white;
+            border: 1px solid white;
+            border-radius: 3px 0px 0px 3px;
             padding: 5px 15px;
         }
         #searchType {
-            width: 50px;
+            width: 65px;
             display: inline-block;
         }
         select#searchType.form-control {
-            border: 1px solid $teal;
-            border-radius: 0px 5px 5px 0px;
+            border: none;
+            border-radius: 0px 3px 3px 0px;
             -webkit-appearance: none;
             margin-left: -4px;
             height: 32px;
-            background-color: $teal;
-            color: $darkTeal;
+            background-color: $darkTeal;
+            color: RGB(167, 167, 167);
         }
         #searchBtn {
             display: inline-block;
             background-color: transparent;
-            color: $teal;
+            color: RGB(167, 167, 167);
         }
     }
     #results {
@@ -280,16 +290,30 @@ body {
     .mediaCat {
         font-size: 45px;
         margin-top: 50px;
-        border-bottom: 2px solid $mint;
+        border-bottom: 2px solid $black;
         a {
-            color: $white;
+            color: $black;
         }
     }
+    .row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    section.container {
+        background-color: white;
+        margin-top: 25px;
+        width: 100%;
+        border-radius: 3px;
+    }
+    .tvSynopsisSearch {
+        width: 70%;
+    }
+
     .item {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: top;
-        border-radius: 5px 5px 0px 0px;
+        border-radius: 3px 3px 0px 0px;
         height: 250px;
         width: 100%;
         max-width: 300px;
@@ -317,7 +341,7 @@ body {
         .hoverLayer {
             margin-top: -20px;
             background: rgba(18, 20, 20, .7);
-            border-radius: 5px 5px 0px 0px;
+            border-radius: 3px 3px 0px 0px;
         }
         .tvSynopsis, .title, .albumName, .artistName {
             visibility: visible !important;
@@ -326,12 +350,16 @@ body {
     }
     .searchImage {
         margin-top: 30px;
-        border-radius: 5px 5px 0px 0px;
+        border-radius: 3px 3px 0px 0px;
     }
     //styling for media detail pages
     .mediaTitle {
-        color: $teal;
+        color: $black;
+        text-align: center;
+        background-color: $mint;
+        padding: 10px;
         font-size: 30px;
+        border-radius: 3px 3px 0px 0px;
     }
     .mediaDetails{
         h3 {
@@ -342,7 +370,7 @@ body {
     .detailImage {
         max-height: 375px;
         margin-top: 20px;
-        border-radius: 5px;
+        border-radius: 3px;
     }
 
     //button styling
@@ -355,10 +383,12 @@ body {
     }
     #leftBtn, #movieAdd {
         border-top-left-radius: 0px;
+        border-bottom-left-radius: 3px;
         color: $white;
     }
     #rightBtn, #movieWatched {
         border-top-right-radius: 0px;
+        border-bottom-right-radius: 3px;
         border-left: 1px solid $darkTeal;
         color: $white;
     }
@@ -375,9 +405,9 @@ body {
 
 footer {
     height: 200px;
-    background-color: $darkTeal;
+    background-color: $black;
     a {
-     color: $mint;
+     color: $white;
      &:hover {
          color: $white;
      }

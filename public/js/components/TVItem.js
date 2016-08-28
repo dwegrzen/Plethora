@@ -93,27 +93,29 @@ class TVItem extends React.Component {
 
     //Layout for search page without hover effects
     else {
-      return <div className="row">
-        <div className="col-sm-3">
-          <a className="itemLink" href={"/showdetail/" + this.state.series.gn_id}>
-            <img className="img-responsive thumbnail center-block searchImage" src={this.state.series.show_image} />
-          </a>
-          <div className="btn-group btn-group-justified">
-            <div className="btn-group" role="group">
-              <button onClick={() => this.queueToggle() } type="button" className={queuedBackground} id="leftBtn">
-                <span className={queuedIcon} aria-hidden="true"></span>
-              </button>
-            </div>
-            <div className="btn-group" role="group">
-              <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
-                <span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-              </button>
+      return <div id="tvItemsSection">
+        <div className="row">
+          <div className="col-sm-3">
+            <a className="itemLink" href={"/showdetail/" + this.state.series.gn_id}>
+              <img className="img-responsive center-block searchImage" src={this.state.series.show_image} />
+            </a>
+            <div className="btn-group btn-group-justified">
+              <div className="btn-group" role="group">
+                <button onClick={() => this.queueToggle() } type="button" className={queuedBackground} id="leftBtn">
+                  <span className={queuedIcon} aria-hidden="true"></span>
+                </button>
+              </div>
+              <div className="btn-group" role="group">
+                <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
+                  <span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="col-sm-9">
-          <h2 className="title">{this.state.series.title}</h2>
-          <h5 className="tvSynopsis" >{this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'}</h5>
+          <div className="col-sm-9">
+            <h2 className="title">{this.state.series.title}</h2>
+            <h5 className="tvSynopsisSearch" >{this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'}</h5>
+          </div>
         </div>
       </div>
     }

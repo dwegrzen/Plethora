@@ -21807,54 +21807,58 @@
 	      else {
 	          return _react2.default.createElement(
 	            'div',
-	            { className: 'row' },
+	            { id: 'tvItemsSection' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-sm-3' },
-	              _react2.default.createElement(
-	                'a',
-	                { className: 'itemLink', href: "/showdetail/" + this.state.series.gn_id },
-	                _react2.default.createElement('img', { className: 'img-responsive thumbnail center-block searchImage', src: this.state.series.show_image })
-	              ),
+	              { className: 'row' },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'btn-group btn-group-justified' },
+	                { className: 'col-sm-3' },
 	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'btn-group', role: 'group' },
-	                  _react2.default.createElement(
-	                    'button',
-	                    { onClick: function onClick() {
-	                        return _this2.queueToggle();
-	                      }, type: 'button', className: queuedBackground, id: 'leftBtn' },
-	                    _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
-	                  )
+	                  'a',
+	                  { className: 'itemLink', href: "/showdetail/" + this.state.series.gn_id },
+	                  _react2.default.createElement('img', { className: 'img-responsive center-block searchImage', src: this.state.series.show_image })
 	                ),
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'btn-group', role: 'group' },
+	                  { className: 'btn-group btn-group-justified' },
 	                  _react2.default.createElement(
-	                    'button',
-	                    { onClick: function onClick() {
-	                        return _this2.finishedToggle();
-	                      }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	                    'div',
+	                    { className: 'btn-group', role: 'group' },
+	                    _react2.default.createElement(
+	                      'button',
+	                      { onClick: function onClick() {
+	                          return _this2.queueToggle();
+	                        }, type: 'button', className: queuedBackground, id: 'leftBtn' },
+	                      _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'btn-group', role: 'group' },
+	                    _react2.default.createElement(
+	                      'button',
+	                      { onClick: function onClick() {
+	                          return _this2.finishedToggle();
+	                        }, type: 'button', className: finishedBackground, id: 'rightBtn' },
+	                      _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	                    )
 	                  )
 	                )
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-9' },
-	              _react2.default.createElement(
-	                'h2',
-	                { className: 'title' },
-	                this.state.series.title
 	              ),
 	              _react2.default.createElement(
-	                'h5',
-	                { className: 'tvSynopsis' },
-	                this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'
+	                'div',
+	                { className: 'col-sm-9' },
+	                _react2.default.createElement(
+	                  'h2',
+	                  { className: 'title' },
+	                  this.state.series.title
+	                ),
+	                _react2.default.createElement(
+	                  'h5',
+	                  { className: 'tvSynopsisSearch' },
+	                  this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'
+	                )
 	              )
 	            )
 	          );
