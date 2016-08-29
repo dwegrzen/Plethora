@@ -21737,7 +21737,7 @@
 	        opacity: 0
 	      };
 	      var imgStyle = {
-	        backgroundImage: 'linear-gradient(rgba(31, 54, 61, 0.2), rgba(31, 54, 61, 0.2)), url(' + this.state.series.show_image + ')'
+	        backgroundImage: 'url(' + this.state.series.show_image + ')'
 	      };
 	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus';
 	      var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default';
@@ -21813,7 +21813,7 @@
 	              { className: 'row' },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'col-sm-3' },
+	                { className: 'col-sm-3 col-sm-offset-1' },
 	                _react2.default.createElement(
 	                  'a',
 	                  { className: 'itemLink', href: "/showdetail/" + this.state.series.gn_id },
@@ -21848,15 +21848,15 @@
 	              ),
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'col-sm-9' },
+	                { className: 'col-sm-8' },
 	                _react2.default.createElement(
 	                  'h2',
-	                  { className: 'title' },
+	                  { className: 'title text-left' },
 	                  this.state.series.title
 	                ),
 	                _react2.default.createElement(
 	                  'h5',
-	                  { className: 'tvSynopsisSearch' },
+	                  { className: 'tvSynopsisSearch text-left' },
 	                  this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'
 	                )
 	              )
@@ -21962,7 +21962,7 @@
 	      };
 
 	      var imgStyle = {
-	        backgroundImage: 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url("' + this.state.music.album_art + '")'
+	        backgroundImage: 'url("' + this.state.music.album_art + '")'
 	      };
 
 	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus';
@@ -21971,62 +21971,122 @@
 
 	      var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default';
 
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'col-md-4 col-lg-3' },
-	        _react2.default.createElement(
-	          'a',
-	          { className: 'itemLink', href: '/albumdetail/' + this.state.music.gn_id },
+	      //Grid layout for dashboard
+	      if (!this.props.search) {
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-4 col-lg-3' },
 	          _react2.default.createElement(
-	            'div',
-	            { className: 'item center-block', style: imgStyle },
+	            'a',
+	            { className: 'itemLink', href: '/albumdetail/' + this.state.music.gn_id },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'text-center' },
+	              { className: 'item center-block', style: imgStyle },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'hoverLayer' },
+	                { className: 'text-center' },
 	                _react2.default.createElement(
-	                  'h2',
-	                  { className: 'albumName', style: divStyle },
-	                  this.state.music.name
-	                ),
-	                _react2.default.createElement(
-	                  'h2',
-	                  { className: 'artistName center-block', style: divStyle },
-	                  this.state.music.artist
+	                  'div',
+	                  { className: 'hoverLayer' },
+	                  _react2.default.createElement(
+	                    'h2',
+	                    { className: 'albumName', style: divStyle },
+	                    this.state.music.name
+	                  ),
+	                  _react2.default.createElement(
+	                    'h2',
+	                    { className: 'artistName center-block', style: divStyle },
+	                    this.state.music.artist
+	                  )
 	                )
 	              )
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'btn-group btn-group-justified' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'btn-group', role: 'group' },
-	            _react2.default.createElement(
-	              'button',
-	              { onClick: function onClick() {
-	                  return _this2.queueToggle();
-	                }, type: 'button', className: queuedBackground, id: 'leftBtn' },
-	              _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
 	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'btn-group', role: 'group' },
+	            { className: 'btn-group btn-group-justified' },
 	            _react2.default.createElement(
-	              'button',
-	              { onClick: function onClick() {
-	                  return _this2.finishedToggle();
-	                }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	              _react2.default.createElement('span', { className: 'glyphicon glyphicon-headphones', 'aria-hidden': 'true' })
+	              'div',
+	              { className: 'btn-group', role: 'group' },
+	              _react2.default.createElement(
+	                'button',
+	                { onClick: function onClick() {
+	                    return _this2.queueToggle();
+	                  }, type: 'button', className: queuedBackground, id: 'leftBtn' },
+	                _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'btn-group', role: 'group' },
+	              _react2.default.createElement(
+	                'button',
+	                { onClick: function onClick() {
+	                    return _this2.finishedToggle();
+	                  }, type: 'button', className: finishedBackground, id: 'rightBtn' },
+	                _react2.default.createElement('span', { className: 'glyphicon glyphicon-headphones', 'aria-hidden': 'true' })
+	              )
 	            )
 	          )
-	        )
-	      );
+	        );
+	      }
+
+	      //Layout for search page without hover effects
+	      else {
+	          return _react2.default.createElement(
+	            'div',
+	            { id: 'musicItemsSection' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-2' },
+	              _react2.default.createElement(
+	                'a',
+	                { className: 'itemLink', href: "/albumdetail/" + this.state.music.gn_id },
+	                _react2.default.createElement('img', { className: 'img-responsive center-block searchImage', src: this.state.music.album_art })
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'btn-group btn-group-justified' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'btn-group', role: 'group' },
+	                  _react2.default.createElement(
+	                    'button',
+	                    { onClick: function onClick() {
+	                        return _this2.queueToggle();
+	                      }, type: 'button', className: queuedBackground, id: 'leftBtn' },
+	                    _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'btn-group', role: 'group' },
+	                  _react2.default.createElement(
+	                    'button',
+	                    { onClick: function onClick() {
+	                        return _this2.finishedToggle();
+	                      }, type: 'button', className: finishedBackground, id: 'rightBtn' },
+	                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-headphones', 'aria-hidden': 'true' })
+	                  )
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-4' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: 'albumTitleSearch title text-left' },
+	                this.state.music.name
+	              ),
+	              _react2.default.createElement(
+	                'h2',
+	                { className: 'artistNameSearch text-left' },
+	                this.state.music.artist
+	              )
+	            )
+	          );
+	        }
 	    }
 	  }]);
 
@@ -22125,7 +22185,7 @@
 	      };
 
 	      var imgStyle = {
-	        backgroundImage: 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url(' + this.state.movies.movie_art + ')'
+	        backgroundImage: 'url(' + this.state.movies.movie_art + ')'
 	      };
 
 	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus';
@@ -22134,62 +22194,124 @@
 
 	      var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default';
 
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'col-md-4 col-lg-3' },
-	        _react2.default.createElement(
-	          'a',
-	          { className: 'itemLink', href: "/moviedetail/" + this.state.movies.tmdb_id },
+	      if (!this.props.search) {
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-4 col-lg-3' },
 	          _react2.default.createElement(
-	            'div',
-	            { className: 'item center-block', style: imgStyle },
+	            'a',
+	            { className: 'itemLink', href: "/moviedetail/" + this.state.movies.tmdb_id },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'text-center' },
+	              { className: 'item center-block', style: imgStyle },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'hoverLayer' },
+	                { className: 'text-center' },
 	                _react2.default.createElement(
-	                  'h2',
-	                  { className: 'title', style: divStyle },
-	                  this.state.movies.name
-	                ),
-	                _react2.default.createElement(
-	                  'h5',
-	                  { style: divStyle, className: 'tvSynopsis center-block' },
-	                  this.state.movies.summary ? this.state.movies.summary : 'Sorry! There is no overview available.'
+	                  'div',
+	                  { className: 'hoverLayer' },
+	                  _react2.default.createElement(
+	                    'h2',
+	                    { className: 'title', style: divStyle },
+	                    this.state.movies.name
+	                  ),
+	                  _react2.default.createElement(
+	                    'h5',
+	                    { style: divStyle, className: 'tvSynopsis center-block' },
+	                    this.state.movies.summary ? this.state.movies.summary : 'Sorry! There is no overview available.'
+	                  )
 	                )
 	              )
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'btn-group btn-group-justified' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'btn-group', role: 'group' },
-	            _react2.default.createElement(
-	              'button',
-	              { onClick: function onClick() {
-	                  return _this2.queueToggle();
-	                }, type: 'button', className: queuedBackground, id: 'leftBtn' },
-	              _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
 	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'btn-group', role: 'group' },
+	            { className: 'btn-group btn-group-justified' },
 	            _react2.default.createElement(
-	              'button',
-	              { onClick: function onClick() {
-	                  return _this2.finishedToggle();
-	                }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	              _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	              'div',
+	              { className: 'btn-group', role: 'group' },
+	              _react2.default.createElement(
+	                'button',
+	                { onClick: function onClick() {
+	                    return _this2.queueToggle();
+	                  }, type: 'button', className: queuedBackground, id: 'leftBtn' },
+	                _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'btn-group', role: 'group' },
+	              _react2.default.createElement(
+	                'button',
+	                { onClick: function onClick() {
+	                    return _this2.finishedToggle();
+	                  }, type: 'button', className: finishedBackground, id: 'rightBtn' },
+	                _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	              )
 	            )
 	          )
-	        )
-	      );
+	        );
+	      }
+	      //Layout for search page without hover effects
+	      else {
+	          return _react2.default.createElement(
+	            'div',
+	            { id: 'movieItemsSection' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'row' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'col-sm-3 col-sm-offset-1' },
+	                _react2.default.createElement(
+	                  'a',
+	                  { className: 'itemLink', href: "/moviedetail/" + this.state.movies.tmdb_id },
+	                  _react2.default.createElement('img', { className: 'img-responsive center-block searchImage', src: this.state.movies.movie_art })
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'btn-group btn-group-justified' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'btn-group', role: 'group' },
+	                    _react2.default.createElement(
+	                      'button',
+	                      { onClick: function onClick() {
+	                          return _this2.queueToggle();
+	                        }, type: 'button', className: queuedBackground, id: 'leftBtn' },
+	                      _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'btn-group', role: 'group' },
+	                    _react2.default.createElement(
+	                      'button',
+	                      { onClick: function onClick() {
+	                          return _this2.finishedToggle();
+	                        }, type: 'button', className: finishedBackground, id: 'rightBtn' },
+	                      _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	                    )
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'col-sm-8' },
+	                _react2.default.createElement(
+	                  'h2',
+	                  { className: 'title text-left' },
+	                  this.state.movies.name
+	                ),
+	                _react2.default.createElement(
+	                  'h5',
+	                  { className: 'tvSynopsisSearch text-left' },
+	                  this.state.movies.summary ? this.state.movies.summary : 'Sorry! There is no overview available.'
+	                )
+	              )
+	            )
+	          );
+	        }
 	    }
 	  }]);
 

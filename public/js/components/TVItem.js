@@ -55,7 +55,7 @@ class TVItem extends React.Component {
       opacity: 0,
     }
     var imgStyle = {
-      backgroundImage: 'linear-gradient(rgba(31, 54, 61, 0.2), rgba(31, 54, 61, 0.2)), url(' + this.state.series.show_image + ')'
+      backgroundImage: 'url(' + this.state.series.show_image + ')'
     }
     var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'
     var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default'
@@ -95,7 +95,7 @@ class TVItem extends React.Component {
     else {
       return <div id="tvItemsSection">
         <div className="row">
-          <div className="col-sm-3">
+          <div className="col-sm-3 col-sm-offset-1">
             <a className="itemLink" href={"/showdetail/" + this.state.series.gn_id}>
               <img className="img-responsive center-block searchImage" src={this.state.series.show_image} />
             </a>
@@ -112,9 +112,9 @@ class TVItem extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-sm-9">
-            <h2 className="title">{this.state.series.title}</h2>
-            <h5 className="tvSynopsisSearch" >{this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'}</h5>
+          <div className="col-sm-8">
+            <h2 className="title text-left">{this.state.series.title}</h2>
+            <h5 className="tvSynopsisSearch text-left" >{this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'}</h5>
           </div>
         </div>
       </div>

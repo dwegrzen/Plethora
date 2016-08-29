@@ -1,16 +1,14 @@
 <h4 id="notice"><span class="label label-info"><%= notice %></span></h4>
 <!-- hello registered plethora user. this site is not currently up yet. come back later. -->
-<br /><br />
-
-<%= form_tag search_path, id: 'searchBarAndButton', method: "get" do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search by title or artist", id: 'searchBar' %>
-<%= select_tag(:searchtype, options_for_select([['All'],['TV'],['Movie'],['Music']], selected: 'Movie'), class: 'form-control', id: 'searchType') %>
-
-<%= button_tag(type: 'submit', class: 'btn', id: 'searchBtn') do %>
-  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-<% end %>
-
-<% end %>
+<div id="searchBarAndButton">
+  <%= form_tag search_path, method: "get" do %>
+  <%= select_tag(:searchtype, options_for_select([['All'],['TV'],['Movie'],['Music']], selected: params[:searchtype]), class: 'form-control', id: 'searchType') %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search by title or artist", id: 'searchBar' %>
+  <%= button_tag(type: 'submit', class: 'btn', id: 'searchBtn') do %>
+    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+  <% end %>
+  <% end %>
+</div>
 <div class="container">
   <div id="results">
 

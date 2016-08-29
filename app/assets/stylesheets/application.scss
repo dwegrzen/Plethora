@@ -73,13 +73,13 @@ header {
         font-size: 15px;
         margin-right: 15px;
         margin-top: 5px;
-        color: $mint;
+        color: $white;
     }
     .signupLinkMobile {
         display: inline-block;
         font-size: 15px;
         margin-top: 5px;
-        color: $mint;
+        color: $white;
     }
 
 //Desktop Header
@@ -105,37 +105,26 @@ header {
         margin-right: 25px;
     }
     //Logged Out
-    .loginLinkDesktop {
+    .loginLinkDesktop, .signupLinkDesktop {
         display: inline-block;
         font-size: 16px;
         float: right;
         margin-top: 21px;
-        margin-right: 25px;
         background-color: $teal;
         border-radius: 3px;
         padding: 5px 10px;
+        &:hover {
+            background-color: rgba($black, .85);
+        }
         a {
-            color: $mint;
-            &:hover {
-                color: $white;
-            }
+            color: $white;
         }
     }
+    .loginLinkDesktop {
+        margin-right: 25px;
+    }
     .signupLinkDesktop {
-        display: inline-block;
-        font-size: 16px;
-        float: right;
-        margin-top: 21px;
         margin-right: 15px;
-        background-color: $teal;
-        border-radius: 3px;
-        padding: 5px 10px;
-        a {
-            color: $mint;
-            &:hover {
-                color: $white;
-            }
-        }
     }
 }
 
@@ -143,20 +132,24 @@ header {
     margin-right: 0px;
 }
 
-// Body code that only applies when a user is logged out
+
 body.loggedout {
     background-image: linear-gradient(rgba(31, 54, 61, .5), rgba(31, 54, 61, .5)), url('plethoraBackground.jpeg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    footer {
+         padding-top: 25px;
+    }
 }
-// Body code that only applies when a user is logged in
+
 body.loggedin {
     background-color: #D8D8D8;
     header {
         background-color: $black;
     }
     footer {
+        height: 160px;
         margin-top: 50px;
         background-image: linear-gradient(rgba(31, 54, 61, 0.6), (rgba(31, 54, 61, 0.6))), url('plethoraBackground.jpeg');
         background-position: center;
@@ -164,7 +157,7 @@ body.loggedin {
         background-repeat: no-repeat;
         a {
             color: $white;
-            font-size: 15px;
+            font-size: 14px;
         }
     }
 }
@@ -218,6 +211,7 @@ body {
         color: $white;
         h1{
             font-weight: 300;
+            font-size: 25px;
             margin-bottom: 15px;
         }
     }
@@ -245,55 +239,60 @@ body {
         font-weight: 300;
         &:hover {
             background-color: rgba($black, .85);
-            font-weight: bold;
         }
     }
 
     //Logged in pages
     #searchBarAndButton {
-        background-color: transparent;
-        color: $white;
-        padding-top: 15px;
+        padding-top: 25px;
+        padding-bottom: 10px;
         display: flex;
         justify-content: center;
         align-items: center;
-        #searchBar {
-            margin-left: 30px;
-            width: 500px;
-            background-color: white;
-            border: 1px solid white;
-            border-radius: 3px 0px 0px 3px;
-            padding: 5px 15px;
-        }
         #searchType {
+            float: left;
             width: 65px;
-            display: inline-block;
+            box-shadow: none;
         }
         select#searchType.form-control {
             border: none;
-            border-radius: 0px 3px 3px 0px;
+            border-radius: 3px 0px 0px 3px;
             -webkit-appearance: none;
-            margin-left: -4px;
             height: 32px;
-            background-color: $darkTeal;
-            color: RGB(167, 167, 167);
+            background-color: RGB(167, 167, 167);
+            color: white;
         }
-        #searchBtn {
-            display: inline-block;
-            background-color: transparent;
-            color: RGB(167, 167, 167);
-        }
-    }
-    #results {
-        width: 100%;
-    }
-    .mediaCat {
-        font-size: 45px;
-        margin-top: 50px;
-        border-bottom: 2px solid $black;
-        a {
+        #searchBar {
+            float: left;
+            margin-left: -2px;
+            background-color: white;
+            border: 1px solid white;
+            padding: 5px 15px;
             color: $black;
         }
+        #searchBtn {
+            float: left;
+            height: 32px;
+            border-radius: 0px 3px 3px 0px;
+            background-color: white;
+            color: RGB(167, 167, 167);
+        }
+    }
+    .mediaCat {
+        margin: 0px -15px 40px;
+        padding: 25px 0px 20px;
+        border-radius: 3px 3px 0px 0px;
+        background-color: $darkTeal;
+        a {
+            font-size: 45px;
+            font-weight: 300;
+            color: white;
+        }
+    }
+    h2 {
+        text-align: center;
+        font-weight: 300;
+        margin-bottom: 15px;
     }
     .row {
         margin-left: 0px;
@@ -421,11 +420,11 @@ footer {
         margin-bottom: 20px;
         .what {
             margin-top: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         .making {
             margin-top: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
     }
 }
@@ -446,6 +445,18 @@ footer {
                 font-size: 35px;
             }
         }
+        #login, #signup {
+            h1{
+                font-size: 40px;
+            }
+        }
+        #searchBar {
+            width: 500px;
+        }
+        .albumTitleSearch {
+            margin-top: 30px;
+        }
+
         //media detail pages
         .detailImage {
             max-height: 500px;
@@ -461,10 +472,9 @@ footer {
         }
     }
     footer {
-        height: 150px;
         .footerLinks {
             p {
-                margin-top: 15px;
+                margin-top: 25px;
             }
         }
     }

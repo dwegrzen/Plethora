@@ -55,7 +55,7 @@ class MovieItem extends React.Component {
     };
 
     var imgStyle = {
-      backgroundImage: 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url(' + this.state.movies.movie_art + ')'
+      backgroundImage: 'url(' + this.state.movies.movie_art + ')'
     }
 
     var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'
@@ -64,34 +64,61 @@ class MovieItem extends React.Component {
 
     var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default'
 
-    return <div className="col-md-4 col-lg-3">
-      <a className="itemLink" href={"/moviedetail/" + this.state.movies.tmdb_id}>
-        <div className="item center-block" style={imgStyle}>
-          <div className="text-center">
-            <div className="hoverLayer">
-              <h2 className="title" style={divStyle}>{this.state.movies.name}</h2>
-              <h5 style={divStyle} className="tvSynopsis center-block" >{this.state.movies.summary ? this.state.movies.summary : 'Sorry! There is no overview available.'}</h5>
-            </div>
+    if (!this.props.search) {
+      return <div className="col-md-4 col-lg-3">
+          <a className="itemLink" href={"/moviedetail/" + this.state.movies.tmdb_id}>
+            <div className="item center-block" style={imgStyle}>
+              <div className="text-center">
+                <div className="hoverLayer">
+                  <h2 className="title" style={divStyle}>{this.state.movies.name}</h2>
+                  <h5 style={divStyle} className="tvSynopsis center-block" >{this.state.movies.summary ? this.state.movies.summary : 'Sorry! There is no overview available.'}</h5>
+                </div>
 
+              </div>
+            </div>
+          </a>
+          <div className="btn-group btn-group-justified">
+            <div className="btn-group" role="group">
+              <button onClick={() => this.queueToggle() } type="button" className={queuedBackground} id="leftBtn">
+                <span className={queuedIcon} aria-hidden="true"></span>
+              </button>
+            </div>
+            <div className="btn-group" role="group">
+              <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
+                <span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+              </button>
+            </div>
           </div>
         </div>
-      </a>
-      <div className="btn-group btn-group-justified">
-        <div className="btn-group" role="group">
-          <button onClick={() => this.queueToggle() } type="button" className={queuedBackground} id="leftBtn">
-            <span className={queuedIcon} aria-hidden="true"></span>
-          </button>
+    }
+    //Layout for search page without hover effects
+    else {
+      return <div id="movieItemsSection">
+        <div className="row">
+          <div className="col-sm-3 col-sm-offset-1">
+            <a className="itemLink" href={"/moviedetail/" + this.state.movies.tmdb_id}>
+              <img className="img-responsive center-block searchImage" src={this.state.movies.movie_art} />
+            </a>
+            <div className="btn-group btn-group-justified">
+              <div className="btn-group" role="group">
+                <button onClick={() => this.queueToggle() } type="button" className={queuedBackground} id="leftBtn">
+                  <span className={queuedIcon} aria-hidden="true"></span>
+                </button>
+              </div>
+              <div className="btn-group" role="group">
+                <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
+                  <span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="col-sm-8">
+            <h2 className="title text-left">{this.state.movies.name}</h2>
+            <h5 className="tvSynopsisSearch text-left" >{this.state.movies.summary ? this.state.movies.summary : 'Sorry! There is no overview available.'}</h5>
+          </div>
         </div>
-        <div className="btn-group" role="group">
-          <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
-            <span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-          </button>
-        </div>
-
       </div>
-
-      {/* <button className="center-block" onClick={() => this.onClick() }>{this.state.label}</button> */}
-    </div>
+    }
   }
 }
 

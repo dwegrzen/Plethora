@@ -56,7 +56,7 @@ class MusicItem extends React.Component {
     }
 
     var imgStyle = {
-      backgroundImage: 'linear-gradient(rgba(72, 78, 92, .3), rgba(72, 78, 92, .3)), url("' + this.state.music.album_art + '")'
+      backgroundImage: 'url("' + this.state.music.album_art + '")'
     }
 
     var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'
@@ -65,33 +65,63 @@ class MusicItem extends React.Component {
 
     var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default'
 
-    return <div className="col-md-4 col-lg-3">
-      <a className="itemLink" href={'/albumdetail/' + this.state.music.gn_id}>
-        <div className="item center-block" style={imgStyle}>
-          <div className="text-center">
-            <div className="hoverLayer">
-              <h2 className="albumName" style={divStyle}>{this.state.music.name}</h2>
-              <h2 className="artistName center-block" style={divStyle} >{this.state.music.artist}</h2>
+    //Grid layout for dashboard
+    if (!this.props.search) {
+      return <div className="col-md-4 col-lg-3">
+        <a className="itemLink" href={'/albumdetail/' + this.state.music.gn_id}>
+          <div className="item center-block" style={imgStyle}>
+            <div className="text-center">
+              <div className="hoverLayer">
+                <h2 className="albumName" style={divStyle}>{this.state.music.name}</h2>
+                <h2 className="artistName center-block" style={divStyle} >{this.state.music.artist}</h2>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-      <div className="btn-group btn-group-justified">
-        <div className="btn-group" role="group">
-          <button onClick={() => this.queueToggle() } type="button" className={queuedBackground} id="leftBtn">
-            <span className={queuedIcon} aria-hidden="true"></span>
-          </button>
-        </div>
-        <div className="btn-group" role="group">
-          <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
-            <span className="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-          </button>
+        </a>
+        <div className="btn-group btn-group-justified">
+          <div className="btn-group" role="group">
+            <button onClick={() => this.queueToggle() } type="button" className={queuedBackground} id="leftBtn">
+              <span className={queuedIcon} aria-hidden="true"></span>
+            </button>
+          </div>
+          <div className="btn-group" role="group">
+            <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
+              <span className="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+            </button>
+          </div>
+
         </div>
 
+        {/* <button className="center-block" onClick={() => this.onClick() }>{this.state.label}</button> */}
       </div>
+    }
 
-      {/* <button className="center-block" onClick={() => this.onClick() }>{this.state.label}</button> */}
-    </div>
+    //Layout for search page without hover effects
+    else {
+      return <div id="musicItemsSection">
+          <div className="col-sm-2">
+            <a className="itemLink" href={"/albumdetail/" + this.state.music.gn_id}>
+              <img className="img-responsive center-block searchImage" src={this.state.music.album_art} />
+            </a>
+            <div className="btn-group btn-group-justified">
+              <div className="btn-group" role="group">
+                <button onClick={() => this.queueToggle() } type="button" className={queuedBackground} id="leftBtn">
+                  <span className={queuedIcon} aria-hidden="true"></span>
+                </button>
+              </div>
+              <div className="btn-group" role="group">
+                <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
+                  <span className="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="col-sm-4">
+            <h2 className="albumTitleSearch title text-left">{this.state.music.name}</h2>
+            <h2 className="artistNameSearch text-left">{this.state.music.artist}</h2>
+          </div>
+        </div>
+    }
   }
 }
 
