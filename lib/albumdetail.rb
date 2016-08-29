@@ -6,7 +6,7 @@ class Albumdetail
 
    def initialize(album)
      self.name = album['title']
-     self.artist = album["artists"].map{|x| x["name"]}.first
+     self.artist = album["artists"].map{|x| x["name"]}.first.gsub(/\(.*?\)/, "")
      self.album_art = album["images"].first["uri"]
      self.gn_id = album['id']
      self.date = album['year'].to_s

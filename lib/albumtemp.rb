@@ -22,7 +22,7 @@ class Albumtemp
 
    def nameandartistfix
      if self.name
-       self.artist = name.split(" - ").first
+       self.artist = name.split(" - ").first.gsub(/\(.*?\)/, "")
        self.name = name.split(" - ").last
      end
    end
