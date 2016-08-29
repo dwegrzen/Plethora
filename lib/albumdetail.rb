@@ -47,7 +47,7 @@ class Albumdetail
 
    def trackparse
      if self.trackname
-       self.trackname = trackname.map{|x| "#{x["position"]} -  #{x["title"]}"}
+       self.trackname = trackname.map{|x| "#{x["position"]}. #{x["title"]}"}
      end
    end
 
