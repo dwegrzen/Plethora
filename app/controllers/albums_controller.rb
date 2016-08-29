@@ -38,7 +38,7 @@ class AlbumsController < ApplicationController
     if current_user.albums << @album
       render json: @user, status: :created
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: @show.errors, status: :unprocessable_entity
     end
     @stacking = Stacking.where(user_id: current_user.id, media_id: @album.id, media_type: "Album")
     if params[:finished] == true
@@ -47,7 +47,6 @@ class AlbumsController < ApplicationController
       @stacking.update_all(finished: false)
     end
   end
-
 
 
   private

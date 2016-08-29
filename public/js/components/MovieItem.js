@@ -29,23 +29,40 @@ class MovieItem extends React.Component {
           'Content-Type': 'application/json'
         }
       })
+      this.setState({finished: !this.state.queued})
     }
     this.setState({queued: !this.state.queued})
   }
 
   finishedToggle() {
-    this.setState({finished: !this.state.finished})
-    fetch('/moviestatus', {
-      method: 'PATCH',
-      body: JSON.stringify({
-        movie_id: this.state.movies.id,
-        finished: !this.state.finished
-      }),
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
+    if (!this.state.queued) {
+      this.setState({queued: !this.state.queued, finished: !this.state.finished})
+      fetch('/movieaddasfinished', {
+        method: 'POST',
+        body: JSON.stringify({
+          movie: this.state.movie,
+          finished: !this.state.finished
+        }),
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+    }
+    else {
+      this.setState({finished: !this.state.finished})
+      fetch('/moviestatus', {
+        method: 'PATCH',
+        body: JSON.stringify({
+          movie_id: this.state.movies.id,
+          finished: !this.state.finished
+        }),
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+    }
   }
 
   render() {
