@@ -132,6 +132,11 @@ header {
     margin-right: 0px;
 }
 
+.label-info {
+    background-color: transparent;
+    font-weight: 300;
+    position: fixed;
+}
 
 body.loggedout {
     background-image: linear-gradient(rgba(31, 54, 61, .5), rgba(31, 54, 61, .5)), url('plethoraBackground.jpeg');
@@ -148,6 +153,11 @@ body.loggedin {
     header {
         background-color: $black;
     }
+    .label-info {
+        color: $darkTeal;
+        background-color: transparent;
+        font-weight: 300;
+    }
     footer {
         height: 160px;
         margin-top: 50px;
@@ -163,6 +173,9 @@ body.loggedin {
 }
 
 body {
+    #notice.label-info {
+        background-color: transparent;
+    }
     .mainContent {
         min-height: 100%;
         margin-bottom: -190px;
