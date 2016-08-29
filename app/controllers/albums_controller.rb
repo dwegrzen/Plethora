@@ -32,9 +32,31 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def albumaddasfinished
+    @album = Album.find_or_create_by(gn_id: params[:music][:gn_id])
+    @album.update(albumfinished_params)
+    if current_user.albums << @album
+      render json: @user, status: :created
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+    @stacking = Stacking.where(user_id: current_user.id, media_id: params[:album_id], media_type: "Album")
+    if params[:finished] == true
+      @stacking.update_all(finished: true)
+    else
+      @stacking.update_all(finished: false)
+    end
+  end
+
+
+
   private
     def album_params
       params.permit(:name, :genre, :album_art, :tracks, :artist, :date, :gn_id)
+    end
+
+    def albumfinished_params
+      params.require(:music).permit(:name, :genre, :album_art, :tracks, :artist, :date, :gn_id)
     end
 
 
