@@ -37,13 +37,11 @@ class MusicItem extends React.Component {
 
   finishedToggle() {
     if (!this.state.queued) {
-      this.setState({queued: !this.state.queued})
-      this.setState({finished: !this.state.finished})
+      this.setState({queued: !this.state.queued, finished: !this.state.finished})
       fetch('/albumaddasfinished', {
         method: 'POST',
         body: JSON.stringify({
           music: this.state.music,
-          album_id: this.state.music.id,
           finished: !this.state.finished
         }),
         credentials: 'include',

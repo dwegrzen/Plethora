@@ -21932,24 +21932,40 @@
 	            'Content-Type': 'application/json'
 	          }
 	        });
+	        this.setState({ finished: !this.state.queued });
 	      }
 	      this.setState({ queued: !this.state.queued });
 	    }
 	  }, {
 	    key: 'finishedToggle',
 	    value: function finishedToggle() {
-	      this.setState({ finished: !this.state.finished });
-	      fetch('/albumstatus', {
-	        method: 'PATCH',
-	        body: JSON.stringify({
-	          album_id: this.state.music.id,
-	          finished: !this.state.finished
-	        }),
-	        credentials: 'include',
-	        headers: {
-	          'Content-Type': 'application/json'
-	        }
-	      });
+	      if (!this.state.queued) {
+	        this.setState({ queued: !this.state.queued, finished: !this.state.finished });
+	        fetch('/albumaddasfinished', {
+	          method: 'POST',
+	          body: JSON.stringify({
+	            music: this.state.music,
+	            finished: !this.state.finished
+	          }),
+	          credentials: 'include',
+	          headers: {
+	            'Content-Type': 'application/json'
+	          }
+	        });
+	      } else {
+	        this.setState({ finished: !this.state.finished });
+	        fetch('/albumstatus', {
+	          method: 'PATCH',
+	          body: JSON.stringify({
+	            album_id: this.state.music.id,
+	            finished: !this.state.finished
+	          }),
+	          credentials: 'include',
+	          headers: {
+	            'Content-Type': 'application/json'
+	          }
+	        });
+	      }
 	    }
 	  }, {
 	    key: 'render',
