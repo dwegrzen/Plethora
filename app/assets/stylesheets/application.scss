@@ -359,6 +359,9 @@ body {
     .detailContainer {
         margin-top: 15px;
     }
+    .mediaDetailsContainer {
+        margin-top: -50px;
+    }
     .mediaTitle {
         font-weight: 300;
         color: white;
@@ -375,14 +378,14 @@ body {
     }
     .mediaDetails{
         border-radius: 0px 0px 3px 3px;
-        padding: 5px 45px 25px;
+        padding: 5px 10px 25px;
         background-color: white;
         h3 {
             font-size: 20px;
             font-weight: 300;
         }
         h4 {
-            font-size: 22px;
+            font-size: 15px;
             font-weight: 300;
         }
     }
@@ -393,7 +396,7 @@ body {
     }
 
     //button styling
-    #leftBtn, #movieAdd, #rightBtn, #movieWatched, .btnDetail {
+    #leftBtn, #movieAdd, #rightBtn, .btnDetail {
         background-color: $teal;
         border: none;
         &:hover {
@@ -401,12 +404,12 @@ body {
             color: $mint;
         }
     }
-    #leftBtn, #movieAdd {
+    #leftBtn {
         border-top-left-radius: 0px;
         border-bottom-left-radius: 3px;
         color: $white;
     }
-    #rightBtn, #movieWatched {
+    #rightBtn {
         border-top-right-radius: 0px;
         border-bottom-right-radius: 3px;
         border-left: 1px solid $darkTeal;
@@ -422,7 +425,7 @@ body {
         margin-bottom: 75px;
     }
     .btnDetailRight {
-        border-left: 1px solid RGB(167, 167, 167);
+        border-left: 1px solid $darkTeal;
     }
 }
 
@@ -482,6 +485,9 @@ footer {
         }
 
         //media detail pages
+        .mediaDetailsContainer {
+            margin-top: 0px;
+        }
         .detailImage {
             max-height: 500px;
         }
@@ -489,9 +495,13 @@ footer {
             font-size: 40px;
         }
         .mediaDetails{
+            padding: 5px 45px 25px;
             h3 {
                 font-size: 25px;
                 font-weight: 300;
+            }
+            h4 {
+                font-size: 22px;
             }
         }
     }
