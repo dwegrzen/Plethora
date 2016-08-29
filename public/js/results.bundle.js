@@ -22202,7 +22202,7 @@
 	        fetch('/movieaddasfinished', {
 	          method: 'POST',
 	          body: JSON.stringify({
-	            movie: this.state.movie,
+	            movie: this.state.movies,
 	            finished: !this.state.finished
 	          }),
 	          credentials: 'include',
