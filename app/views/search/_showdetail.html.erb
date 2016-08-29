@@ -1,7 +1,7 @@
 <div class="detailContainer">
-  <div class="col-sm-4 col-sm-offset-1 <%= series.gn_id %>">
-    <img class="searchImage center-block img-responsive" src="<%=series.show_image%>">
-      <input type="hidden" id="dataRaw" data-id="<%= @showid %>" data-raw="<%= series.to_json %>"/>
+  <div class="col-sm-4 <%= series.gn_id %>">
+    <img class="searchImage detailImage thumbnail center-block img-responsive" src="<%=series.show_image%>">
+    <input type="hidden" id="dataRaw" data-id="<%= @showid %>" data-raw="<%= series.to_json %>"/>
     <div class="btn-group btn-group-justified btnGroupDetail">
       <% if @queued %>
         <div class="btn-group" role="group">
@@ -25,20 +25,23 @@
         </div>
       <% else %>
         <div class="btn-group" role="group">
-          <button id="showWatched" class="btn btn-success btnDetail">
+          <button id="showWatched" class="btn btn-success btnDetail btnDetailRight">
             <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
           </button>
         </div>
       <% end %>
     </div>
   </div>
-  <div class="col-sm-6">
-    <h1><%= series.title %></h1>
-    <h3>Synopsis: <%= series.fulldesc %></h3>
-    <h3>Date: <%= series.date %></h3>
-    <h3>Genre: <%= series.genre %></h3>
-    <h3>Seasons: <%= series.seasons %></h3>
-    <h3>Created by: <%= series.contributor %></h3>
+  <div class="col-sm-8">
+    <h1 class="mediaTitle"><%= series.title %></h1>
+    <div class="mediaDetails">
+      <h3 class="text-justify"><%= series.fulldesc %></h3>
+      </br>
+      <h4><b>Release Date:</b> <%= series.date %></h4>
+      <h4><b>Genre:</b> <%= series.genre %></h4>
+      <h4><b>Seasons:</b> <%= series.seasons %></h4>
+      <h4><b>Created by:</b> <%= series.contributor %></h4>
+    </div>
   </div>
 </div>
 

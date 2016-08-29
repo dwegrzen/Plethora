@@ -1,49 +1,55 @@
-<div class="col-sm-5">
-  <img class="searchImage center-block img-responsive" src="<%=album.album_art%>" />
-  <input type="hidden" id="dataRaw" data-id="<%= @albumid %>" data-raw="<%= album.to_json %>"/>
-  <div class="btn-group btn-group-justified btnGroupDetail">
-  <% if @queued %>
-    <div class="btn-group" role="group">
-      <button id="albumAdd" class="btn btn-success btnDetail">
-        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-      </button>
-    </div>
-  <% else %>
-    <div class="btn-group" role="group">
-      <button id="albumAdd" class="btn btn-success btnDetail">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-      </button>
-    </div>
-  <% end %>
-
-  <% if @finished %>
-    <div class="btn-group" role="group">
-      <button id="albumListened" class="btn btn-success btnDetail">
-        <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-      </button>
-    </div>
-  <% else %>
-    <div class="btn-group" role="group">
-      <button id="albumListened" class="btn btn-success btnDetail">
-        <span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>
-      </button>
-    </div>
-  <% end %>
-</div>
-  <h5><em><%= album.tracks %></em></h5>
-</div>
-<div class="col-sm-7">
-  <h1><%= album.name %></h1>
-  <h3>Artist: <%= album.artist %></h3>
-  <h3>Date: <%= album.date %></h3>
-  <h3>Genre: <%= album.genre %></h3>
-  <% if album.trackname %>
-  <h3>Tracks: <ul>
-    <%album.trackname.each do |name| %>
-    <li><%= name %></li>
-    <% end %></ul>
-  </h3>
+<div class="detailContainer">
+  <div class="col-sm-4">
+    <img class="searchImage detailImage thumbnail center-block img-responsive" src="<%=album.album_art%>" />
+    <input type="hidden" id="dataRaw" data-id="<%= @albumid %>" data-raw="<%= album.to_json %>"/>
+    <div class="btn-group btn-group-justified btnGroupDetail">
+    <% if @queued %>
+      <div class="btn-group" role="group">
+        <button id="albumAdd" class="btn btn-success btnDetail">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </button>
+      </div>
+    <% else %>
+      <div class="btn-group" role="group">
+        <button id="albumAdd" class="btn btn-success btnDetail">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+      </div>
     <% end %>
+
+    <% if @finished %>
+      <div class="btn-group" role="group">
+        <button id="albumListened" class="btn btn-success btnDetail">
+          <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+        </button>
+      </div>
+    <% else %>
+      <div class="btn-group" role="group">
+        <button id="albumListened" class="btn btn-success btnDetail btnDetailRight">
+          <span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>
+  <div class="col-sm-8">
+    <div class="mediaTitle">
+      <h1><%= album.name %></h1>
+      <h2 class="text-center"><%= album.artist %></h2>
+    </div>
+
+    <div class="mediaDetails">
+      <h4><b>Release Date:</b> <%= album.date %></h4>
+      <h4><b>Genre:</b> <%= album.genre %></h4>
+      <% if album.trackname %>
+      <h4><b>Tracks:</b> <ul>
+        <%album.trackname.each do |name| %>
+        <li><%= name %></li>
+        <% end %></ul>
+      </h4>
+        <% end %>
+    </div>
+  </div>
 </div>
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->

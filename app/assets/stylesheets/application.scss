@@ -316,7 +316,7 @@ body {
         height: 250px;
         width: 100%;
         max-width: 300px;
-        color: $white;
+        color: white;
         overflow: hidden;
         .hoverLayer {
             height: 250px;
@@ -324,7 +324,7 @@ body {
             transition: all 0.3s ease;
             .title, .albumName, .artistName {
                 font-weight: 300;
-                color: $mint;
+                color: white;
                 padding-top: 30px;
             }
             .tvSynopsis {
@@ -356,17 +356,33 @@ body {
         overflow: hidden;
     }
     //styling for media detail pages
+    .detailContainer {
+        margin-top: 15px;
+    }
     .mediaTitle {
-        color: $black;
+        font-weight: 300;
+        color: white;
         text-align: center;
-        background-color: $mint;
+        background-color: $darkTeal;
+        margin-top: 20px;
+        margin-bottom: 0px;
         padding: 10px;
         font-size: 30px;
         border-radius: 3px 3px 0px 0px;
+        h1, h2 {
+            font-weight: 300;
+        }
     }
     .mediaDetails{
+        border-radius: 0px 0px 3px 3px;
+        padding: 5px 45px 25px;
+        background-color: white;
         h3 {
             font-size: 20px;
+            font-weight: 300;
+        }
+        h4 {
+            font-size: 22px;
             font-weight: 300;
         }
     }
@@ -377,10 +393,11 @@ body {
     }
 
     //button styling
-    #leftBtn, #movieAdd, #rightBtn, #movieWatched {
+    #leftBtn, #movieAdd, #rightBtn, #movieWatched, .btnDetail {
         background-color: $teal;
         border: none;
         &:hover {
+            background-color: $darkTeal;
             color: $mint;
         }
     }
@@ -403,6 +420,9 @@ body {
     .btnGroupDetail {
         max-width: 200px;
         margin-bottom: 75px;
+    }
+    .btnDetailRight {
+        border-left: 1px solid RGB(167, 167, 167);
     }
 }
 
@@ -470,7 +490,7 @@ footer {
         }
         .mediaDetails{
             h3 {
-                font-size: 28px;
+                font-size: 25px;
                 font-weight: 300;
             }
         }

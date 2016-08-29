@@ -1,44 +1,48 @@
-<div class="col-sm-5">
-  <img class="detailImage center-block img-responsive" src="<%=movie.movie_art%>" />
-  <input type="hidden" id="dataRaw" data-id="<%= @movieid %>" data-raw="<%= movie.to_json %>"/>
-  <div class="btn-group btn-group-justified btnGroupDetail">
-    <% if @queued %>
-      <div class="btn-group" role="group">
-        <button id="movieAdd" class="btn btn-success btnDetail">
-          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-        </button>
-      </div>
-    <% else %>
-      <div class="btn-group" role="group">
-        <button id="movieAdd" class="btn btn-success btnDetail">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        </button>
-      </div>
-    <% end %>
+<div class="detailContainer">
+  <div class="col-sm-4">
+    <img class="searchImage detailImage center-block thumbnail img-responsive" src="<%=movie.movie_art%>" />
+    <input type="hidden" id="dataRaw" data-id="<%= @movieid %>" data-raw="<%= movie.to_json %>"/>
+    <div class="btn-group btn-group-justified btnGroupDetail">
+      <% if @queued %>
+        <div class="btn-group" role="group">
+          <button id="movieAdd" class="btn btn-success btnDetail">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          </button>
+        </div>
+      <% else %>
+        <div class="btn-group" role="group">
+          <button id="movieAdd" class="btn btn-success btnDetail">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </button>
+        </div>
+      <% end %>
 
-    <% if @finished %>
-      <div class="btn-group" role="group">
-        <button id="movieWatched" class="btn btn-success btnDetail">
-          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-        </button>
-      </div>
-    <% else %>
-      <div class="btn-group" role="group">
-        <button id="movieWatched" class="btn btn-success btnDetail">
-          <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-        </button>
-      </div>
-    <% end %>
+      <% if @finished %>
+        <div class="btn-group" role="group">
+          <button id="movieWatched" class="btn btn-success btnDetail">
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          </button>
+        </div>
+      <% else %>
+        <div class="btn-group" role="group">
+          <button id="movieWatched" class="btn btn-success btnDetail">
+            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+          </button>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
 
-<div class="col-sm-7 mediaDetails">
-  <h1 class="mediaTitle"><%= movie.name %></h1>
-  <h3><%= movie.overview %></h3>
-  <br />
-  <h3>Date: <%= movie.date %></h3>
-  <h3>Genre: <%= movie.genre %></h3>
-  <h3>Runtime: <%= movie.runtime %> minutes</h3>
+  <div class="col-sm-8">
+    <h1 class="mediaTitle"><%= movie.name %></h1>
+    <div class="mediaDetails">
+      <h3><%= movie.overview %></h3>
+      <br />
+      <h4><b>Date:</b> <%= movie.date %></h4>
+      <h4><b>Genre:</b> <%= movie.genre %></h4>
+      <h4><b>Runtime:</b> <%= movie.runtime %> minutes</h4>
+    </div>
+  </div>
 </div>
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
