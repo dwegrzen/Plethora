@@ -34,7 +34,7 @@ class ShowsController < ApplicationController
   end
 
   def showaddasfinished
-    @show = Show.find_or_create_by(gn_id: params[:gn_id])
+    @show = Show.find_or_create_by(gn_id: params[:show][:gn_id])
     @show.update(showfinished_params)
     if current_user.shows << @show
       render json: @user, status: :created
