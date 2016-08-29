@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   patch 'albumstatus' => 'albums#albumcompletionstatus'
   delete 'movies' => 'movies#destroymovie'
   patch 'moviestatus' => 'movies#moviecompletionstatus'
+  post 'albumaddasfinished' => 'albums#albumaddasfinished'
 
 
 
