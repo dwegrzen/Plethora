@@ -115,8 +115,9 @@ class MusicItem extends React.Component {
 
     //Layout for search page without hover effects
     else {
-      return <div id="musicItemsSection">
-          <div className="col-sm-2">
+      return <div className="musicItemsSection col-sm-6">
+        <div className="row">
+          <div className="col-sm-4">
             <a className="itemLink" href={"/albumdetail/" + this.state.music.gn_id}>
               <img className="img-responsive center-block searchImage" src={this.state.music.album_art} />
             </a>
@@ -133,11 +134,12 @@ class MusicItem extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-sm-4">
+          <div className="col-sm-8">
             <h2 className="albumTitleSearch title text-left">{this.state.music.name}</h2>
             <h2 className="artistNameSearch text-left">{this.state.music.artist}</h2>
           </div>
         </div>
+      </div>
     }
   }
 }

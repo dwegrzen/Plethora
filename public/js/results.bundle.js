@@ -22051,54 +22051,58 @@
 	      else {
 	          return _react2.default.createElement(
 	            'div',
-	            { id: 'musicItemsSection' },
+	            { className: 'musicItemsSection col-sm-6' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-sm-2' },
-	              _react2.default.createElement(
-	                'a',
-	                { className: 'itemLink', href: "/albumdetail/" + this.state.music.gn_id },
-	                _react2.default.createElement('img', { className: 'img-responsive center-block searchImage', src: this.state.music.album_art })
-	              ),
+	              { className: 'row' },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'btn-group btn-group-justified' },
+	                { className: 'col-sm-4' },
 	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'btn-group', role: 'group' },
-	                  _react2.default.createElement(
-	                    'button',
-	                    { onClick: function onClick() {
-	                        return _this2.queueToggle();
-	                      }, type: 'button', className: queuedBackground, id: 'leftBtn' },
-	                    _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
-	                  )
+	                  'a',
+	                  { className: 'itemLink', href: "/albumdetail/" + this.state.music.gn_id },
+	                  _react2.default.createElement('img', { className: 'img-responsive center-block searchImage', src: this.state.music.album_art })
 	                ),
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'btn-group', role: 'group' },
+	                  { className: 'btn-group btn-group-justified' },
 	                  _react2.default.createElement(
-	                    'button',
-	                    { onClick: function onClick() {
-	                        return _this2.finishedToggle();
-	                      }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-headphones', 'aria-hidden': 'true' })
+	                    'div',
+	                    { className: 'btn-group', role: 'group' },
+	                    _react2.default.createElement(
+	                      'button',
+	                      { onClick: function onClick() {
+	                          return _this2.queueToggle();
+	                        }, type: 'button', className: queuedBackground, id: 'leftBtn' },
+	                      _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'btn-group', role: 'group' },
+	                    _react2.default.createElement(
+	                      'button',
+	                      { onClick: function onClick() {
+	                          return _this2.finishedToggle();
+	                        }, type: 'button', className: finishedBackground, id: 'rightBtn' },
+	                      _react2.default.createElement('span', { className: 'glyphicon glyphicon-headphones', 'aria-hidden': 'true' })
+	                    )
 	                  )
 	                )
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-4' },
-	              _react2.default.createElement(
-	                'h2',
-	                { className: 'albumTitleSearch title text-left' },
-	                this.state.music.name
 	              ),
 	              _react2.default.createElement(
-	                'h2',
-	                { className: 'artistNameSearch text-left' },
-	                this.state.music.artist
+	                'div',
+	                { className: 'col-sm-8' },
+	                _react2.default.createElement(
+	                  'h2',
+	                  { className: 'albumTitleSearch title text-left' },
+	                  this.state.music.name
+	                ),
+	                _react2.default.createElement(
+	                  'h2',
+	                  { className: 'artistNameSearch text-left' },
+	                  this.state.music.artist
+	                )
 	              )
 	            )
 	          );

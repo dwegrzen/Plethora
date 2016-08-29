@@ -351,6 +351,10 @@ body {
         margin-top: 30px;
         border-radius: 3px 3px 0px 0px;
     }
+    .musicItemsSection {
+        height: 220px;
+        overflow: hidden;
+    }
     //styling for media detail pages
     .mediaTitle {
         color: $black;
