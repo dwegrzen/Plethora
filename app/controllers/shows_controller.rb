@@ -33,9 +33,31 @@ class ShowsController < ApplicationController
     end
   end
 
+  def showaddasfinished
+    @show = Show.find_or_create_by(gn_id: params[:gn_id])
+    @show.update(showfinished_params)
+    if current_user.shows << @show
+      render json: @user, status: :created
+    else
+      render json: @show.errors, status: :unprocessable_entity
+    end
+    @stacking = Stacking.where(user_id: current_user.id, media_id: @show.id, media_type: "Show")
+    if params[:finished] == true
+      @stacking.update_all(finished: true)
+    else
+      @stacking.update_all(finished: false)
+    end
+  end
+
+
+
  private
    def show_params
      params.permit(:title, :genre, :show_image, :synopsis, :seasons, :date, :gn_id)
+   end
+
+   def showfinished_params
+     params.require(:show).permit(:title, :genre, :show_image, :synopsis, :seasons, :date, :gn_id)
    end
 
 end

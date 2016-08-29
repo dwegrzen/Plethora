@@ -29,23 +29,40 @@ class TVItem extends React.Component {
           'Content-Type': 'application/json'
         }
       })
+      this.setState({finished: !this.state.queued})
     }
     this.setState({queued: !this.state.queued})
   }
 
   finishedToggle() {
-    this.setState({finished: !this.state.finished})
-    fetch('/showstatus', {
-      method: 'PATCH',
-      body: JSON.stringify({
-        show_id: this.state.series.id,
-        finished: !this.state.finished
-      }),
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
+    if (!this.state.queued) {
+      this.setState({queued: !this.state.queued, finished: !this.state.finished})
+      fetch('/showaddasfinished', {
+        method: 'POST',
+        body: JSON.stringify({
+          show: this.state.series,
+          finished: !this.state.finished
+        }),
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+    }
+    else {
+      this.setState({finished: !this.state.finished})
+      fetch('/showstatus', {
+        method: 'PATCH',
+        body: JSON.stringify({
+          show_id: this.state.series.id,
+          finished: !this.state.finished
+        }),
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+    }
   }
 
   render() {

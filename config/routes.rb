@@ -30,14 +30,8 @@ Rails.application.routes.draw do
   delete 'movies' => 'movies#destroymovie'
   patch 'moviestatus' => 'movies#moviecompletionstatus'
   post 'albumaddasfinished' => 'albums#albumaddasfinished'
-
-
-
-
-
-
-
-
+  post 'showaddasfinished' => 'shows#showaddasfinished'
+  post 'movieaddasfinished' => 'movies#movieaddasfinished'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
