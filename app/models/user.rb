@@ -5,7 +5,6 @@ class User < ApplicationRecord
   has_many :movies, through: :stackings, source: :media, source_type: 'Movie'
   has_many :stackings
   validates :email, presence: true, uniqueness: true, format: {with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/}
-  validates :password, presence: true
 
 
   def generate_token(column)

@@ -61,7 +61,7 @@ before_action :require_user, except: [:index, :sign_in, :login, :new, :create]
         session[:email] = @user.email
         format.html { redirect_to root_path , notice: 'User was successfully created.' }
       else
-        format.html { render :new }
+        format.html { render :sign_up}
       end
     end
   end
