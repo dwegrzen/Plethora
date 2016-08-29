@@ -21618,7 +21618,7 @@
 	        var id = _this2.findId(item);
 	        var finished = props.finished.includes(id);
 	        var queued = props.queued.includes(id);
-	        console.log(queued, item);
+	        // console.log(queued, item)
 	        return _react2.default.createElement(Item, { key: i, item: item, finished: finished, queued: queued, search: props.search });
 	      });
 
@@ -21708,24 +21708,40 @@
 	            'Content-Type': 'application/json'
 	          }
 	        });
+	        this.setState({ finished: !this.state.queued });
 	      }
 	      this.setState({ queued: !this.state.queued });
 	    }
 	  }, {
 	    key: 'finishedToggle',
 	    value: function finishedToggle() {
-	      this.setState({ finished: !this.state.finished });
-	      fetch('/showstatus', {
-	        method: 'PATCH',
-	        body: JSON.stringify({
-	          show_id: this.state.series.id,
-	          finished: !this.state.finished
-	        }),
-	        credentials: 'include',
-	        headers: {
-	          'Content-Type': 'application/json'
-	        }
-	      });
+	      if (!this.state.queued) {
+	        this.setState({ queued: !this.state.queued, finished: !this.state.finished });
+	        fetch('/showaddasfinished', {
+	          method: 'POST',
+	          body: JSON.stringify({
+	            show: this.state.series,
+	            finished: !this.state.finished
+	          }),
+	          credentials: 'include',
+	          headers: {
+	            'Content-Type': 'application/json'
+	          }
+	        });
+	      } else {
+	        this.setState({ finished: !this.state.finished });
+	        fetch('/showstatus', {
+	          method: 'PATCH',
+	          body: JSON.stringify({
+	            show_id: this.state.series.id,
+	            finished: !this.state.finished
+	          }),
+	          credentials: 'include',
+	          headers: {
+	            'Content-Type': 'application/json'
+	          }
+	        });
+	      }
 	    }
 	  }, {
 	    key: 'render',
@@ -21926,7 +21942,6 @@
 	      } else {
 	        fetch('/albums?album_id=' + this.state.music.id, {
 	          method: 'DELETE',
-	          // body: JSON.stringify(this.state.series),
 	          credentials: 'include',
 	          headers: {
 	            'Content-Type': 'application/json'
@@ -22175,24 +22190,40 @@
 	            'Content-Type': 'application/json'
 	          }
 	        });
+	        this.setState({ finished: !this.state.queued });
 	      }
 	      this.setState({ queued: !this.state.queued });
 	    }
 	  }, {
 	    key: 'finishedToggle',
 	    value: function finishedToggle() {
-	      this.setState({ finished: !this.state.finished });
-	      fetch('/moviestatus', {
-	        method: 'PATCH',
-	        body: JSON.stringify({
-	          movie_id: this.state.movies.id,
-	          finished: !this.state.finished
-	        }),
-	        credentials: 'include',
-	        headers: {
-	          'Content-Type': 'application/json'
-	        }
-	      });
+	      if (!this.state.queued) {
+	        this.setState({ queued: !this.state.queued, finished: !this.state.finished });
+	        fetch('/movieaddasfinished', {
+	          method: 'POST',
+	          body: JSON.stringify({
+	            movie: this.state.movie,
+	            finished: !this.state.finished
+	          }),
+	          credentials: 'include',
+	          headers: {
+	            'Content-Type': 'application/json'
+	          }
+	        });
+	      } else {
+	        this.setState({ finished: !this.state.finished });
+	        fetch('/moviestatus', {
+	          method: 'PATCH',
+	          body: JSON.stringify({
+	            movie_id: this.state.movies.id,
+	            finished: !this.state.finished
+	          }),
+	          credentials: 'include',
+	          headers: {
+	            'Content-Type': 'application/json'
+	          }
+	        });
+	      }
 	    }
 	  }, {
 	    key: 'render',
