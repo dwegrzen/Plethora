@@ -20,6 +20,18 @@
   </div>
 </div>
 
+<% if current_user.stackings == [] %>
+<div class="container">
+  <div class="row">
+    <h2>You don't have anything in your queue yet.</h2>
+    <h2>Think of something you wanted to catch up on and search for it above.</h2>
+    <h4 class="text-center">Select a specific type of media or search all types at once.</h4>
+  </div>
+</div>
+
+<% end %>
+
+
 
 <script>
   var TVItems = <%== @usershows.to_json %>

@@ -1,12 +1,3 @@
-GIT
-  remote: git://github.com/dwegrzen/gracenote.git
-  revision: d33354a31821bf368acef598445de649f8739249
-  specs:
-    gracenote (1.2.0)
-      crack
-      curb
-      rack
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -63,12 +54,7 @@ GEM
     byebug (9.0.5)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
-    crack (0.4.3)
-      safe_yaml (~> 1.0.0)
-    curb (0.9.3)
     debug_inspector (0.0.2)
-    discid (1.3.0)
-      ffi (>= 1.6.0)
     discogs-wrapper (2.1.4)
       hashie (~> 3.0)
       oauth (~> 0.4.7)
@@ -110,7 +96,6 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
-    nori (2.6.0)
     oauth (0.4.7)
     pg (0.18.4)
     pkg-config (1.1.7)
@@ -157,7 +142,6 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
-    safe_yaml (1.0.4)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -189,12 +173,6 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
-    under_fire (0.7.0)
-      builder
-      discid
-      nokogiri
-      nori
-      thor
     web-console (3.3.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -214,7 +192,6 @@ DEPENDENCIES
   byebug
   discogs-wrapper
   figaro
-  gracenote!
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
@@ -231,7 +208,6 @@ DEPENDENCIES
   themoviedb
   tzinfo-data
   uglifier (>= 1.3.0)
-  under_fire
   web-console
 
 BUNDLED WITH
