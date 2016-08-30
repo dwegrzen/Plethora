@@ -10,7 +10,7 @@
       <%= simple_form_for @user, :url => password_reset_path(params[:id]) do |f| %>
         <div class="form-inputs">
           <%= f.input :password %>
-          <%= f.input :password_confirmation %>
+          <%= f.input :password_confirmation, required: true %>
 
         </div>
 
