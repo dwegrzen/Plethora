@@ -1,7 +1,7 @@
 <div class="detailContainer">
   <div class="col-sm-4 <%= series.gn_id %>">
     <img class="searchImage detailImage thumbnail center-block img-responsive" src="<%=series.show_image%>">
-    <input type="hidden" id="dataRaw" data-id="<%= @showid %>" data-raw="<%= series.to_json %>"/>
+    <input type="hidden" id="dataRaw" data-id="<%= @showid %>" data-raw="<%= series.to_json %>" />
     <div class="btn-group btn-group-justified btnGroupDetail">
       <% if @queued %>
         <div class="btn-group" role="group">
@@ -31,6 +31,11 @@
         </div>
       <% end %>
     </div>
+    <% if !@finished && !@queued%>
+    <p id="queuedorfinished" hidden>false</p>
+    <% else %>
+    <p id="queuedorfinished" hidden>true</p>
+    <% end %>
   </div>
   <div class="col-sm-8 mediaDetailsContainer">
     <h1 class="mediaTitle"><%= series.title %></h1>
