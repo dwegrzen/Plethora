@@ -22,8 +22,11 @@ class TVItem extends React.Component {
       })
     }
     else {
-      fetch('/shows?show_id=' + this.state.series.id + '?gn_id=' + this.state.series.gn_id, {
+      fetch('/shows?show_id=' + this.state.series.id, {
         method: 'DELETE',
+        body: JSON.stringify({
+          gn_id: this.state.series.gn_id
+        }),
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'

@@ -19,7 +19,7 @@ class ShowsController < ApplicationController
   end
 
   def destroyshow
-    if params[:show_id]
+    if (params[:show_id] && params[:show_id] != "undefined") 
       @stacking = Stacking.where(user_id: current_user.id, media_id: params[:show_id], media_type: "Show")
       @stacking.destroy_all
     elsif params[:gn_id]
