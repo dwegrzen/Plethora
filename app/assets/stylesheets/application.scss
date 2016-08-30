@@ -139,7 +139,7 @@ header {
 }
 
 body.loggedout {
-    background: linear-gradient(rgba(31, 54, 61, 0.5), rgba(31, 54, 61, 0.5)), url(plethoraBackground.jpeg);
+    background: linear-gradient(rgba(31, 54, 61, 0.5), rgba(31, 54, 61, 0.5)), url(plethoraBackground.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -161,7 +161,7 @@ body.loggedin {
     footer {
         height: 160px;
         margin-top: 50px;
-        background-image: linear-gradient(rgba(31, 54, 61, 0.6), (rgba(31, 54, 61, 0.6))), url(plethoraBackground.jpeg);
+        background-image: linear-gradient(rgba(31, 54, 61, 0.6), rgba(31, 54, 61, 0.6)), url(plethoraBackground.jpg);
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
