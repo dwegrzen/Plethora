@@ -47,6 +47,7 @@ class SearchController < ApplicationController
     else
       @queued = false
       @finished = nil
+      @showid = @detailparse.gn_id
     end
   end
 

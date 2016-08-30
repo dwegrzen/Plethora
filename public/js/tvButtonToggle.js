@@ -33,8 +33,26 @@ document.getElementById('showAdd').addEventListener('click', function() {
 document.getElementById('showWatched').addEventListener('click', function() {
   var span = this.querySelector('span')
   var dataId = document.getElementById('dataRaw').getAttribute('data-id')
+  var dataRaw = document.getElementById('dataRaw').getAttribute('data-raw')
+  var queuedorfinished = document.getElementById('queuedorfinished')
 
-  if (span.classList.contains('glyphicon-eye-close')) {
+  if (span.classList.contains('glyphicon-eye-close') && queuedorfinished.innerHTML == "false") {
+    fetch('/showaddasfinished', {
+      method: 'POST',
+      body: JSON.stringify({
+        show: dataRaw,
+        finished: true
+      }),
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    span.classList.remove('glyphicon-eye-close')
+    span.classList.add('glyphicon-eye-open')
+    queuedorfinished.innerHTML = "true"
+  }
+  else if (span.classList.contains('glyphicon-eye-close'))   {
     fetch('/showstatus', {
       method: 'PATCH',
       body: JSON.stringify({
