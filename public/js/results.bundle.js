@@ -22357,7 +22357,7 @@
 	                _react2.default.createElement(
 	                  'h5',
 	                  { className: 'tvSynopsisSearch text-left' },
-	                  this.state.movies.summary ? this.state.movies.summary : 'Sorry! There is no overview available.'
+	                  this.state.movies.overview ? this.state.movies.overview : 'Sorry! There is no overview available.'
 	                )
 	              )
 	            )

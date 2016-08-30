@@ -131,7 +131,7 @@ class MovieItem extends React.Component {
           </div>
           <div className="col-sm-8">
             <h2 className="title text-left">{this.state.movies.name}</h2>
-            <h5 className="tvSynopsisSearch text-left" >{this.state.movies.summary ? this.state.movies.summary : 'Sorry! There is no overview available.'}</h5>
+            <h5 className="tvSynopsisSearch text-left" >{this.state.movies.overview ? this.state.movies.overview : 'Sorry! There is no overview available.'}</h5>
           </div>
         </div>
       </div>
