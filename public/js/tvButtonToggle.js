@@ -1,12 +1,12 @@
 document.getElementById('showAdd').addEventListener('click', function() {
   var span = this.querySelector('span')
-  var dataRaw = document.getElementById('dataRaw').getAttribute('data-raw')
-  var dataId = document.getElementById('dataRaw').getAttribute('data-id')
+  // var dataRaw = document.getElementById('dataRaw').getAttribute('data-raw')
+  // var dataId = document.getElementById('dataRaw').getAttribute('data-id')
 
   if (span.classList.contains('glyphicon-plus')) {
     fetch('/shows', {
       method: 'POST',
-      body: dataRaw,
+      body: JSON.stringify(dataRaw),
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
@@ -32,12 +32,11 @@ document.getElementById('showAdd').addEventListener('click', function() {
 
 document.getElementById('showWatched').addEventListener('click', function() {
   var span = this.querySelector('span')
-  var dataId = document.getElementById('dataRaw').getAttribute('data-id')
-  var dataRaw = document.getElementById('dataRaw').getAttribute('data-raw')
-  var queuedorfinished = document.getElementById('queuedorfinished')
+  // var dataId = document.getElementById('dataRaw').getAttribute('data-id')
+  // var dataRaw = document.getElementById('dataRaw').getAttribute('data-raw')
+  // var queuedorfinished = document.getElementById('queuedorfinished')
 
   if (span.classList.contains('glyphicon-eye-close') && queuedorfinished.innerHTML == "false") {
-    dataRaw = JSON.parse(dataRaw)
     dataRaw.finished = true
     fetch('/showaddasfinished', {
       method: 'POST',
