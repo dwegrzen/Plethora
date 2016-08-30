@@ -150,7 +150,7 @@ body.loggedout {
     background-size: cover;
     background-repeat: no-repeat;
     footer {
-         padding-top: 25px;
+        padding-top: 25px;
     }
 }
 
@@ -183,8 +183,9 @@ body {
         background-color: transparent;
     }
     .mainContent {
-        min-height: 100%;
-        margin-bottom: -190px;
+        //min-height: 100%;
+        //margin-bottom: -190px;
+        padding-bottom: 100px;
         &:after {
             content: "";
             display: block;
@@ -220,11 +221,12 @@ body {
     }
 
     // Log In, Sign Up pages - only accessible when not logged in
-    #login, #signup, #loginForm, #signupForm {
-        padding: 15px 20px 18px;
+    #loginForm, #signupForm {
+        padding: 15px 20px 10px;
     }
     #login, #signup {
-        margin-top: 50px;
+        padding: 8px 0px 10px;
+        margin-top: 25px;
         border-radius: 3px 3px 0px 0px;
         background-color: rgba($darkTeal, 0.75);
         color: $white;
@@ -235,14 +237,17 @@ body {
         }
     }
     #loginForm, #signupForm {
-        padding-top: 25px;
+        padding-top: 10px;
         border-radius: 0px 0px 3px 3px;
         background-color: rgba($white, .4);
     }
     #loginForm {
         .form-inputs {
             font-size: 15px;
-            font-weight: bold;
+            font-weight: 300;
+            a {
+                color: $black;
+            }
         }
     }
     #signupFormBtn, #loginFormBtn {
@@ -250,7 +255,7 @@ body {
         background-color: rgba($darkTeal, 0.85);
         border: none;
         border-radius: 3px;
-        margin-top: 25px;
+        margin-top: 10px;
         margin-bottom: 10px;
         padding: 10px;
         min-width: 150px;
@@ -483,6 +488,7 @@ footer {
         //logged out pages
         .mainContent {
             margin-bottom: -100px;
+            min-height: 100%;
             .tagline {
                 padding-top: 190px;
                 font-size: 55px;
@@ -492,6 +498,7 @@ footer {
             }
         }
         #login, #signup {
+            margin-top: 100px;
             h1{
                 font-size: 40px;
             }
