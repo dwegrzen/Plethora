@@ -135,7 +135,13 @@ header {
 .label-info {
     background-color: transparent;
     font-weight: 300;
-    position: fixed;
+    position: absolute;
+    left: 0;
+    transition: 1s ease all;
+}
+
+.moveNotice {
+    margin-left: -500px;
 }
 
 body.loggedout {
