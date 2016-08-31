@@ -28,5 +28,6 @@ class ApplicationController < ActionController::Base
       @userfinishedmovies = current_user.movies.find(finishedmovies).pluck(:tmdb_id)
       @userid = current_user.id
     end
+  end
 
 end
