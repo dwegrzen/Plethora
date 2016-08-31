@@ -22192,7 +22192,7 @@
 	        fetch('/movies?movie_id=' + this.state.movies.id, {
 	          method: 'DELETE',
 	          body: JSON.stringify({
-	            gn_id: this.state.movies.tmdb_id
+	            tmdb_id: this.state.movies.tmdb_id
 	          }),
 	          credentials: 'include',
 	          headers: {
