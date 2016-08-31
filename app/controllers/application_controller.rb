@@ -30,13 +30,13 @@ class ApplicationController < ActionController::Base
     end
 
     def sample
-      sample = []
+      @sample = []
       8.times do
-        sample << Movie.all.sample.movie_art
-        sample << Show.all.sample.show_image
-        sample << Album.all.sample.album_art
+        @sample << Movie.all.sample.movie_art
+        @sample << Show.all.sample.show_image
+        @sample << Album.all.sample.album_art
       end
-      sample.shuffle
+      @sample.shuffle
     end
 
   end
