@@ -1,7 +1,14 @@
 <div class="detailContainer">
   <div class="col-sm-4">
     <img class="searchImage detailImage center-block thumbnail img-responsive" src="<%=movie.movie_art%>" />
-    <input type="hidden" id="dataRaw" data-id="<%= @movieid %>" data-raw="<%= movie.to_json %>"/>
+    <!-- <input type="hidden" id="dataRaw" data-id="<%= @movieid %>" data-raw="<%= movie.to_json %>"/> -->
+    <script>
+      var dataId = '<%= @movieid %>';
+      var dataRaw = <%== movie.to_json %>;
+      var dataQueued = <%= @queued %>;
+      var dataFinished = <%= @finished %>;
+    </script>
+
     <div class="btn-group btn-group-justified btnGroupDetail">
       <% if @queued %>
         <div class="btn-group" role="group">
