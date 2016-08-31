@@ -24,6 +24,9 @@ class MovieItem extends React.Component {
     else {
       fetch('/movies?movie_id=' + this.state.movies.id, {
         method: 'DELETE',
+        body: JSON.stringify({
+          gn_id: this.state.movies.tmdb_id
+        }),
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -54,7 +57,7 @@ class MovieItem extends React.Component {
       fetch('/moviestatus', {
         method: 'PATCH',
         body: JSON.stringify({
-          movie_id: this.state.movies.id,
+          tmdb_id: this.state.movies.tmdb_id,
           finished: !this.state.finished
         }),
         credentials: 'include',
