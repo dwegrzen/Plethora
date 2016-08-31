@@ -6,6 +6,7 @@
       var dataId = '<%= @showid %>';
       var dataRaw = <%== series.to_json %>;
       var dataQueued = <%= @queued %>;
+      var dataFinished = <%= @finished %>;
     </script>
     <div class="btn-group btn-group-justified btnGroupDetail">
       <% if @queued %>
@@ -36,11 +37,6 @@
         </div>
       <% end %>
     </div>
-    <% if !@finished && !@queued%>
-    <p id="queuedorfinished" hidden>false</p>
-    <% else %>
-    <p id="queuedorfinished" hidden>true</p>
-    <% end %>
   </div>
   <div class="col-sm-8 mediaDetailsContainer">
     <h1 class="mediaTitle"><%= series.title %></h1>

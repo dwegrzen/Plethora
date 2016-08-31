@@ -46,7 +46,7 @@ class SearchController < ApplicationController
       @finished = current_user.stackings.find_by(media_id: @showid, media_type: "Show").finished
     else
       @queued = false
-      @finished = nil
+      @finished = false
       @showid = @detailparse.gn_id
     end
   end

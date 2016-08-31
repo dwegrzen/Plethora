@@ -1,5 +1,4 @@
 <h4 id="notice"><span class="label label-info"><%= notice %></span></h4>
-<!-- hello registered plethora user. this site is not currently up yet. come back later. -->
 <div id="searchBarAndButton">
   <%= form_tag search_path, method: "get" do %>
   <%= select_tag(:searchtype, options_for_select([['All'],['TV'],['Movie'],['Music']], selected: 'Music'), class: 'form-control', id: 'searchType') %>

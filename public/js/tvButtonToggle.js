@@ -1,5 +1,6 @@
 document.getElementById('showAdd').addEventListener('click', function() {
   var span = this.querySelector('span')
+  var otherspan = document.getElementById('showWatched').querySelector('span')
   // var dataRaw = document.getElementById('dataRaw').getAttribute('data-raw')
   // var dataId = document.getElementById('dataRaw').getAttribute('data-id')
 
@@ -19,6 +20,9 @@ document.getElementById('showAdd').addEventListener('click', function() {
   else {
     fetch('/shows?show_id=' + dataId, {
       method: 'DELETE',
+      body: JSON.stringify({
+        gn_id: dataRaw.gn_id
+      }),
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
@@ -27,20 +31,26 @@ document.getElementById('showAdd').addEventListener('click', function() {
     span.classList.remove('glyphicon-ok')
     span.classList.add('glyphicon-plus')
     this.classList.remove('active')
+    otherspan.classList.remove('glyphicon-eye-open')
+    otherspan.classList.remove('glyphicon-eye-close')
+    otherspan.classList.add('glyphicon-eye-close')
   }
 })
 
 document.getElementById('showWatched').addEventListener('click', function() {
   var span = this.querySelector('span')
+  var otherspan = document.getElementById('showAdd').querySelector('span')
   // var dataId = document.getElementById('dataRaw').getAttribute('data-id')
   // var dataRaw = document.getElementById('dataRaw').getAttribute('data-raw')
   // var queuedorfinished = document.getElementById('queuedorfinished')
 
-  if (span.classList.contains('glyphicon-eye-close') && queuedorfinished.innerHTML == "false") {
-    dataRaw.finished = true
+  if (span.classList.contains('glyphicon-eye-close') && dataQueued == false ) {
     fetch('/showaddasfinished', {
       method: 'POST',
-      body: JSON.stringify(dataRaw),
+      body: JSON.stringify({
+        show: dataRaw,
+        finished: true
+      }),
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
@@ -48,12 +58,15 @@ document.getElementById('showWatched').addEventListener('click', function() {
     })
     span.classList.remove('glyphicon-eye-close')
     span.classList.add('glyphicon-eye-open')
+    otherspan.classList.remove('glyphicon-plus')
+    otherspan.classList.add('glyphicon-ok')
+    dataQueued = true
   }
   else if (span.classList.contains('glyphicon-eye-close'))   {
     fetch('/showstatus', {
       method: 'PATCH',
       body: JSON.stringify({
-        show_id: dataId,
+        gn_id: dataRaw.gn_id,
         finished: true
       }),
       credentials: 'include',
@@ -68,7 +81,7 @@ document.getElementById('showWatched').addEventListener('click', function() {
     fetch('/showstatus', {
       method: 'PATCH',
       body: JSON.stringify({
-        show_id: dataId,
+        gn_id: dataRaw.gn_id,
         finished: false
       }),
       credentials: 'include',
