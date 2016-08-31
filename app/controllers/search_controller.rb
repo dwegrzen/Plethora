@@ -60,7 +60,8 @@ class SearchController < ApplicationController
       @finished = current_user.stackings.find_by(media_id: @albumid, media_type: "Album").finished
     else
       @queued = false
-      @finished = nil
+      @finished = false
+      @albumid = @detailparse.gn_id
     end
   end
 
@@ -73,7 +74,8 @@ class SearchController < ApplicationController
       @finished = current_user.stackings.find_by(media_id: @movieid, media_type: "Movie").finished
     else
       @queued = false
-      @finished = nil
+      @finished = false
+      @movieid = @detailparse.tmdb_id
     end
   end
 

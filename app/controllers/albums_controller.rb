@@ -19,16 +19,32 @@ class AlbumsController < ApplicationController
   end
 
   def destroyalbum
-    @stacking = Stacking.where(user_id: current_user.id, media_id: params[:album_id], media_type: "Album")
-    @stacking.destroy_all
+    if params[:gn_id]
+      @album = Album.find_by(gn_id: params[:gn_id]).id
+      @stacking = Stacking.where(user_id: current_user.id, media_id: @album, media_type: "Album")
+      @stacking.destroy_all
+    elsif (params[:album_id] && params[:album_id] != "undefined")
+      @stacking = Stacking.where(user_id: current_user.id, media_id: params[:album_id], media_type: "Album")
+      @stacking.destroy_all
+    end
   end
 
   def albumcompletionstatus
-    @stacking = Stacking.where(user_id: current_user.id, media_id: params[:album_id], media_type: "Album")
-    if params[:finished] == true
-      @stacking.update_all(finished: true)
+    if params[:gn_id]
+      @album = Album.find_by(gn_id: params[:gn_id]).id
+      @stacking = Stacking.where(user_id: current_user.id, media_id: @album, media_type: "Album")
+      if params[:finished] == true
+        @stacking.update_all(finished: true)
+      else
+        @stacking.update_all(finished: false)
+      end
     else
-      @stacking.update_all(finished: false)
+      @stacking = Stacking.where(user_id: current_user.id, media_id: params[:album_id], media_type: "Album")
+      if params[:finished] == true
+        @stacking.update_all(finished: true)
+      else
+        @stacking.update_all(finished: false)
+      end
     end
   end
 

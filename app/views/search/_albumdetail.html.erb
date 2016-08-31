@@ -1,7 +1,12 @@
 <div class="detailContainer">
   <div class="col-sm-4">
     <img class="searchImage detailImage thumbnail center-block img-responsive" src="<%=album.album_art%>" />
-    <input type="hidden" id="dataRaw" data-id="<%= @albumid %>" data-raw="<%= album.to_json %>"/>
+    <script>
+      var dataId = '<%= @albumid %>';
+      var dataRaw = <%== album.to_json %>;
+      var dataQueued = <%= @queued %>;
+      var dataFinished = <%= @finished %>;
+    </script>
     <div class="btn-group btn-group-justified btnGroupDetail">
     <% if @queued %>
       <div class="btn-group" role="group">

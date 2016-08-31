@@ -1,7 +1,6 @@
 <div class="detailContainer">
   <div class="col-sm-4 <%= series.gn_id %>">
     <img class="searchImage detailImage thumbnail center-block img-responsive" src="<%=series.show_image%>">
-    <!-- <input type="hidden" id="dataRaw" data-id="<%= @showid %>" data-raw="<%= series.to_json %>" /> -->
     <script>
       var dataId = '<%= @showid %>';
       var dataRaw = <%== series.to_json %>;
