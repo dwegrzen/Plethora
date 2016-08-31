@@ -7,7 +7,7 @@ before_action :require_user, except: [:index, :sign_in, :login, :new, :create]
       @useralbums = current_user.albums
       @usermovies = current_user.movies
       userinfo
-      sample if current_user.stackings == []
+      # sample if current_user.stackings == []
       render :index
     else
       render :landing
