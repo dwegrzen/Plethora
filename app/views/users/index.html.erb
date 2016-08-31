@@ -22,22 +22,66 @@
 
 <% if current_user.stackings == [] %>
 <div class="container emptyQueue">
-  <div class="row" id="emptyQueueImages">
-    <div class="col-sm-4" id="showSample" style="background-image: url('<%= @showsample %>'); background-position: top; background-size: cover;">
+  <div class="row hidden-xs" id="emptyQueueImages">
+    <div class="col-sm-1 showSample topLeft" style="background-image: url('<%= @showsample %>'); background-position: top; background-size: cover;">
     </div>
-    <div class="col-sm-4" id="albumSample" style="background-image: url('<%= @albumsample %>'); background-position: center; background-size: cover;">
+    <div class="col-sm-1 albumSample" style="background-image: url('<%= @albumsample %>'); background-position: center; background-size: cover;">
     </div>
-    <div class="col-sm-4" id="movieSample" style="background-image: url('<%= @moviesample %>'); background-position: top; background-size: cover;">
+    <div class="col-sm-1 movieSample" style="background-image: url('<%= @moviesample %>'); background-position: top; background-size: cover;">
+    </div>
+    <div class="col-sm-1 showSample" style="background-image: url('<%= @showsample %>'); background-position: top; background-size: cover;">
+    </div>
+    <div class="col-sm-1 albumSample" style="background-image: url('<%= @albumsample %>'); background-position: center; background-size: cover;">
+    </div>
+    <div class="col-sm-1 movieSample" style="background-image: url('<%= @moviesample %>'); background-position: top; background-size: cover;">
+    </div>
+    <div class="col-sm-1 showSample" style="background-image: url('<%= @showsample %>'); background-position: top; background-size: cover;">
+    </div>
+    <div class="col-sm-1 albumSample" style="background-image: url('<%= @albumsample %>'); background-position: center; background-size: cover;">
+    </div>
+    <div class="col-sm-1 movieSample" style="background-image: url('<%= @moviesample %>'); background-position: top; background-size: cover;">
+    </div>
+    <div class="col-sm-1 showSample" style="background-image: url('<%= @showsample %>'); background-position: top; background-size: cover;">
+    </div>
+    <div class="col-sm-1 albumSample" style="background-image: url('<%= @albumsample %>'); background-position: center; background-size: cover;">
+    </div>
+    <div class="col-sm-1 movieSample topRight" style="background-image: url('<%= @moviesample %>'); background-position: top; background-size: cover;">
+    </div>
+  </div>
+  <div class="row hidden-xs" id="emptyQueueImages">
+    <div class="col-sm-1 albumSample" style="background-image: url('<%= @albumsample %>'); background-position: center; background-size: cover;">
+    </div>
+    <div class="col-sm-1 movieSample" style="background-image: url('<%= @moviesample %>'); background-position: top; background-size: cover;">
+    </div>
+    <div class="col-sm-1 showSample" style="background-image: url('<%= @showsample %>'); background-position: top; background-size: cover;">
+    </div>
+    <div class="col-sm-1 albumSample" style="background-image: url('<%= @albumsample %>'); background-position: center; background-size: cover;">
+    </div>
+    <div class="col-sm-1 movieSample" style="background-image: url('<%= @moviesample %>'); background-position: top; background-size: cover;">
+    </div>
+    <div class="col-sm-1 showSample" style="background-image: url('<%= @showsample %>'); background-position: top; background-size: cover;">
+    </div>
+    <div class="col-sm-1 albumSample" style="background-image: url('<%= @albumsample %>'); background-position: center; background-size: cover;">
+    </div>
+    <div class="col-sm-1 movieSample" style="background-image: url('<%= @moviesample %>'); background-position: top; background-size: cover;">
+    </div>
+    <div class="col-sm-1 showSample" style="background-image: url('<%= @showsample %>'); background-position: top; background-size: cover;">
+    </div>
+    <div class="col-sm-1 albumSample" style="background-image: url('<%= @albumsample %>'); background-position: center; background-size: cover;">
+    </div>
+    <div class="col-sm-1 movieSample" style="background-image: url('<%= @moviesample %>'); background-position: top; background-size: cover;">
+    </div>
+    <div class="col-sm-1 showSample" style="background-image: url('<%= @showsample %>'); background-position: top; background-size: cover;">
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12" id="bannerNewUser">
-      <h1 class="text-center">Welcome to Plethora</h1>
+    <div class="col-sm-12 text-center" id="bannerNewUser">
+      <h1>Welcome to Plethora!</h1>
     </div>
   </div>
-  <div class="row">
-    <h2>Think of something you wanted to catch up on and search for it above.</h2>
-    <h4 class="text-center">Select a specific type of media or search all types at once.</h4>
+  <div class="row text-center">
+    <h2 id="subtitleNewUser">Search for the media you don't want to forget above.</h2>
+    <%= image_tag ('logo_small.png'), id: 'logoNewUser'%>
   </div>
 </div>
 

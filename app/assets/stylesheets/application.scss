@@ -307,31 +307,37 @@ body {
         border-radius: 3px;
         padding: 20px;
         margin-top: 25px;
+        overflow: hidden;
     }
     #emptyQueueImages {
         z-index: 1;
-        border: 1px solid $darkTeal;
-        border-radius: 3px 3px 0px 0px;
         margin: -20px;
     }
-    #showSample, #albumSample, #movieSample {
-        height: 350px;
+    .showSample, .albumSample, .movieSample {
+        height: 100px;
     }
-    #showSample {
-        border-radius: 3px 0px 0px 0px;
-    }
-    #movieSample {
-        border-radius: 0px 3px 0px 0px;
-    }
+    // .topLeft {
+    //     border-radius: 3px 0px 0px 0px;
+    // }
+    // .topRight {
+    //     border-radius: 0px 3px 0px 0px;
+    // }
     #bannerNewUser {
-        background-color: $darkTeal;
-        color: white;
-        padding: 10px 0px 18px;
-        margin: -20px;
-        margin-top: -2px;
+        color: $darkTeal;
+        margin-top: 20px;
         h1 {
+            margin-top: 15px;
             font-weight: 300;
+            font-size: 35px;
+            margin: 10px 10px 20px;
         }
+    }
+    #subtitleNewUser {
+        font-size: 20px;
+    }
+    #logoNewUser {
+        height: 35px;
+        margin: 15px;
     }
     .mediaCat {
         margin: 0px -15px 40px;
@@ -537,10 +543,20 @@ footer {
         #searchBar {
             width: 500px;
         }
+        .emptyQueue {
+            margin-bottom: 150px;
+        }
+        #bannerNewUser {
+            h1 {
+                font-size: 55px;
+            }
+        }
+        #subtitleNewUser {
+            font-size: 25px;
+        }
         .albumTitleSearch {
             margin-top: 30px;
         }
-
         //media detail pages
         .mediaDetailsContainer {
             margin-top: 0px;
