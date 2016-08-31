@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.find_or_create_by(tmdb_id: params[:tmbd_id])
+    @movie = Movie.find_or_create_by(tmdb_id: params[:tmdb_id])
     @movie.update(movie_params)
     if current_user.movies << @movie
       render json: @user, status: :created
@@ -49,7 +49,7 @@ class MoviesController < ApplicationController
   end
 
   def movieaddasfinished
-    @movie = Movie.find_or_create_by(tmdb_id: params[:movie][:tmbd_id])
+    @movie = Movie.find_or_create_by(tmdb_id: params[:movie][:tmdb_id])
     @movie.update(moviefinished_params)
     if current_user.movies << @movie
       render json: @user, status: :created
