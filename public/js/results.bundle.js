@@ -21736,7 +21736,7 @@
 	        fetch('/showstatus', {
 	          method: 'PATCH',
 	          body: JSON.stringify({
-	            show_id: this.state.series.id,
+	            gn_id: this.state.series.gn_id,
 	            finished: !this.state.finished
 	          }),
 	          credentials: 'include',
@@ -21945,6 +21945,9 @@
 	      } else {
 	        fetch('/albums?album_id=' + this.state.music.id, {
 	          method: 'DELETE',
+	          body: JSON.stringify({
+	            gn_id: this.state.music.gn_id
+	          }),
 	          credentials: 'include',
 	          headers: {
 	            'Content-Type': 'application/json'
@@ -21975,7 +21978,7 @@
 	        fetch('/albumstatus', {
 	          method: 'PATCH',
 	          body: JSON.stringify({
-	            album_id: this.state.music.id,
+	            gn_id: this.state.music.gn_id,
 	            finished: !this.state.finished
 	          }),
 	          credentials: 'include',
@@ -22188,6 +22191,9 @@
 	      } else {
 	        fetch('/movies?movie_id=' + this.state.movies.id, {
 	          method: 'DELETE',
+	          body: JSON.stringify({
+	            gn_id: this.state.movies.tmdb_id
+	          }),
 	          credentials: 'include',
 	          headers: {
 	            'Content-Type': 'application/json'
@@ -22218,7 +22224,7 @@
 	        fetch('/moviestatus', {
 	          method: 'PATCH',
 	          body: JSON.stringify({
-	            movie_id: this.state.movies.id,
+	            tmdb_id: this.state.movies.tmdb_id,
 	            finished: !this.state.finished
 	          }),
 	          credentials: 'include',
