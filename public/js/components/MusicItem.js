@@ -24,6 +24,9 @@ class MusicItem extends React.Component {
     else {
       fetch('/albums?album_id=' + this.state.music.id, {
         method: 'DELETE',
+        body: JSON.stringify({
+          gn_id: this.state.music.gn_id
+        }),
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -54,7 +57,7 @@ class MusicItem extends React.Component {
       fetch('/albumstatus', {
         method: 'PATCH',
         body: JSON.stringify({
-          album_id: this.state.music.id,
+          gn_id: this.state.music.gn_id,
           finished: !this.state.finished
         }),
         credentials: 'include',

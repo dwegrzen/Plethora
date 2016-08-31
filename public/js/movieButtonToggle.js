@@ -14,6 +14,7 @@ document.getElementById('movieAdd').addEventListener('click', function() {
     span.classList.add('glyphicon-ok')
     span.classList.remove('glyphicon-plus')
     this.classList.add('active')
+    dataQueued = true
   }
   else {
     fetch('/movies?movie_id=' + dataId, {
@@ -32,6 +33,7 @@ document.getElementById('movieAdd').addEventListener('click', function() {
     otherspan.classList.remove('glyphicon-eye-open')
     otherspan.classList.remove('glyphicon-eye-close')
     otherspan.classList.add('glyphicon-eye-close')
+    dataQueued = false
   }
 })
 

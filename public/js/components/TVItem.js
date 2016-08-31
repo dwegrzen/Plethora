@@ -57,7 +57,7 @@ class TVItem extends React.Component {
       fetch('/showstatus', {
         method: 'PATCH',
         body: JSON.stringify({
-          show_id: this.state.series.id,
+          gn_id: this.state.series.gn_id,
           finished: !this.state.finished
         }),
         credentials: 'include',
