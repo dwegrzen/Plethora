@@ -22,7 +22,7 @@
 
 <% if current_user.stackings == [] %>
 <div class="container emptyQueue">
-  <div class="row" id="emptyQueueImages">
+  <div class="row hidden-xs" id="emptyQueueImages">
     <% @sample.each do |picture| %>
       <div class="col-sm-1 sample" style="background-image: url('<%= picture %>'); background-position: top; background-size: cover;">
       </div>
