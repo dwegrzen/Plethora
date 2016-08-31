@@ -157,7 +157,7 @@ body.loggedout {
 body.loggedin {
     background-color: #D8D8D8;
     header {
-        background-color: $black;
+        background-color: $darkTeal;
     }
     .label-info {
         color: $darkTeal;
@@ -307,6 +307,31 @@ body {
         border-radius: 3px;
         padding: 20px;
         margin-top: 25px;
+    }
+    #emptyQueueImages {
+        z-index: 1;
+        border: 1px solid $darkTeal;
+        border-radius: 3px 3px 0px 0px;
+        margin: -20px;
+    }
+    #showSample, #albumSample, #movieSample {
+        height: 350px;
+    }
+    #showSample {
+        border-radius: 3px 0px 0px 0px;
+    }
+    #movieSample {
+        border-radius: 0px 3px 0px 0px;
+    }
+    #bannerNewUser {
+        background-color: $darkTeal;
+        color: white;
+        padding: 10px 0px 18px;
+        margin: -20px;
+        margin-top: -2px;
+        h1 {
+            font-weight: 300;
+        }
     }
     .mediaCat {
         margin: 0px -15px 40px;

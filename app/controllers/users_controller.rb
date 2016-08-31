@@ -7,6 +7,9 @@ before_action :require_user, except: [:index, :sign_in, :login, :new, :create]
       @useralbums = current_user.albums
       @usermovies = current_user.movies
       userinfo
+      @moviesample = Movie.all.sample.movie_art
+      @showsample = Show.all.sample.show_image
+      @albumsample = Album.all.sample.album_art
       render :index
     else
       render :landing

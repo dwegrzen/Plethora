@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :sample
+  helper_method :current_user
 
   def require_user
     redirect_back(fallback_location: root_path, flash: {danger: "Please login or register."}) unless current_user
@@ -28,13 +28,6 @@ class ApplicationController < ActionController::Base
       @userfinishedmovies = current_user.movies.find(finishedmovies).pluck(:tmdb_id)
       @userid = current_user.id
     end
-
-  def sample
-    @moviesample = Movie.all.sample.movie_art
-    @showsample = Show.all.sample.show_image
-    @albumsample = Album.all.sample.album_art
-  end
-
 
 
   end
