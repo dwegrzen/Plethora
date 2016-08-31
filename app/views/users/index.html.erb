@@ -21,9 +21,12 @@
 </div>
 
 <% if current_user.stackings == [] %>
+<% sample %>
 <div class="container emptyQueue">
   <div class="row">
+    <%= @showsample %>
     <h1 class="text-center">Welcome to Plethora</h1>
+    <img src=<%= @showsample %> />
     <h2>Think of something you wanted to catch up on and search for it above.</h2>
     <h4 class="text-center">Select a specific type of media or search all types at once.</h4>
   </div>

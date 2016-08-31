@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user
-  helper_method :sample
+  helper_method :current_user, :sample
 
   def require_user
     redirect_back(fallback_location: root_path, flash: {danger: "Please login or register."}) unless current_user
@@ -11,6 +10,7 @@ class ApplicationController < ActionController::Base
   def current_user
     if session[:email]
      @current_user ||= User.find_by(email: session[:email])
+    #  @showsample = Show.all.sample.show_image
     end
     @current_user
   end
