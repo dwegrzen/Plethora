@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   def current_user
     if session[:email]
      @current_user ||= User.find_by(email: session[:email])
+    #  @showsample = Show.all.sample.show_image
     end
     @current_user
   end
