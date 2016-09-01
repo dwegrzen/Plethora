@@ -33,7 +33,13 @@
 
           <!-- Desktop -->
           <li class="logoutLinkDesktop hidden-xs"><%= link_to "Logout", logout_path, method: :delete%></li>
-          <li class="loggedInStatusDesktop hidden-xs"><a href="<%= root_path %>"><%= current_user.email %></a></li>
+          <li class="loggedInStatusDesktop hidden-xs">
+            <a href="<%= root_path %>">
+              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+              &nbsp;
+              <%= current_user.email %>
+            </a>
+          </li>
 
 
 
