@@ -15,6 +15,7 @@ document.getElementById('movieAdd').addEventListener('click', function() {
     span.classList.remove('glyphicon-plus')
     this.classList.add('active')
     dataQueued = true
+    movieAdded()
   }
   else {
     fetch('/movies?movie_id=' + dataId, {
