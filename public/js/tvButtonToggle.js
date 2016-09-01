@@ -11,7 +11,7 @@ document.getElementById('showAdd').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.add('glyphicon-ok')
+    span.classList.add('glyphicon-remove')
     span.classList.remove('glyphicon-plus')
     this.classList.add('active')
     dataQueued = true
@@ -27,7 +27,7 @@ document.getElementById('showAdd').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-ok')
+    span.classList.remove('glyphicon-remove')
     span.classList.add('glyphicon-plus')
     this.classList.remove('active')
     otherspan.classList.remove('glyphicon-eye-open')
@@ -55,8 +55,8 @@ document.getElementById('showWatched').addEventListener('click', function() {
     })
     span.classList.remove('glyphicon-eye-close')
     span.classList.add('glyphicon-eye-open')
-    otherspan.classList.remove('glyphicon-plus')
-    otherspan.classList.add('glyphicon-ok')
+    otherspan.classList.remove('glyphicon-remove')
+    otherspan.classList.add('glyphicon-plus')
     dataQueued = true
   }
   else if (span.classList.contains('glyphicon-eye-close'))   {

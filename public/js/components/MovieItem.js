@@ -78,7 +78,7 @@ class MovieItem extends React.Component {
       backgroundImage: 'url(' + this.state.movies.movie_art + ')'
     }
 
-    var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'
+    var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus'
 
     var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default'
 

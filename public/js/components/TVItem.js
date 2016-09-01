@@ -77,7 +77,7 @@ class TVItem extends React.Component {
     var imgStyle = {
       backgroundImage: 'url(' + this.state.series.show_image + ')'
     }
-    var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'
+    var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus'
     var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default'
     var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default'
 
