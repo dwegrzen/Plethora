@@ -80,6 +80,8 @@ class MovieItem extends React.Component {
 
     var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus'
 
+    var finishedIcon = this.state.finished ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-ok'
+
     var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default'
 
     var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default'
@@ -105,7 +107,7 @@ class MovieItem extends React.Component {
             </div>
             <div className="btn-group" role="group">
               <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
-                <span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                <span className={finishedIcon} aria-hidden="true"></span>
               </button>
             </div>
           </div>
@@ -127,7 +129,7 @@ class MovieItem extends React.Component {
               </div>
               <div className="btn-group" role="group">
                 <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
-                  <span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                  <span className={finishedIcon} aria-hidden="true"></span>
                 </button>
               </div>
             </div>

@@ -21759,6 +21759,7 @@
 	        backgroundImage: 'url(' + this.state.series.show_image + ')'
 	      };
 	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus';
+	      var finishedIcon = this.state.finished ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-ok';
 	      var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default';
 	      var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default';
 
@@ -21815,7 +21816,7 @@
 	                { onClick: function onClick() {
 	                    return _this2.finishedToggle();
 	                  }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	                _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	                _react2.default.createElement('span', { className: finishedIcon })
 	              )
 	            )
 	          )
@@ -21860,7 +21861,7 @@
 	                      { onClick: function onClick() {
 	                          return _this2.finishedToggle();
 	                        }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	                      _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	                      _react2.default.createElement('span', { className: finishedIcon })
 	                    )
 	                  )
 	                )
@@ -22004,6 +22005,8 @@
 
 	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus';
 
+	      var finishedIcon = this.state.finished ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-ok';
+
 	      var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default';
 
 	      var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default';
@@ -22061,7 +22064,7 @@
 	                { onClick: function onClick() {
 	                    return _this2.finishedToggle();
 	                  }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	                _react2.default.createElement('span', { className: 'glyphicon glyphicon-headphones', 'aria-hidden': 'true' })
+	                _react2.default.createElement('span', { className: finishedIcon, 'aria-hidden': 'true' })
 	              )
 	            )
 	          )
@@ -22106,7 +22109,7 @@
 	                      { onClick: function onClick() {
 	                          return _this2.finishedToggle();
 	                        }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	                      _react2.default.createElement('span', { className: 'glyphicon glyphicon-headphones', 'aria-hidden': 'true' })
+	                      _react2.default.createElement('span', { className: finishedIcon, 'aria-hidden': 'true' })
 	                    )
 	                  )
 	                )
@@ -22250,6 +22253,8 @@
 
 	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus';
 
+	      var finishedIcon = this.state.finished ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-ok';
+
 	      var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default';
 
 	      var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default';
@@ -22306,7 +22311,7 @@
 	                { onClick: function onClick() {
 	                    return _this2.finishedToggle();
 	                  }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	                _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	                _react2.default.createElement('span', { className: finishedIcon, 'aria-hidden': 'true' })
 	              )
 	            )
 	          )
@@ -22350,7 +22355,7 @@
 	                      { onClick: function onClick() {
 	                          return _this2.finishedToggle();
 	                        }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	                      _react2.default.createElement('span', { className: 'glyphicon glyphicon-eye-open', 'aria-hidden': 'true' })
+	                      _react2.default.createElement('span', { className: finishedIcon, 'aria-hidden': 'true' })
 	                    )
 	                  )
 	                )
