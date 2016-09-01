@@ -15,6 +15,7 @@ document.getElementById('movieAdd').addEventListener('click', function() {
     span.classList.remove('glyphicon-plus')
     this.classList.add('active')
     dataQueued = true
+    movieAdded()
   }
   else {
     fetch('/movies?movie_id=' + dataId, {
@@ -34,6 +35,7 @@ document.getElementById('movieAdd').addEventListener('click', function() {
     otherspan.classList.remove('glyphicon-ok')
     otherspan.classList.add('glyphicon-ok')
     dataQueued = false
+    movieRemoved()
   }
 })
 
@@ -58,6 +60,7 @@ document.getElementById('movieWatched').addEventListener('click', function() {
     otherspan.classList.remove('glyphicon-plus')
     otherspan.classList.add('glyphicon-remove')
     dataQueued = true
+    movieAddFinished()
   }
   else if (span.classList.contains('glyphicon-ok')) {
     fetch('/moviestatus', {
@@ -73,6 +76,7 @@ document.getElementById('movieWatched').addEventListener('click', function() {
     })
     span.classList.remove('glyphicon-ok')
     span.classList.add('glyphicon-remove')
+    movieFinished()
   }
   else {
     fetch('/moviestatus', {
@@ -88,5 +92,6 @@ document.getElementById('movieWatched').addEventListener('click', function() {
     })
     span.classList.remove('glyphicon-remove')
     span.classList.add('glyphicon-ok')
+    movieNotFinished()
   }
 })

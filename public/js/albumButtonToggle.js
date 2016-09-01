@@ -15,6 +15,7 @@ document.getElementById('albumAdd').addEventListener('click', function() {
     span.classList.remove('glyphicon-plus')
     this.classList.add('active')
     dataQueued = true
+    albumAdded()
   }
   else {
     fetch('/albums?album_id=' + dataId, {
@@ -34,6 +35,7 @@ document.getElementById('albumAdd').addEventListener('click', function() {
     otherspan.classList.remove('glyphicon-remove')
     otherspan.classList.add('glyphicon-ok')
     dataQueued = false
+    albumRemoved()
   }
 })
 
@@ -58,6 +60,7 @@ document.getElementById('albumListened').addEventListener('click', function() {
     otherspan.classList.remove('glyphicon-plus')
     otherspan.classList.add('glyphicon-remove')
     dataQueued = true
+    albumAddFinished()
   }
   else if (span.classList.contains('glyphicon-ok')) {
     fetch('/albumstatus', {
@@ -73,6 +76,7 @@ document.getElementById('albumListened').addEventListener('click', function() {
     })
     span.classList.remove('glyphicon-ok')
     span.classList.add('glyphicon-remove')
+    albumFinished()
   }
   else {
     fetch('/albumstatus', {
