@@ -26,7 +26,13 @@
         <!-- Logged In -->
           <!-- Mobile  -->
           <div class="text-center">
-            <li class="loggedInStatusMobile hidden-sm hidden-md hidden-lg hidden-xl"><%= "#{current_user.email}" %></li>
+            <li class="loggedInStatusMobile hidden-sm hidden-md hidden-lg hidden-xl">
+              <a href="<%= root_path %>">
+                <span class="glyphicon glyphicon-home" aria-hidden="true" title="dashboard"></span>
+                &nbsp; &nbsp;&nbsp;
+                <%= current_user.email %>
+              </a>
+            </li>
             <li class="logoutLinkMobile hidden-sm hidden-md hidden-lg hidden-xl"><%= link_to "Logout", logout_path, method: :delete%></li>
           </div>
 
@@ -35,8 +41,8 @@
           <li class="logoutLinkDesktop hidden-xs"><%= link_to "Logout", logout_path, method: :delete%></li>
           <li class="loggedInStatusDesktop hidden-xs">
             <a href="<%= root_path %>">
-              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-              &nbsp;
+              <span class="glyphicon glyphicon-home" aria-hidden="true" title="dashboard"></span>
+              &nbsp; &nbsp;&nbsp;
               <%= current_user.email %>
             </a>
           </li>
