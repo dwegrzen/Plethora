@@ -77,7 +77,7 @@ class TVItem extends React.Component {
     var imgStyle = {
       backgroundImage: 'url(' + this.state.series.show_image + ')'
     }
-    var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'
+    var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus'
     var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default'
     var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default'
 
@@ -115,7 +115,7 @@ class TVItem extends React.Component {
     else {
       return <div id="tvItemsSection">
         <div className="row">
-          <div className="col-sm-3 col-sm-offset-1">
+          <div className="col-sm-3 col-sm-offset-2">
             <a className="itemLink" href={"/showdetail/" + this.state.series.gn_id}>
               <img className="img-responsive center-block searchImage" src={this.state.series.show_image} />
             </a>
@@ -132,9 +132,9 @@ class TVItem extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-sm-8">
+          <div className="col-sm-5">
             <h2 className="title text-left">{this.state.series.title}</h2>
-            <h5 className="tvSynopsisSearch text-left" >{this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'}</h5>
+            <h5 className="tvSynopsisSearch text-justify" >{this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'}</h5>
           </div>
         </div>
       </div>

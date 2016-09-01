@@ -78,7 +78,7 @@ class MovieItem extends React.Component {
       backgroundImage: 'url(' + this.state.movies.movie_art + ')'
     }
 
-    var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus'
+    var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus'
 
     var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default'
 
@@ -115,7 +115,7 @@ class MovieItem extends React.Component {
     else {
       return <div id="movieItemsSection">
         <div className="row">
-          <div className="col-sm-3 col-sm-offset-1">
+          <div className="col-sm-3 col-sm-offset-2">
             <a className="itemLink" href={"/moviedetail/" + this.state.movies.tmdb_id}>
               <img className="img-responsive center-block searchImage" src={this.state.movies.movie_art} />
             </a>
@@ -132,9 +132,9 @@ class MovieItem extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-sm-8">
+          <div className="col-sm-5">
             <h2 className="title text-left">{this.state.movies.name}</h2>
-            <h5 className="tvSynopsisSearch text-left" >{this.state.movies.overview ? this.state.movies.overview : 'Sorry! There is no overview available.'}</h5>
+            <h5 className="tvSynopsisSearch text-justify" >{this.state.movies.overview ? this.state.movies.overview : 'Sorry! There is no overview available.'}</h5>
           </div>
         </div>
       </div>

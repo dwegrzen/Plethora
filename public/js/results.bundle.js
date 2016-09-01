@@ -21758,7 +21758,7 @@
 	      var imgStyle = {
 	        backgroundImage: 'url(' + this.state.series.show_image + ')'
 	      };
-	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus';
+	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus';
 	      var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default';
 	      var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default';
 
@@ -21832,7 +21832,7 @@
 	              { className: 'row' },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'col-sm-3 col-sm-offset-1' },
+	                { className: 'col-sm-3 col-sm-offset-2' },
 	                _react2.default.createElement(
 	                  'a',
 	                  { className: 'itemLink', href: "/showdetail/" + this.state.series.gn_id },
@@ -21867,7 +21867,7 @@
 	              ),
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'col-sm-8' },
+	                { className: 'col-sm-5' },
 	                _react2.default.createElement(
 	                  'h2',
 	                  { className: 'title text-left' },
@@ -21875,7 +21875,7 @@
 	                ),
 	                _react2.default.createElement(
 	                  'h5',
-	                  { className: 'tvSynopsisSearch text-left' },
+	                  { className: 'tvSynopsisSearch text-justify' },
 	                  this.state.series.fulldesc ? this.state.series.fulldesc : 'Sorry! There is no synopsis available.'
 	                )
 	              )
@@ -22002,7 +22002,7 @@
 	        backgroundImage: 'url("' + this.state.music.album_art + '")'
 	      };
 
-	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus';
+	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus';
 
 	      var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default';
 
@@ -22248,7 +22248,7 @@
 	        backgroundImage: 'url(' + this.state.movies.movie_art + ')'
 	      };
 
-	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-plus';
+	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus';
 
 	      var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default';
 
@@ -22322,7 +22322,7 @@
 	              { className: 'row' },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'col-sm-3 col-sm-offset-1' },
+	                { className: 'col-sm-3 col-sm-offset-2' },
 	                _react2.default.createElement(
 	                  'a',
 	                  { className: 'itemLink', href: "/moviedetail/" + this.state.movies.tmdb_id },
@@ -22357,7 +22357,7 @@
 	              ),
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'col-sm-8' },
+	                { className: 'col-sm-5' },
 	                _react2.default.createElement(
 	                  'h2',
 	                  { className: 'title text-left' },
@@ -22365,7 +22365,7 @@
 	                ),
 	                _react2.default.createElement(
 	                  'h5',
-	                  { className: 'tvSynopsisSearch text-left' },
+	                  { className: 'tvSynopsisSearch text-justify' },
 	                  this.state.movies.overview ? this.state.movies.overview : 'Sorry! There is no overview available.'
 	                )
 	              )
