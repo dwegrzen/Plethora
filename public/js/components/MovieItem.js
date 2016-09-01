@@ -87,13 +87,10 @@ class MovieItem extends React.Component {
       backgroundImage: 'url(' + this.state.movies.movie_art + ')'
     }
 
-    var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus'
-
-    var finishedIcon = this.state.finished ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-ok'
-
-    var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default'
-
-    var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default'
+    var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle'
+    var finishedIcon = this.state.finished ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle'
+    var queuedBackground = this.state.queued ? 'btn clicked' : 'btn btn unclicked'
+    var finishedBackground = this.state.finished ? 'btn clicked' : 'btn btn unclicked'
 
     if (!this.props.search) {
       return <div className="col-md-4 col-lg-3">
@@ -111,12 +108,18 @@ class MovieItem extends React.Component {
           <div className="btn-group btn-group-justified">
             <div className="btn-group" role="group">
               <button onClick={() => this.queueToggle() } type="button" className={queuedBackground} id="leftBtn">
-                <span className={queuedIcon} aria-hidden="true"></span>
+                <div className="text-center">
+                  <span className={queuedIcon} aria-hidden="true"></span>
+                  &nbsp;&nbsp;Queued?
+                </div>
               </button>
             </div>
             <div className="btn-group" role="group">
               <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
-                <span className={finishedIcon} aria-hidden="true"></span>
+                <div className="text-center">
+                  <span className={finishedIcon} aria-hidden="true"></span>
+                  &nbsp;&nbsp;Watched?
+                </div>
               </button>
             </div>
           </div>
@@ -133,12 +136,18 @@ class MovieItem extends React.Component {
             <div className="btn-group btn-group-justified">
               <div className="btn-group" role="group">
                 <button onClick={() => this.queueToggle() } type="button" className={queuedBackground} id="leftBtn">
-                  <span className={queuedIcon} aria-hidden="true"></span>
+                  <div className="text-center">
+                    <span className={queuedIcon} aria-hidden="true"></span>
+                    &nbsp;&nbsp;Queued?
+                  </div>
                 </button>
               </div>
               <div className="btn-group" role="group">
                 <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
-                  <span className={finishedIcon} aria-hidden="true"></span>
+                  <div className="text-center">
+                    <span className={finishedIcon} aria-hidden="true"></span>
+                    &nbsp;&nbsp;Watched?
+                  </div>
                 </button>
               </div>
             </div>

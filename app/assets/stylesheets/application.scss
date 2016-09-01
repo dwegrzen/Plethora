@@ -412,7 +412,7 @@ body {
         border-radius: 3px 3px 0px 0px;
     }
     .musicItemsSection {
-        height: 220px;
+        height: 240px;
         overflow: hidden;
     }
     //styling for media detail pages
@@ -457,13 +457,11 @@ body {
 
     //button styling
     #leftBtn, #movieAdd, #rightBtn, .btnDetail {
-        background-color: $teal;
         color: $white;
         border: none;
         font-weight: 300;
         &:hover {
-            background-color: $darkTeal;
-            color: $mint;
+            background-color: $black;
         }
     }
     #leftBtn {
@@ -488,6 +486,24 @@ body {
     }
     .btnDetailRight {
         border-left: 1px solid $darkTeal;
+    }
+    .musicItemsSection {
+        button {
+            span {
+                margin-top: 2.5px;
+            }
+            h6 {
+                margin-top: 0px;
+                margin-bottom: 2.5px;
+                font-weight: 300;
+            }
+        }
+    }
+    .btn.clicked {
+        background-color: $darkTeal;
+    }
+    .btn.unclicked {
+        background-color: $teal;
     }
 }
 

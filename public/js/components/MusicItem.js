@@ -87,13 +87,13 @@ class MusicItem extends React.Component {
       backgroundImage: 'url("' + this.state.music.album_art + '")'
     }
 
-    var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus'
+    var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle'
 
-    var finishedIcon = this.state.finished ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-ok'
+    var finishedIcon = this.state.finished ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle'
 
-    var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default'
+    var queuedBackground = this.state.queued ? 'btn clicked' : 'btn btn unclicked'
 
-    var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default'
+    var finishedBackground = this.state.finished ? 'btn clicked' : 'btn btn unclicked'
 
     //Grid layout for dashboard
     if (!this.props.search) {
@@ -112,17 +112,16 @@ class MusicItem extends React.Component {
           <div className="btn-group" role="group">
             <button onClick={() => this.queueToggle() } type="button" className={queuedBackground} id="leftBtn">
               <span className={queuedIcon} aria-hidden="true"></span>
+              &nbsp;&nbsp;Queued?
             </button>
           </div>
           <div className="btn-group" role="group">
             <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
               <span className={finishedIcon} aria-hidden="true"></span>
+              &nbsp;&nbsp;Listened?
             </button>
           </div>
-
         </div>
-
-        {/* <button className="center-block" onClick={() => this.onClick() }>{this.state.label}</button> */}
       </div>
     }
 
@@ -138,11 +137,13 @@ class MusicItem extends React.Component {
               <div className="btn-group" role="group">
                 <button onClick={() => this.queueToggle() } type="button" className={queuedBackground} id="leftBtn">
                   <span className={queuedIcon} aria-hidden="true"></span>
+                  <h6 className="text-center">Queued?</h6>
                 </button>
               </div>
               <div className="btn-group" role="group">
                 <button onClick={() => this.finishedToggle() } type="button" className={finishedBackground} id="rightBtn">
                   <span className={finishedIcon} aria-hidden="true"></span>
+                  <h6 className="text-center">Listened?</h6>
                 </button>
               </div>
             </div>

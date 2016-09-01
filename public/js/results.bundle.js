@@ -21766,10 +21766,10 @@
 	      var imgStyle = {
 	        backgroundImage: 'url(' + this.state.series.show_image + ')'
 	      };
-	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus';
-	      var finishedIcon = this.state.finished ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-ok';
-	      var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default';
-	      var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default';
+	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle';
+	      var finishedIcon = this.state.finished ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle';
+	      var queuedBackground = this.state.queued ? 'btn clicked' : 'btn btn unclicked';
+	      var finishedBackground = this.state.finished ? 'btn clicked' : 'btn btn unclicked';
 
 	      //Grid layout for dashboard
 	      if (!this.props.search) {
@@ -21813,7 +21813,12 @@
 	                { onClick: function onClick() {
 	                    return _this2.queueToggle();
 	                  }, type: 'button', className: queuedBackground, id: 'leftBtn' },
-	                _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'text-center' },
+	                  _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' }),
+	                  '  Queued?'
+	                )
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -21824,7 +21829,12 @@
 	                { onClick: function onClick() {
 	                    return _this2.finishedToggle();
 	                  }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	                _react2.default.createElement('span', { className: finishedIcon })
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'text-center' },
+	                  _react2.default.createElement('span', { className: finishedIcon }),
+	                  '  Watched?'
+	                )
 	              )
 	            )
 	          )
@@ -21858,7 +21868,12 @@
 	                      { onClick: function onClick() {
 	                          return _this2.queueToggle();
 	                        }, type: 'button', className: queuedBackground, id: 'leftBtn' },
-	                      _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'text-center' },
+	                        _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' }),
+	                        '  Queued?'
+	                      )
 	                    )
 	                  ),
 	                  _react2.default.createElement(
@@ -21869,7 +21884,12 @@
 	                      { onClick: function onClick() {
 	                          return _this2.finishedToggle();
 	                        }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	                      _react2.default.createElement('span', { className: finishedIcon })
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'text-center' },
+	                        _react2.default.createElement('span', { className: finishedIcon }),
+	                        '  Watched?'
+	                      )
 	                    )
 	                  )
 	                )
@@ -22019,13 +22039,13 @@
 	        backgroundImage: 'url("' + this.state.music.album_art + '")'
 	      };
 
-	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus';
+	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle';
 
-	      var finishedIcon = this.state.finished ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-ok';
+	      var finishedIcon = this.state.finished ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle';
 
-	      var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default';
+	      var queuedBackground = this.state.queued ? 'btn clicked' : 'btn btn unclicked';
 
-	      var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default';
+	      var finishedBackground = this.state.finished ? 'btn clicked' : 'btn btn unclicked';
 
 	      //Grid layout for dashboard
 	      if (!this.props.search) {
@@ -22069,7 +22089,8 @@
 	                { onClick: function onClick() {
 	                    return _this2.queueToggle();
 	                  }, type: 'button', className: queuedBackground, id: 'leftBtn' },
-	                _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	                _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' }),
+	                '  Queued?'
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -22080,7 +22101,8 @@
 	                { onClick: function onClick() {
 	                    return _this2.finishedToggle();
 	                  }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	                _react2.default.createElement('span', { className: finishedIcon, 'aria-hidden': 'true' })
+	                _react2.default.createElement('span', { className: finishedIcon, 'aria-hidden': 'true' }),
+	                '  Listened?'
 	              )
 	            )
 	          )
@@ -22114,7 +22136,12 @@
 	                      { onClick: function onClick() {
 	                          return _this2.queueToggle();
 	                        }, type: 'button', className: queuedBackground, id: 'leftBtn' },
-	                      _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	                      _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' }),
+	                      _react2.default.createElement(
+	                        'h6',
+	                        { className: 'text-center' },
+	                        'Queued?'
+	                      )
 	                    )
 	                  ),
 	                  _react2.default.createElement(
@@ -22125,7 +22152,12 @@
 	                      { onClick: function onClick() {
 	                          return _this2.finishedToggle();
 	                        }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	                      _react2.default.createElement('span', { className: finishedIcon, 'aria-hidden': 'true' })
+	                      _react2.default.createElement('span', { className: finishedIcon, 'aria-hidden': 'true' }),
+	                      _react2.default.createElement(
+	                        'h6',
+	                        { className: 'text-center' },
+	                        'Listened?'
+	                      )
 	                    )
 	                  )
 	                )
@@ -22275,13 +22307,10 @@
 	        backgroundImage: 'url(' + this.state.movies.movie_art + ')'
 	      };
 
-	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-plus';
-
-	      var finishedIcon = this.state.finished ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-ok';
-
-	      var queuedBackground = this.state.queued ? 'btn btn-default active' : 'btn btn-default';
-
-	      var finishedBackground = this.state.finished ? 'btn btn-default active' : 'btn btn-default';
+	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle';
+	      var finishedIcon = this.state.finished ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle';
+	      var queuedBackground = this.state.queued ? 'btn clicked' : 'btn btn unclicked';
+	      var finishedBackground = this.state.finished ? 'btn clicked' : 'btn btn unclicked';
 
 	      if (!this.props.search) {
 	        return _react2.default.createElement(
@@ -22324,7 +22353,12 @@
 	                { onClick: function onClick() {
 	                    return _this2.queueToggle();
 	                  }, type: 'button', className: queuedBackground, id: 'leftBtn' },
-	                _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'text-center' },
+	                  _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' }),
+	                  '  Queued?'
+	                )
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -22335,7 +22369,12 @@
 	                { onClick: function onClick() {
 	                    return _this2.finishedToggle();
 	                  }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	                _react2.default.createElement('span', { className: finishedIcon, 'aria-hidden': 'true' })
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'text-center' },
+	                  _react2.default.createElement('span', { className: finishedIcon, 'aria-hidden': 'true' }),
+	                  '  Watched?'
+	                )
 	              )
 	            )
 	          )
@@ -22368,7 +22407,12 @@
 	                      { onClick: function onClick() {
 	                          return _this2.queueToggle();
 	                        }, type: 'button', className: queuedBackground, id: 'leftBtn' },
-	                      _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' })
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'text-center' },
+	                        _react2.default.createElement('span', { className: queuedIcon, 'aria-hidden': 'true' }),
+	                        '  Queued?'
+	                      )
 	                    )
 	                  ),
 	                  _react2.default.createElement(
@@ -22379,7 +22423,12 @@
 	                      { onClick: function onClick() {
 	                          return _this2.finishedToggle();
 	                        }, type: 'button', className: finishedBackground, id: 'rightBtn' },
-	                      _react2.default.createElement('span', { className: finishedIcon, 'aria-hidden': 'true' })
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'text-center' },
+	                        _react2.default.createElement('span', { className: finishedIcon, 'aria-hidden': 'true' }),
+	                        '  Watched?'
+	                      )
 	                    )
 	                  )
 	                )
