@@ -36,7 +36,7 @@ document.getElementById('albumAdd').addEventListener('click', function() {
     span.classList.add('glyphicon-ban-circle')
     otherbutton.classList.remove('unclicked')
     otherbutton.classList.remove('clicked')
-    otherbutton.classList.add('clicked')
+    otherbutton.classList.add('unclicked')
     otherspan.classList.remove('glyphicon-ban-circle')
     otherspan.classList.remove('glyphicon-ok')
     otherspan.classList.add('glyphicon-ban-circle')
@@ -68,6 +68,8 @@ document.getElementById('albumListened').addEventListener('click', function() {
     span.classList.add('glyphicon-ok')
     otherspan.classList.remove('glyphicon-ban-circle')
     otherspan.classList.add('glyphicon-ok')
+    otherbutton.classList.remove('unclicked')
+    otherbutton.classList.add('clicked')
     dataQueued = true
     albumAddFinished()
   }
@@ -85,9 +87,6 @@ document.getElementById('albumListened').addEventListener('click', function() {
     })
     this.classList.add('clicked')
     this.classList.remove('unclicked')
-    otherbutton.classList.remove('unclicked')
-    otherbutton.classList.remove('clicked')
-    otherbutton.classList.add('clicked')
     span.classList.remove('glyphicon-ban-circle')
     span.classList.add('glyphicon-ok')
     albumFinished()

@@ -1,8 +1,9 @@
 document.getElementById('showAdd').addEventListener('click', function() {
   var span = this.querySelector('span')
+  var otherbutton = document.getElementById('showWatched')
   var otherspan = document.getElementById('showWatched').querySelector('span')
 
-  if (span.classList.contains('glyphicon-plus')) {
+  if (span.classList.contains('glyphicon-ban-circle')) {
     fetch('/shows', {
       method: 'POST',
       body: JSON.stringify(dataRaw),
@@ -11,9 +12,10 @@ document.getElementById('showAdd').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.add('glyphicon-remove')
-    span.classList.remove('glyphicon-plus')
-    this.classList.add('active')
+    this.classList.add('clicked')
+    this.classList.remove('unclicked')
+    span.classList.add('glyphicon-ok')
+    span.classList.remove('glyphicon-ban-circle')
     dataQueued = true
     showAdded()
   }
@@ -28,12 +30,16 @@ document.getElementById('showAdd').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-remove')
-    span.classList.add('glyphicon-plus')
-    this.classList.remove('active')
-    otherspan.classList.remove('glyphicon-remove')
+    this.classList.add('unclicked')
+    this.classList.remove('clicked')
+    span.classList.remove('glyphicon-ok')
+    span.classList.add('glyphicon-ban-circle')
+    otherbutton.classList.remove('unclicked')
+    otherbutton.classList.remove('clicked')
+    otherbutton.classList.add('unclicked')
+    otherspan.classList.remove('glyphicon-ban-circle')
     otherspan.classList.remove('glyphicon-ok')
-    otherspan.classList.add('glyphicon-ok')
+    otherspan.classList.add('glyphicon-ban-circle')
     dataQueued = false
     showRemoved()
   }
@@ -41,9 +47,10 @@ document.getElementById('showAdd').addEventListener('click', function() {
 
 document.getElementById('showWatched').addEventListener('click', function() {
   var span = this.querySelector('span')
+  var otherbutton = document.getElementById('showAdd')
   var otherspan = document.getElementById('showAdd').querySelector('span')
 
-  if (span.classList.contains('glyphicon-ok') && dataQueued == false ) {
+  if (span.classList.contains('glyphicon-ban-circle') && dataQueued == false ) {
     fetch('/showaddasfinished', {
       method: 'POST',
       body: JSON.stringify({
@@ -55,14 +62,18 @@ document.getElementById('showWatched').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-ok')
-    span.classList.add('glyphicon-remove')
-    otherspan.classList.remove('glyphicon-remove')
-    otherspan.classList.add('glyphicon-plus')
+    this.classList.add('clicked')
+    this.classList.remove('unclicked')
+    span.classList.remove('glyphicon-ban-circle')
+    span.classList.add('glyphicon-ok')
+    otherspan.classList.remove('glyphicon-ban-circle')
+    otherspan.classList.add('glyphicon-ok')
+    otherbutton.classList.remove('unclicked')
+    otherbutton.classList.add('clicked')
     dataQueued = true
     showAddFinished()
   }
-  else if (span.classList.contains('glyphicon-ok'))   {
+  else if (span.classList.contains('glyphicon-ban-circle'))   {
     fetch('/showstatus', {
       method: 'PATCH',
       body: JSON.stringify({
@@ -74,8 +85,10 @@ document.getElementById('showWatched').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-ok')
-    span.classList.add('glyphicon-remove')
+    this.classList.add('clicked')
+    this.classList.remove('unclicked')
+    span.classList.remove('glyphicon-ban-circle')
+    span.classList.add('glyphicon-ok')
     showFinished()
   }
   else {
@@ -90,8 +103,10 @@ document.getElementById('showWatched').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-remove')
-    span.classList.add('glyphicon-ok')
+    this.classList.add('unclicked')
+    this.classList.remove('clicked')
+    span.classList.remove('glyphicon-ok')
+    span.classList.add('glyphicon-ban-circle')
     showNotFinished()
   }
 })
