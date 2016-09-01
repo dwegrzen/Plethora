@@ -1,7 +1,7 @@
 function movieAdded() {
   $.notify({
 	// options
-	icon: 'glyphicon glyphicon-plus',
+	icon: 'glyphicon glyphicon-ok',
 	message: 'Added movie to your queue',
   },{
 	// settings
@@ -46,7 +46,7 @@ function movieAdded() {
 function movieRemoved() {
   $.notify({
 	// options
-	icon: 'glyphicon glyphicon-remove',
+	icon: 'glyphicon glyphicon-ban-circle',
 	message: 'Removed movie from your queue',
   },{
 	// settings
@@ -136,7 +136,7 @@ function movieFinished() {
 function movieNotFinished() {
   $.notify({
 	// options
-	icon: 'glyphicon glyphicon-remove',
+	icon: 'glyphicon glyphicon-ban-circle',
 	message: 'Movie marked as unwatched',
   },{
 	// settings
@@ -181,7 +181,7 @@ function movieNotFinished() {
 function movieAddFinished() {
   $.notify({
 	// options
-	icon: 'glyphicon glyphicon-remove',
+	icon: 'glyphicon glyphicon-ok',
 	message: 'Added movie as finished',
   },{
 	// settings
@@ -226,7 +226,7 @@ function movieAddFinished() {
 function albumAdded() {
   $.notify({
 	// options
-	icon: 'glyphicon glyphicon-plus',
+	icon: 'glyphicon glyphicon-ok',
 	message: 'Added album to your queue',
   },{
 	// settings
@@ -271,7 +271,7 @@ function albumAdded() {
 function albumRemoved() {
   $.notify({
 	// options
-	icon: 'glyphicon glyphicon-remove',
+	icon: 'glyphicon glyphicon-ban-circle',
 	message: 'Removed album from your queue',
   },{
 	// settings
@@ -361,7 +361,7 @@ function albumFinished() {
 function albumNotFinished() {
   $.notify({
 	// options
-	icon: 'glyphicon glyphicon-remove',
+	icon: 'glyphicon glyphicon-ban-circle',
 	message: 'Album marked as not listened',
   },{
 	// settings
@@ -406,7 +406,7 @@ function albumNotFinished() {
 function albumAddFinished() {
   $.notify({
 	// options
-	icon: 'glyphicon glyphicon-remove',
+	icon: 'glyphicon glyphicon-ok',
 	message: 'Added album as listened',
   },{
 	// settings
@@ -451,7 +451,7 @@ function albumAddFinished() {
 function showAdded() {
   $.notify({
 	// options
-	icon: 'glyphicon glyphicon-plus',
+	icon: 'glyphicon glyphicon-ok',
 	message: 'Added show to your queue',
   },{
 	// settings
@@ -496,7 +496,7 @@ function showAdded() {
 function showRemoved() {
   $.notify({
 	// options
-	icon: 'glyphicon glyphicon-remove',
+	icon: 'glyphicon glyphicon-ban-circle',
 	message: 'Removed show from your queue',
   },{
 	// settings
@@ -586,7 +586,7 @@ function showFinished() {
 function showNotFinished() {
   $.notify({
 	// options
-	icon: 'glyphicon glyphicon-remove',
+	icon: 'glyphicon glyphicon-ban-circle',
 	message: 'Show marked as unwatched',
   },{
 	// settings
@@ -631,7 +631,7 @@ function showNotFinished() {
 function showAddFinished() {
   $.notify({
 	// options
-	icon: 'glyphicon glyphicon-remove',
+	icon: 'glyphicon glyphicon-ban-circle',
 	message: 'Added show as finished',
   },{
 	// settings
