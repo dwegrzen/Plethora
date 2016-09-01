@@ -92,5 +92,6 @@ document.getElementById('albumListened').addEventListener('click', function() {
     })
     span.classList.remove('glyphicon-remove')
     span.classList.add('glyphicon-ok')
+    albumNotFinished()
   }
 })
