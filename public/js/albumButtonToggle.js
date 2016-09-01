@@ -30,9 +30,9 @@ document.getElementById('albumAdd').addEventListener('click', function() {
     span.classList.remove('glyphicon-remove')
     span.classList.add('glyphicon-plus')
     this.classList.remove('active')
-    otherspan.classList.remove('glyphicon-volume-off')
-    otherspan.classList.remove('glyphicon-headphones')
-    otherspan.classList.add('glyphicon-volume-off')
+    otherspan.classList.remove('glyphicon-ok')
+    otherspan.classList.remove('glyphicon-remove')
+    otherspan.classList.add('glyphicon-ok')
     dataQueued = false
   }
 })
@@ -41,7 +41,7 @@ document.getElementById('albumListened').addEventListener('click', function() {
   var span = this.querySelector('span')
   var otherspan = document.getElementById('albumAdd').querySelector('span')
 
-  if (span.classList.contains('glyphicon-volume-off') && dataQueued == false ) {
+  if (span.classList.contains('glyphicon-ok') && dataQueued == false ) {
     fetch('/albumaddasfinished', {
       method: 'POST',
       body: JSON.stringify({
@@ -53,13 +53,13 @@ document.getElementById('albumListened').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-volume-off')
-    span.classList.add('glyphicon-headphones')
+    span.classList.remove('glyphicon-ok')
+    span.classList.add('glyphicon-remove')
     otherspan.classList.remove('glyphicon-plus')
     otherspan.classList.add('glyphicon-remove')
     dataQueued = true
   }
-  else if (span.classList.contains('glyphicon-volume-off')) {
+  else if (span.classList.contains('glyphicon-ok')) {
     fetch('/albumstatus', {
       method: 'PATCH',
       body: JSON.stringify({
@@ -71,8 +71,8 @@ document.getElementById('albumListened').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-volume-off')
-    span.classList.add('glyphicon-headphones')
+    span.classList.remove('glyphicon-ok')
+    span.classList.add('glyphicon-remove')
   }
   else {
     fetch('/albumstatus', {
@@ -86,7 +86,7 @@ document.getElementById('albumListened').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-headphones')
-    span.classList.add('glyphicon-volume-off')
+    span.classList.remove('glyphicon-remove')
+    span.classList.add('glyphicon-ok')
   }
 })

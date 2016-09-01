@@ -11,7 +11,7 @@ document.getElementById('movieAdd').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.add('glyphicon-ok')
+    span.classList.add('glyphicon-remove')
     span.classList.remove('glyphicon-plus')
     this.classList.add('active')
     dataQueued = true
@@ -27,12 +27,12 @@ document.getElementById('movieAdd').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-ok')
+    span.classList.remove('glyphicon-remove')
     span.classList.add('glyphicon-plus')
     this.classList.remove('active')
-    otherspan.classList.remove('glyphicon-eye-open')
-    otherspan.classList.remove('glyphicon-eye-close')
-    otherspan.classList.add('glyphicon-eye-close')
+    otherspan.classList.remove('glyphicon-remove')
+    otherspan.classList.remove('glyphicon-ok')
+    otherspan.classList.add('glyphicon-ok')
     dataQueued = false
   }
 })
@@ -41,7 +41,7 @@ document.getElementById('movieWatched').addEventListener('click', function() {
   var span = this.querySelector('span')
   var otherspan = document.getElementById('movieAdd').querySelector('span')
 
-  if (span.classList.contains('glyphicon-eye-close') && dataQueued == false ) {
+  if (span.classList.contains('glyphicon-ok') && dataQueued == false ) {
     fetch('/movieaddasfinished', {
       method: 'POST',
       body: JSON.stringify({
@@ -53,13 +53,13 @@ document.getElementById('movieWatched').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-eye-close')
-    span.classList.add('glyphicon-eye-open')
+    span.classList.remove('glyphicon-ok')
+    span.classList.add('glyphicon-remove')
     otherspan.classList.remove('glyphicon-plus')
-    otherspan.classList.add('glyphicon-ok')
+    otherspan.classList.add('glyphicon-remove')
     dataQueued = true
   }
-  else if (span.classList.contains('glyphicon-eye-close')) {
+  else if (span.classList.contains('glyphicon-ok')) {
     fetch('/moviestatus', {
       method: 'PATCH',
       body: JSON.stringify({
@@ -71,8 +71,8 @@ document.getElementById('movieWatched').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-eye-close')
-    span.classList.add('glyphicon-eye-open')
+    span.classList.remove('glyphicon-ok')
+    span.classList.add('glyphicon-remove')
   }
   else {
     fetch('/moviestatus', {
@@ -86,7 +86,7 @@ document.getElementById('movieWatched').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-eye-open')
-    span.classList.add('glyphicon-eye-close')
+    span.classList.remove('glyphicon-remove')
+    span.classList.add('glyphicon-ok')
   }
 })

@@ -10,13 +10,13 @@
     <div class="btn-group btn-group-justified btnGroupDetail">
       <% if @queued %>
         <div class="btn-group" role="group">
-          <button id="movieAdd" class="btn btn-success btnDetail">
-            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          <button id="movieAdd" class="btn btnDetail">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
           </button>
         </div>
       <% else %>
         <div class="btn-group" role="group">
-          <button id="movieAdd" class="btn btn-success btnDetail">
+          <button id="movieAdd" class="btn btnDetail">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
           </button>
         </div>
@@ -24,14 +24,14 @@
 
       <% if @finished %>
         <div class="btn-group" role="group">
-          <button id="movieWatched" class="btn btn-success btnDetail btnDetailRight">
-            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          <button id="movieWatched" class="btn btnDetail btnDetailRight">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
           </button>
         </div>
       <% else %>
         <div class="btn-group" role="group">
-          <button id="movieWatched" class="btn btn-success btnDetail btnDetailRight">
-            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+          <button id="movieWatched" class="btn  btnDetail btnDetailRight">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
           </button>
         </div>
       <% end %>
