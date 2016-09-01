@@ -13,6 +13,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="icon" href="/assets/logo_small.png" />
 
+    <script src="https://cdn.polyfill.io/v2/polyfill.js?features=default,fetch"></script>
+
   </head>
 
   <body <% if !current_user %>class="loggedout"<% elsif current_user %>class="loggedin"<% end %>>

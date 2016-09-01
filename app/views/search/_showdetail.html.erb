@@ -10,28 +10,28 @@
     <div class="btn-group btn-group-justified btnGroupDetail">
       <% if @queued %>
         <div class="btn-group" role="group">
-          <button id="showAdd" class="btn btnDetail">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          <button id="showAdd" class="btn btnDetail clicked">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;&nbsp;Queued?
           </button>
         </div>
       <% else %>
         <div class="btn-group" role="group">
-          <button id="showAdd" class="btn btnDetail">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          <button id="showAdd" class="btn btnDetail unclicked">
+            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>&nbsp;&nbsp;Queued?
           </button>
         </div>
       <% end %>
 
       <% if @finished %>
         <div class="btn-group" role="group">
-          <button id="showWatched" class="btn btnDetail btnDetailRight">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          <button id="showWatched" class="btn btnDetail btnDetailRight clicked">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;&nbsp;Watched?
           </button>
         </div>
       <% else %>
         <div class="btn-group" role="group">
-          <button id="showWatched" class="btn btnDetail btnDetailRight btnDetailRight">
-            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          <button id="showWatched" class="btn btnDetail btnDetailRight btnDetailRight unclicked">
+            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>&nbsp;&nbsp;Watched?
           </button>
         </div>
       <% end %>
