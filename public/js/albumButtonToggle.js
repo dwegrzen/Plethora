@@ -1,8 +1,9 @@
 document.getElementById('albumAdd').addEventListener('click', function() {
   var span = this.querySelector('span')
+  var otherbutton = document.getElementById('albumListened')
   var otherspan = document.getElementById('albumListened').querySelector('span')
 
-  if (span.classList.contains('glyphicon-plus')) {
+  if (span.classList.contains('glyphicon-ban-circle')) {
     fetch('/albums', {
       method: 'POST',
       body: JSON.stringify(dataRaw),
@@ -11,9 +12,10 @@ document.getElementById('albumAdd').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.add('glyphicon-remove')
-    span.classList.remove('glyphicon-plus')
-    this.classList.add('active')
+    this.classList.add('clicked')
+    this.classList.remove('unclicked')
+    span.classList.add('glyphicon-ok')
+    span.classList.remove('glyphicon-ban-circle')
     dataQueued = true
     albumAdded()
   }
@@ -28,12 +30,16 @@ document.getElementById('albumAdd').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-remove')
-    span.classList.add('glyphicon-plus')
-    this.classList.remove('active')
+    this.classList.add('unclicked')
+    this.classList.remove('clicked')
+    span.classList.remove('glyphicon-ok')
+    span.classList.add('glyphicon-ban-circle')
+    otherbutton.classList.remove('unclicked')
+    otherbutton.classList.remove('clicked')
+    otherbutton.classList.add('clicked')
+    otherspan.classList.remove('glyphicon-ban-circle')
     otherspan.classList.remove('glyphicon-ok')
-    otherspan.classList.remove('glyphicon-remove')
-    otherspan.classList.add('glyphicon-ok')
+    otherspan.classList.add('glyphicon-ban-circle')
     dataQueued = false
     albumRemoved()
   }
@@ -41,9 +47,10 @@ document.getElementById('albumAdd').addEventListener('click', function() {
 
 document.getElementById('albumListened').addEventListener('click', function() {
   var span = this.querySelector('span')
+  var otherbutton = document.getElementById('albumAdd')
   var otherspan = document.getElementById('albumAdd').querySelector('span')
 
-  if (span.classList.contains('glyphicon-ok') && dataQueued == false ) {
+  if (span.classList.contains('glyphicon-ban-circle') && dataQueued == false ) {
     fetch('/albumaddasfinished', {
       method: 'POST',
       body: JSON.stringify({
@@ -55,14 +62,16 @@ document.getElementById('albumListened').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-ok')
-    span.classList.add('glyphicon-remove')
-    otherspan.classList.remove('glyphicon-plus')
-    otherspan.classList.add('glyphicon-remove')
+    this.classList.add('clicked')
+    this.classList.remove('unclicked')
+    span.classList.remove('glyphicon-ban-circle')
+    span.classList.add('glyphicon-ok')
+    otherspan.classList.remove('glyphicon-ban-circle')
+    otherspan.classList.add('glyphicon-ok')
     dataQueued = true
     albumAddFinished()
   }
-  else if (span.classList.contains('glyphicon-ok')) {
+  else if (span.classList.contains('glyphicon-ban-circle')) {
     fetch('/albumstatus', {
       method: 'PATCH',
       body: JSON.stringify({
@@ -74,8 +83,13 @@ document.getElementById('albumListened').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-ok')
-    span.classList.add('glyphicon-remove')
+    this.classList.add('clicked')
+    this.classList.remove('unclicked')
+    otherbutton.classList.remove('unclicked')
+    otherbutton.classList.remove('clicked')
+    otherbutton.classList.add('clicked')
+    span.classList.remove('glyphicon-ban-circle')
+    span.classList.add('glyphicon-ok')
     albumFinished()
   }
   else {
@@ -90,8 +104,10 @@ document.getElementById('albumListened').addEventListener('click', function() {
         'Content-Type': 'application/json'
       }
     })
-    span.classList.remove('glyphicon-remove')
-    span.classList.add('glyphicon-ok')
-    albumNotFinished( )
+    this.classList.add('unclicked')
+    this.classList.remove('clicked')
+    span.classList.remove('glyphicon-ok')
+    span.classList.add('glyphicon-ban-circle')
+    albumNotFinished()
   }
 })

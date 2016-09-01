@@ -22040,11 +22040,8 @@
 	      };
 
 	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle';
-
 	      var finishedIcon = this.state.finished ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle';
-
 	      var queuedBackground = this.state.queued ? 'btn clicked' : 'btn btn unclicked';
-
 	      var finishedBackground = this.state.finished ? 'btn clicked' : 'btn btn unclicked';
 
 	      //Grid layout for dashboard
