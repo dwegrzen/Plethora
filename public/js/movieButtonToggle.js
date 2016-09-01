@@ -35,6 +35,7 @@ document.getElementById('movieAdd').addEventListener('click', function() {
     otherspan.classList.remove('glyphicon-eye-close')
     otherspan.classList.add('glyphicon-eye-close')
     dataQueued = false
+    movieRemoved()
   }
 })
 
@@ -59,6 +60,7 @@ document.getElementById('movieWatched').addEventListener('click', function() {
     otherspan.classList.remove('glyphicon-plus')
     otherspan.classList.add('glyphicon-ok')
     dataQueued = true
+    movieAddFinished()
   }
   else if (span.classList.contains('glyphicon-eye-close')) {
     fetch('/moviestatus', {
@@ -74,6 +76,7 @@ document.getElementById('movieWatched').addEventListener('click', function() {
     })
     span.classList.remove('glyphicon-eye-close')
     span.classList.add('glyphicon-eye-open')
+    movieFinished()
   }
   else {
     fetch('/moviestatus', {
@@ -89,5 +92,6 @@ document.getElementById('movieWatched').addEventListener('click', function() {
     })
     span.classList.remove('glyphicon-eye-open')
     span.classList.add('glyphicon-eye-close')
+    movieNotFinished()
   }
 })

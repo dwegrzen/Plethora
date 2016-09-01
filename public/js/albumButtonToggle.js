@@ -15,6 +15,7 @@ document.getElementById('albumAdd').addEventListener('click', function() {
     span.classList.remove('glyphicon-plus')
     this.classList.add('active')
     dataQueued = true
+    albumAdded()
   }
   else {
     fetch('/albums?album_id=' + dataId, {
@@ -34,6 +35,7 @@ document.getElementById('albumAdd').addEventListener('click', function() {
     otherspan.classList.remove('glyphicon-headphones')
     otherspan.classList.add('glyphicon-volume-off')
     dataQueued = false
+    albumRemoved()
   }
 })
 
@@ -58,6 +60,7 @@ document.getElementById('albumListened').addEventListener('click', function() {
     otherspan.classList.remove('glyphicon-plus')
     otherspan.classList.add('glyphicon-remove')
     dataQueued = true
+    albumAddFinished()
   }
   else if (span.classList.contains('glyphicon-volume-off')) {
     fetch('/albumstatus', {
@@ -73,6 +76,7 @@ document.getElementById('albumListened').addEventListener('click', function() {
     })
     span.classList.remove('glyphicon-volume-off')
     span.classList.add('glyphicon-headphones')
+    albumFinished()
   }
   else {
     fetch('/albumstatus', {
@@ -88,5 +92,6 @@ document.getElementById('albumListened').addEventListener('click', function() {
     })
     span.classList.remove('glyphicon-headphones')
     span.classList.add('glyphicon-volume-off')
+    albumNotFinished()
   }
 })
