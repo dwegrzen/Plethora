@@ -456,7 +456,7 @@ body {
     }
 
     //button styling
-    .btn:hover {
+    .btn:hover, .btn:focus {
         color: $white;
     }
     #leftBtn, #movieAdd, #rightBtn, .btnDetail {
