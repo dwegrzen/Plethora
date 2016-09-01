@@ -20,6 +20,7 @@ class MusicItem extends React.Component {
           'Content-Type': 'application/json'
         }
       })
+      albumAdded()
     }
     else {
       fetch('/albums?album_id=' + this.state.music.id, {
@@ -33,6 +34,7 @@ class MusicItem extends React.Component {
         }
       })
       this.setState({finished: !this.state.queued})
+      albumRemoved()
     }
     this.setState({queued: !this.state.queued})
   }
@@ -51,6 +53,7 @@ class MusicItem extends React.Component {
           'Content-Type': 'application/json'
         }
       })
+      albumAddFinished()
     }
     else {
       this.setState({finished: !this.state.finished})
@@ -65,6 +68,12 @@ class MusicItem extends React.Component {
           'Content-Type': 'application/json'
         }
       })
+      if (this.state.finished) {
+        albumNotFinished()
+      }
+      else {
+        albumFinished()
+      }
     }
   }
 

@@ -21700,6 +21700,7 @@
 	            'Content-Type': 'application/json'
 	          }
 	        });
+	        showAdded();
 	      } else {
 	        fetch('/shows?show_id=' + this.state.series.id, {
 	          method: 'DELETE',
@@ -21712,6 +21713,7 @@
 	          }
 	        });
 	        this.setState({ finished: !this.state.queued });
+	        showRemoved();
 	      }
 	      this.setState({ queued: !this.state.queued });
 	    }
@@ -21731,6 +21733,7 @@
 	            'Content-Type': 'application/json'
 	          }
 	        });
+	        showAddFinished();
 	      } else {
 	        this.setState({ finished: !this.state.finished });
 	        fetch('/showstatus', {
@@ -21744,6 +21747,11 @@
 	            'Content-Type': 'application/json'
 	          }
 	        });
+	        if (this.state.finished) {
+	          showNotFinished();
+	        } else {
+	          showFinished();
+	        }
 	      }
 	    }
 	  }, {
@@ -21943,6 +21951,7 @@
 	            'Content-Type': 'application/json'
 	          }
 	        });
+	        albumAdded();
 	      } else {
 	        fetch('/albums?album_id=' + this.state.music.id, {
 	          method: 'DELETE',
@@ -21955,6 +21964,7 @@
 	          }
 	        });
 	        this.setState({ finished: !this.state.queued });
+	        albumRemoved();
 	      }
 	      this.setState({ queued: !this.state.queued });
 	    }
@@ -21974,6 +21984,7 @@
 	            'Content-Type': 'application/json'
 	          }
 	        });
+	        albumAddFinished();
 	      } else {
 	        this.setState({ finished: !this.state.finished });
 	        fetch('/albumstatus', {
@@ -21987,6 +21998,11 @@
 	            'Content-Type': 'application/json'
 	          }
 	        });
+	        if (this.state.finished) {
+	          albumNotFinished();
+	        } else {
+	          albumFinished();
+	        }
 	      }
 	    }
 	  }, {
@@ -22191,6 +22207,7 @@
 	            'Content-Type': 'application/json'
 	          }
 	        });
+	        movieAdded();
 	      } else {
 	        fetch('/movies?movie_id=' + this.state.movies.id, {
 	          method: 'DELETE',
@@ -22203,6 +22220,7 @@
 	          }
 	        });
 	        this.setState({ finished: !this.state.queued });
+	        movieRemoved();
 	      }
 	      this.setState({ queued: !this.state.queued });
 	    }
@@ -22222,6 +22240,7 @@
 	            'Content-Type': 'application/json'
 	          }
 	        });
+	        movieAddFinished();
 	      } else {
 	        this.setState({ finished: !this.state.finished });
 	        fetch('/moviestatus', {
@@ -22235,6 +22254,11 @@
 	            'Content-Type': 'application/json'
 	          }
 	        });
+	        if (this.state.finished) {
+	          movieNotFinished();
+	        } else {
+	          movieFinished();
+	        }
 	      }
 	    }
 	  }, {

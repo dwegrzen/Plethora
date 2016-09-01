@@ -20,6 +20,7 @@ class TVItem extends React.Component {
           'Content-Type': 'application/json'
         }
       })
+      showAdded()
     }
     else {
       fetch('/shows?show_id=' + this.state.series.id, {
@@ -33,6 +34,7 @@ class TVItem extends React.Component {
         }
       })
       this.setState({finished: !this.state.queued})
+      showRemoved()
     }
     this.setState({queued: !this.state.queued})
   }
@@ -51,6 +53,7 @@ class TVItem extends React.Component {
           'Content-Type': 'application/json'
         }
       })
+      showAddFinished()
     }
     else {
       this.setState({finished: !this.state.finished})
@@ -65,6 +68,12 @@ class TVItem extends React.Component {
           'Content-Type': 'application/json'
         }
       })
+      if (this.state.finished) {
+        showNotFinished()
+      }
+      else {
+        showFinished()
+      }
     }
   }
 

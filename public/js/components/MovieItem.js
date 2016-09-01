@@ -20,6 +20,7 @@ class MovieItem extends React.Component {
           'Content-Type': 'application/json'
         }
       })
+      movieAdded()
     }
     else {
       fetch('/movies?movie_id=' + this.state.movies.id, {
@@ -33,6 +34,7 @@ class MovieItem extends React.Component {
         }
       })
       this.setState({finished: !this.state.queued})
+      movieRemoved()
     }
     this.setState({queued: !this.state.queued})
   }
@@ -51,6 +53,7 @@ class MovieItem extends React.Component {
           'Content-Type': 'application/json'
         }
       })
+      movieAddFinished()
     }
     else {
       this.setState({finished: !this.state.finished})
@@ -65,6 +68,12 @@ class MovieItem extends React.Component {
           'Content-Type': 'application/json'
         }
       })
+      if (this.state.finished) {
+        movieNotFinished()
+      }
+      else {
+        movieFinished()
+      }
     }
   }
 
