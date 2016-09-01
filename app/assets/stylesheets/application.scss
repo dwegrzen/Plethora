@@ -502,6 +502,9 @@ body {
     .btn.clicked {
         background-color: $darkTeal;
     }
+    .clicked#rightBtn {
+        border-left: 1px solid white;
+    }
     .btn.unclicked {
         background-color: $teal;
     }
