@@ -179,6 +179,14 @@ body.loggedin {
 }
 
 body {
+    .making {
+        margin-top: 25px;
+        border-radius: 3px;
+        background-color: white;
+        h1, h3 {
+            font-weight: 300;
+        }
+    }
     #notice.label-info {
         background-color: transparent;
     }
