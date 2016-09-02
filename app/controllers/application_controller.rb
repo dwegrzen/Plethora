@@ -28,17 +28,16 @@ class ApplicationController < ActionController::Base
       @userfinishedmovies = current_user.movies.find(finishedmovies).pluck(:tmdb_id)
       @userid = current_user.id
     end
+  end
 
     def sample
       @sample = []
       8.times do
-        @sample << Movie.all.sample.movie_art
-        @sample << Show.all.sample.show_image
-        @sample << Album.all.sample.album_art
+        @sample << Sample.new(Movie.all.sample)
+        @sample << Sample.new(Show.all.sample)
+        @sample << Sample.new(Album.all.sample)
       end
       @sample.shuffle
     end
-
-  end
 
 end
