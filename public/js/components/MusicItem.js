@@ -89,8 +89,8 @@ class MusicItem extends React.Component {
 
     var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle'
     var finishedIcon = this.state.finished ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle'
-    var queuedBackground = this.state.queued ? 'btn clicked' : 'btn btn unclicked'
-    var finishedBackground = this.state.finished ? 'btn clicked' : 'btn btn unclicked'
+    var queuedBackground = this.state.queued ? 'btn clicked' : 'btn unclicked'
+    var finishedBackground = this.state.finished ? 'btn clicked' : 'btn unclicked'
 
     //Grid layout for dashboard
     if (!this.props.search) {
@@ -126,9 +126,9 @@ class MusicItem extends React.Component {
     else {
       return <div className="musicItemsSection col-sm-6">
         <div className="row">
-          <div className="col-sm-4">
+          <div className="col-sm-6 col-md-4">
             <a className="itemLink" href={"/albumdetail/" + this.state.music.gn_id}>
-              <img className="img-responsive center-block searchImage" src={this.state.music.album_art} />
+              <img className="img-responsive center-block searchImage musicSearchImage" src={this.state.music.album_art} />
             </a>
             <div className="btn-group btn-group-justified">
               <div className="btn-group" role="group">
@@ -145,9 +145,13 @@ class MusicItem extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-sm-8">
+          <div className="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl albumSearchMobile">
+            <h3 className="albumTitleSearchMobile title text-center">{this.state.music.name}</h3>
+            <h4 className="artistNameSearch text-center">{this.state.music.artist}</h4>
+          </div>
+          <div className="hidden-xs col-sm-6 col-md-8">
             <h2 className="albumTitleSearch title text-left">{this.state.music.name}</h2>
-            <h2 className="artistNameSearch text-left">{this.state.music.artist}</h2>
+            <h3 className="artistNameSearch text-left">{this.state.music.artist}</h3>
           </div>
         </div>
       </div>

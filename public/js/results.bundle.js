@@ -22041,8 +22041,8 @@
 
 	      var queuedIcon = this.state.queued ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle';
 	      var finishedIcon = this.state.finished ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-ban-circle';
-	      var queuedBackground = this.state.queued ? 'btn clicked' : 'btn btn unclicked';
-	      var finishedBackground = this.state.finished ? 'btn clicked' : 'btn btn unclicked';
+	      var queuedBackground = this.state.queued ? 'btn clicked' : 'btn unclicked';
+	      var finishedBackground = this.state.finished ? 'btn clicked' : 'btn unclicked';
 
 	      //Grid layout for dashboard
 	      if (!this.props.search) {
@@ -22116,11 +22116,11 @@
 	              { className: 'row' },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'col-sm-4' },
+	                { className: 'col-sm-6 col-md-4' },
 	                _react2.default.createElement(
 	                  'a',
 	                  { className: 'itemLink', href: "/albumdetail/" + this.state.music.gn_id },
-	                  _react2.default.createElement('img', { className: 'img-responsive center-block searchImage', src: this.state.music.album_art })
+	                  _react2.default.createElement('img', { className: 'img-responsive center-block searchImage musicSearchImage', src: this.state.music.album_art })
 	                ),
 	                _react2.default.createElement(
 	                  'div',
@@ -22161,14 +22161,28 @@
 	              ),
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'col-sm-8' },
+	                { className: 'col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl albumSearchMobile' },
+	                _react2.default.createElement(
+	                  'h3',
+	                  { className: 'albumTitleSearchMobile title text-center' },
+	                  this.state.music.name
+	                ),
+	                _react2.default.createElement(
+	                  'h4',
+	                  { className: 'artistNameSearch text-center' },
+	                  this.state.music.artist
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'hidden-xs col-sm-6 col-md-8' },
 	                _react2.default.createElement(
 	                  'h2',
 	                  { className: 'albumTitleSearch title text-left' },
 	                  this.state.music.name
 	                ),
 	                _react2.default.createElement(
-	                  'h2',
+	                  'h3',
 	                  { className: 'artistNameSearch text-left' },
 	                  this.state.music.artist
 	                )
