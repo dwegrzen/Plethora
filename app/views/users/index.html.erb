@@ -23,12 +23,12 @@
 <% if current_user.stackings == [] %>
 <div class="container emptyQueue">
   <div class="row hidden-xs" id="emptyQueueImages">
-    <% @sample.each do |picture| %>
-      <div class="col-sm-1 sample" style="background-image: url('<%= picture %>'); background-position: top; background-size: cover;">
-      </div>
+    <% @sample.each do |sample| %>
+      <%= link_to detailcheck_path(:media_type => sample.media_type, :media_id => sample.media_id), method: "post" do %>
+        <div class="col-sm-1 sample" style="background-image: url('<%= sample.picture %>'); background-position: top; background-size: cover;">
+        </div>
+      <% end %>
     <% end %>
-
-
   </div>
   <div class="row">
     <div class="col-sm-12 text-center" id="bannerNewUser">

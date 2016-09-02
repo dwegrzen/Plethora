@@ -79,6 +79,21 @@ class SearchController < ApplicationController
     end
   end
 
+  def checkdetail
+    media_id = params[:media_id]
+    detail = params[:media_type]
+    case detail
+      when "Movie"
+        redirect_to detailmovie_path(tmdb_id: media_id)
+      when "Album"
+        redirect_to detailalbum_path(gn_id: media_id)
+      when "Show"
+        redirect_to detailshow_path(gn_id: media_id)
+      else
+    end
+
+  end
+
   private
   def set_page
     unless params[:page]
