@@ -1,47 +1,54 @@
+<h4 id="notice"><span class="label label-info"><%= notice %></span></h4>
+
 <div class="container making">
   <div class="row">
-    <div class="col-sm-10 col-sm-offset-1">
-      <h1>Plethora, brought to you by:</h1>
-      <h3></h3>
-      <h3 class="text-left">Back end supported by Ruby on Rails 5 operating in mixed api and MVC operation to supplement our React front end. TheMovieDatabase and Discogs API's are used for media searching capability and data libraries. Data caching of user added media to their backlogs supported by a PostgreSQL database with site hosting provided by Heroku.</h3>
-      <h2>Technologies incorporated:</h2>
+    <h1 class="text-center">Plethora</h1>
+    <h3 class="text-center subtitle">helping you remember all the media you keep forgetting</h3>
+    <div class="col-sm-8 col-sm-offset-2">
+      <h3 class="text-justify">Back-end supported by Ruby on Rails 5 operating in mixed API and MVC operation to supplement our React.js and JavaScript front-end. TheMovieDatabase and Discogs API's are used for media searching capability and data libraries. Data caching of user added media to their backlogs supported by a PostgreSQL database with site hosting provided by Heroku.</h3>
+      <h2 class="technologiesUsed">What technology was used?</h2>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-1 col-sm-offset-4 techicon">
+          <%= image_tag('techicons/react-logo-1000-transparent.png', class: "img-responsive") %>
+        </div>
+        <div class="col-sm-1 techicon">
+          <%= image_tag('techicons/javascript_logo_unofficial-300x300.png', class: "img-responsive") %>
+        </div>
+        <div class="col-sm-1 techicon">
+          <%= image_tag('techicons/Ruby_on_Rails-logo.png', class: "img-responsive") %>
+        </div>
+        <div class="col-sm-1 techicon">
+          <%= image_tag('techicons/postreSQL.png', class: "img-responsive") %>
+        </div>
+      </div>
+      </br>
+      </br>
+      </br>
       <div class="row">
-        <div class="col-sm-12">
-          <div class="col-sm-2 col-sm-offset-3 techicon">
-            <%= image_tag('techicons/HTML5_Logo_128.png', class: "img-responsive") %>
-          </div>
-          <div class="col-sm-2 techicon">
-            <%= image_tag('techicons/javascript_logo_unofficial-300x300.png', class: "img-responsive") %>
-          </div>
-          <div class="col-sm-2 techicon">
-            <%= image_tag('techicons/react-logo-1000-transparent.png', class: "img-responsive") %>
-          </div>
+        <div class="col-sm-1 col-sm-offset-4 techicon">
+          <%= image_tag('techicons/HTML5_Logo_128.png', class: "img-responsive") %>
         </div>
-        <div class="row">
-          <div class="col-sm-2 col-sm-offset-3 techicon">
-            <%= image_tag('techicons/Ruby_on_Rails-logo.png', class: "img-responsive") %>
-          </div>
-          <div class="col-sm-2 techicon">
-            <%= image_tag('techicons/postreSQL.png', class: "img-responsive") %>
-          </div>
-          <div class="col-sm-2 techicon">
-            <%= image_tag('techicons/bootstrap-logo.png', class: "img-responsive") %>
-          </div>
-          <div class="col-sm-2 techicon">
-            <%= image_tag('techicons/sass.png', class: "img-responsive") %>
-          </div>
-          <div class="col-sm-2 techicon">
-            <%= image_tag('techicons/css.png', class: "img-responsive") %>
-          </div>
+        <div class="col-sm-1 techicon">
+          <%= image_tag('techicons/css.png', class: "img-responsive") %>
         </div>
-        <div class="row">
-          <div class="col-sm-3 col-sm-offset-3 techiconwide">
-            <%= image_tag('techicons/discogs-clearspace.svg', class: "img-responsive") %>
-          </div>
-          <div class="col-sm-3 techiconwide">
-            <%= image_tag('techicons/var_2_1_PoweredByTMDB_Blk_Logo_Bree.png', class: "img-responsive") %>
-          </div>
+        <div class="col-sm-1 techicon">
+          <%= image_tag('techicons/sass.png', class: "img-responsive") %>
         </div>
+        <div class="col-sm-1 techicon">
+          <%= image_tag('techicons/bootstrap-logo.png', class: "img-responsive") %>
+        </div>
+      </div>
+      </br>
+      <div class="row">
+        <div class="col-sm-2 col-sm-offset-4 techiconwide">
+          <%= image_tag('techicons/discogs-clearspace.svg', class: "img-responsive") %>
+        </div>
+        <div class="col-sm-2 techiconwide">
+          <%= image_tag('techicons/var_2_1_PoweredByTMDB_Blk_Logo_Bree.png', class: "img-responsive") %>
+        </div>
+      </div>
       </div>
     </div>
   </div>
