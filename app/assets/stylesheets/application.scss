@@ -431,6 +431,7 @@ body {
     }
     .musicItemsSection {
         height: 100%;
+        max-height: 400px;
         overflow: hidden;
     }
     //styling for media detail pages
@@ -598,6 +599,10 @@ footer {
         }
         #subtitleNewUser {
             font-size: 25px;
+        }
+        .musicItemsSection {
+            height: 275px;
+            overflow: hidden;
         }
         //media detail pages
         .mediaDetailsContainer {
