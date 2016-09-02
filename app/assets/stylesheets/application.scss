@@ -601,8 +601,11 @@ footer {
             font-size: 25px;
         }
         .musicItemsSection {
-            height: 275px;
+            height: 250px;
             overflow: hidden;
+            .musicSearchImage {
+                height: 145px;
+            }
         }
         //media detail pages
         .mediaDetailsContainer {
