@@ -300,7 +300,6 @@ body {
 
     //Logged in pages
     #searchBarAndButton {
-        border-radius: 3px;
         overflow: hidden;
         padding-top: 25px;
         padding-bottom: 10px;
@@ -314,8 +313,6 @@ body {
         }
         select#searchType.form-control {
             border: none;
-            border-bottom-right-radius: 0px;
-            border-top-right-radius: 0px;
             height: 32px;
             background-color: white;
             color: $black;
@@ -327,11 +324,14 @@ body {
             border: 1px solid white;
             padding: 5px 15px;
             color: $black;
+            &:focus {
+                outline: none;
+            }
         }
         #searchBtn {
             float: left;
             height: 32px;
-            border-radius: 0px 3px 3px 0px;
+            border-radius: 0px 4px 4px 0px;
             background-color: white;
             color: $black;
         }
@@ -517,6 +517,9 @@ body {
         &:hover {
             background-color: $black;
             color: $white;
+        }
+        &:focus {
+            outline: none;
         }
     }
     #leftBtn {
