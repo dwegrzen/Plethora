@@ -177,397 +177,407 @@ body.loggedin {
         }
     }
 }
-
-body {
-    .makingPage {
-        color: $black;
-        padding-bottom: 25px;
-        padding-left: 0px;
-        padding-right: 0px;
-        margin-top: 25px;
-        border-radius: 3px;
-        background-color: white;
-        h1, h3 {
-            font-weight: 300;
-        }
-        h1 {
-            color: white;
-            padding: 15px;
-            border-radius: 3px 3px 0px 0px;
-            background-color: $darkTeal;
-            margin: 0px;
-        }
-        .subtitle {
-            padding: 15px;
-            background-color: $teal;
-            color: white;
-            margin-top: 0px;
-        }
-        .technologiesUsed {
-            padding: 10px;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            border-top: 1px solid $teal;
-            border-bottom: 1px solid $teal;
-        }
-    }
-    #notice.label-info {
-        background-color: transparent;
-    }
-    .mainContent {
-        //min-height: 100%;
-        //margin-bottom: -190px;
-        padding-bottom: 100px;
-        &:after {
-            content: "";
-            display: block;
-        }
-        .tagline {
-            color: $white;
-            padding-top: 100px;
-            font-size: 40px;
-            font-weight: 300;
-        }
-        .subheaderHome {
-            font-size: 25px;
-            color: $white;
-        }
-        #signupBtn {
-            margin-top: 55px;
-            background-color: transparent;
-            border: 2px solid $white;
-            border-radius: 3px;
-            padding: 15px 25px;
-            &:hover {
-                background-color: rgba(206, 237, 231, .2);
-                border-color: $teal;
-                a {
-                    font-weight: bold;
-                }
-            }
-            a {
-                color: $white;
-                font-size: 20px;
-            }
-        }
-    }
-
-    // Log In, Sign Up pages - only accessible when not logged in
-    #loginForm, #signupForm {
-        padding: 15px 20px 10px;
-    }
-    #login, #signup {
-        padding: 8px 0px 10px;
-        margin-top: 25px;
-        border-radius: 3px 3px 0px 0px;
-        background-color: rgba($darkTeal, 0.75);
-        color: $white;
-        h1{
-            font-weight: 300;
-            font-size: 25px;
-            margin-bottom: 15px;
-        }
-    }
-    #loginForm, #signupForm {
-        padding-top: 10px;
-        border-radius: 0px 0px 3px 3px;
-        background-color: rgba($white, .4);
-    }
-    #loginForm {
-        .form-inputs {
-            font-size: 15px;
-            font-weight: 300;
-            a {
-                color: $black;
-            }
-        }
-    }
-    #signupFormBtn, #loginFormBtn {
-        font-size: 15px;
-        background-color: rgba($darkTeal, 0.85);
-        border: none;
-        border-radius: 3px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: 10px;
-        min-width: 150px;
-        color: $white;
+.makingPage {
+    color: $black;
+    padding-bottom: 25px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 25px;
+    border-radius: 3px;
+    background-color: white;
+    h1, h3 {
         font-weight: 300;
-        &:hover {
-            background-color: rgba($black, .85);
-        }
     }
-
-    //Logged in pages
-    #searchBarAndButton {
-        overflow: hidden;
-        padding-top: 25px;
-        padding-bottom: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        #searchType {
-            float: left;
-            width: 65px;
-            box-shadow: none;
-        }
-        select#searchType.form-control {
-            border: none;
-            height: 32px;
-            background-color: white;
-            color: $black;
-        }
-        #searchBar {
-            float: left;
-            margin-left: -4px;
-            background-color: white;
-            border: 1px solid white;
-            padding: 5px 15px;
-            color: $black;
-            &:focus {
-                outline: none;
-            }
-        }
-        #searchBtn {
-            float: left;
-            height: 32px;
-            border-radius: 0px 4px 4px 0px;
-            background-color: white;
-            color: $black;
-        }
-    }
-    .emptyQueue {
-        background-color: white;
-        border-radius: 3px;
-        padding: 20px;
-        margin-top: 25px;
-        overflow: hidden;
-    }
-    #emptyQueueImages {
-        z-index: 1;
-        margin: -20px;
-    }
-    .sample {
-        height: 100px;
-    }
-    // .topLeft {
-    //     border-radius: 3px 0px 0px 0px;
-    // }
-    // .topRight {
-    //     border-radius: 0px 3px 0px 0px;
-    // }
-    #bannerNewUser {
-        color: $darkTeal;
-        margin-top: 20px;
-        h1 {
-            margin-top: 15px;
-            font-weight: 300;
-            font-size: 35px;
-            margin: 10px 10px 20px;
-        }
-    }
-    #subtitleNewUser {
-        font-size: 20px;
-    }
-    #logoNewUser {
-        height: 35px;
-        margin: 15px;
-    }
-    .mediaCat {
-        margin: 0px -15px 40px;
-        padding: 25px 0px 20px;
+    h1 {
+        color: white;
+        padding: 15px;
         border-radius: 3px 3px 0px 0px;
         background-color: $darkTeal;
+        margin: 0px;
+    }
+    .subtitle {
+        padding: 15px;
+        background-color: $teal;
+        color: white;
+        margin-top: 0px;
+    }
+    .technologiesUsed {
+        padding: 10px;
+        margin-top: 35px;
+        margin-bottom: 20px;
+        border-top: 1px solid $teal;
+        border-bottom: 1px solid $teal;
+    }
+}
+#notice.label-info {
+    background-color: transparent;
+}
+.mainContent {
+    //min-height: 100%;
+    //margin-bottom: -190px;
+    padding-bottom: 100px;
+    &:after {
+        content: "";
+        display: block;
+    }
+    .tagline {
+        color: $white;
+        padding-top: 100px;
+        font-size: 40px;
+        font-weight: 300;
+    }
+    .subheaderHome {
+        font-size: 25px;
+        color: $white;
+    }
+    #signupBtn {
+        margin-top: 55px;
+        background-color: transparent;
+        border: 2px solid $white;
+        border-radius: 3px;
+        padding: 15px 25px;
+        &:hover {
+            background-color: rgba(206, 237, 231, .2);
+            border-color: $teal;
+            a {
+                font-weight: bold;
+            }
+        }
         a {
-            font-size: 45px;
-            font-weight: 300;
-            color: white;
+            color: $white;
+            font-size: 20px;
         }
     }
-    h2 {
-        text-align: center;
+}
+
+// Log In, Sign Up pages - only accessible when not logged in
+#loginForm, #signupForm {
+    padding: 15px 20px 10px;
+}
+#login, #signup {
+    padding: 8px 0px 10px;
+    margin-top: 25px;
+    border-radius: 3px 3px 0px 0px;
+    background-color: rgba($darkTeal, 0.75);
+    color: $white;
+    h1{
         font-weight: 300;
+        font-size: 25px;
         margin-bottom: 15px;
     }
-    .row {
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-    section.container {
-        background-color: white;
-        margin-top: 25px;
-        width: 100%;
-        border-radius: 3px;
-    }
-
-    .item {
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: top;
-        border-radius: 3px 3px 0px 0px;
-        height: 250px;
-        width: 100%;
-        max-width: 300px;
-        color: white;
-        overflow: hidden;
-        .hoverLayer {
-            height: 250px;
-            width: 100%;
-            transition: all 0.3s ease;
-            .title, .albumName, .artistName {
-                font-weight: 300;
-                color: white;
-                padding-top: 30px;
-            }
-            .tvSynopsis {
-                font-weight: 300;
-                width: 80%;
-                padding-top: 15px;
-                transition: all 0.3s ease;
-                text-decoration: none;
-            }
-        }
-    }
-    .itemLink:hover {
-        .hoverLayer {
-            margin-top: -20px;
-            background: rgba(18, 20, 20, .7);
-            border-radius: 3px 3px 0px 0px;
-        }
-        .tvSynopsis, .title, .albumName, .artistName {
-            visibility: visible !important;
-            opacity: 1 !important;
-        }
-    }
-    .searchImage {
-        margin-top: 30px;
-        border-radius: 3px 3px 0px 0px;
-    }
-    .musicSearchImage {
-        width: 100%;
-        max-width: 300px;
-    }
-    .albumTitleSearch {
-        margin-top: 30px;
-    }
-    .artistNameSearch {
+}
+#loginForm, #signupForm {
+    padding-top: 10px;
+    border-radius: 0px 0px 3px 3px;
+    background-color: rgba($white, .4);
+}
+#loginForm {
+    .form-inputs {
+        font-size: 15px;
         font-weight: 300;
-    }
-    .albumSearchMobile {
-        h3, h4{
-            font-weight: 300;
-        }
-        .albumTitleSearchMobile {
-            margin-top: 0px;
+        a {
+            color: $black;
         }
     }
-    .musicItemsSection {
-        height: 100%;
-        max-height: 400px;
-        overflow: hidden;
+}
+#signupFormBtn, #loginFormBtn {
+    font-size: 15px;
+    background-color: rgba($darkTeal, 0.85);
+    border: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    min-width: 150px;
+    color: $white;
+    font-weight: 300;
+    &:hover {
+        background-color: rgba($black, .85);
     }
-    //styling for media detail pages
-    .detailContainer {
-        margin-top: 15px;
-    }
-    .mediaDetailsContainer {
-        margin-top: -50px;
-    }
-    .mediaTitle {
-        font-weight: 300;
-        color: white;
-        text-align: center;
-        background-color: $teal;
-        margin-top: 20px;
-        margin-bottom: 0px;
-        padding: 10px;
-        font-size: 30px;
-        border-radius: 3px 3px 0px 0px;
-        h1, h2 {
-            font-weight: 300;
-        }
-    }
-    .mediaDetails{
-        border-radius: 0px 0px 3px 3px;
-        padding: 5px 10px 25px;
-        background-color: white;
-        h3 {
-            font-size: 20px;
-            font-weight: 300;
-        }
-        h4 {
-            font-size: 15px;
-            font-weight: 300;
-        }
-    }
-    .detailImage {
-        max-height: 375px;
-        margin-top: 20px;
-        border-radius: 3px;
-    }
+}
 
-    //button styling
-    .btn:hover, .btn:focus {
-        color: $white;
+//Logged in pages
+#searchBarAndButton {
+    overflow: hidden;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #searchType {
+        float: left;
+        width: 65px;
+        box-shadow: none;
     }
-    #leftBtn, #movieAdd, #rightBtn, .btnDetail {
-        color: $white;
+    select#searchType.form-control {
         border: none;
-        font-weight: 300;
-        &:hover {
-            background-color: $black;
-            color: $white;
-        }
+        height: 32px;
+        background-color: white;
+        color: $black;
+    }
+    #searchBar {
+        float: left;
+        margin-left: -4px;
+        background-color: white;
+        border: 1px solid white;
+        padding: 5px 15px;
+        color: $black;
         &:focus {
             outline: none;
         }
     }
-    #leftBtn {
-        border-top-left-radius: 0px;
-        border-bottom-left-radius: 3px;
-        color: $white;
+    #searchBtn {
+        float: left;
+        height: 32px;
+        border-radius: 0px 4px 4px 0px;
+        background-color: white;
+        color: $black;
     }
-    #rightBtn {
-        border-top-right-radius: 0px;
-        border-bottom-right-radius: 3px;
-        border-left: 1px solid $darkTeal;
-        color: $white;
+}
+.emptyQueue {
+    background-color: white;
+    border-radius: 3px;
+    padding: 20px;
+    margin-top: 25px;
+    overflow: hidden;
+}
+#emptyQueueImages {
+    z-index: 1;
+    margin: -20px;
+}
+.sample {
+    height: 100px;
+}
+// .topLeft {
+//     border-radius: 3px 0px 0px 0px;
+// }
+// .topRight {
+//     border-radius: 0px 3px 0px 0px;
+// }
+#bannerNewUser {
+    color: $darkTeal;
+    margin-top: 20px;
+    h1 {
+        margin-top: 15px;
+        font-weight: 300;
+        font-size: 35px;
+        margin: 10px 10px 20px;
     }
-    .btn-group {
-        max-width: 300px;
-        margin: auto;
-        margin-bottom: 25px;
+}
+#subtitleNewUser {
+    font-size: 20px;
+}
+#logoNewUser {
+    height: 35px;
+    margin: 15px;
+}
+.mediaCat {
+    margin: 0px -15px 10px;
+    padding: 15px 0px 10px;
+    border-radius: 3px 3px 0px 0px;
+    background-color: $darkTeal;
+    a {
+        font-size: 35px;
+        font-weight: 300;
+        color: white;
     }
-    .btnGroupDetail {
-        max-width: 200px;
-        margin-bottom: 75px;
-    }
-    .btnDetailRight {
-        border-left: 1px solid $darkTeal;
-    }
-    .musicItemsSection {
-        button {
-            span {
-                margin-top: 2.5px;
-            }
-            h6 {
-                margin-top: 0px;
-                margin-bottom: 2.5px;
-                font-weight: 300;
-            }
+}
+h2 {
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+section.container {
+    background-color: white;
+    margin-top: 25px;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.item {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    border-radius: 3px 3px 0px 0px;
+    height: 250px;
+    width: 100%;
+    max-width: 300px;
+    color: white;
+    overflow: hidden;
+    .hoverLayer {
+        height: 250px;
+        width: 100%;
+        transition: all 0.3s ease;
+        .title, .albumName, .artistName {
+            font-weight: 300;
+            color: white;
+            padding-top: 30px;
+        }
+        .tvSynopsis {
+            font-weight: 300;
+            width: 80%;
+            padding-top: 15px;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
     }
-    .btn.clicked {
+}
+.itemLink:hover {
+    .hoverLayer {
+        margin-top: -20px;
+        background: rgba(18, 20, 20, .7);
+        border-radius: 3px 3px 0px 0px;
+    }
+    .tvSynopsis, .title, .albumName, .artistName {
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+.searchImage {
+    margin-top: 30px;
+    border-radius: 3px 3px 0px 0px;
+}
+.musicSearchImage {
+    width: 100%;
+    max-width: 300px;
+}
+.albumTitleSearch {
+    margin-top: 30px;
+}
+.artistNameSearch {
+    font-weight: 300;
+}
+.albumSearchMobile {
+    h3, h4{
+        font-weight: 300;
+    }
+    .albumTitleSearchMobile {
+        margin-top: 0px;
+    }
+}
+.musicItemsSection {
+    height: 100%;
+    max-height: 400px;
+    overflow: hidden;
+}
+//styling for media detail pages
+.detailContainer {
+    margin-top: 15px;
+}
+.mediaDetailsContainer {
+    margin-top: -50px;
+}
+.mediaTitle {
+    font-weight: 300;
+    color: white;
+    text-align: center;
+    background-color: $teal;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding: 10px;
+    font-size: 30px;
+    border-radius: 3px 3px 0px 0px;
+    h1, h2 {
+        font-weight: 300;
+    }
+}
+.mediaDetails{
+    border-radius: 0px 0px 3px 3px;
+    padding: 5px 10px 25px;
+    background-color: white;
+    h3 {
+        font-size: 20px;
+        font-weight: 300;
+    }
+    h4 {
+        font-size: 15px;
+        font-weight: 300;
+    }
+}
+.detailImage {
+    max-height: 375px;
+    margin-top: 20px;
+    border-radius: 3px;
+}
+
+//button styling
+.btn:hover, .btn:focus {
+    color: $white;
+}
+#leftBtn, #movieAdd, #rightBtn, .btnDetail {
+    color: $white;
+    border: none;
+    font-weight: 300;
+    &:hover {
+        background-color: $black;
+        color: $white;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+#leftBtn {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 3px;
+    color: $white;
+}
+#rightBtn {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 3px;
+    border-left: 1px solid $darkTeal;
+    color: $white;
+}
+.btn-group {
+    max-width: 335px;
+    margin: auto;
+    margin-bottom: 25px;
+}
+.btnGroupDetail {
+    max-width: 200px;
+    margin-bottom: 75px;
+}
+.btnDetailRight {
+    border-left: 1px solid $darkTeal;
+}
+.musicItemsSection {
+    button {
+        span {
+            margin-top: 2.5px;
+        }
+        h6 {
+            margin-top: 0px;
+            margin-bottom: 2.5px;
+            font-weight: 300;
+        }
+    }
+}
+.btn.clicked {
+    background-color: $darkTeal;
+}
+.clicked#rightBtn {
+    border-left: 1px solid $teal;
+}
+.clicked.btnDetailRight {
+    border-left: 1px solid $teal;
+}
+.btn.unclicked {
+    background-color: $teal;
+}
+#pagination{
+    a {
         background-color: $darkTeal;
+        color: white;
     }
-    .clicked#rightBtn {
-        border-left: 1px solid $teal;
-    }
-    .clicked.btnDetailRight {
-        border-left: 1px solid $teal;
-    }
-    .btn.unclicked {
-        background-color: $teal;
+    li.active {
+        a {
+            background-color: white;
+            color: $darkTeal;
+            border: 1px solid $teal;
+        }
     }
 }
 
@@ -602,65 +612,70 @@ footer {
     header {
         background-color: transparent;
     }
-    body {
-        //logged out pages
-        .mainContent {
-            margin-bottom: -100px;
-            min-height: 100%;
-            .tagline {
-                padding-top: 190px;
-                font-size: 55px;
-            }
-            .subheaderHome {
-                font-size: 35px;
-            }
+    //logged out pages
+    .mainContent {
+        margin-bottom: -100px;
+        min-height: 100%;
+        .tagline {
+            padding-top: 190px;
+            font-size: 55px;
         }
-        #login, #signup {
-            margin-top: 100px;
-            h1{
-                font-size: 40px;
-            }
+        .subheaderHome {
+            font-size: 35px;
         }
-        #searchBar {
-            width: 500px;
-        }
-        .emptyQueue {
-            margin-bottom: 150px;
-        }
-        #bannerNewUser {
-            h1 {
-                font-size: 55px;
-            }
-        }
-        #subtitleNewUser {
-            font-size: 25px;
-        }
-        .musicItemsSection {
-            height: 250px;
-            overflow: hidden;
-            .musicSearchImage {
-                height: 145px;
-            }
-        }
-        //media detail pages
-        .mediaDetailsContainer {
-            margin-top: 0px;
-        }
-        .detailImage {
-            max-height: 500px;
-        }
-        .mediaTitle {
+    }
+    #login, #signup {
+        margin-top: 100px;
+        h1{
             font-size: 40px;
         }
-        .mediaDetails{
-            padding: 5px 45px 25px;
-            h3 {
-                font-size: 25px;
-                font-weight: 300;
-            }
-            h4 {
-                font-size: 22px;
-            }
+    }
+    #searchBar {
+        width: 500px;
+    }
+    .emptyQueue {
+        margin-bottom: 150px;
+    }
+    #bannerNewUser {
+        h1 {
+            font-size: 55px;
+        }
+    }
+    #subtitleNewUser {
+        font-size: 25px;
+    }
+    .musicItemsSection {
+        height: 250px;
+        overflow: hidden;
+        .musicSearchImage {
+            height: 145px;
+        }
+    }
+    .mediaCat {
+        margin: 0px -15px 40px;
+        padding: 25px 0px 20px;
+        a {
+            font-size: 45px;
+        }
+    }
+    //media detail pages
+    .mediaDetailsContainer {
+        margin-top: 0px;
+    }
+    .detailImage {
+        max-height: 500px;
+    }
+    .mediaTitle {
+        font-size: 40px;
+    }
+    .mediaDetails{
+        padding: 5px 45px 25px;
+        h3 {
+            font-size: 25px;
+            font-weight: 300;
+        }
+        h4 {
+            font-size: 22px;
         }
     }
     footer {
