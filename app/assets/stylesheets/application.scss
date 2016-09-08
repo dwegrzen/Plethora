@@ -210,6 +210,16 @@ body {
             border-top: 1px solid $teal;
             border-bottom: 1px solid $teal;
         }
+        .bio {
+          display: flex;
+          align-items: center;
+          border-top: 1px solid $teal;
+          border-bottom: 1px solid $teal;
+            .aboutPic {
+              margin-top: 20px;
+            }
+
+        }
     }
     #notice.label-info {
         background-color: transparent;
