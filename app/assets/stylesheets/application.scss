@@ -397,7 +397,17 @@ section.container {
     width: 100%;
     border-radius: 3px;
 }
-
+#results {
+    h2 {
+        border-top: 1px solid $teal;
+        border-bottom: 1px solid $teal;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    h2.title {
+        border: none;
+    }
+}
 .item {
     background-size: cover;
     background-repeat: no-repeat;
